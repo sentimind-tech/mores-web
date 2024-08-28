@@ -1,5 +1,11 @@
-import { redirect } from "next/navigation";
+import Layout from "@/components/Layout";
 
 export default function Homepage() {
-  redirect("/under-construction");
+  return (
+    <Layout>
+      <div className="w-full min-h-[100dvh] flex items-center justify-center">
+        <span className="">Homepage</span>
+      </div>
+    </Layout>
+  );
 }

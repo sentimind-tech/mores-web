@@ -36,7 +36,7 @@ const DisplayText = ({
   );
 };
 
-const Headingtext = ({
+const HeadingText = ({
   type,
   className,
   children,
@@ -115,15 +115,7 @@ const Headingtext = ({
     );
   }
 
-  return (
-    <h6
-      className={`text-[1rem] leading-[1.5rem] tracking-[-0.02em] ${
-        className ?? ""
-      }`}
-    >
-      {children}
-    </h6>
-  );
+  return <h6 className={className ?? ""}>{children}</h6>;
 };
 
 const BodyText = ({
@@ -170,4 +162,4 @@ const BodyText = ({
   return <span className={className ?? ""}>{children}</span>;
 };
 
-export { DisplayText, Headingtext, BodyText };
+export { DisplayText, HeadingText, BodyText };

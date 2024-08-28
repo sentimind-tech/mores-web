@@ -34,6 +34,7 @@ const config: Config = {
       colors: {
         white: {
           DEFAULT: "#ffffff",
+          smoke: "#F5F5F5",
         },
         black: {
           DEFAULT: "#000000",
