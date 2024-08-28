@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { DisplayText, BodyText } from "@/components/Text";
 import { ButtonPrimary } from "@/components/Button";
+import Link from "next/link";
 
 export default async function UnderConstruction({ params }: any) {
   return (
@@ -31,9 +32,14 @@ export default async function UnderConstruction({ params }: any) {
               Harnessing the Latest Tech and Data to Elevate Your Experience!
             </BodyText>
           </div>
-          <ButtonPrimary className="uppercase mt-[3.938rem]">
-            notify me
-          </ButtonPrimary>
+
+          <Link
+            href="https://www.instagram.com/moresstrategics?igsh=M210bW9kc2U5ZTVt"
+            target="_blank"
+            className="mt-[3.938rem] block"
+          >
+            <ButtonPrimary className="uppercase">notify me</ButtonPrimary>
+          </Link>
         </div>
       </div>
       <div className="w-full h-[37px] text-center flex justify-center items-center">
