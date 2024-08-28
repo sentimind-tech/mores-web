@@ -43,6 +43,8 @@ const config: Config = {
         },
         gray: {
           dark: "#383838",
+          silver: "#B6B6B6",
+          light: "#F5F5F5",
         },
         blue: {
           pacific: "#00A2B6",
@@ -63,6 +65,7 @@ const config: Config = {
         32: "2rem",
         40: "40px",
         48: "48px",
+        50: "50px",
         56: "56px",
         64: "64px",
         72: "72px",
