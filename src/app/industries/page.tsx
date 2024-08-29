@@ -1,49 +1,48 @@
 import React from "react";
 import { Metadata } from "next";
-import Image from "next/image";
-import { DisplayText, BodyText } from "@/components/Text";
-import { ButtonPrimary } from "@/components/Button";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ServiceCard } from "@/components/ServiceCard";
-import { ServiceValueCard } from "@/components/ServiceValueCard";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionInfo } from "@/components/SectionInfo";
-type TServiceList = {
-    title: string
-    description: string
-    path: string
-}
-const serviceList: TServiceList[] = [
+import { TIndustry } from "@/types/industry";
+
+const industryList: TIndustry[] = [
     {
-        title: "STRATEGIC COMMUNICATION",
+        id: 1,
+        name: "STRATEGIC COMMUNICATION",
         description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/"
+        slug: "strategic-communication"
     },
     {
-        title: "STRATEGIC COMMUNICATION",
+        id: 2,
+        name: "STRATEGIC COMMUNICATION",
         description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/"
+        slug: "strategic-communication"
     },
     {
-        title: "STRATEGIC COMMUNICATION",
+        id: 3,
+        name: "STRATEGIC COMMUNICATION",
         description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/"
-    }, {
-        title: "STRATEGIC COMMUNICATION",
+        slug: "strategic-communication"
+    },
+    {
+        id: 4,
+        name: "STRATEGIC COMMUNICATION",
         description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/"
-    }
+        slug: "strategic-communication"
+    },
+
 
 ]
-export default async function Services({ params }: any) {
+export default async function Industry({ params }: any) {
     return (
         <section className="flex flex-col">
             <section>
-                <PageHeader background="images/bg-industries.png" />
+                <PageHeader background="/images/bg-industries.png" />
             </section>
             <section className="px-120 py-100 flex flex-col gap-100">
                 <section className="">
-                    <SectionInfo title="Industries">
+                    <SectionInfo title="INDUSTRIES">
                         <div className="flex flex-col gap-48">
                             <div className="font-semibold text-2xl font-inter text-black">OUR STRATEGY IS TAILORED FOR SPECIFIC INDUSTRY WITH MULTI APPROACH BASIS.</div>
                             <p className="font-normal text-18 leading-[1.75rem] text-justify">
@@ -59,7 +58,7 @@ export default async function Services({ params }: any) {
                 <section className="flex flex-col gap-50">
                     <SectionHeader title="EXPLORE OUR EXPERTISE" />
                     <div className="grid grid-cols-3 gap-50">
-                        {serviceList.map(service => <ServiceCard key={service.title} title={service.title} description={service.description} path={service.path} />)}
+                        {industryList.map(industry => <ServiceCard key={industry.id} title={industry.name} description={industry.description} path={`/industries/${industry.slug}`} />)}
                     </div>
                 </section>
 

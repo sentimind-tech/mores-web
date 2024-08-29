@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-type TPageHeader = {
+type TPageHeaderProp = {
     title?: string,
     subtitle?: string,
     background: string,
 };
-export const PageHeader = ({ title, background, subtitle }: TPageHeader) => {
+export const PageHeader = ({ title, background, subtitle }: TPageHeaderProp) => {
     return <div className="flex flex-col items-center h-[400px] relative"
         style={{
             backgroundImage: `url('${background}')`,

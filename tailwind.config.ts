@@ -47,6 +47,8 @@ const config: Config = {
           medium: "#585858",
           silver: "#B6B6B6",
           light: "#F5F5F5",
+          steel: "#A0A0A0",
+          ash: "#989898"
         },
         blue: {
           pacific: "#00A2B6",

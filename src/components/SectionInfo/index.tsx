@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-type TSectionInfo = {
+type TSectionInfoProp = {
     title: string,
     children: ReactNode | string;
 };
-export const SectionInfo = ({ title, children }: TSectionInfo) => {
+export const SectionInfo = ({ title, children }: TSectionInfoProp) => {
     return <div className="grid grid-cols-3">
         <div className="font-supplymono text-28 leading-10 font-normal text-blue-pacific">
             {title}

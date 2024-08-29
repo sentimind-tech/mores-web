@@ -49,16 +49,16 @@ const serviceList: TServiceList[] = [
     {
         title: "STRATEGIC COMMUNICATION",
         description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/"
+        path: "/services/strategic-communication"
     },
     {
         title: "STRATEGIC COMMUNICATION",
         description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/"
+        path: "/services/strategic-communication"
     }, {
         title: "STRATEGIC COMMUNICATION",
         description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/"
+        path: "/services/strategic-communication"
     }
 
 ]

@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
 import Image from "next/image";
 
-type TServiceValueCard = {
+type TServiceValueCardProp = {
     title: string
     description: string
     image: string
 };
-export const ServiceValueCard = ({ title, description, image }: TServiceValueCard) => {
+export const ServiceValueCard = ({ title, description, image }: TServiceValueCardProp) => {
     return <div className="flex flex-col gap-24 bg-gray-light border-b-8 border-blue-pacific text-left py-16 px-24 font-normal">
         <div className="flex flex-col gap-12">
             <div className="text-28 leading-10 text-black font-supplymono">{title}</div>
