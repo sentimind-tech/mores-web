@@ -9,14 +9,14 @@ export const ServiceCard = ({ title, description, path }: TServiceCard) => {
     return <div className="flex flex-col justify-between">
         <div className="flex flex-col">
             <div className="flex justify-between pt-16 border-t border-gray-silver">
-                <div className="h-56 overflow-hidden text-ellipsis whitespace">{title}</div>
+                <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-xl font-supplymono">{title}</div>
                 <div className="">
                     <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.572401 1.58023L1.62001 0.520235L7.32609 6.29723C7.41807 6.3898 7.49107 6.49988 7.54088 6.62113C7.59069 6.74238 7.61633 6.87241 7.61633 7.00373C7.61633 7.13506 7.59069 7.26509 7.54088 7.38634C7.49107 7.50759 7.41807 7.61767 7.32609 7.71023L1.62001 13.4902L0.573389 12.4302L5.92895 7.00523L0.572401 1.58023Z" fill="black" />
                     </svg>
                 </div>
             </div>
-            <div className="text-left mt-[6px]">{description}</div>
+            <div className="text-left mt-[6px] text-12 leading-[1.25rem] text-inter text-gray-medium">{description}</div>
         </div>
         <div className="mt-5 flex justify-start items-center gap-10 cursor-pointer">
             <div className="text-blue-pacific">More</div>

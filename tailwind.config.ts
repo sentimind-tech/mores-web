@@ -25,6 +25,7 @@ const config: Config = {
         28: "1.75rem",
         30: "1.875rem",
         32: "2rem",
+        40: "2.5rem",
       },
       fontFamily: {
         inter: "Inter",
@@ -43,6 +44,7 @@ const config: Config = {
         },
         gray: {
           dark: "#383838",
+          medium: "#585858",
           silver: "#B6B6B6",
           light: "#F5F5F5",
         },
@@ -69,6 +71,8 @@ const config: Config = {
         56: "56px",
         64: "64px",
         72: "72px",
+        100: "100px",
+        120: "120px",
       },
     },
   },

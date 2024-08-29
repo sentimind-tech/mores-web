@@ -3,28 +3,50 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { DisplayText, BodyText } from "@/components/Text";
 import { ButtonPrimary } from "@/components/Button";
-import { SectionHeader } from "@/components/SectionHeader";
-import { ServiceCard } from "@/components/ServiceCard";
-import { ServiceValueCard } from "@/components/ServiceValueCard";
+import Link from "next/link";
 
 export default async function UnderConstruction({ params }: any) {
   return (
     <section className="h-[100dvh] w-full overflow-hidden">
       <div className="w-full h-[calc(100vh_-_37px)] h-[calc(100dvh_-_37px)] relative text-center text-white">
-        <div className="w-full h-full absolute top-0 left-0  bg-no-repeat bg-cover bg-center z-0" />
+        <div className="w-full h-full absolute top-0 left-0 bg-[url('/images/bg-under-construction.jpg')] bg-no-repeat bg-cover bg-center z-0" />
         <div className="w-full max-w-[180px] md:max-w-[237px] aspect-[16/5] block absolute top-[5rem] md:top-[6.25rem] left-0 right-0 mx-auto">
-
+          <Image
+            src="/images/logo-mores.png"
+            alt="Logo"
+            fill={true}
+            priority={true}
+            sizes="auto"
+            className="object-cover object-center"
+          />
         </div>
         <div className="flex flex-col items-center justify-center w-full h-full relative z-[1] px-16">
-          <div className="grid grid-cols-3 w-full text-black gap-x-48 gap-y-50">
-            <ServiceValueCard title="DATA" description="Compiling data through rigorous scientific methods." image="" />
+          <DisplayText
+            type="huge"
+            className="uppercase mb-[2rem] md:mb-[3.938rem] mt-[2.5rem]"
+          >
+            UNDER CONSTRUCTION
+          </DisplayText>
+          <div className="w-full max-w-[41.563rem] mx-auto">
+            <BodyText className="uppercase text-16 md:text-20 leading-normal md:leading-[1.5rem]">
+              Harnessing the Latest Tech and Data to Elevate Your Experience!
+            </BodyText>
           </div>
+
+          <Link
+            href="https://www.instagram.com/moresstrategics?igsh=M210bW9kc2U5ZTVt"
+            target="_blank"
+            className="mt-[3.938rem] block"
+          >
+            <ButtonPrimary className="uppercase">notify me</ButtonPrimary>
+          </Link>
         </div>
       </div>
       <div className="w-full h-[37px] text-center flex justify-center items-center">
-
+        <BodyText className="uppercase text-12 leading-[0.938rem]">
+          © 2024 MORES STRATEGICS. ALL RIGHTS RESERVED.
+        </BodyText>
       </div>
-
     </section>
   );
 }
