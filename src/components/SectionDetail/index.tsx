@@ -42,7 +42,7 @@ export const SectionDetail = ({ overview, our_experience, insights }: TSectionDe
         {insights && <section id="featured-insight" className="flex flex-col gap-50">
             <SectionHeader title="FEATURED INSIGHTS" />
             <div className="grid grid-cols-4 gap-50">
-                {insights.map(insight => <InsightCard image={insight.button_image} title={insight.title} description={insight.summary} subtitle={insight.name} path={`/insight/${insight.slug}`} />)}
+                {insights.map(insight => <InsightCard image={insight.button_image} title={insight.title} description={insight.summary} subtitle={service.name} path={`/insight/${insight.slug}`} />)}
             </div>
         </section>}
 
