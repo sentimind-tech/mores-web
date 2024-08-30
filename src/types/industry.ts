@@ -1,9 +1,8 @@
 export type TIndustry = {
-    id: number,
+    id: string,
     name: string,
     description: string,
     overview?: string,
     cover_image?: string,
-    our_experiences?: string,
-    slug: string,
+    our_experiences?: string[],
 }

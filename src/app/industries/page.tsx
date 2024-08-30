@@ -1,40 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Metadata } from "next";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ServiceCard } from "@/components/ServiceCard";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionInfo } from "@/components/SectionInfo";
 import { TIndustry } from "@/types/industry";
-
-const industryList: TIndustry[] = [
-    {
-        id: 1,
-        name: "STRATEGIC COMMUNICATION",
-        description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        slug: "strategic-communication"
-    },
-    {
-        id: 2,
-        name: "STRATEGIC COMMUNICATION",
-        description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        slug: "strategic-communication"
-    },
-    {
-        id: 3,
-        name: "STRATEGIC COMMUNICATION",
-        description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        slug: "strategic-communication"
-    },
-    {
-        id: 4,
-        name: "STRATEGIC COMMUNICATION",
-        description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        slug: "strategic-communication"
-    },
+import { getIndustryList } from "@/services/industry";
 
 
-]
 export default async function Industry({ params }: any) {
+    const industryList = await getIndustryList()
     return (
         <section className="flex flex-col">
             <section>
@@ -58,7 +33,7 @@ export default async function Industry({ params }: any) {
                 <section className="flex flex-col gap-50">
                     <SectionHeader title="EXPLORE OUR EXPERTISE" />
                     <div className="grid grid-cols-3 gap-50">
-                        {industryList.map(industry => <ServiceCard key={industry.id} title={industry.name} description={industry.description} path={`/industries/${industry.slug}`} />)}
+                        {industryList && industryList.map(industry => <ServiceCard key={industry.id} title={industry.name} description={industry.description} path={`/industries/${industry.id}`} />)}
                     </div>
                 </section>
 

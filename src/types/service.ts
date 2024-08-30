@@ -1,5 +1,5 @@
 export type TService = {
-    id: number,
+    id: string,
     parent_service_id?: number,
     name: string,
     description: string,
@@ -8,7 +8,6 @@ export type TService = {
     cover_image?: string,
     is_featured?: boolean,
     is_show_on_menu?: boolean,
-    our_experiences?: string,
+    our_experiences?: string[],
     button_image?: string,
-    slug?: string,
 }

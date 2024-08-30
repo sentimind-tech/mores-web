@@ -8,6 +8,8 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { ServiceValueCard } from "@/components/ServiceValueCard";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionInfo } from "@/components/SectionInfo";
+import { SectionDetail } from "@/components/SectionDetail";
+import { getServiceList } from "@/services/service";
 
 
 type TServiceValueCard = {
@@ -40,29 +42,9 @@ const serviceValues: TServiceValueCard[] = [
     }
 ]
 
-const serviceList: TServiceList[] = [
-    {
-        title: "STRATEGIC COMMUNICATION",
-        description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/"
-    },
-    {
-        title: "STRATEGIC COMMUNICATION",
-        description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/services/strategic-communication"
-    },
-    {
-        title: "STRATEGIC COMMUNICATION",
-        description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/services/strategic-communication"
-    }, {
-        title: "STRATEGIC COMMUNICATION",
-        description: "Strategic communication in the industrial world emphasizes a planned and systematic approach to managing messages and interactions between companies and various stakeholders",
-        path: "/services/strategic-communication"
-    }
-
-]
 export default async function Services({ params }: any) {
+    const serviceList = await getServiceList()
+
     return (
         <section className="flex flex-col">
             <section>
@@ -80,14 +62,8 @@ export default async function Services({ params }: any) {
                     {serviceValues.map(serviceValue =>
                         <ServiceValueCard key={serviceValue.title} title={serviceValue.title} description={serviceValue.description} image={serviceValue.image} />)}
                 </section>
-                <section className="flex flex-col gap-50">
-                    <SectionHeader title="WHAT WE OFFER" />
-                    <div className="grid grid-cols-3 gap-50">
-                        {serviceList.map(service => <ServiceCard key={service.title} title={service.title} description={service.description} path={service.path} />)}
-                    </div>
-                </section>
             </section>
-
+            <SectionDetail services={serviceList || undefined} />
 
         </section>
     );

@@ -18,7 +18,6 @@ export const InsightCard = ({
     path,
 }: TInsightCardProp) => {
 
-
     return <div className="flex flex-col">
         <div className="w-full">
             <Image
