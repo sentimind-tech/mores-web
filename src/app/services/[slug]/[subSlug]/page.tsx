@@ -9,12 +9,15 @@ import {
   TServiceParams,
 } from '@/services/service'
 import { notFound } from 'next/navigation'
-import { customConfig } from '../../../../config'
+import { customConfig } from '../../../../../config'
 import { getInsightList, TInsightParams } from '@/services/insight'
 
-export default async function ServiceDetail({ params }: any) {
-  const service = await getServiceDetail(params.slug)
+export default async function ServiceChildDetail({ params }: any) {
+  const service = await getServiceDetail(params.subSlug)
   if (!service) notFound()
+
+  const parentService = await getServiceDetail(params.slug)
+  if (!parentService) notFound()
 
   //   Fetch Service Child
   const query: TServiceParams = {

@@ -18,11 +18,6 @@ type TServiceValueCard = {
     image: string
 };
 
-type TServiceList = {
-    title: string
-    description: string
-    path: string
-}
 
 const serviceValues: TServiceValueCard[] = [
     {
