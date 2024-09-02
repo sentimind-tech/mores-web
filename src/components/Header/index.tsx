@@ -5,6 +5,7 @@ import Image from "next/image";
 import { BodyText } from "../Text";
 import "./style.css";
 import MenuDrawer from "../Drawer/MenuDrawer";
+import Link from "next/link";
 
 const Header = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
@@ -15,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="sticky top-0 top px-[1rem] md:px-[2.5rem] xl:px-[3.125rem] bg-white">
+      <div className="sticky z-[100] top-0 top px-[1rem] md:px-[2.5rem] xl:px-[3.125rem] bg-white">
         <div className="w-full py-[1.063rem] flex justify-between items-center">
           <div className="flex gap-32 items-center relative shrink-0">
             <div className="w-[24px] h-[24px] right-[1rem] hidden justify-center items-center z-[100] md:flex">
@@ -30,16 +31,18 @@ const Header = () => {
                 <span></span>
               </div>
             </div>
-            <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
-              <Image
-                src="/images/logo-mores-main.png"
-                alt="Main Logo"
-                fill={true}
-                priority={true}
-                sizes="auto"
-                className="block w-full h-full object-center object-contain"
-              />
-            </div>
+            <Link href="/">
+              <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
+                <Image
+                  src="/images/logo-mores-main.png"
+                  alt="Main Logo"
+                  fill={true}
+                  priority={true}
+                  sizes="auto"
+                  className="block w-full h-full object-center object-contain"
+                />
+              </div>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-[1.5rem] cursor-pointer">

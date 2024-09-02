@@ -1,11 +1,14 @@
 import Layout from "@/components/Layout";
+import HomeBanner from "@/components/Section/HomeBanner";
+import HomeHighlight from "@/components/Section/HomeHighlight";
+import HomeHelp from "@/components/Section/HomeHelp";
 
 export default function Homepage() {
   return (
     <Layout>
-      <div className="w-full min-h-[100dvh] flex items-center justify-center">
-        <span className="">Homepage</span>
-      </div>
+      <HomeBanner />
+      <HomeHighlight />
+      <HomeHelp />
     </Layout>
   );
 }

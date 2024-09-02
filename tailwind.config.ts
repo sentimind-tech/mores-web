@@ -78,6 +78,12 @@ const config: Config = {
         100: "100px",
         120: "120px",
       },
+      backgroundImage: {
+        "hero-banner-overlay":
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))",
+        "home-help":
+          "linear-gradient(90.35deg, rgba(235, 60, 149, 0.7) -22.06%, rgba(0, 162, 182, 0.7) 84.65%)",
+      },
     },
   },
   plugins: [],

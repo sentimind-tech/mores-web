@@ -291,8 +291,6 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   };
 
   const handleMouseEnterMenu = (e: React.MouseEvent<HTMLDivElement>) => {
-    console.log(e);
-
     const target = e.currentTarget.getAttribute("data-target");
 
     if (target) {
@@ -318,16 +316,18 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
       <div className="w-full bg-white-smoke flex max-h-[100dvh]">
         <div className="w-[332px] bg-black shrink-0 flex flex-col items-center pt-[1.063rem]">
           <div className="w-full max-w-[210px]">
-            <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
-              <Image
-                src="/images/logo-mores-main-white.png"
-                alt="Main Logo"
-                fill={true}
-                priority={true}
-                sizes="auto"
-                className="block w-full h-full object-center object-contain"
-              />
-            </div>
+            <Link href="/">
+              <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
+                <Image
+                  src="/images/logo-mores-main-white.png"
+                  alt="Main Logo"
+                  fill={true}
+                  priority={true}
+                  sizes="auto"
+                  className="block w-full h-full object-center object-contain"
+                />
+              </div>
+            </Link>
 
             <div className="font-supplymono flex flex-col gap-[2.5rem] my-[3.688rem]">
               {navmenu.map((item, index) => (
@@ -417,12 +417,14 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                         </div>
                         <div className="w-full block pt-[1.25rem]">
                           <div className="block">
-                            <BodyText
-                              type="body1"
-                              className="leading-[1.125] font-medium font-graphik block mb-[1.25rem]"
-                            >
-                              Services
-                            </BodyText>
+                            <Link href="/services">
+                              <BodyText
+                                type="body1"
+                                className="leading-[1.125] font-medium font-graphik block mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                              >
+                                Services
+                              </BodyText>
+                            </Link>
                             <div className="grid grid-cols-3 gap-12 mb-32">
                               {menuServices.map((item, idx) => (
                                 <div className="block" key={idx}>
@@ -470,12 +472,14 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                               ))}
                             </div>
 
-                            <BodyText
-                              type="body1"
-                              className="leading-[1.125] font-medium font-graphik block mb-[1.25rem]"
-                            >
-                              Industries
-                            </BodyText>
+                            <Link href="/industries">
+                              <BodyText
+                                type="body1"
+                                className="leading-[1.125] font-medium font-graphik block mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                              >
+                                Industries
+                              </BodyText>
+                            </Link>
                             <div className="grid grid-cols-3 gap-12 mb-32">
                               {menuIndustries.map((item, index) => (
                                 <div className="block" key={index}>
