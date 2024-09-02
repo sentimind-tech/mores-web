@@ -70,7 +70,7 @@ export const SectionDetail = ({
             {insights.map((insight) => {
               const insightIndusties = insight.expand?.industry_tags || []
               const subTitle =
-                insightIndusties.length > 1 ? insightIndusties[0].name : ''
+                insightIndusties.length > 0 ? insightIndusties[0].name : ''
               return (
                 <InsightCard
                   key={insight.id}

@@ -19,14 +19,14 @@ export const InsightCard = ({
 }: TInsightCardProp) => {
   return (
     <div className="flex flex-col">
-      <div className="w-full">
+      <div className="w-full h-[125px]">
         <Image
           src={image}
           alt={title}
           width="0"
           height="0"
           sizes="100vw"
-          className="w-full h-auto"
+          className="w-full h-full"
           priority={true}
         />
       </div>

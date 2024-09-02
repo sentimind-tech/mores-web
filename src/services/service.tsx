@@ -16,10 +16,17 @@ async function getServiceList(params: TServiceParams = {}) {
             sort: "-created"
         };
 
+        let filters: string[] = [];
+
         if (params.parentServiceId) {
-            queryParams.filter = `parent_service_id = "${params.parentServiceId}"`;
+            filters.push(`parent_service_id = "${params.parentServiceId}"`)
         } else {
-            queryParams.filter = `parent_service_id = null`;
+            filters.push(`parent_service_id = null`)
+        }
+
+        // Combine all filters into a single string using AND logic
+        if (filters.length > 0) {
+            queryParams.filter = filters.join(' && ');
         }
 
         let response = await pb

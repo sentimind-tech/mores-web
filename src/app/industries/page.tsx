@@ -47,3 +47,6 @@ export default async function Industry({ params }: any) {
 export const metadata: Metadata = {
     title: "Mores | Under Construction",
 };
+
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'

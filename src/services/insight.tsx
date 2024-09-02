@@ -4,31 +4,46 @@ import { TInsight } from '@/types/insight'
 export type TInsightParams = {
   industryId?: string
   serviceId?: string
+  isFeatured?: boolean
 }
 
 type TQueryParams = {
   sort: string
   filter?: string
   expand?: string
+  isFeatured?: string
 }
 
-async function getInsightList(params: TInsightParams = {}) {
+async function getInsightList(params: TInsightParams = {}, page: number = 1, perPage: number = 10) {
   try {
     let queryParams: TQueryParams = {
       sort: '-created',
     }
+
+    let filters: string[] = [];
     if (params.industryId) {
-      queryParams.filter = `industry_tags ~ "${params.industryId}"`
+      filters.push(`industry_tags ~ "${params.industryId}"`);
     }
     if (params.serviceId) {
-      queryParams.filter = `service_tags ~ "${params.serviceId}"`
+      filters.push(`service_tags ~ "${params.serviceId}"`);
     }
 
+    if (params.isFeatured === true) {
+      filters.push('is_featured = true');
+    } else if (params.isFeatured === false) {
+      filters.push('is_featured = false');
+    }
+
+    // Combine all filters into a single string using AND logic
+    if (filters.length > 0) {
+      queryParams.filter = filters.join(' && ');
+    }
     queryParams.expand = 'industry_tags'
 
     let response = await pb
       .collection('insights')
-      .getFullList<TInsight>(queryParams)
+      .getList<TInsight>(page, perPage, queryParams)
+
     return response
   } catch (error) {
     console.log(error)

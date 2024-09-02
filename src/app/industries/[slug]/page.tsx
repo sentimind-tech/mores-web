@@ -31,18 +31,23 @@ export default async function IndustryDetail({ params }: any) {
   // Fetch Insight
   const query: TInsightParams = {
     industryId: industry.id,
+    isFeatured: true
   }
-  const insights = await getInsightList(query)
+  const insightsRes = await getInsightList(query, 1, 4)
+  const insights = insightsRes?.items
 
   // Initiate data
   const ourExperience = industry.our_experiences || ['']
   const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${ourExperience[0]}`
 
+  const coverImage = industry.cover_image
+  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${coverImage}`
+
   return (
     <section className="flex flex-col">
       <section>
         <PageHeader
-          background="/images/bg-industries.png"
+          background={coverImagePath}
           title="Transportation & Logistics"
           subtitle="FOCUS INDUSTRIES"
         />
@@ -64,3 +69,6 @@ export default async function IndustryDetail({ params }: any) {
     </section>
   )
 }
+
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
