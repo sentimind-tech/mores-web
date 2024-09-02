@@ -1,30 +1,544 @@
+import { useState, useEffect } from "react";
 import Drawer, { TDrawerComponentProps } from "@/components/Drawer";
 import Image from "next/image";
+import MenuContent from "../Header/MenuContent";
+import withDimension, { TWithDimensionProps } from "@/utils/withDimension";
+import { BodyText, HeadingText } from "../Text";
+import Link from "next/link";
 
 import navmenu from "@/data/navmenu.json";
 
-const MenuDrawer = (props: TDrawerComponentProps) => {
-  const { isOpen, onClose } = props;
+type TMenuDrawerProps = TDrawerComponentProps & TWithDimensionProps;
+
+const menuData = [
+  {
+    slug: "who-we-are",
+    data: {
+      title: "Who we are",
+      menus: [
+        {
+          title: "About Mores / Mission",
+          link: "/about",
+        },
+        {
+          title: "Our Team",
+          link: "/about#our-team",
+        },
+      ],
+      thumb: "/images/thumb/thumb-menu-who-we-are.jpg",
+      thumb_name: "MORES /’MÔRĀZ’/",
+      thumb_desc:
+        "“The customs, values, and behaviors that are accepted by a particular group, culture, and community”",
+    },
+  },
+  {
+    slug: "what-we-do",
+  },
+  {
+    slug: "insight",
+    data: {
+      title: "Insight",
+      menus: [
+        {
+          title: "Insight",
+          link: "/insight",
+        },
+      ],
+      thumb: "/images/thumb/thumb-menu-insight.jpg",
+      thumb_name: "Insight",
+      thumb_desc:
+        "Discover a diverse range of the latest insights and perspectives from Mores Strategics that can keep you up-to-date with global issues.",
+    },
+  },
+  {
+    slug: "careers",
+    data: {
+      title: "CAREERS",
+      menus: [
+        {
+          title: "Job",
+          link: "/careers",
+        },
+        {
+          title: "Life at Mores",
+          link: "/careers#life-at-mores",
+        },
+        {
+          title: "Work at Mores",
+          link: "/careers#work-at-mores",
+        },
+      ],
+      thumb: "/images/thumb/thumb-menu-career.jpg",
+      thumb_name: "CAREERS",
+      thumb_desc:
+        "We don’t just address and overcome business challenges — we collaborate with you to shape and create the future, paving the way for innovation, growth, and long-term success.",
+    },
+  },
+  {
+    slug: "mores-tech",
+    data: {
+      title: "MORES TECH",
+      menus: [
+        {
+          title: "Mores Tech Profile",
+          link: "/tech-profile",
+        },
+        {
+          title: "Mores tech Service",
+          link: "/tech-services",
+        },
+      ],
+      thumb: "/images/thumb/thumb-menu-tech.jpg",
+      thumb_name: "Mores Tech",
+      thumb_desc:
+        "Unifying Vision Through Technology Solution: Leveraging cutting edge technology to bring together diverse perspectives, align strategic goals, and propel success across every facet of your organization.",
+    },
+  },
+  {
+    slug: "contact",
+    data: {
+      title: "Contact",
+      menus: [
+        {
+          title: "Office",
+          link: "/contact",
+        },
+        {
+          title: "Contact",
+          link: "/contact",
+        },
+      ],
+      thumb: "/images/thumb/thumb-menu-contact.jpg",
+      thumb_name: "CONTACT",
+      thumb_desc:
+        "Connect with us to get the best solutions for your company, tailored to your specific needs. Vision Through Technology Solution: Leveraging cutting edge technology to bring together diverse perspectives, align strategic goals, and propel success across every facet of your organization.",
+    },
+  },
+];
+
+const menuServices = [
+  {
+    name: "Strategis Communication",
+    name_link: "",
+    submenu: [
+      {
+        title: "Crisis Communication Management",
+        link: "",
+      },
+      {
+        title: "Media Handling",
+        link: "",
+      },
+      {
+        title: "Media Monitoring",
+        link: "",
+      },
+      {
+        title: "Public Relation",
+        link: "",
+      },
+      {
+        title: "Social Media manajemen",
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "People & Organization",
+    name_link: "",
+    submenu: [
+      {
+        title: "Monitoring & Evaluation",
+        link: "",
+      },
+      {
+        title: "HRM Strategy",
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "Business & Investment",
+    name_link: "",
+    submenu: [
+      {
+        title: "Public-Private Partnerships (PPP)",
+        link: "",
+      },
+      {
+        title: "Loan Bilateral",
+        link: "",
+      },
+      {
+        title: "Loan B to B",
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "Risk Management",
+    name_link: "",
+  },
+  {
+    name: "Sustainability",
+    name_link: "",
+    submenu: [
+      {
+        title: "CSR Strategy",
+        link: "",
+      },
+      {
+        title: "ESG Strategy",
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "Survey",
+    name_link: "",
+    submenu: [
+      {
+        title: "Public Opinion Survey",
+        link: "",
+      },
+      {
+        title: "Community Survey",
+        link: "",
+      },
+      {
+        title: "Reputation Survey",
+        link: "",
+      },
+      {
+        title: "Customer Satisfaction Surveys",
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "Technology & Digital (Mores Tech)",
+    name_link: "",
+  },
+  {
+    name: "Feasibility Study & Strategic Planning",
+    name_link: "",
+  },
+  {
+    name: "Marketing & Sales",
+    name_link: "",
+  },
+];
+
+const menuIndustries = [
+  {
+    title: "Travel & Tourism",
+    link: "",
+  },
+  {
+    title: "Transportation & Logistics",
+    link: "",
+  },
+  {
+    title: "Finance",
+    link: "",
+  },
+  {
+    title: "Energy & Natural Resources",
+    link: "",
+  },
+  {
+    title: "Technology",
+    link: "",
+  },
+  {
+    title: "Media Creative Industries",
+    link: "",
+  },
+  {
+    title: "Infrastructure",
+    link: "",
+  },
+  {
+    title: "Media & Creative Industry",
+    link: "",
+  },
+  {
+    title: "Social & Public Sector",
+    link: "",
+  },
+  {
+    title: "Media & Creative Industry",
+    link: "",
+  },
+  {
+    title: "Manufacturing",
+    link: "",
+  },
+];
+
+const MenuDrawer = (props: TMenuDrawerProps) => {
+  const { isOpen, onClose, setClose, windowDimension } = props;
+  const [windowWidth, setWindowWidth] = useState(windowDimension.width);
+  const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
+  const [selectedMenu, setSelectedMenu] = useState<string | null>(
+    menuData[0].slug
+  );
+
+  const handleCloseDrawer = () => {
+    setClose && setClose(false);
+
+    setSelectedMenu(menuData[0].slug);
+  };
+
+  const handleMouseEnterMenu = (e: React.MouseEvent<HTMLDivElement>) => {
+    console.log(e);
+
+    const target = e.currentTarget.getAttribute("data-target");
+
+    if (target) {
+      const targetId = document.getElementById(target);
+      const targetHeight = targetId?.getBoundingClientRect().height;
+
+      setHeightContainerMenu(targetHeight ?? 0);
+      setSelectedMenu(target);
+    }
+  };
+
+  useEffect(() => {
+    setWindowWidth(windowDimension.width);
+  }, [windowDimension]);
 
   return (
-    <Drawer isOpen={isOpen} onClose={onClose}>
-      <div className="w-full bg-white-smoke flex">
-        <div className="w-[332px] bg-black shrink-0">
-          <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
-            <Image
-              src="/images/logo-mores-main.png"
-              alt="Main Logo"
-              fill={true}
-              priority={true}
-              sizes="auto"
-              className="block w-full h-full object-center object-contain"
-            />
+    <Drawer
+      isOpen={isOpen}
+      onClose={onClose}
+      direction="top"
+      enableOverlay={false}
+    >
+      <div className="w-full bg-white-smoke flex max-h-[100dvh]">
+        <div className="w-[332px] bg-black shrink-0 flex flex-col items-center pt-[1.063rem]">
+          <div className="w-full max-w-[210px]">
+            <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
+              <Image
+                src="/images/logo-mores-main-white.png"
+                alt="Main Logo"
+                fill={true}
+                priority={true}
+                sizes="auto"
+                className="block w-full h-full object-center object-contain"
+              />
+            </div>
+
+            <div className="font-supplymono flex flex-col gap-[2.5rem] my-[3.688rem]">
+              {navmenu.map((item, index) => (
+                <div
+                  className={`flex items-center justify-between gap-12 group cursor-default ${
+                    selectedMenu == item.target ? "active" : ""
+                  }`}
+                  data-target={item.target}
+                  key={index}
+                  onMouseEnter={handleMouseEnterMenu}
+                >
+                  <BodyText className="text-18 leading-[1.35rem] uppercase text-white transition-all group-[.active]:text-blue-pacific">
+                    {item.title}
+                  </BodyText>
+
+                  <div className="shrink-0 transition-all rotate-0 group-[.active]:rotate-90">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M11.071 8.071L5.414 13.728L4 12.314L8.95 7.364L4 2.414L5.414 1L11.071 6.657C11.2585 6.84453 11.3638 7.09884 11.3638 7.364C11.3638 7.62916 11.2585 7.88347 11.071 8.071Z"
+                        className="transition-all fill-white group-[.active]:fill-blue-pacific"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="w-full"></div>
+        <div className="w-full">
+          <div className="bg-white w-full h-[83px] flex items-center gap-[1.313rem] px-[2.625rem]">
+            <div className="relative w-full">
+              <input
+                type="text"
+                placeholder="Type to search ..."
+                className="border-0 w-full outline-0 h-[50px] pr-[1.875rem]"
+              />
+              <div className="absolute w-[29px] h-[28px] right-0 top-[1px] bottom-0 m-auto cursor-pointer">
+                <svg width="29" height="28" viewBox="0 0 29 28" fill="none">
+                  <path
+                    d="M26.2812 23.4062L19.2532 16.6195C20.3858 15.1168 20.9951 13.3057 20.9932 11.4472C20.9932 6.58274 16.8941 2.625 11.856 2.625C6.81777 2.625 2.71869 6.58274 2.71869 11.4472C2.71869 16.3116 6.81777 20.2694 11.856 20.2694C13.7808 20.2712 15.6566 19.6829 17.213 18.5894L24.2421 25.375L26.2812 23.4062ZM11.856 17.483C10.6194 17.4832 9.41054 17.1292 8.38232 16.466C7.3541 15.8027 6.55268 14.86 6.07941 13.7569C5.60614 12.6539 5.48228 11.4401 5.7235 10.2691C5.96472 9.09813 6.56017 8.0225 7.43456 7.17826C8.30895 6.33402 9.423 5.75909 10.6358 5.5262C11.8486 5.2933 13.1058 5.41288 14.2482 5.86983C15.3906 6.32678 16.367 7.10057 17.054 8.09333C17.7409 9.0861 18.1075 10.2533 18.1074 11.4472C18.1054 13.0474 17.4462 14.5816 16.2742 15.7131C15.1023 16.8446 13.5133 17.4812 11.856 17.483Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div
+              className="w-[24px] h-[24px] cursor-pointer"
+              onClick={handleCloseDrawer}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M2.4 24L0 21.6L9.6 12L0 2.4L2.4 0L12 9.6L21.6 0L24 2.4L14.4 12L24 21.6L21.6 24L12 14.4L2.4 24Z"
+                  fill="#00A2B6"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div className="relative w-full h-[calc(100%_-_83px)] overflow-auto">
+            <div
+              className="w-full relative transition-all overflow-hidden"
+              style={{ height: heightContainerMenu }}
+            >
+              {menuData &&
+                menuData.map((item, index) =>
+                  item.slug === "what-we-do" ? (
+                    <div
+                      className={`absolute w-full top-0 left-0 opacity-0 transition-all ${
+                        selectedMenu == "what-we-do"
+                          ? "opacity-100 visible"
+                          : "invisible"
+                      }`}
+                      id="what-we-do"
+                      key={index}
+                    >
+                      <div className="px-[2.625rem] py-[1.875rem] w-full h-full block">
+                        <div className="w-full block pb-[1.188rem] border-b border-gray-cloud">
+                          <HeadingText
+                            type="h3"
+                            className="uppercase text-blue-pacific leading-[1.8rem]"
+                          >
+                            What we do
+                          </HeadingText>
+                        </div>
+                        <div className="w-full block pt-[1.25rem]">
+                          <div className="block">
+                            <BodyText
+                              type="body1"
+                              className="leading-[1.125] font-medium font-graphik block mb-[1.25rem]"
+                            >
+                              Services
+                            </BodyText>
+                            <div className="grid grid-cols-3 gap-12 mb-32">
+                              {menuServices.map((item, idx) => (
+                                <div className="block" key={idx}>
+                                  {item.submenu ? (
+                                    <BodyText
+                                      type="body2"
+                                      className="leading-[1.063rem]"
+                                    >
+                                      {item.name}
+                                    </BodyText>
+                                  ) : (
+                                    <Link
+                                      href={item.name_link}
+                                      className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                      key={idx}
+                                    >
+                                      <BodyText
+                                        type="body2"
+                                        className="leading-[1.063rem]"
+                                      >
+                                        {item.name}
+                                      </BodyText>
+                                    </Link>
+                                  )}
+
+                                  {item.submenu && (
+                                    <div className="pl-[1.375rem] flex flex-col items-start gap-[0.375rem] pt-[0.625rem]">
+                                      {item.submenu.map((submenuitem, idx) => (
+                                        <Link
+                                          href={item.name_link}
+                                          className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                          key={idx}
+                                        >
+                                          <BodyText
+                                            className="text-[0.625rem] leading-[0.75rem] block"
+                                            key={idx}
+                                          >
+                                            {submenuitem.title}
+                                          </BodyText>
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+
+                            <BodyText
+                              type="body1"
+                              className="leading-[1.125] font-medium font-graphik block mb-[1.25rem]"
+                            >
+                              Industries
+                            </BodyText>
+                            <div className="grid grid-cols-3 gap-12 mb-32">
+                              {menuIndustries.map((item, index) => (
+                                <div className="block" key={index}>
+                                  <Link
+                                    href={item.link}
+                                    className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                  >
+                                    <BodyText
+                                      type="body2"
+                                      className="leading-[1.063rem]"
+                                    >
+                                      {item.title}
+                                    </BodyText>
+                                  </Link>
+                                </div>
+                              ))}
+                            </div>
+
+                            <BodyText
+                              type="body1"
+                              className="leading-[1.125] font-medium font-graphik block mb-[1.25rem]"
+                            >
+                              Client Stories
+                            </BodyText>
+                            <div className="grid grid-cols-3 gap-12">
+                              <div className="block">
+                                <Link
+                                  href="/client-stories"
+                                  className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                >
+                                  <BodyText
+                                    type="body2"
+                                    className="leading-[1.063rem]"
+                                  >
+                                    Client Stories
+                                  </BodyText>
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div
+                      className={`absolute w-full top-0 left-0 opacity-0 transition-all ${
+                        selectedMenu == item.slug
+                          ? "opacity-100 visible"
+                          : "invisible"
+                      }`}
+                      id={item.slug}
+                      key={index}
+                    >
+                      <MenuContent {...item} />
+                    </div>
+                  )
+                )}
+            </div>
+          </div>
+        </div>
       </div>
     </Drawer>
   );
 };
 
-export default MenuDrawer;
+export default withDimension(MenuDrawer);

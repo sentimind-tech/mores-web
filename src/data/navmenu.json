@@ -1,26 +1,26 @@
 [
   {
     "title": "WHO WHE ARE",
-    "link": ""
+    "target": "who-we-are"
   },
   {
     "title": "What We Do",
-    "link": ""
+    "target": "what-we-do"
   },
   {
     "title": "Insight",
-    "link": ""
+    "target": "insight"
   },
   {
     "title": "Careers",
-    "link": ""
+    "target": "careers"
   },
   {
     "title": "Mores Tech",
-    "link": ""
+    "target": "mores-tech"
   },
   {
     "title": "Contact",
-    "link": ""
+    "target": "contact"
   }
 ]

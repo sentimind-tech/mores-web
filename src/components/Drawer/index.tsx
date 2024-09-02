@@ -11,6 +11,7 @@ export type TDrawerComponentProps = {
   direction?: "bottom" | "left" | "right" | "top";
   setClose?: (e: boolean) => void;
   className?: string;
+  enableOverlay?: boolean;
 };
 
 const DrawerComponent = (props: TDrawerComponentProps) => {
@@ -21,6 +22,7 @@ const DrawerComponent = (props: TDrawerComponentProps) => {
     setClose,
     className,
     direction = "bottom",
+    enableOverlay = true,
   } = props;
 
   return (
@@ -32,6 +34,8 @@ const DrawerComponent = (props: TDrawerComponentProps) => {
         lockBackgroundScroll={true}
         size="auto"
         className={className}
+        enableOverlay={enableOverlay}
+        customIdSuffix="custom-drawer"
       >
         <div className="relative">{children}</div>
       </Drawer>

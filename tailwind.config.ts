@@ -44,6 +44,7 @@ const config: Config = {
         },
         gray: {
           dark: "#383838",
+          cloud: "#B6B6B6",
         },
         blue: {
           pacific: "#00A2B6",
