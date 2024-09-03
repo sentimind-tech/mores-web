@@ -116,3 +116,11 @@ body {
     text-wrap: balance;
   }
 }
+
+.menu-content-wrapper {
+  @apply transition duration-300 opacity-0 pointer-events-none;
+}
+
+.menu-content-wrapper-enter-done {
+  @apply opacity-100 pointer-events-auto;
+}

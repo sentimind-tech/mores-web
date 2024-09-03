@@ -35,6 +35,7 @@ const config: Config = {
       colors: {
         white: {
           DEFAULT: "#ffffff",
+          smoke: "#F5F5F5",
         },
         black: {
           DEFAULT: "#000000",
@@ -44,11 +45,12 @@ const config: Config = {
         },
         gray: {
           dark: "#383838",
+          cloud: "#B6B6B6",
           medium: "#585858",
           silver: "#B6B6B6",
           light: "#F5F5F5",
           steel: "#A0A0A0",
-          ash: "#989898"
+          ash: "#989898",
         },
         blue: {
           pacific: "#00A2B6",
@@ -75,6 +77,12 @@ const config: Config = {
         72: "72px",
         100: "100px",
         120: "120px",
+      },
+      backgroundImage: {
+        "hero-banner-overlay":
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))",
+        "home-help":
+          "linear-gradient(90.35deg, rgba(235, 60, 149, 0.7) -22.06%, rgba(0, 162, 182, 0.7) 84.65%)",
       },
     },
   },
