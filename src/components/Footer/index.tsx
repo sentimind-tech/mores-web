@@ -23,7 +23,7 @@ const navlink = [
 
 const Footer = () => {
   return (
-    <div className="bg-white font-supplymono px-16 lg:px-[3.938rem] pt-[2.063rem] md:pt-[4.5rem] pb-[1.375rem] md:pb-[3.125rem]">
+    <div className="bg-white font-supplymono px-16 lg:px-[3.938rem] pt-[2.063rem] md:pt-[4.5rem] pb-[1.375rem] md:pb-[3.125rem] text-black">
       <div className="w-full max-w-[80rem] mx-auto hidden md:block">
         <div className="flex justify-between gap-18">
           <div className="block">

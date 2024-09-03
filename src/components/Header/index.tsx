@@ -73,7 +73,7 @@ const Header = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-[1.5rem] cursor-pointer">
-            <BodyText className="uppercase text-[1.125rem] leading-[1.5rem] tracking-[-0.02em] select-none font-supplymono">
+            <BodyText className="uppercase text-[1.125rem] leading-[1.5rem] tracking-[-0.02em] select-none font-supplymono text-black">
               Explore
             </BodyText>
 
