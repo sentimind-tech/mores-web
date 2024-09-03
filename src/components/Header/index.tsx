@@ -6,12 +6,39 @@ import { BodyText } from "../Text";
 import "./style.css";
 import MenuDrawer from "../Drawer/MenuDrawer";
 import Link from "next/link";
+import { getAllServices } from "@/services/service";
+import { TService } from "@/types/service";
+import { TIndustry } from "@/types/industry";
+import { getIndustryList } from "@/services/industry";
 
 const Header = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
+  const [servicesList, setServicesList] = useState<TService[] | null>(null);
+  const [industriesList, setIndustriesList] = useState<TIndustry[] | null>(
+    null
+  );
 
   const handleNavbar = () => {
     setOpenNavbar(!openNavbar);
+  };
+
+  const handleOpenNavbar = () => {
+    setOpenNavbar(true);
+
+    fetchDataServices();
+    fetchDataIndustries();
+  };
+
+  const fetchDataServices = async () => {
+    const data = await getAllServices();
+
+    setServicesList(data);
+  };
+
+  const fetchDataIndustries = async () => {
+    const data = await getIndustryList();
+
+    setIndustriesList(data);
   };
 
   return (
@@ -23,7 +50,7 @@ const Header = () => {
               <div
                 id="nav-icon3"
                 className={`relative z-30 ${openNavbar ? "open" : ""}`}
-                onClick={handleNavbar}
+                onClick={handleOpenNavbar}
               >
                 <span></span>
                 <span></span>
@@ -88,6 +115,8 @@ const Header = () => {
         isOpen={openNavbar}
         onClose={handleNavbar}
         setClose={setOpenNavbar}
+        industries={industriesList}
+        services={servicesList}
       />
     </>
   );

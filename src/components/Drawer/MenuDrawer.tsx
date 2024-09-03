@@ -5,10 +5,17 @@ import MenuContent from "../Header/MenuContent";
 import withDimension, { TWithDimensionProps } from "@/utils/withDimension";
 import { BodyText, HeadingText } from "../Text";
 import Link from "next/link";
+import { TIndustry } from "@/types/industry";
+import { TService } from "@/types/service";
+import { TMenuServicesProps } from "@/types/Menu";
 
 import navmenu from "@/data/navmenu.json";
 
-type TMenuDrawerProps = TDrawerComponentProps & TWithDimensionProps;
+type TMenuDrawerProps = TDrawerComponentProps &
+  TWithDimensionProps & {
+    industries: TIndustry[];
+    services: TService[];
+  };
 
 const menuData = [
   {
@@ -277,7 +284,8 @@ const menuIndustries = [
 ];
 
 const MenuDrawer = (props: TMenuDrawerProps) => {
-  const { isOpen, onClose, setClose, windowDimension } = props;
+  const { isOpen, onClose, setClose, windowDimension, industries, services } =
+    props;
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
   const [selectedMenu, setSelectedMenu] = useState<string | null>(
@@ -305,6 +313,37 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   useEffect(() => {
     setWindowWidth(windowDimension.width);
   }, [windowDimension]);
+
+  const transformData = (data: TService[]): TMenuServicesProps[] => {
+    const groupedData: TMenuServicesProps[] = [];
+
+    if (data == undefined) return [];
+
+    data
+      .filter((service) => service.parent_service_id === "")
+      .map((service) => {
+        const transform = {
+          name: service.name,
+          name_link: `/services/${service.id}`,
+          ...(service.parent_service_id !== null
+            ? {
+                submenu: data
+                  .filter((item) => item.parent_service_id === service.id)
+                  .map((item) => ({
+                    title: item.name,
+                    link: `/services/${item.id}/${item.parent_service_id}`,
+                  })),
+              }
+            : {}),
+        };
+
+        groupedData.push(transform);
+      });
+
+    return groupedData;
+  };
+
+  const transformedServiceData = transformData(services);
 
   return (
     <Drawer
@@ -392,7 +431,10 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
           <div className="relative w-full h-[calc(100%_-_83px)] overflow-auto">
             <div
               className="w-full relative transition-all overflow-hidden"
-              style={{ height: heightContainerMenu }}
+              style={{
+                height:
+                  heightContainerMenu !== 0 ? heightContainerMenu : "100%",
+              }}
             >
               {menuData &&
                 menuData.map((item, index) =>
@@ -420,35 +462,26 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                             <Link href="/services">
                               <BodyText
                                 type="body1"
-                                className="leading-[1.125] font-medium font-graphik block mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                                className="leading-[1.125] font-medium !font-graphik text-black block mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
                               >
                                 Services
                               </BodyText>
                             </Link>
                             <div className="grid grid-cols-3 gap-12 mb-32">
-                              {menuServices.map((item, idx) => (
+                              {transformedServiceData.map((item, idx) => (
                                 <div className="block" key={idx}>
-                                  {item.submenu ? (
+                                  <Link
+                                    href={item.name_link}
+                                    className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                    key={idx}
+                                  >
                                     <BodyText
                                       type="body2"
                                       className="leading-[1.063rem]"
                                     >
                                       {item.name}
                                     </BodyText>
-                                  ) : (
-                                    <Link
-                                      href={item.name_link}
-                                      className="inline-block transition-all duration-300 hover:text-blue-pacific"
-                                      key={idx}
-                                    >
-                                      <BodyText
-                                        type="body2"
-                                        className="leading-[1.063rem]"
-                                      >
-                                        {item.name}
-                                      </BodyText>
-                                    </Link>
-                                  )}
+                                  </Link>
 
                                   {item.submenu && (
                                     <div className="pl-[1.375rem] flex flex-col items-start gap-[0.375rem] pt-[0.625rem]">
@@ -472,35 +505,39 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                               ))}
                             </div>
 
-                            <Link href="/industries">
-                              <BodyText
-                                type="body1"
-                                className="leading-[1.125] font-medium font-graphik block mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
-                              >
-                                Industries
-                              </BodyText>
-                            </Link>
-                            <div className="grid grid-cols-3 gap-12 mb-32">
-                              {menuIndustries.map((item, index) => (
-                                <div className="block" key={index}>
-                                  <Link
-                                    href={item.link}
-                                    className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                            {industries !== null && (
+                              <>
+                                <Link href="/industries">
+                                  <BodyText
+                                    type="body1"
+                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
                                   >
-                                    <BodyText
-                                      type="body2"
-                                      className="leading-[1.063rem]"
-                                    >
-                                      {item.title}
-                                    </BodyText>
-                                  </Link>
+                                    Industries
+                                  </BodyText>
+                                </Link>
+                                <div className="grid grid-cols-3 gap-12 mb-32">
+                                  {industries.map((item, index) => (
+                                    <div className="block" key={index}>
+                                      <Link
+                                        href={`/industries/${item.id}`}
+                                        className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                      >
+                                        <BodyText
+                                          type="body2"
+                                          className="leading-[1.063rem] capitalize"
+                                        >
+                                          {item.name}
+                                        </BodyText>
+                                      </Link>
+                                    </div>
+                                  ))}
                                 </div>
-                              ))}
-                            </div>
+                              </>
+                            )}
 
                             <BodyText
                               type="body1"
-                              className="leading-[1.125] font-medium font-graphik block mb-[1.25rem]"
+                              className="leading-[1.125] font-medium !font-graphik text-black block mb-[1.25rem]"
                             >
                               Client Stories
                             </BodyText>
