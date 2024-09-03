@@ -12,3 +12,6 @@ export default function Homepage() {
     </Layout>
   );
 }
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";

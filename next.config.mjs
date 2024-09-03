@@ -19,6 +19,11 @@ const nextConfig = {
         hostname: "picsum.photos",
         port: "",
       },
+      {
+        protocol: "http",
+        hostname: "103.186.1.45",
+        port: "82",
+      },
     ],
   },
 };
