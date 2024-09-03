@@ -9,7 +9,7 @@ const HomeHighlight = () => {
         <div className="bg-blue-pacific pb-6">
           <div className="bg-white-smoke flex items-center h-[345px] a">
             <div className="w-full flex items-center justify-start pl-[8%]">
-              <div className="w-2/3">
+              <div className="w-2/3 text-black">
                 <BodyText type="body2" className="block mb-[0.125rem]">
                   MORES OUTLOOK 2023:
                 </BodyText>
