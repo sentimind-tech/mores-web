@@ -5,6 +5,7 @@ export type TInsightParams = {
   industryId?: string
   serviceId?: string
   isFeatured?: boolean
+  sortBy?: string
 }
 
 type TQueryParams = {
@@ -18,6 +19,9 @@ async function getInsightList(params: TInsightParams = {}, page: number = 1, per
   try {
     let queryParams: TQueryParams = {
       sort: '-created',
+    }
+    if (params.sortBy && params.sortBy == 'oldest') {
+      queryParams.sort = 'created'
     }
 
     let filters: string[] = [];
