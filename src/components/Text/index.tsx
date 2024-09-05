@@ -36,7 +36,7 @@ const DisplayText = ({
   );
 };
 
-const Headingtext = ({
+const HeadingText = ({
   type,
   className,
   children,
@@ -46,7 +46,7 @@ const Headingtext = ({
   if (type == "h1") {
     return (
       <h1
-        className={`text-[3rem] leading-[3.5rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-[3rem] leading-[3.5rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -58,7 +58,7 @@ const Headingtext = ({
   if (type == "h2") {
     return (
       <h2
-        className={`text-[2.5rem] leading-[3rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-[2.5rem] leading-[3rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -70,7 +70,7 @@ const Headingtext = ({
   if (type == "h3") {
     return (
       <h3
-        className={`text-[1.75rem] leading-[2.5rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-[1.75rem] leading-[2.5rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -82,7 +82,7 @@ const Headingtext = ({
   if (type == "h4") {
     return (
       <h4
-        className={`text-[1.5rem] leading-[2rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-[1.5rem] leading-[2rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -94,7 +94,7 @@ const Headingtext = ({
   if (type == "h5") {
     return (
       <h5
-        className={`text-[1.25rem] leading-[1.75rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-[1.25rem] leading-[1.75rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -106,7 +106,7 @@ const Headingtext = ({
   if (type == "h6") {
     return (
       <h6
-        className={`text-[1rem] leading-[1.5rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-[1rem] leading-[1.5rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -115,15 +115,7 @@ const Headingtext = ({
     );
   }
 
-  return (
-    <h6
-      className={`text-[1rem] leading-[1.5rem] tracking-[-0.02em] ${
-        className ?? ""
-      }`}
-    >
-      {children}
-    </h6>
-  );
+  return <h6 className={`font-supplymono ${className ?? ""}`}>{children}</h6>;
 };
 
 const BodyText = ({
@@ -170,4 +162,4 @@ const BodyText = ({
   return <span className={className ?? ""}>{children}</span>;
 };
 
-export { DisplayText, Headingtext, BodyText };
+export { DisplayText, HeadingText, BodyText };

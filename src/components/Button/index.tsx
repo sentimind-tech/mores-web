@@ -35,3 +35,31 @@ export const ButtonPrimary = ({
     </button>
   );
 };
+
+export const ButtonOutline = ({
+  children,
+  className,
+  isLoading,
+  size,
+  ...props
+}: TButtonProps) => {
+  const handleSize =
+    size == "xl"
+      ? "h-[4.5rem]"
+      : size == "large"
+      ? "h-[3.75rem]"
+      : size == "small"
+      ? "h-[2.625rem]"
+      : "";
+
+  return (
+    <button
+      className={`transition-all font-supplymono text-16 leading-[1.188rem] bg-transparent border border-white lg:hover:bg-white text-white lg:hover:text-blue-pacific px-[1rem] py-[0.625rem] flex justify-center items-center ${handleSize} ${
+        className ?? ""
+      }`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};

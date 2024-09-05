@@ -1,32 +1,33 @@
-import { PageHeader } from '@/components/PageHeader'
-import { SectionDetail } from '@/components/SectionDetail'
+import { PageHeader } from "@/components/PageHeader";
+import { SectionDetail } from "@/components/SectionDetail";
 import {
   ServiceDetailHeader,
   TServiceDetailHeaderMenuItem,
-} from '@/components/ServiceDetailHeader'
-import { getIndustryDetail } from '@/services/industry'
-import { notFound } from 'next/navigation'
-import { customConfig } from '../../../../config'
-import { getInsightList, TInsightParams } from '@/services/insight'
+} from "@/components/ServiceDetailHeader";
+import { getIndustryDetail } from "@/services/industry";
+import { notFound } from "next/navigation";
+import { customConfig } from "../../../../config";
+import { getInsightList, TInsightParams } from "@/services/insight";
+import Layout from "@/components/Layout";
 
 const menus: TServiceDetailHeaderMenuItem[] = [
   {
-    name: 'OVERVIEW',
-    id: 'overview',
+    name: "OVERVIEW",
+    id: "overview",
   },
   {
-    name: 'OUR EXPERIENCE',
-    id: 'our-experience',
+    name: "OUR EXPERIENCE",
+    id: "our-experience",
   },
   {
-    name: 'FEATURED INSIGHT',
-    id: 'featured-insight',
+    name: "FEATURED INSIGHT",
+    id: "featured-insight",
   },
-]
+];
 
 export default async function IndustryDetail({ params }: any) {
-  const industry = await getIndustryDetail(params.slug)
-  if (!industry) notFound()
+  const industry = await getIndustryDetail(params.slug);
+  if (!industry) notFound();
 
   // Fetch Insight
   const query: TInsightParams = {
@@ -37,8 +38,8 @@ export default async function IndustryDetail({ params }: any) {
   const insights = insightsRes?.items
 
   // Initiate data
-  const ourExperience = industry.our_experiences || ['']
-  const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${ourExperience[0]}`
+  const ourExperience = industry.our_experiences || [""];
+  const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${ourExperience[0]}`;
 
   const coverImage = industry.cover_image
   const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${coverImage}`
@@ -58,16 +59,24 @@ export default async function IndustryDetail({ params }: any) {
             ourExperience={ourExperiencePath}
             insights={insights || []}
           />
-        </div>
-      </section>
+          <div className="border-b border-gray-ash py-24 px-64">
+            <ServiceDetailHeader
+              title={industry.name}
+              overview={industry.overview}
+              ourExperience={ourExperiencePath}
+              insights={insights || []}
+            />
+          </div>
+        </section>
 
-      <SectionDetail
-        overview={industry.overview}
-        ourExperience={ourExperiencePath}
-        insights={insights || undefined}
-      />
-    </section>
-  )
+        <SectionDetail
+          overview={industry.overview}
+          ourExperience={ourExperiencePath}
+          insights={insights || undefined}
+        />
+      </section>
+    </Layout>
+  );
 }
 
 export const dynamic = 'force-dynamic'
