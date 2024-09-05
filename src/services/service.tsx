@@ -1,5 +1,6 @@
 import { pb } from "@/lib/pocketbase";
 import { TService } from "@/types/service";
+import { RecordFullListOptions } from "pocketbase";
 
 export type TServiceParams = {
   parentServiceId?: string;
@@ -43,11 +44,11 @@ async function getServiceDetail(id: string) {
   }
 }
 
-async function getAllServices() {
+async function getAllServices(options: RecordFullListOptions) {
   try {
-    let response = await pb.collection("services").getFullList<TService>({
-      sort: "-created",
-    });
+    let response = await pb
+      .collection("services")
+      .getFullList<TService>(options);
 
     return response;
   } catch (error) {

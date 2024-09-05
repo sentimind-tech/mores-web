@@ -12,6 +12,8 @@ export type TDrawerComponentProps = {
   setClose?: (e: boolean) => void;
   className?: string;
   enableOverlay?: boolean;
+  size?: string;
+  style?: React.CSSProperties | undefined;
 };
 
 const DrawerComponent = (props: TDrawerComponentProps) => {
@@ -23,6 +25,8 @@ const DrawerComponent = (props: TDrawerComponentProps) => {
     className,
     direction = "bottom",
     enableOverlay = true,
+    size = "auto",
+    style,
   } = props;
 
   return (
@@ -32,12 +36,13 @@ const DrawerComponent = (props: TDrawerComponentProps) => {
         onClose={onClose}
         direction={direction}
         lockBackgroundScroll={true}
-        size="auto"
+        size={size}
         className={className}
         enableOverlay={enableOverlay}
         customIdSuffix="custom-drawer"
+        style={style}
       >
-        <div className="relative">{children}</div>
+        <div className="relative h-full">{children}</div>
       </Drawer>
     </div>
   );

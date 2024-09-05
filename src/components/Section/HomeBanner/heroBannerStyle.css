@@ -1,0 +1,15 @@
+.hero-carousel .slick-dots {
+  @apply !bottom-[10%] !text-left !px-20;
+}
+
+.hero-carousel .slick-dots li {
+  @apply !mx-[4px] !h-[10px] !w-[10px];
+}
+
+.hero-carousel .slick-dots li button {
+  @apply !border-white;
+}
+
+.hero-carousel .slick-dots li.slick-active button {
+  @apply !border-blue-pacific;
+}

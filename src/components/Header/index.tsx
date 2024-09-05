@@ -25,12 +25,13 @@ const Header = () => {
   const handleOpenNavbar = () => {
     setOpenNavbar(true);
 
-    fetchDataServices();
-    fetchDataIndustries();
+    fetchData();
   };
 
   const fetchDataServices = async () => {
-    const data = await getAllServices();
+    const data = await getAllServices({
+      sort: "-created",
+    });
 
     setServicesList(data);
   };
@@ -39,6 +40,11 @@ const Header = () => {
     const data = await getIndustryList();
 
     setIndustriesList(data);
+  };
+
+  const fetchData = async () => {
+    fetchDataServices();
+    fetchDataIndustries();
   };
 
   return (
@@ -94,13 +100,13 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="fixed w-[24px] h-[24px] right-[1rem] flex justify-center items-center z-[100] md:hidden">
+          <div className="absolute w-[24px] h-[24px] right-[1rem] flex justify-center items-center z-[100] md:hidden">
             <div
               id="nav-icon3"
               className={`relative z-30 block md:hidden ${
                 openNavbar ? "open" : ""
               }`}
-              onClick={handleNavbar}
+              onClick={handleOpenNavbar}
             >
               <span></span>
               <span></span>

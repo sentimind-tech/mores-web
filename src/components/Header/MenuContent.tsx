@@ -7,7 +7,7 @@ import { ButtonPrimary } from "../Button";
 const MenuContent = (props: TMenuContentProps) => {
   const { slug, data } = props;
   return (
-    <div className="px-[2.625rem] py-[1.875rem]">
+    <div className="block">
       {data?.title && (
         <div className="w-full block pb-[1.188rem] border-b border-gray-cloud">
           <HeadingText
@@ -19,9 +19,9 @@ const MenuContent = (props: TMenuContentProps) => {
         </div>
       )}
 
-      <div className="w-full block pt-[2.375rem]">
-        <div className="grid grid-cols-2 gap-24">
-          <div className="flex flex-col gap-[0.938rem]">
+      <div className="w-full block pt-24 lg:pt-[2.375rem]">
+        <div className="flex flex-col-reverse lg:flex-row gap-24">
+          <div className="w-full lg:w-1/2 flex flex-col gap-[0.938rem]">
             {data?.menus &&
               data.menus.map((item, index) => (
                 <div
@@ -43,7 +43,7 @@ const MenuContent = (props: TMenuContentProps) => {
               ))}
           </div>
 
-          <div className="block">
+          <div className="w-full lg:w-1/2 block">
             <div className="w-full aspect-[16/7] rounded-[10px] overflow-hidden relative mb-[1.188rem] bg-gray-cloud">
               {data?.thumb && (
                 <Image
