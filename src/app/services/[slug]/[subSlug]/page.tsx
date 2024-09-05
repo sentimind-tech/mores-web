@@ -1,28 +1,28 @@
-import { PageHeader } from "@/components/PageHeader";
-import { SectionDetail } from "@/components/SectionDetail";
-import { ServiceDetailHeader } from "@/components/ServiceDetailHeader";
+import { PageHeader } from '@/components/PageHeader'
+import { SectionDetail } from '@/components/SectionDetail'
+import { ServiceDetailHeader } from '@/components/ServiceDetailHeader'
 import {
   getServiceDetail,
   getServiceList,
   TServiceParams,
-} from "@/services/service";
-import { notFound } from "next/navigation";
-import { customConfig } from "../../../../../config";
-import { getInsightList, TInsightParams } from "@/services/insight";
-import Layout from "@/components/Layout";
+} from '@/services/service'
+import { notFound } from 'next/navigation'
+import { customConfig } from '../../../../../config'
+import { getInsightList, TInsightParams } from '@/services/insight'
+import Layout from '@/components/Layout'
 
 export default async function ServiceChildDetail({ params }: any) {
-  const service = await getServiceDetail(params.subSlug);
-  if (!service) notFound();
+  const service = await getServiceDetail(params.subSlug)
+  if (!service) notFound()
 
-  const parentService = await getServiceDetail(params.slug);
-  if (!parentService) notFound();
+  const parentService = await getServiceDetail(params.slug)
+  if (!parentService) notFound()
 
   //   Fetch Service Child
   const query: TServiceParams = {
     parentServiceId: params.slug,
-  };
-  const serviceList = await getServiceList(query);
+  }
+  const serviceList = await getServiceList(query)
 
   // Fetch insight
   const insightQuery: TInsightParams = {
@@ -33,11 +33,11 @@ export default async function ServiceChildDetail({ params }: any) {
   const insights = insightsRes?.items
 
   // Initiate data
-  const ourExperience = service.our_experiences || [""];
-  const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${ourExperience[0]}`;
+  const ourExperience = service.our_experiences || ['']
+  const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${ourExperience[0]}`
 
-  const coverImage = service.cover_image;
-  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${coverImage}`;
+  const coverImage = service.cover_image
+  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${coverImage}`
 
   return (
     <Layout>
@@ -67,8 +67,8 @@ export default async function ServiceChildDetail({ params }: any) {
         />
       </section>
     </Layout>
-  );
+  )
 }
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'

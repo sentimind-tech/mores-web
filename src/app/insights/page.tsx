@@ -5,10 +5,15 @@ import { getInsightList } from '@/services/insight'
 import { ButtonPrimary } from '@/components/Button'
 import { InsightCard } from '@/components/InsightCard'
 import { customConfig } from '../../../config'
-import { InsightList } from '@/components/Page/InsightList'
+import { InsightList } from '@/components/InsightList'
+import Layout from '@/components/Layout'
 
 export default async function Insight({ params }: any) {
-  return <InsightList />
+  return (
+    <Layout>
+      <InsightList />
+    </Layout>
+  )
 }
 
 export const metadata: Metadata = {

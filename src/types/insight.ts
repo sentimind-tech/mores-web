@@ -6,7 +6,7 @@ type TRelation = {
 export type TInsight = {
   id: string
   title: string
-  published_date: string
+  published: string
   read_time: string
   content: string
   description: string
