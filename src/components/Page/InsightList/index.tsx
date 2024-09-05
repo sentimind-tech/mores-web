@@ -117,7 +117,7 @@ export const InsightList = () => {
                                     <InsightCard
                                         image={`${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${insight.button_image}`}
                                         title={insight.title}
-                                        description={insight.summary}
+                                        description={insight.description}
                                         subtitle={subTitle}
                                         path={`/insights/${insight.id}`}
                                     />

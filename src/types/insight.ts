@@ -9,7 +9,8 @@ export type TInsight = {
   published_date: string
   read_time: string
   content: string
-  summary: string
+  description: string
+  summary: string[]
   pdf_file: string
   button_image: string[]
   expand?: TRelation
