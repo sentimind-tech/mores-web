@@ -68,9 +68,12 @@ export const SectionDetail = ({
           <SectionHeader title="FEATURED INSIGHTS" />
           <div className="grid grid-cols-4 gap-50">
             {insights.map((insight) => {
-              const insightIndusties = insight.expand?.industry_tags || []
-              const subTitle =
-                insightIndusties.length > 0 ? insightIndusties[0].name : ''
+              let subTitle = ''
+              if (insight?.expand?.industry_tags) {
+                subTitle = insight.expand?.industry_tags?.name
+              } else if (insight?.expand?.service_tags) {
+                subTitle = insight.expand?.service_tags?.name
+              }
               return (
                 <InsightCard
                   key={insight.id}

@@ -12,25 +12,25 @@ import { InsightCard } from '@/components/InsightCard'
 import Link from 'next/link'
 import { formatDate } from '@/module/helper'
 import Image from 'next/image'
+import { InsightAction } from '@/components/InsightAction'
 
 export default async function InsightDetail({ params }: any) {
   const insight = await getInsightDetail(params.slug)
   if (!insight) notFound()
 
-  //   Fetch Insight
+  //   Fetch NEXT Insight
   const query: TInsightParams = {
-    //   industryId: industry.id,
-    isFeatured: true,
+    industryId: insight.expand?.industry_tags?.id,
+    serviceId: insight.expand?.service_tags?.id,
+    insightId: insight.id,
   }
   const nextInsightRes = await getInsightList(query, 1, 4)
   const nextInsights = nextInsightRes?.items || []
 
-  console.log(insight)
-
   // Initiate data
-  // const coverImage = insight.cover_image
-  // const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${coverImage}`
-  const coverImagePath = '/images/bg-insight-detail.png'
+  const coverImage = insight.cover_image
+  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${coverImage}`
+  // const coverImagePath = '/images/bg-insight-detail.png'
 
   const authors = [
     { name: 'Asutosh Padhi', url: 'https://example.com/asutosh-padhi' },
@@ -41,6 +41,9 @@ export default async function InsightDetail({ params }: any) {
       url: 'https://example.com/roman-belotserkovskiy',
     },
   ]
+  const pageSubtitle = insight?.expand?.industry_tags
+    ? 'INSIGHT/INDUSTRIES/' + insight?.expand?.industry_tags.name.toUpperCase()
+    : 'INSIGHT/SERVICES/' + insight?.expand?.service_tags?.name.toUpperCase()
   return (
     <Layout>
       <section className="flex flex-col gap-72 text-inter">
@@ -48,7 +51,8 @@ export default async function InsightDetail({ params }: any) {
           <PageHeader
             background={coverImagePath}
             title="Transportation & Logistics"
-            subtitle="FOCUS INDUSTRIES"
+            subtitle={pageSubtitle}
+            subtitleCustomClass="text-white"
           />
         </section>
         <section className="flex flex-col gap-72 px-120 pb-120">
@@ -77,38 +81,13 @@ export default async function InsightDetail({ params }: any) {
                 </div>
               </div>
             </div>
-            <div className="flex gap-24">
-              <div className="flex flex-col gap-8 cursor-pointer items-center">
-                <Image
-                  src="/images/icon/share.svg"
-                  width={14}
-                  height={16}
-                  alt="share"
-                />
-                <span>Share</span>
-              </div>
-              <div className="flex flex-col gap-8 cursor-pointer items-center">
-                <Image
-                  src="/images/icon/print.svg"
-                  width={14}
-                  height={16}
-                  alt="share"
-                />
-                <span>Print</span>
-              </div>
-              <div className="flex flex-col gap-8 cursor-pointer items-center">
-                <Image
-                  src="/images/icon/download.svg"
-                  width={14}
-                  height={16}
-                  alt="share"
-                />
-                <span>Download</span>
-              </div>
-            </div>
+            <InsightAction insight={insight} />
           </div>
           <section className="flex flex-col gap-36 text-inter text-14 leading-[22px]">
-            <div dangerouslySetInnerHTML={{ __html: insight.content }}></div>
+            <div
+              className="insight-detail"
+              dangerouslySetInnerHTML={{ __html: insight.content }}
+            ></div>
             <div className="flex flex-col gap-48 text-20 leading-[24px]">
               <div className="font-semibold ">At a Glance</div>
               <div className="flex flex-col gap-24">
@@ -137,9 +116,12 @@ export default async function InsightDetail({ params }: any) {
             <SectionHeader title="NEXT INSIGHTS" />
             <div className="grid grid-cols-4 gap-50">
               {nextInsights.map((insight) => {
-                const insightIndusties = insight.expand?.industry_tags || []
-                const subTitle =
-                  insightIndusties.length > 0 ? insightIndusties[0].name : ''
+                let subTitle = ''
+                if (insight?.expand?.industry_tags) {
+                  subTitle = insight.expand?.industry_tags?.name
+                } else if (insight?.expand?.service_tags) {
+                  subTitle = insight.expand?.service_tags?.name
+                }
                 return (
                   <InsightCard
                     key={insight.id}

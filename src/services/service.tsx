@@ -1,8 +1,10 @@
 import { pb } from '@/lib/pocketbase'
 import { TService } from '@/types/service'
+import { RecordFullListOptions } from 'pocketbase'
 
 export type TServiceParams = {
   parentServiceId?: string
+  isAll?: boolean
 }
 type TQueryParams = {
   sort: string
@@ -19,7 +21,9 @@ async function getServiceList(params: TServiceParams = {}) {
 
     if (params.parentServiceId) {
       filters.push(`parent_service_id = "${params.parentServiceId}"`)
-    } else {
+    }
+
+    if (!params.isAll) {
       filters.push(`parent_service_id = null`)
     }
 

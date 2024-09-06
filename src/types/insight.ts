@@ -1,9 +1,11 @@
-import { TIndustry } from "./industry";
-import { TResponsePaginationProps } from "./common";
+import { TIndustry } from './industry'
+import { TResponsePaginationProps } from './common'
+import { TService } from './service'
 
 type TRelation = {
-  industry_tags: TIndustry[];
-};
+  industry_tags: TIndustry
+  service_tags: TService
+}
 export type TInsight = {
   id: string
   title: string
@@ -15,4 +17,5 @@ export type TInsight = {
   pdf_file: string
   button_image: string[]
   expand?: TRelation
+  cover_image: string
 }
