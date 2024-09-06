@@ -1,0 +1,11 @@
+.specialize-slider .slick-list {
+  @apply mx-[-0.563rem] md:mx-[-0.875rem] xl:mx-[-1.313rem] !overflow-visible md:!overflow-hidden;
+}
+
+.specialize-slider.slick-slider {
+  @apply !px-20 md:!px-0;
+}
+
+.specialize-slider .slick-dots {
+  @apply left-0;
+}

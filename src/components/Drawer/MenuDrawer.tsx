@@ -123,179 +123,23 @@ const menuData = [
   },
 ];
 
-const menuServices = [
-  {
-    name: "Strategis Communication",
-    name_link: "",
-    submenu: [
-      {
-        title: "Crisis Communication Management",
-        link: "",
-      },
-      {
-        title: "Media Handling",
-        link: "",
-      },
-      {
-        title: "Media Monitoring",
-        link: "",
-      },
-      {
-        title: "Public Relation",
-        link: "",
-      },
-      {
-        title: "Social Media manajemen",
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "People & Organization",
-    name_link: "",
-    submenu: [
-      {
-        title: "Monitoring & Evaluation",
-        link: "",
-      },
-      {
-        title: "HRM Strategy",
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "Business & Investment",
-    name_link: "",
-    submenu: [
-      {
-        title: "Public-Private Partnerships (PPP)",
-        link: "",
-      },
-      {
-        title: "Loan Bilateral",
-        link: "",
-      },
-      {
-        title: "Loan B to B",
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "Risk Management",
-    name_link: "",
-  },
-  {
-    name: "Sustainability",
-    name_link: "",
-    submenu: [
-      {
-        title: "CSR Strategy",
-        link: "",
-      },
-      {
-        title: "ESG Strategy",
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "Survey",
-    name_link: "",
-    submenu: [
-      {
-        title: "Public Opinion Survey",
-        link: "",
-      },
-      {
-        title: "Community Survey",
-        link: "",
-      },
-      {
-        title: "Reputation Survey",
-        link: "",
-      },
-      {
-        title: "Customer Satisfaction Surveys",
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "Technology & Digital (Mores Tech)",
-    name_link: "",
-  },
-  {
-    name: "Feasibility Study & Strategic Planning",
-    name_link: "",
-  },
-  {
-    name: "Marketing & Sales",
-    name_link: "",
-  },
-];
-
-const menuIndustries = [
-  {
-    title: "Travel & Tourism",
-    link: "",
-  },
-  {
-    title: "Transportation & Logistics",
-    link: "",
-  },
-  {
-    title: "Finance",
-    link: "",
-  },
-  {
-    title: "Energy & Natural Resources",
-    link: "",
-  },
-  {
-    title: "Technology",
-    link: "",
-  },
-  {
-    title: "Media Creative Industries",
-    link: "",
-  },
-  {
-    title: "Infrastructure",
-    link: "",
-  },
-  {
-    title: "Media & Creative Industry",
-    link: "",
-  },
-  {
-    title: "Social & Public Sector",
-    link: "",
-  },
-  {
-    title: "Media & Creative Industry",
-    link: "",
-  },
-  {
-    title: "Manufacturing",
-    link: "",
-  },
-];
-
 const MenuDrawer = (props: TMenuDrawerProps) => {
   const { isOpen, onClose, setClose, windowDimension, industries, services } =
     props;
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
   const [selectedMenu, setSelectedMenu] = useState<string | null>(
-    menuData[0].slug
+    windowWidth >= 1024 ? menuData[0].slug : null
   );
 
   const handleCloseDrawer = () => {
     setClose && setClose(false);
 
-    setSelectedMenu(menuData[0].slug);
+    if (windowWidth >= 1024) {
+      setSelectedMenu(menuData[0].slug);
+    } else {
+      setSelectedMenu(null);
+    }
   };
 
   const handleMouseEnterMenu = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -320,21 +164,20 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
     if (data == undefined) return [];
 
     data
-      .filter((service) => service.parent_service_id === "")
+      .filter(
+        (service) =>
+          service.is_show_on_menu == true && service.parent_service_id === ""
+      )
       .map((service) => {
         const transform = {
           name: service.name,
           name_link: `/services/${service.id}`,
-          ...(service.parent_service_id !== null
-            ? {
-                submenu: data
-                  .filter((item) => item.parent_service_id === service.id)
-                  .map((item) => ({
-                    title: item.name,
-                    link: `/services/${item.id}/${item.parent_service_id}`,
-                  })),
-              }
-            : {}),
+          submenu: data
+            .filter((item) => item.parent_service_id === service.id)
+            .map((item) => ({
+              title: item.name,
+              link: `/services/${item.id}/${item.parent_service_id}`,
+            })),
         };
 
         groupedData.push(transform);
@@ -352,21 +195,39 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
       direction="top"
       enableOverlay={false}
     >
-      <div className="w-full bg-white-smoke flex max-h-[100dvh]">
-        <div className="w-[332px] bg-black shrink-0 flex flex-col items-center pt-[1.063rem]">
-          <div className="w-full max-w-[210px]">
-            <Link href="/">
-              <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
-                <Image
-                  src="/images/logo-mores-main-white.png"
-                  alt="Main Logo"
-                  fill={true}
-                  priority={true}
-                  sizes="auto"
-                  className="block w-full h-full object-center object-contain"
-                />
+      <div
+        className={`w-full bg-white-smoke h-[100dvh] lg:h-auto flex max-h-[100dvh] group ${
+          isOpen ? "active-drawer" : ""
+        }`}
+      >
+        <div className="relative lg:z-auto w-full lg:w-[332px] bg-black shrink-0 flex flex-col items-center pt-[1.063rem]">
+          <div className="w-full lg:max-w-[210px] py-16 px-32 md:px-[2.5rem] lg:p-0">
+            <div className="flex justify-between items-center">
+              <Link href="/">
+                <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
+                  <Image
+                    src="/images/logo-mores-main-white.png"
+                    alt="Main Logo"
+                    fill={true}
+                    priority={true}
+                    sizes="auto"
+                    className="block w-full h-full object-center object-contain"
+                  />
+                </div>
+              </Link>
+
+              <div
+                className="w-[24px] h-[24px] cursor-pointer block lg:hidden"
+                onClick={handleCloseDrawer}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M2.4 24L0 21.6L9.6 12L0 2.4L2.4 0L12 9.6L21.6 0L24 2.4L14.4 12L24 21.6L21.6 24L12 14.4L2.4 24Z"
+                    fill="#00A2B6"
+                  />
+                </svg>
               </div>
-            </Link>
+            </div>
 
             <div className="font-supplymono flex flex-col gap-[2.5rem] my-[3.688rem]">
               {navmenu.map((item, index) => (
@@ -376,7 +237,15 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                   }`}
                   data-target={item.target}
                   key={index}
-                  onMouseEnter={handleMouseEnterMenu}
+                  {...{
+                    ...(windowWidth >= 1024
+                      ? {
+                          onMouseEnter: handleMouseEnterMenu,
+                        }
+                      : {
+                          onClick: handleMouseEnterMenu,
+                        }),
+                  }}
                 >
                   <BodyText className="text-18 leading-[1.35rem] uppercase text-white transition-all group-[.active]:text-blue-pacific">
                     {item.title}
@@ -397,8 +266,12 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
             </div>
           </div>
         </div>
-        <div className="w-full">
-          <div className="bg-white w-full h-[83px] flex items-center gap-[1.313rem] px-[2.625rem]">
+        <div
+          className={`absolute top-[-100%] left-0 lg:relative lg:z-auto w-[100vw] lg:w-full h-full lg:h-auto transition-all duration-500 ${
+            windowWidth < 1024 && selectedMenu ? "top-[0]" : ""
+          }`}
+        >
+          <div className="bg-white w-full h-[83px] hidden lg:flex items-center gap-[1.313rem] px-[2.625rem]">
             <div className="relative w-full">
               <input
                 type="text"
@@ -428,14 +301,27 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
             </div>
           </div>
 
-          <div className="relative w-full h-[calc(100%_-_83px)] overflow-auto">
+          <div className="relative w-full h-full lg:h-[calc(100%_-_83px)] overflow-auto">
             <div
-              className="w-full relative transition-all overflow-hidden"
+              className="w-full relative transition-all overflow-hidden bg-white lg:bg-transparent"
               style={{
                 height:
-                  heightContainerMenu !== 0 ? heightContainerMenu : "100%",
+                  windowWidth >= 1024 && heightContainerMenu !== 0
+                    ? heightContainerMenu
+                    : "100%",
               }}
             >
+              <div
+                className="w-[24px] h-[24px] cursor-pointer absolute z-[20] top-32 right-24 block lg:hidden"
+                onClick={() => setSelectedMenu(null)}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M2.4 24L0 21.6L9.6 12L0 2.4L2.4 0L12 9.6L21.6 0L24 2.4L14.4 12L24 21.6L21.6 24L12 14.4L2.4 24Z"
+                    fill="#00A2B6"
+                  />
+                </svg>
+              </div>
               {menuData &&
                 menuData.map((item, index) =>
                   item.slug === "what-we-do" ? (
@@ -448,7 +334,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                       id="what-we-do"
                       key={index}
                     >
-                      <div className="px-[2.625rem] py-[1.875rem] w-full h-full block">
+                      <div className="px-20 lg:px-[2.625rem] py-24 lg:py-[1.875rem] w-full h-full block">
                         <div className="w-full block pb-[1.188rem] border-b border-gray-cloud">
                           <HeadingText
                             type="h3"
@@ -462,14 +348,14 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                             <Link href="/services">
                               <BodyText
                                 type="body1"
-                                className="leading-[1.125] font-medium !font-graphik text-black block mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                                className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
                               >
                                 Services
                               </BodyText>
                             </Link>
-                            <div className="grid grid-cols-3 gap-12 mb-32">
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-12 gap-x-32 mb-32">
                               {transformedServiceData.map((item, idx) => (
-                                <div className="block" key={idx}>
+                                <div className="block py-4 lg:py-0" key={idx}>
                                   <Link
                                     href={item.name_link}
                                     className="inline-block transition-all duration-300 hover:text-blue-pacific"
@@ -483,7 +369,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                     </BodyText>
                                   </Link>
 
-                                  {item.submenu && (
+                                  {item.submenu && item.submenu.length > 0 && (
                                     <div className="pl-[1.375rem] flex flex-col items-start gap-[0.375rem] pt-[0.625rem]">
                                       {item.submenu.map((submenuitem, idx) => (
                                         <Link
@@ -510,14 +396,17 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                 <Link href="/industries">
                                   <BodyText
                                     type="body1"
-                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
                                   >
                                     Industries
                                   </BodyText>
                                 </Link>
-                                <div className="grid grid-cols-3 gap-12 mb-32">
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-32">
                                   {industries.map((item, index) => (
-                                    <div className="block" key={index}>
+                                    <div
+                                      className="block py-4 lg:py-0"
+                                      key={index}
+                                    >
                                       <Link
                                         href={`/industries/${item.id}`}
                                         className="inline-block transition-all duration-300 hover:text-blue-pacific"
@@ -537,12 +426,12 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
 
                             <BodyText
                               type="body1"
-                              className="leading-[1.125] font-medium !font-graphik text-black block mb-[1.25rem]"
+                              className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem]"
                             >
                               Client Stories
                             </BodyText>
-                            <div className="grid grid-cols-3 gap-12">
-                              <div className="block">
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                              <div className="block py-4 lg:py-0">
                                 <Link
                                   href="/client-stories"
                                   className="inline-block transition-all duration-300 hover:text-blue-pacific"
@@ -570,7 +459,9 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                       id={item.slug}
                       key={index}
                     >
-                      <MenuContent {...item} />
+                      <div className="px-20 lg:px-[2.625rem] py-24 lg:py-[1.875rem]">
+                        <MenuContent {...item} />
+                      </div>
                     </div>
                   )
                 )}

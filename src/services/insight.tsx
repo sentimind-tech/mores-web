@@ -1,5 +1,5 @@
-import { pb } from '@/lib/pocketbase'
-import { TInsight } from '@/types/insight'
+import { pb } from "@/lib/pocketbase";
+import { TInsight } from "@/types/insight";
 
 export type TInsightParams = {
   industryId?: string
@@ -50,20 +50,33 @@ async function getInsightList(params: TInsightParams = {}, page: number = 1, per
 
     return response
   } catch (error) {
-    console.log(error)
-    return null // Return empty on error
+    console.log(error);
+    return null; // Return empty on error
   }
 }
 
 async function getInsightDetail(id: string) {
   try {
-    let response = await pb.collection('insights').getOne<TInsight>(id)
+    let response = await pb.collection("insights").getOne<TInsight>(id);
 
-    return response
+    return response;
   } catch (error) {
-    console.log(error)
-    return null // Return empty on error
+    console.log(error);
+    return null; // Return empty on error
   }
 }
 
-export { getInsightList, getInsightDetail }
+async function getInsightForHome() {
+  try {
+    let response = await pb.collection("insights").getList<TInsight>(1, 3, {
+      sort: "-created",
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+    return null; // Return empty on error
+  }
+}
+
+export { getInsightList, getInsightDetail, getInsightForHome };

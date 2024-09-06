@@ -85,6 +85,10 @@ const config: Config = {
           "linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))",
         "home-help":
           "linear-gradient(90.35deg, rgba(235, 60, 149, 0.7) -22.06%, rgba(0, 162, 182, 0.7) 84.65%)",
+        "home-insight-thumb":
+          "linear-gradient(181.61deg, rgba(0, 0, 0, 0) 33.46%, rgba(0, 0, 0, 0.5) 80.3%)",
+        "home-insight-thumb-2":
+          "linear-gradient(106.91deg, rgba(235, 60, 149, 0.7) -1.12%, rgba(0, 162, 182, 0.7) 100%)",
       },
     },
   },
