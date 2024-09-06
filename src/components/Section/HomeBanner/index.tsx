@@ -6,8 +6,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import { BodyText, HeadingText, DisplayText } from "@/components/Text";
-import { ButtonPrimary } from "@/components/Button";
+import { ButtonPrimary, ButtonOutline } from "@/components/Button";
 import Link from "next/link";
+import "./heroBannerStyle.css";
 
 const heroData = [
   {
@@ -59,6 +60,14 @@ const HomeBanner = () => {
     pauseOnHover: false,
     className: "hero-carousel",
     beforeChange: (current: any, next: any) => setImageIndex(next),
+    responsive: [
+      {
+        breakpoint: 640,
+        settings: {
+          dots: true,
+        },
+      },
+    ],
   };
 
   const goToSlide = (e: number) => {
@@ -68,11 +77,11 @@ const HomeBanner = () => {
   };
   return (
     <section className="block relative">
-      <div className="w-full lg:h-[615px] relative overflow-hidden">
+      <div className="w-full relative overflow-hidden">
         <Slider {...settings} ref={sliderRef}>
           {heroData.map((item, index) => (
             <div
-              className={`w-full lg:h-[615px] relative group px-16 ${
+              className={`w-full h-[500px] lg:h-[615px] relative group px-16 ${
                 index === imageIndex ? "slide active-slide" : "slide"
               }`}
               key={index}
@@ -95,13 +104,13 @@ const HomeBanner = () => {
                 <div className="block text-white w-2/3">
                   <DisplayText
                     type="medium"
-                    className="leading-[3.75rem] block mb-12 opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-100 group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
+                    className="!text-32 md:!text-[2.5rem] lg:!text-[3.25rem] !leading-[2.375rem] md:!leading-[3.125rem] lg:!leading-[3.75rem] block mb-12 opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-100 group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
                   >
                     SEE THINGS THROUGH LOCAL’S EYES
                   </DisplayText>
                   <BodyText
                     type="body2"
-                    className="capitalize leading-[1.3rem] block mb-[1.375rem] opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-200 group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
+                    className="capitalize !text-10 md:!text-14 leading-[1rem] block mb-[1.375rem] opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-200 group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
                   >
                     DISCOVER THE RICHNESS OF DIVERSITY AND CULTURE BY VIEWING
                     THE WORLD THROUGH THE LENS OF A LOCAL&lsquo;S PERSPECTIVE.
@@ -110,9 +119,33 @@ const HomeBanner = () => {
                     href=""
                     className="inline-block opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-[280ms] group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
                   >
-                    <ButtonPrimary className="uppercase" size="small">
+                    <ButtonPrimary
+                      className="uppercase hidden md:block"
+                      size="small"
+                    >
                       READ NOW
                     </ButtonPrimary>
+
+                    <ButtonOutline
+                      size="small"
+                      className="flex md:hidden items-center gap-[10px]"
+                    >
+                      <span>READ NOW</span>
+
+                      <svg
+                        width="21"
+                        height="15"
+                        viewBox="0 0 21 15"
+                        fill="none"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M20.6558 7.0082L13.8477 14.0164L12.7404 12.8784L17.6623 7.813L2.4454e-05 7.813L2.45244e-05 6.2034L17.6623 6.2034L12.7404 1.1396L13.8477 -2.97591e-07L20.6558 7.0082Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </ButtonOutline>
                   </Link>
                 </div>
               </div>
@@ -120,7 +153,7 @@ const HomeBanner = () => {
           ))}
         </Slider>
       </div>
-      <div className="bg-black">
+      <div className="bg-black hidden md:block">
         <div className="w-full max-w-[1280px] mx-auto">
           <div className="grid grid-cols-4">
             {heroData.map((item, index) => (

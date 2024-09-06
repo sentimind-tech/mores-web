@@ -124,3 +124,26 @@ body {
 .menu-content-wrapper-enter-done {
   @apply opacity-100 pointer-events-auto;
 }
+
+.slick-dots li button:before {
+  display: none;
+}
+.slick-dots {
+  @apply !bottom-[-20px] md:!bottom-[-30px];
+}
+.slick-dots li {
+  @apply !h-[14px] !w-[14px] !mx-[2px] md:!mx-4 !my-0;
+}
+.slick-dots li button {
+  height: 100% !important;
+  width: 100% !important;
+  opacity: 1;
+  border-radius: 100%;
+  padding: 0 !important;
+  border: 1.5px solid #c3c3c3 !important;
+  transition: 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+  @apply !bg-blue-pacific !opacity-100 !border-blue-pacific;
+}
