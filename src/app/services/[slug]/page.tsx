@@ -24,8 +24,10 @@ export default async function ServiceDetail({ params }: any) {
   // Fetch insight
   const insightQuery: TInsightParams = {
     serviceId: params.slug,
-  };
-  const insights = await getInsightList(insightQuery);
+    isFeatured: true,
+  }
+  const insightsRes = await getInsightList(insightQuery, 1, 4)
+  const insights = insightsRes?.items
 
   // Initiate data
   const ourExperience = service.our_experiences || [""];

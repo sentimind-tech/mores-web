@@ -48,7 +48,7 @@ const menuData = [
       menus: [
         {
           title: "Insight",
-          link: "/insight",
+          link: "/insights",
         },
       ],
       thumb: "/images/thumb/thumb-menu-insight.jpg",

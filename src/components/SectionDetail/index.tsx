@@ -68,15 +68,18 @@ export const SectionDetail = ({
           <SectionHeader title="FEATURED INSIGHTS" />
           <div className="grid grid-cols-4 gap-50">
             {insights.map((insight) => {
-              const insightIndusties = insight.expand?.industry_tags || []
-              const subTitle =
-                insightIndusties.length > 1 ? insightIndusties[0].name : ''
+              let subTitle = ''
+              if (insight?.expand?.industry_tags) {
+                subTitle = insight.expand?.industry_tags?.name
+              } else if (insight?.expand?.service_tags) {
+                subTitle = insight.expand?.service_tags?.name
+              }
               return (
                 <InsightCard
                   key={insight.id}
                   image={`${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${insight.button_image}`}
                   title={insight.title}
-                  description={insight.summary}
+                  description={insight.description}
                   subtitle={subTitle}
                   path={`/insights/${insight.id}`}
                 />
