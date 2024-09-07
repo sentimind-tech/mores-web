@@ -30,20 +30,12 @@ export default async function InsightDetail({ params }: any) {
   // Initiate data
   const coverImage = insight.cover_image
   const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${coverImage}`
-  // const coverImagePath = '/images/bg-insight-detail.png'
 
-  const authors = [
-    { name: 'Asutosh Padhi', url: 'https://example.com/asutosh-padhi' },
-    { name: 'Sven Smit', url: 'https://example.com/sven-smit' },
-    { name: 'Ezra Greenberg', url: 'https://example.com/ezra-greenberg' },
-    {
-      name: 'Roman Belotserkovskiy',
-      url: 'https://example.com/roman-belotserkovskiy',
-    },
-  ]
   const pageSubtitle = insight?.expand?.industry_tags
     ? 'INSIGHT/INDUSTRIES/' + insight?.expand?.industry_tags.name.toUpperCase()
     : 'INSIGHT/SERVICES/' + insight?.expand?.service_tags?.name.toUpperCase()
+
+  const authors = insight.expand?.authors || []
   return (
     <Layout>
       <section className="flex flex-col gap-72 text-inter">

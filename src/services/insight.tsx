@@ -66,7 +66,7 @@ async function getInsightList(
 async function getInsightDetail(id: string) {
   try {
     let response = await pb.collection('insights').getOne<TInsight>(id, {
-      expand: 'industry_tags,service_tags',
+      expand: 'industry_tags,service_tags,authors',
     })
     return response
   } catch (error) {
