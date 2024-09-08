@@ -3,7 +3,7 @@ import CompanyInfoCard from '@/components/CompanyInfoCard'
 import GoogleMap from '@/components/GoogleMap'
 import Layout from '@/components/Layout'
 import { PageHeader } from '@/components/PageHeader'
-import ReactUsForm from '@/components/ReachUsForm'
+import ReachUsForm from '@/components/ReachUsForm'
 import { SectionInfo } from '@/components/SectionInfo'
 import { getConfigByKey } from '@/services/app_configs'
 import {
@@ -143,7 +143,7 @@ export default async function ContactUs({ params }: any) {
             </CompanyInfoCard>
           </div>
           
-          <ReactUsForm />
+          <ReachUsForm />
         </section>
       </section>
     </Layout>
