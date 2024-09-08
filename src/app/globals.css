@@ -153,4 +153,20 @@ body {
   display: inline-block !important;
 }
 
+.google-map-iframe {
+  width: 100%;
+  height: 418px;
+}
 
+.contact-us-form-container {
+  @apply flex flex-col gap-12 text-[1.25rem] leading-[1.75rem];
+}
+.contact-us-input {
+  @apply font-inter text-[1rem] leading-[1.25rem] outline-none py-20 border-b border-gray-cloud focus:border-b-2;
+}
+.contact-us-input.error {
+  @apply border-red border-b-2 placeholder-red;
+}
+.error-text {
+  @apply text-red
+}
