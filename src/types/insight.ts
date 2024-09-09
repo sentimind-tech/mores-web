@@ -17,7 +17,11 @@ export type TInsight = {
   description: string
   summary: string[]
   pdf_file: string
-  button_image: string[]
+  button_image: string;
   expand?: TRelation
   cover_image: string
 }
+
+export type TInsightPagination = TResponsePaginationProps & {
+  items: TInsight[];
+};
