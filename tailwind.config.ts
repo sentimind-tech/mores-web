@@ -91,6 +91,9 @@ const config: Config = {
         "home-insight-thumb-2":
           "linear-gradient(106.91deg, rgba(235, 60, 149, 0.7) -1.12%, rgba(0, 162, 182, 0.7) 100%)",
       },
+      boxShadow: {
+        "lang-selector": "0 6px 12px rgba(0,0,0,.175)",
+      },
     },
   },
   plugins: [],

@@ -3,9 +3,12 @@ import { BodyText, HeadingText } from "../Text";
 import { TMenuContentProps } from "@/types/Menu";
 import Link from "next/link";
 import { ButtonPrimary } from "../Button";
+import { useLocale } from "next-intl";
 
 const MenuContent = (props: TMenuContentProps) => {
   const { slug, data } = props;
+  const localActive = useLocale();
+
   return (
     <div className="block">
       {data?.title && (
@@ -33,7 +36,7 @@ const MenuContent = (props: TMenuContentProps) => {
                   </BodyText>
 
                   {item.link && item.link !== "" && (
-                    <Link href={item.link}>
+                    <Link href={`/${localActive}${item.link}`}>
                       <ButtonPrimary className="uppercase text-[0.563rem] leading-[0.675rem] min-w-[5rem] !p-4">
                         Visit Page
                       </ButtonPrimary>

@@ -16,13 +16,14 @@ export default async function Homepage({ params: { locale } }: Props) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
 
-  const insightData = await getInsightForHome();
+  const insightData = await getInsightForHome(1, 3);
+  const firstInsightData = await getInsightForHome(1, 1);
   const servicesData = await getServiceList();
 
   return (
     <Layout>
       <HomeBanner />
-      <HomeHighlight />
+      <HomeHighlight data={firstInsightData} />
       <HomeServices list={servicesData} />
       <HomeInsight list={insightData} />
       <HomeHelp

@@ -10,6 +10,7 @@ import Link from "next/link";
 import { TIndustry } from "@/types/industry";
 import { TService } from "@/types/service";
 import { TMenuServicesProps } from "@/types/Menu";
+import { useLocale } from "next-intl";
 
 import navmenu from "@/data/navmenu.json";
 
@@ -131,6 +132,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
   const [selectedMenu, setSelectedMenu] = useState<string | null>();
+  const localActive = useLocale();
 
   const handleCloseDrawer = () => {
     setClose && setClose(false);
@@ -162,27 +164,24 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
     const setInitialMenu = windowWidth >= 1024 ? menuData[0].slug : null;
 
     setSelectedMenu(setInitialMenu);
-  }, []);
+  }, [windowWidth]);
 
   const transformData = (data: TService[]): TMenuServicesProps[] => {
     const groupedData: TMenuServicesProps[] = [];
 
-    if (data == undefined) return [];
+    if (data == undefined || data == null) return [];
 
     data
-      .filter(
-        (service) =>
-          service.is_show_on_menu == true && service.parent_service_id === ""
-      )
+      .filter((service) => service.parent_service_id === "")
       .map((service) => {
         const transform = {
           name: service.name,
-          name_link: `/services/${service.id}`,
+          name_link: `/${localActive}/services/${service.id}`,
           submenu: data
             .filter((item) => item.parent_service_id === service.id)
             .map((item) => ({
               title: item.name,
-              link: `/services/${item.id}/${item.parent_service_id}`,
+              link: `/${localActive}/services/${item.id}/${item.parent_service_id}`,
             })),
         };
 
@@ -209,7 +208,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
         <div className="relative lg:z-auto w-full lg:w-[332px] bg-black shrink-0 flex flex-col items-center pt-[1.063rem]">
           <div className="w-full lg:max-w-[210px] py-16 px-32 md:px-[2.5rem] lg:p-0">
             <div className="flex justify-between items-center">
-              <Link href="/">
+              <Link href={`/${localActive}`}>
                 <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
                   <Image
                     src="/images/logo-mores-main-white.png"
@@ -351,7 +350,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                         </div>
                         <div className="w-full block pt-[1.25rem]">
                           <div className="block">
-                            <Link href="/services">
+                            <Link href={`${localActive}/services`}>
                               <BodyText
                                 type="body1"
                                 className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
@@ -399,7 +398,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
 
                             {industries !== null && (
                               <>
-                                <Link href="/industries">
+                                <Link href={`/${localActive}/industries`}>
                                   <BodyText
                                     type="body1"
                                     className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
@@ -414,7 +413,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                       key={index}
                                     >
                                       <Link
-                                        href={`/industries/${item.id}`}
+                                        href={`/${localActive}/industries/${item.id}`}
                                         className="inline-block transition-all duration-300 hover:text-blue-pacific"
                                       >
                                         <BodyText
@@ -439,7 +438,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                               <div className="block py-4 lg:py-0">
                                 <Link
-                                  href="/client-stories"
+                                  href={`/${localActive}/client-stories`}
                                   className="inline-block transition-all duration-300 hover:text-blue-pacific"
                                 >
                                   <BodyText

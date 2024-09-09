@@ -12,7 +12,7 @@ import "./homeServiceStyle.css";
 import withDimension, { TWithDimensionProps } from "@/utils/withDimension";
 import { customConfig } from "../../../../config";
 import { TService } from "@/types/service";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 type THomeServicesProps = TWithDimensionProps & {
   list: TService[];
@@ -37,6 +37,7 @@ const HomeServices = (props: THomeServicesProps) => {
   const sliderRef = useRef<Slider | null>(null);
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [contentReady, setContentReady] = useState(false);
+  const localActive = useLocale();
 
   const transformData = (data: TService[]): THomeServicesItemProps[] => {
     const groupedData: THomeServicesItemProps[] = [];
@@ -47,7 +48,7 @@ const HomeServices = (props: THomeServicesProps) => {
       const transform = {
         title: service.name,
         image: imageInsightPath(service.id, service.button_image),
-        link: `/services/${service.id}`,
+        link: `/${localActive}/services/${service.id}`,
       };
 
       groupedData.push(transform);
