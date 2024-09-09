@@ -99,7 +99,9 @@ export const InsightList = () => {
           >
             <Option value="">Industries</Option>
             {industries?.map((industry) => (
-              <Option value={industry.id}>{industry.name}</Option>
+              <Option key={industry.id} value={industry.id}>
+                {industry.name}
+              </Option>
             ))}
           </Select>
           <Select
@@ -110,7 +112,7 @@ export const InsightList = () => {
           >
             <Option value="">Services</Option>
             {services?.map((service) => (
-              <Option value={service.id}>{service.name}</Option>
+              <Option key={service.id} value={service.id}>{service.name}</Option>
             ))}
           </Select>
         </div>
