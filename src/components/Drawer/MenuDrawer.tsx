@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Drawer, { TDrawerComponentProps } from "@/components/Drawer";
 import Image from "next/image";
@@ -128,9 +130,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
     props;
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
-  const [selectedMenu, setSelectedMenu] = useState<string | null>(
-    windowWidth >= 1024 ? menuData[0].slug : null
-  );
+  const [selectedMenu, setSelectedMenu] = useState<string | null>();
 
   const handleCloseDrawer = () => {
     setClose && setClose(false);
@@ -157,6 +157,12 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   useEffect(() => {
     setWindowWidth(windowDimension.width);
   }, [windowDimension]);
+
+  useEffect(() => {
+    const setInitialMenu = windowWidth >= 1024 ? menuData[0].slug : null;
+
+    setSelectedMenu(setInitialMenu);
+  }, []);
 
   const transformData = (data: TService[]): TMenuServicesProps[] => {
     const groupedData: TMenuServicesProps[] = [];

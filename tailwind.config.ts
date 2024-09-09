@@ -51,6 +51,7 @@ const config: Config = {
           light: "#F5F5F5",
           steel: "#A0A0A0",
           ash: "#989898",
+          ironside: "#666666",
         },
         blue: {
           pacific: "#00A2B6",

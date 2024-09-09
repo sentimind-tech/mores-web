@@ -46,7 +46,7 @@ const Header = () => {
     fetchDataServices();
     fetchDataIndustries();
   };
-
+  console.log("servicesList", servicesList);
   return (
     <>
       <div className="sticky z-[100] top-0 top px-[1rem] md:px-[2.5rem] xl:px-[3.125rem] bg-white">

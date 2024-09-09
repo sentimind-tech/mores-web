@@ -78,5 +78,5 @@ export const metadata: Metadata = {
   title: "Mores | Services",
 };
 
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
