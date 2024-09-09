@@ -168,5 +168,6 @@ body {
   @apply border-red border-b-2 placeholder-red;
 }
 .error-text {
-  @apply text-red
+  @apply text-red;
 }
+
