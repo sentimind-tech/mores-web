@@ -12,6 +12,7 @@ import "./homeServiceStyle.css";
 import withDimension, { TWithDimensionProps } from "@/utils/withDimension";
 import { customConfig } from "../../../../config";
 import { TService } from "@/types/service";
+import { useTranslations, useLocale } from "next-intl";
 
 type THomeServicesProps = TWithDimensionProps & {
   list: TService[];
@@ -31,10 +32,12 @@ const imageInsightPath = (id: string, name: string) => {
 
 const HomeServices = (props: THomeServicesProps) => {
   const { windowDimension, list } = props;
+  const t = useTranslations("Homepage");
   const [imageIndex, setImageIndex] = useState(0);
   const sliderRef = useRef<Slider | null>(null);
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [contentReady, setContentReady] = useState(false);
+  const localActive = useLocale();
 
   const transformData = (data: TService[]): THomeServicesItemProps[] => {
     const groupedData: THomeServicesItemProps[] = [];
@@ -45,7 +48,7 @@ const HomeServices = (props: THomeServicesProps) => {
       const transform = {
         title: service.name,
         image: imageInsightPath(service.id, service.button_image),
-        link: `/services/${service.id}`,
+        link: `/${localActive}/services/${service.id}`,
       };
 
       groupedData.push(transform);
@@ -103,7 +106,9 @@ const HomeServices = (props: THomeServicesProps) => {
             type="h3"
             className="uppercase text-24 md:text-28 leading-[1.75rem] md:leading-[2.5rem]"
           >
-            MORES SPECIALIZES <br /> ON GAME-CHANGING ASPECTS
+            {t.rich("specialized_title", {
+              br: () => <br />,
+            })}
           </HeadingText>
 
           <Link href="" className="hidden md:block">

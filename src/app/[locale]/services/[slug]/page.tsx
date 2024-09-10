@@ -7,7 +7,7 @@ import {
   TServiceParams,
 } from "@/services/service";
 import { notFound } from "next/navigation";
-import { customConfig } from "../../../../config";
+import { customConfig } from "../../../../../config";
 import { getInsightList, TInsightParams } from "@/services/insight";
 import Layout from "@/components/Layout";
 
@@ -25,9 +25,9 @@ export default async function ServiceDetail({ params }: any) {
   const insightQuery: TInsightParams = {
     serviceId: params.slug,
     isFeatured: true,
-  }
-  const insightsRes = await getInsightList(insightQuery, 1, 4)
-  const insights = insightsRes?.items
+  };
+  const insightsRes = await getInsightList(insightQuery, 1, 4);
+  const insights = insightsRes?.items;
 
   // Initiate data
   const ourExperience = service.our_experiences || [""];
