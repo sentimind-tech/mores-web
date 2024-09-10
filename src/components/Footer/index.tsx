@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { BodyText, HeadingText } from "../Text";
 import Link from "next/link";
+import LangSelector from "../LangSelector";
 
 const navlink = [
   {
@@ -147,9 +148,9 @@ const Footer = () => {
               </Link>
             </div>
             <div className="block">
-              <HeadingText className="text-18 leading-[1.35rem] text-blue-pacific uppercase block mb-[2.594rem]">
-                GLOBAL | EN
-              </HeadingText>
+              <div className="block mb-[2.594rem]">
+                <LangSelector />
+              </div>
 
               <div className="max-w-[212px] mb-[2.875rem]">
                 <HeadingText className="text-16 leading-[1.2rem] text-blue-pacific uppercase block mb-[0.313rem]">
@@ -189,9 +190,7 @@ const Footer = () => {
       <div className="w-full block md:hidden">
         <div className="flex flex-col gap-[2.625rem]">
           <div className="text-right">
-            <HeadingText className="text-18 leading-[1.35rem] text-blue-pacific uppercase block">
-              GLOBAL | EN
-            </HeadingText>
+            <LangSelector />
           </div>
           <div className="relative block w-full max-w-[9.5rem] aspect-[16/5] z-[0]">
             <Image

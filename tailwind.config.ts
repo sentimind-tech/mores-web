@@ -51,6 +51,7 @@ const config: Config = {
           light: "#F5F5F5",
           steel: "#A0A0A0",
           ash: "#989898",
+          ironside: "#666666",
         },
         blue: {
           pacific: "#00A2B6",
@@ -89,6 +90,9 @@ const config: Config = {
           "linear-gradient(181.61deg, rgba(0, 0, 0, 0) 33.46%, rgba(0, 0, 0, 0.5) 80.3%)",
         "home-insight-thumb-2":
           "linear-gradient(106.91deg, rgba(235, 60, 149, 0.7) -1.12%, rgba(0, 162, 182, 0.7) 100%)",
+      },
+      boxShadow: {
+        "lang-selector": "0 6px 12px rgba(0,0,0,.175)",
       },
     },
   },

@@ -10,6 +10,7 @@ import { getAllServices } from "@/services/service";
 import { TService } from "@/types/service";
 import { TIndustry } from "@/types/industry";
 import { getIndustryList } from "@/services/industry";
+import { useLocale } from "next-intl";
 
 const Header = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
@@ -17,6 +18,7 @@ const Header = () => {
   const [industriesList, setIndustriesList] = useState<TIndustry[] | null>(
     null
   );
+  const localActive = useLocale();
 
   const handleNavbar = () => {
     setOpenNavbar(!openNavbar);
@@ -64,7 +66,7 @@ const Header = () => {
                 <span></span>
               </div>
             </div>
-            <Link href="/">
+            <Link href={`/${localActive}`}>
               <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
                 <Image
                   src="/images/logo-mores-main.png"

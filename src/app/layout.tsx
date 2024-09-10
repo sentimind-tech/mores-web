@@ -1,40 +1,13 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import 'toastr/build/toastr.min.css';
-import "./globals.css";
+import { ReactNode } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Mores Strategics",
-  description:
-    "Consultant/advisory specializes in communication, creative financing, business & investment through data analysis, technology & ethnographic approach",
-  icons: {
-    icon: [
-      {
-        media: "(prefers-color-scheme: light)",
-        url: "/images/favicon-black-32x32.png",
-        href: "/images/favicon-black-32x32.png",
-      },
-      {
-        media: "(prefers-color-scheme: dark)",
-        url: "/images/favicon-white-32x32.png",
-        href: "/images/favicon-white-32x32.png",
-      },
-    ],
-  },
+type Props = {
+  children: ReactNode;
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({ children }: Props) {
+  return children;
 }
 
 export const dynamic = "force-dynamic";
