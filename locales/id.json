@@ -5,5 +5,11 @@
   "Common": {
     "title": "Mores Strategics",
     "description": "Consultant/advisory specializes in communication, creative financing, business & investment through data analysis, technology & ethnographic approach"
+  },
+  "IndustryPage": {
+    "title": "INDUSTRI",
+    "description_header": "STRATEGI KAMI DITAILORKAN UNTUK INDUSTRI SPESIFIK DENGAN PENDEKATAN MULTI-ASPEK.",
+    "description_content": "Dengan membuat profil klien terlebih dahulu, mengidentifikasi industri dan target pasar mereka, kami dapat melakukan berbagai pendekatan riset untuk mencapai strategi dan solusi terbaik bagi tujuan klien kami.<br /><br />Hal ini melibatkan pemahaman karakteristik unik mereka, industri spesifik tempat mereka beroperasi, dan pasar yang ingin mereka tuju. Dengan memperoleh pemahaman mendalam tentang faktor-faktor ini, kami dapat menyesuaikan pendekatan riset kami agar selaras dengan kebutuhan spesifik mereka. Kami kemudian menggunakan berbagai metodologi riset untuk mengumpulkan wawasan dan data yang komprehensif. Riset multifaset ini memungkinkan kami untuk mengembangkan rencana strategis yang disesuaikan dengan tujuan klien, memastikan bahwa kami memberikan solusi yang paling efektif untuk membantu mereka mencapai tujuan mereka.",
+    "list_title": "JELAJAHI KEAHLIAN KAMI"
   }
 }

@@ -1,48 +1,60 @@
-import { PageHeader } from "@/components/PageHeader";
-import { SectionDetail } from "@/components/SectionDetail";
+import { PageHeader } from '@/components/PageHeader'
+import { SectionDetail } from '@/components/SectionDetail'
 import {
   ServiceDetailHeader,
   TServiceDetailHeaderMenuItem,
-} from "@/components/ServiceDetailHeader";
-import { getIndustryDetail } from "@/services/industry";
-import { notFound } from "next/navigation";
-import { customConfig } from "../../../../../config";
-import { getInsightList, TInsightParams } from "@/services/insight";
-import Layout from "@/components/Layout";
+} from '@/components/ServiceDetailHeader'
+import { getIndustryDetail } from '@/services/industry'
+import { notFound } from 'next/navigation'
+import { customConfig } from '../../../../../config'
+import { getInsightList, TInsightParams } from '@/services/insight'
+import Layout from '@/components/Layout'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
 const menus: TServiceDetailHeaderMenuItem[] = [
   {
-    name: "OVERVIEW",
-    id: "overview",
+    name: 'OVERVIEW',
+    id: 'overview',
   },
   {
-    name: "OUR EXPERIENCE",
-    id: "our-experience",
+    name: 'OUR EXPERIENCE',
+    id: 'our-experience',
   },
   {
-    name: "FEATURED INSIGHT",
-    id: "featured-insight",
+    name: 'FEATURED INSIGHT',
+    id: 'featured-insight',
   },
-];
+]
 
-export default async function IndustryDetail({ params }: any) {
-  const industry = await getIndustryDetail(params.slug);
-  if (!industry) notFound();
+type Props = {
+  params: {
+    locale: string
+    slug: string
+  }
+}
+
+export default async function IndustryDetail({
+  params: { locale, slug },
+}: Props) {
+  unstable_setRequestLocale(locale)
+
+  const industry = await getIndustryDetail(slug)
+  if (!industry) notFound()
 
   // Fetch Insight
   const query: TInsightParams = {
     industryId: industry.id,
     isFeatured: true,
-  };
-  const insightsRes = await getInsightList(query, 1, 4);
-  const insights = insightsRes?.items;
+  }
+  const insightsRes = await getInsightList(query, 1, 4)
+  const insights = insightsRes?.items
 
   // Initiate data
-  const ourExperience = industry.our_experiences || [""];
-  const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${ourExperience[0]}`;
+  const ourExperience = industry.our_experiences || ['']
+  const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${ourExperience[0]}`
 
-  const coverImage = industry.cover_image;
-  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${coverImage}`;
+  const coverImage = industry.cover_image
+  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${coverImage}`
 
   return (
     <Layout>
@@ -57,7 +69,9 @@ export default async function IndustryDetail({ params }: any) {
           <div className="border-b border-gray-ash py-24 px-64">
             <ServiceDetailHeader
               title={industry.name}
-              overview={industry.overview}
+              overview={
+                locale == 'id' ? industry.overview_id : industry.overview_en
+              }
               ourExperience={ourExperiencePath}
               insights={insights || []}
             />
@@ -65,14 +79,16 @@ export default async function IndustryDetail({ params }: any) {
         </section>
 
         <SectionDetail
-          overview={industry.overview}
+          overview={
+            locale == 'id' ? industry.overview_id : industry.overview_en
+          }
           ourExperience={ourExperiencePath}
           insights={insights || undefined}
         />
       </section>
     </Layout>
-  );
+  )
 }
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
