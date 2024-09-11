@@ -3,7 +3,8 @@ export type TService = {
   parent_service_id?: string;
   name: string;
   description: string;
-  overview: string;
+  overview_id: string;
+  overview_en: string;
   how_we_help: string;
   cover_image: string;
   is_featured: boolean;
