@@ -11,21 +11,6 @@ import { getInsightList, TInsightParams } from '@/services/insight'
 import Layout from '@/components/Layout'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
-const menus: TServiceDetailHeaderMenuItem[] = [
-  {
-    name: 'OVERVIEW',
-    id: 'overview',
-  },
-  {
-    name: 'OUR EXPERIENCE',
-    id: 'our-experience',
-  },
-  {
-    name: 'FEATURED INSIGHT',
-    id: 'featured-insight',
-  },
-]
-
 type Props = {
   params: {
     locale: string
