@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import HomeBanner from "@/components/Section/HomeBanner";
 import HomeHighlight from "@/components/Section/HomeHighlight";
-import HomeHelp from "@/components/Section/SectionHelp";
+import SectionHelp from "@/components/Section/SectionHelp";
 import HomeServices from "@/components/Section/HomeServices";
 import HomeInsight from "@/components/Section/HomeInsight";
 import { getInsightForHome } from "@/services/insight";
@@ -26,7 +26,7 @@ export default async function Homepage({ params: { locale } }: Props) {
       <HomeHighlight data={firstInsightData} />
       <HomeServices list={servicesData} />
       <HomeInsight list={insightData} />
-      <HomeHelp
+      <SectionHelp
         title="Have questions or need assistance?"
         button_text="Contact Us"
         link=""

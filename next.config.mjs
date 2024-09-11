@@ -24,9 +24,8 @@ const nextConfig = {
         port: "",
       },
       {
-        protocol: "http",
-        hostname: "103.186.1.45",
-        port: "82",
+        hostname: process.env.NEXT_PUBLIC_IMAGE_HOSTNAME,
+        port: process.env.NEXT_PUBLIC_IMAGE_PORT,
       },
     ],
   },
