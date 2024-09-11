@@ -9,8 +9,7 @@ import { getIndustryList } from '@/services/industry'
 import Layout from '@/components/Layout'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
-import HeaderContent from '@/components/IndustryPage/HeaderContent'
-import IndustryList from '@/components/IndustryPage/IndustryList'
+import IndustryList from '@/components/Section/IndustryPage/IndustryList'
 
 type Props = {
   params: { locale: string }
