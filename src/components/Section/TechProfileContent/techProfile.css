@@ -1,0 +1,3 @@
+.client-slider .slick-dots {
+  @apply !bottom-[-10px];
+}
