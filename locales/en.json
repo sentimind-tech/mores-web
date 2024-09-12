@@ -2,6 +2,20 @@
   "Homepage": {
     "specialized_title": "MORES SPECIALIZES <br></br> ON GAME-CHANGING ASPECTS"
   },
+  "TechMores": {
+    "profile_banner_title": "DIGITAL & SECURITY TECH",
+    "profile_banner_desc": "UniFYING Vision through Technology Solution",
+    "profile_banner_button": "CONTACT US",
+    "ecosystem_title_1": "An ecosystem of licensed AND seasoned experts",
+    "ecosystem_text_desc_1": "Works in partnership with Bandung Institute of Technology (ITB)’s Center of Defense and Security Technology (Pustekhankam).",
+    "ecosystem_text_desc_2": "Own commercial license and certification to operate and commercialize both local and global technology products.",
+    "ecosystem_text_desc_3": "Trusted by various government institutions in the implementation of Unmanned Aircraft System (UAS), network security, and multimedia information.",
+    "ecosystem_title_2": "An ecosystem of <br></br> licensed AND seasoned experts",
+    "ecosystem_image_desc_1": "OUR SYSTEM SOFTWARE IS TAILORED EXCLUSIVELY FOR EACH CLIENT’S NEEDS AND CAPACITIES",
+    "ecosystem_image_desc_2": "A TECHNOLOGICAL SOLUTION THAT IS WELL-INTEGRATED TO CLIENT’S CURRENT SYSTEM",
+    "ecosystem_image_desc_3": "Supported by a network of universities, industries, and international institutions",
+    "client_title": "CLIENT & PARTNERS"
+  },
   "Common": {
     "title": "Mores Strategics",
     "description": "Consultant/advisory specializes in communication, creative financing, business & investment through data analysis, technology & ethnographic approach"

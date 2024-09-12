@@ -90,6 +90,8 @@ const config: Config = {
           "linear-gradient(181.61deg, rgba(0, 0, 0, 0) 33.46%, rgba(0, 0, 0, 0.5) 80.3%)",
         "home-insight-thumb-2":
           "linear-gradient(106.91deg, rgba(235, 60, 149, 0.7) -1.12%, rgba(0, 162, 182, 0.7) 100%)",
+        "tech-banner-overlay":
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))",
       },
       boxShadow: {
         "lang-selector": "0 6px 12px rgba(0,0,0,.175)",
