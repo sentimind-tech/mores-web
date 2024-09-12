@@ -171,3 +171,6 @@ body {
   @apply text-red;
 }
 
+.careers-image-table{
+  border-spacing: 1rem 0.875rem;
+}
