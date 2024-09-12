@@ -91,7 +91,7 @@ const menuData = [
       menus: [
         {
           title: "Mores Tech Profile",
-          link: "/tech-profile",
+          link: "/tech/profile",
         },
         {
           title: "Mores tech Service",

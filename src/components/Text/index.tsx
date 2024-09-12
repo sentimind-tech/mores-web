@@ -58,7 +58,7 @@ const HeadingText = ({
   if (type == "h2") {
     return (
       <h2
-        className={`font-supplymono text-[2.5rem] leading-[3rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-32 md:text-[2.5rem] leading-[2.5rem] md:leading-[3rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -70,7 +70,7 @@ const HeadingText = ({
   if (type == "h3") {
     return (
       <h3
-        className={`font-supplymono text-[1.75rem] leading-[2.5rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-20 md:text-[1.75rem] leading-[1.75rem] md:leading-[2.5rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -82,7 +82,7 @@ const HeadingText = ({
   if (type == "h4") {
     return (
       <h4
-        className={`font-supplymono text-[1.5rem] leading-[2rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-18 md:text-[1.5rem] leading-[1.5rem] md:leading-[2rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
@@ -94,7 +94,7 @@ const HeadingText = ({
   if (type == "h5") {
     return (
       <h5
-        className={`font-supplymono text-[1.25rem] leading-[1.75rem] tracking-[-0.02em] ${
+        className={`font-supplymono text-16 md:text-[1.25rem] leading-[1.313rem] md:leading-[1.75rem] tracking-[-0.02em] ${
           className ?? ""
         }`}
       >
