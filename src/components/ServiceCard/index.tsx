@@ -34,7 +34,7 @@ export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
         </div>
       </div>
       <Link
-        href={`/${localActive}/` + path}
+        href={path}
         className="mt-5 flex justify-start items-center gap-10 cursor-pointer"
       >
         <span className="text-blue-pacific leading-[19.2px] font-normal text-16 font-supplymono">

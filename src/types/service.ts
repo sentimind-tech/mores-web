@@ -5,7 +5,8 @@ export type TService = {
   description: string;
   overview_id: string;
   overview_en: string;
-  how_we_help: string;
+  how_we_help_id: string;
+  how_we_help_en: string;
   cover_image: string;
   is_featured: boolean;
   is_show_on_menu: boolean;
