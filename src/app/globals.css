@@ -171,6 +171,16 @@ body {
   @apply text-red;
 }
 
-.careers-image-table{
+.careers-image-table {
   border-spacing: 1rem 0.875rem;
+}
+
+.career-swiper .swiper-slide:not(.career-image-active) {
+  height: 218px !important;
+}
+.career-image-active {
+  height: 294px !important;
+}
+.career-swiper .swiper-wrapper {
+  align-items: center;
 }

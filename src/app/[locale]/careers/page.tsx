@@ -6,9 +6,7 @@ import { SectionHeader } from '@/components/SectionHeader'
 import { SectionInfo } from '@/components/SectionInfo'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css';
-import { FreeMode, Pagination } from 'swiper/modules'
+import CareerSwiper from '@/components/Section/Careers/CareerSwiper'
 
 export default async function CareersPage({ params }: any) {
   return (
@@ -71,7 +69,7 @@ export default async function CareersPage({ params }: any) {
             </div>
           </div>
 
-          <div className="mb-100">
+          <div>
             <SectionHeader title="LIFE AT MORES" />
             <div className="w-full">
               <table className="w-full border-separate careers-image-table h-[511px] mt-[32px]">
@@ -163,32 +161,13 @@ export default async function CareersPage({ params }: any) {
               </table>
             </div>
           </div>
-          <div className="mb-[143px]">
-            <SectionHeader title="WORK AT MORES" />
-            <div>
-              <Swiper
-                slidesPerView={3}
-                spaceBetween={30}
-                freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[FreeMode, Pagination]}
-                className="mySwiper"
-              >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
-              </Swiper>
-            </div>
-          </div>
         </section>
+        <div className="mb-[143px]">
+          <div className="px-120">
+            <SectionHeader title="WORK AT MORES" />
+          </div>
+          <CareerSwiper />
+        </div>
       </section>
     </Layout>
   )
