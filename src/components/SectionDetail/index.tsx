@@ -20,7 +20,7 @@ export const SectionDetail = ({
   services,
 }: TSectionDetailProp) => {
   return (
-    <section id="" className="px-120 py-100 flex flex-col gap-100">
+    <section id="" className="section-padding flex flex-col gap-100">
       {overview && (
         <section id="overview" className="">
           <div dangerouslySetInnerHTML={{ __html: overview }}></div>

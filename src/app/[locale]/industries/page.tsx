@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Metadata } from "next";
-import { SectionHeader } from "@/components/SectionHeader";
-import { ServiceCard } from "@/components/ServiceCard";
-import { PageHeader } from "@/components/PageHeader";
-import { SectionInfo } from "@/components/SectionInfo";
-import { TIndustry } from "@/types/industry";
-import { getIndustryList } from "@/services/industry";
-import Layout from "@/components/Layout";
+import React, { useEffect, useState } from 'react'
+import { Metadata } from 'next'
+import { SectionHeader } from '@/components/SectionHeader'
+import { ServiceCard } from '@/components/ServiceCard'
+import { PageHeader } from '@/components/PageHeader'
+import { SectionInfo } from '@/components/SectionInfo'
+import { TIndustry } from '@/types/industry'
+import { getIndustryList } from '@/services/industry'
+import Layout from '@/components/Layout'
 
 export default async function Industry({ params }: any) {
-  const industryList = await getIndustryList();
+  const industryList = await getIndustryList()
   return (
     <Layout>
       <section className="flex flex-col">
         <section>
           <PageHeader background="/images/bg-industries.png" />
         </section>
-        <section className="px-120 py-100 flex flex-col gap-100">
+        <section className="section-padding flex flex-col gap-100">
           <section className="">
             <SectionInfo title="INDUSTRIES">
               <div className="flex flex-col gap-48">
@@ -24,7 +24,7 @@ export default async function Industry({ params }: any) {
                   OUR STRATEGY IS TAILORED FOR SPECIFIC INDUSTRY WITH MULTI
                   APPROACH BASIS.
                 </div>
-                <p className="font-normal text-18 leading-[1.75rem] text-justify">
+                <p className="section-info-p">
                   By profiling the clients first, identifying their industry and
                   their targeted market, we are able to conduct multiple
                   research approaches to reach the best possible strategy and
@@ -61,12 +61,12 @@ export default async function Industry({ params }: any) {
         </section>
       </section>
     </Layout>
-  );
+  )
 }
 
 export const metadata: Metadata = {
-  title: "Mores | Industries",
-};
+  title: 'Mores | Industries',
+}
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'

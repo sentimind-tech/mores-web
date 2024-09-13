@@ -5,6 +5,7 @@ import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import { Swiper as SwiperType } from 'swiper/types' // Importing Swiper types for TypeScript
 import SwiperClass from 'swiper'
+import { Autoplay } from 'swiper/modules'
 const imageList = [
   '/images/careers/career-slider-1.png',
   '/images/careers/career-slider-1.png',
@@ -30,15 +31,16 @@ const CareerSwiper = () => {
         })
 
         // Add new classes to the active slides
-        const element = swiper.el.querySelector('.swiper-slide-active')
-        const activeSlide = element?.nextElementSibling
-        const nextSlide = activeSlide?.nextElementSibling
-        const nextNextSlide = nextSlide?.nextElementSibling
-
-        if (activeSlide) activeSlide.classList.add('career-image-prev-active')
-        if (nextSlide) nextSlide.classList.add('career-image-active')
-        if (nextNextSlide)
-          nextNextSlide.classList.add('career-image-next-active')
+        const firstSlide = swiper.el.querySelector('.swiper-slide-active')
+        const secondSlide = firstSlide?.nextElementSibling
+        const thirdSlide = secondSlide?.nextElementSibling
+        const fourthSlide = thirdSlide?.nextElementSibling
+        const fifthSlide = fourthSlide?.nextElementSibling
+        if (firstSlide) firstSlide.classList.add('career-image-prev-active')
+        if (secondSlide) secondSlide.classList.add('career-image-prev-active')
+        if (thirdSlide) thirdSlide.classList.add('career-image-active')
+        if (fourthSlide) fourthSlide.classList.add('career-image-next-active')
+        if (fifthSlide) fifthSlide.classList.add('career-image-next-active')
       }, 100)
     }
   }
@@ -62,7 +64,12 @@ const CareerSwiper = () => {
         slidesPerView={5}
         spaceBetween={20}
         freeMode={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         loop={true}
+        modules={[Autoplay]}
         className="mySwiper"
       >
         {imageList.map((image, index) => {

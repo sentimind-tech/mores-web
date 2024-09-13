@@ -13,16 +13,16 @@ export default async function CareersPage({ params }: any) {
     <Layout>
       <section className="flex flex-col">
         <PageHeader background="/images/bg-careers.png" title="CAREERS" />
-        <section className="px-120 py-100 flex flex-col">
+        <section className="section-padding flex flex-col">
           <SectionInfo title="JOBS">
-            <p className="font-normal text-18 leading-[1.75rem] text-justify">
+            <p className="section-info-p">
               At Mores Strategic, we don’t just solve business challenges — we
               create the future. If you have a passion for diving into data,
               crafting innovative strategies, and achieving exceptional results,
               our place is your home.
             </p>
           </SectionInfo>
-          <div className="mt-[61px] mb-[87px] grid grid-cols-4 gap-50">
+          <div className="mt-32 mb-48 lg:mt-[61px] lg:mb-[87px] grid grid-cols-1 mobile-min:grid-cols-2 lg:grid-cols-4 gap-20 mobile-min:gap-32 lg:gap-50">
             <ValueCard
               title="Advance Your Career"
               description="We believe that personal and professional growth are the keys to our collective success. Here, you will have the opportunity to lead challenging projects, acquire new skills, and reach your full potential."
@@ -42,7 +42,7 @@ export default async function CareersPage({ params }: any) {
           </div>
 
           <SectionInfo title="CAREER OPPORTUNITIES">
-            <p className="font-normal text-18 leading-[1.75rem] text-justify">
+            <p className="section-info-p">
               Are you a strategic thinker, a data analysis expert, or a
               visionary innovator? We offer a range of challenging and rewarding
               positions that might be the perfect fit for you. Explore the

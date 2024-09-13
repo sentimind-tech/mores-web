@@ -12,9 +12,9 @@ export const SectionInfo = ({
 }: TSectionInfoProp) => {
   return (
     <div className="w-full max-w-[1040px] mx-auto">
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-1 mobile-min:grid-cols-3 gap-10 mobile-min:gap-0">
         <div className="block">
-          <div className="font-supplymono text-28 leading-10 font-normal text-blue-pacific">
+          <div className="font-supplymono text-18 lg:text-28 leading-10 font-normal text-blue-pacific">
             {title}
           </div>
           {subtitle && (

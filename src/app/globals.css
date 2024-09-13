@@ -183,4 +183,16 @@ body {
 }
 .career-swiper .swiper-wrapper {
   align-items: center;
+  min-height: 294px;
+}
+.career-swiper .swiper {
+  width: 125%;
+  margin-left: -12.5%;
+}
+
+.section-padding {
+  @apply px-32 py-24 md:px-64 md:py-50 lg:px-120 lg:py-100;
+}
+.section-info-p {
+  @apply font-normal text-sm md:text-base lg:text-18 lg:leading-[1.75rem] text-justify;
 }
