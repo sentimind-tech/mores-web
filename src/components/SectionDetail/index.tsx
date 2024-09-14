@@ -6,6 +6,7 @@ import { InsightCard } from '../InsightCard'
 import { customConfig } from '../../../config'
 import { TService } from '@/types/service'
 import { ServiceCard } from '../ServiceCard'
+import { useLocale } from 'next-intl'
 
 type TSectionDetailProp = {
   overview?: string
@@ -19,6 +20,8 @@ export const SectionDetail = ({
   insights,
   services,
 }: TSectionDetailProp) => {
+  const localActive = useLocale()
+
   return (
     <section id="" className="section-padding flex flex-col gap-100">
       {overview && (
@@ -33,8 +36,8 @@ export const SectionDetail = ({
           <div className="grid grid-cols-3 gap-50">
             {services.map((service) => {
               const path = service.parent_service_id
-                ? `/services/${service.parent_service_id}/${service.id}`
-                : `/services/${service.id}`
+                ? `/${localActive}/services/${service.parent_service_id}/${service.id}`
+                : `/${localActive}/services/${service.id}`
               return (
                 <ServiceCard
                   key={service.id}
@@ -81,7 +84,7 @@ export const SectionDetail = ({
                   title={insight.title}
                   description={insight.description}
                   subtitle={subTitle}
-                  path={`/insights/${insight.id}`}
+                  path={`/${localActive}/insights/${insight.id}`}
                 />
               )
             })}

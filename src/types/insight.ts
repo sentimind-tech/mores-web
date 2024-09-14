@@ -13,7 +13,8 @@ export type TInsight = {
   title: string
   published: string
   read_time: string
-  content: string
+  content_en: string
+  content_id: string
   description: string
   summary: string[]
   pdf_file: string

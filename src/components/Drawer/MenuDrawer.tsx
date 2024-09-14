@@ -350,7 +350,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                         </div>
                         <div className="w-full block pt-[1.25rem]">
                           <div className="block">
-                            <Link href={`${localActive}/services`}>
+                            <Link href={`/${localActive}/services`}>
                               <BodyText
                                 type="body1"
                                 className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
