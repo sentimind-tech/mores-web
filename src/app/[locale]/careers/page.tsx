@@ -7,8 +7,14 @@ import { SectionInfo } from '@/components/SectionInfo'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import CareerSwiper from '@/components/Section/Careers/CareerSwiper'
+import {
+  getVacancyList,
+  getVacancyListGroupedByField,
+} from '@/services/vacancy'
 
 export default async function CareersPage({ params }: any) {
+  const areaList = await getVacancyListGroupedByField('area')
+  const jobList = await getVacancyList()
   return (
     <Layout>
       <section className="flex flex-col">
@@ -52,7 +58,7 @@ export default async function CareersPage({ params }: any) {
           </SectionInfo>
 
           <div className="mt-50 lg:mt-100">
-            <JobList />
+            <JobList jobList={jobList?.items || []} areaList={areaList || []} />
           </div>
 
           <div className="section-padding flex gap-24 items-center justify-center flex-col px-[115px]">
