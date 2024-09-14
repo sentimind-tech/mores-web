@@ -186,7 +186,7 @@ body {
   min-height: 294px;
 }
 .career-swiper .swiper {
-  @apply mobile-min:w-[140%] mobile-min:-ml-[20%] w-[170%] -ml-[35%]
+  @apply mobile-min:w-[140%] mobile-min:-ml-[20%] w-[170%] -ml-[35%];
 }
 
 .section-padding {
@@ -194,4 +194,10 @@ body {
 }
 .section-info-p {
   @apply font-normal text-sm md:text-base lg:text-18 lg:leading-[1.75rem] text-justify;
+}
+.section-navigation {
+  @apply border-b border-gray-ash py-10 px-16 lg:py-24 lg:px-64;
+}
+.section-header-container {
+  @apply flex flex-col gap-24 mobile-min:gap-32 lg:gap-50;
 }

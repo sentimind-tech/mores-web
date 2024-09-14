@@ -54,7 +54,7 @@ export default async function ServiceDetail({
             title={service.name}
             subtitle="FOCUS SERVICES"
           />
-          <div className="border-b border-gray-ash py-24 px-64">
+          <div className="section-navigation">
             <ServiceDetailHeader
               title={service.name}
               overview={
