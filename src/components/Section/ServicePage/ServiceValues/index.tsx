@@ -52,7 +52,7 @@ const ServiceValues = () => {
   const serviceValues =
     localActive == 'id' ? serviceValues_id : serviceValues_en
   return (
-    <section className="grid grid-cols-3 w-full text-black gap-x-48 gap-y-50">
+    <section className="grid grid-cols-1 mobile-min:grid-cols-2 lg:grid-cols-3 w-full text-black gap-x-48 gap-y-50">
       {serviceValues.map((serviceValue) => (
         <ServiceValueCard
           key={serviceValue.title}

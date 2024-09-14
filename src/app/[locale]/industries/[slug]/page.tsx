@@ -51,7 +51,7 @@ export default async function IndustryDetail({
             subtitle="FOCUS INDUSTRIES"
           />
 
-          <div className="border-b border-gray-ash py-24 px-64">
+          <div className="section-navigation">
             <ServiceDetailHeader
               title={industry.name}
               overview={

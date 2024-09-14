@@ -116,7 +116,7 @@ export default async function InsightDetail({
               </div>
             </div>
           </section>
-          <section id="featured-insight" className="flex flex-col gap-50">
+          <section id="featured-insight" className="section-header-container">
             <SectionHeader title="NEXT INSIGHTS" />
             <div className="grid grid-cols-4 gap-50">
               {nextInsights.map((insight) => {
