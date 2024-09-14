@@ -51,15 +51,15 @@ export default async function CareersPage({ params }: any) {
             </p>
           </SectionInfo>
 
-          <div className="mt-100">
+          <div className="mt-50 lg:mt-100">
             <JobList />
           </div>
 
-          <div className="mt-100 mb-100 flex gap-24 items-center justify-center flex-col px-[115px]">
-            <div className="text-blue-pacific font-supplymono leading-[2.5rem] text-[1.75rem]">
+          <div className="section-padding flex gap-24 items-center justify-center flex-col px-[115px]">
+            <div className="text-center text-blue-pacific font-supplymono leading-[1.75rem] lg:leading-[2.5rem] text-18 lg:text-[1.75rem]">
               "A picture is worth a thousand memories."
             </div>
-            <div className="font-inter leading-[1.75rem] text-[1.125rem] text-center">
+            <div className="font-inter text-sm lg:leading-[1.75rem] lg:text-[1.125rem] text-center">
               At Mores, life is more than just work—it's about growth,
               collaboration, and making a meaningful impact. We believe that a
               thriving work environment is built on the foundation of mutual
@@ -134,7 +134,6 @@ export default async function CareersPage({ params }: any) {
                 </tr>
                 <tr>
                   <td>
-                    {' '}
                     <Image
                       src="/images/careers/careers_6.png"
                       alt="Careers 6"
@@ -146,7 +145,6 @@ export default async function CareersPage({ params }: any) {
                     />
                   </td>
                   <td>
-                    {' '}
                     <Image
                       src="/images/careers/careers_7.png"
                       alt="Careers 7"
@@ -163,7 +161,7 @@ export default async function CareersPage({ params }: any) {
           </div>
         </section>
         <div className="mb-[143px]">
-          <div className="px-120">
+          <div className="section-padding">
             <SectionHeader title="WORK AT MORES" />
           </div>
           <CareerSwiper />

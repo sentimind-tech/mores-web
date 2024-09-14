@@ -42,6 +42,26 @@ const CareerSwiper = () => {
         if (fourthSlide) fourthSlide.classList.add('career-image-next-active')
         if (fifthSlide) fifthSlide.classList.add('career-image-next-active')
       }, 100)
+    } else {
+      setTimeout(function () {
+        // Remove existing classes from all slides
+        const allSlides = swiper.el.querySelectorAll('.swiper-slide')
+        allSlides.forEach((slide) => {
+          slide.classList.remove(
+            'career-image-prev-active',
+            'career-image-active',
+            'career-image-next-active'
+          )
+        })
+
+        // Add new classes to the active slides
+        const firstSlide = swiper.el.querySelector('.swiper-slide-active')
+        const secondSlide = firstSlide?.nextElementSibling
+        const thirdSlide = secondSlide?.nextElementSibling
+        if (firstSlide) firstSlide.classList.add('career-image-prev-active')
+        if (secondSlide) secondSlide.classList.add('career-image-active')
+        if (thirdSlide) thirdSlide.classList.add('career-image-next-active')
+      }, 100)
     }
   }
 
@@ -61,7 +81,16 @@ const CareerSwiper = () => {
       <Swiper
         ref={swiperRef}
         onSlideChange={handleSlideChange}
-        slidesPerView={5}
+        breakpoints={{
+          // 768px and up: slidesPerView is 5
+          768: {
+            slidesPerView: 5,
+          },
+          // Default: slidesPerView is 3
+          0: {
+            slidesPerView: 3,
+          },
+        }}
         spaceBetween={20}
         freeMode={true}
         autoplay={{

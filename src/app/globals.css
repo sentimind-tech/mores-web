@@ -186,8 +186,7 @@ body {
   min-height: 294px;
 }
 .career-swiper .swiper {
-  width: 125%;
-  margin-left: -12.5%;
+  @apply mobile-min:w-[140%] mobile-min:-ml-[20%] w-[170%] -ml-[35%]
 }
 
 .section-padding {

@@ -21,10 +21,10 @@ const JobListItem = ({
 }: TJobListProps) => {
   return (
     <div className="pt-10 pb-20 font-inter text-12 leading-[20px] border-t border-gray-cloud text-black grid grid-cols-3">
-      <div className="col-span-2">
-        <div className="font-supplymono text-xl h-[70px] flex items-center">{title}</div>
-        <div className="grid grid-cols-3">
-          <div className="flex gap-10 justify-center items-center">
+      <div className="col-span-2 flex flex-col gap-16 mobile-min:gap-32">
+        <div className="font-supplymono text-sm mobile-min:text-xl lg:h-[70px] lg:text-clip lg:text-ellipsis flex items-center">{title}</div>
+        <div className="flex flex-col items-start mobile-min:flex-row">
+          <div className="flex gap-10 items-center mr-60">
             <Image
               src="/images/icon/file_user_fill.svg"
               width={12}
@@ -33,7 +33,7 @@ const JobListItem = ({
             />
             <span>{department}</span>
           </div>
-          <div className="flex gap-10 justify-center items-center">
+          <div className="flex gap-10 items-center mr-20">
             <Image
               src="/images/icon/date_solid.svg"
               width={14}
@@ -42,7 +42,7 @@ const JobListItem = ({
             />
             <span>{type}</span>
           </div>
-          <div className="flex gap-10 justify-center items-center">
+          <div className="flex gap-10 items-center">
             <Image
               src="/images/icon/place_icon.svg"
               width={16}
