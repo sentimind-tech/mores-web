@@ -52,11 +52,11 @@ export const ServiceDetailHeader = ({
     })
   }
   return (
-    <div className="px-8 font-normal font-supplymono text-black flex">
-      <div className="min-w-[255px] pr-12 border-r border-gray-steel text-16 leading-[19.2px] py-8">
+    <div className="flex items-start flex-col mobile-min:flex-row px-8 font-normal font-supplymono text-black flex">
+      <div className="min-w-[255px] mobile-min:pr-12 mobile-min:border-r mobile-min:border-gray-steel text-16 leading-[19.2px] py-8 font-bold mobile-min:font-normal">
         {title}
       </div>
-      <div className="pl-56 text-14 leading-[16.8px] flex gap-[29px] py-8">
+      <div className="mobile-min:pl-56 text-14 leading-[16.8px] flex gap-[29px] py-8">
         {menus.map((menu) => (
           <div
             className="cursor-pointer"

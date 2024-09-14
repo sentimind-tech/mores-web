@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import Image from 'next/image'
+import { useLocale } from 'next-intl'
 
 type TServiceCardProp = {
   title: string
@@ -8,11 +9,13 @@ type TServiceCardProp = {
   path: string
 }
 export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
+  const localActive = useLocale()
+
   return (
     <div className="flex flex-col justify-between">
       <div className="flex flex-col">
         <div className="flex justify-between pt-16 border-t border-gray-silver">
-          <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-xl font-supplymono">
+          <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-base lg:text-xl font-supplymono">
             {title}
           </div>
 

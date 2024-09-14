@@ -81,7 +81,7 @@ export const InsightList = () => {
       <section>
         <PageHeader title="INSIGHT" background="/images/bg-insights.png" />
       </section>
-      <section className="px-120 py-100 flex flex-col gap-48">
+      <section className="section-padding flex flex-col gap-48">
         <div className="grid grid-cols-3 gap-24">
           <Select
             defaultValue={filter.type}

@@ -33,10 +33,10 @@ export default async function ContactUs({ params }: any) {
     <Layout>
       <section className="flex flex-col">
         <PageHeader background="/images/bg-contact-us.png" title="CONTACT US" />
-        <section className="px-120 py-100 flex flex-col">
+        <section className="section-padding flex flex-col">
           <div className="mb-[83px]">
             <SectionInfo title="CONTACT US">
-              <p className="font-normal text-18 leading-[1.75rem] text-justify">
+              <p className="section-info-p">
                 Need to find a local office? Interested in working here? See
                 what a career at Mores looks like or follow us on social media.
                 Interested in working with us? Explore our consulting services

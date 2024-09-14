@@ -6,6 +6,7 @@ import { InsightCard } from '../InsightCard'
 import { customConfig } from '../../../config'
 import { TService } from '@/types/service'
 import { ServiceCard } from '../ServiceCard'
+import { useLocale } from 'next-intl'
 
 type TSectionDetailProp = {
   overview?: string
@@ -19,8 +20,10 @@ export const SectionDetail = ({
   insights,
   services,
 }: TSectionDetailProp) => {
+  const localActive = useLocale()
+
   return (
-    <section id="" className="px-120 py-100 flex flex-col gap-100">
+    <section id="" className="section-padding flex flex-col gap-32 lg:gap-100">
       {overview && (
         <section id="overview" className="">
           <div dangerouslySetInnerHTML={{ __html: overview }}></div>
@@ -28,13 +31,13 @@ export const SectionDetail = ({
       )}
 
       {services && services.length > 0 && (
-        <section id="what-we-offer" className="flex flex-col gap-50">
+        <section id="what-we-offer" className="section-header-container">
           <SectionHeader title="WHAT WE OFFER" />
-          <div className="grid grid-cols-3 gap-50">
+          <div className="grid grid-cols-1 mobile-min:grid-cols-2 lg:grid-cols-3 gap-50">
             {services.map((service) => {
               const path = service.parent_service_id
-                ? `/services/${service.parent_service_id}/${service.id}`
-                : `/services/${service.id}`
+                ? `/${localActive}/services/${service.parent_service_id}/${service.id}`
+                : `/${localActive}/services/${service.id}`
               return (
                 <ServiceCard
                   key={service.id}
@@ -49,7 +52,7 @@ export const SectionDetail = ({
       )}
 
       {ourExperience && (
-        <section id="our-experience" className="flex flex-col gap-50">
+        <section id="our-experience" className="section-header-container">
           <SectionHeader title="OUR EXPERIENCES" />
           <Image
             src={ourExperience}
@@ -64,7 +67,7 @@ export const SectionDetail = ({
       )}
 
       {insights && insights.length > 0 && (
-        <section id="featured-insight" className="flex flex-col gap-50">
+        <section id="featured-insight" className="section-header-container">
           <SectionHeader title="FEATURED INSIGHTS" />
           <div className="grid grid-cols-4 gap-50">
             {insights.map((insight) => {
@@ -81,7 +84,7 @@ export const SectionDetail = ({
                   title={insight.title}
                   description={insight.description}
                   subtitle={subTitle}
-                  path={`/insights/${insight.id}`}
+                  path={`/${localActive}/insights/${insight.id}`}
                 />
               )
             })}
