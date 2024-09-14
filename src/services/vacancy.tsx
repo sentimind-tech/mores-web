@@ -11,11 +11,7 @@ type TQueryParams = {
   fields?: string
 }
 
-async function getVacancyList(
-  params: TVacancyParams = {},
-  page: number = 1,
-  perPage: number = 10
-) {
+async function getVacancyList(params: TVacancyParams = {}) {
   try {
     let queryParams: TQueryParams = {
       sort: '-created',
@@ -32,7 +28,7 @@ async function getVacancyList(
 
     let response = await pb
       .collection('vacancies')
-      .getList<TVacancy>(page, perPage, queryParams)
+      .getFullList<TVacancy>(200, queryParams) // 200 is the maximum batch size
 
     return response
   } catch (error) {

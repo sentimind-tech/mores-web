@@ -58,7 +58,7 @@ export default async function CareersPage({ params }: any) {
           </SectionInfo>
 
           <div className="mt-50 lg:mt-100">
-            <JobList jobList={jobList?.items || []} areaList={areaList || []} />
+            <JobList jobList={jobList || []} areaList={areaList || []} />
           </div>
 
           <div className="section-padding flex gap-24 items-center justify-center flex-col px-[115px]">

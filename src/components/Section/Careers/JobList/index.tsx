@@ -19,7 +19,7 @@ const JobList = ({ areaList, jobList }: TJobListProps) => {
   useEffect(() => {
     const fetchJobList = async () => {
       const response = await getVacancyList(filter)
-      setJobListState(response?.items || [])
+      setJobListState(response || [])
     }
     fetchJobList()
   }, [filter])
@@ -40,11 +40,12 @@ const JobList = ({ areaList, jobList }: TJobListProps) => {
         {jobListState.map((job) => {
           return (
             <JobListItem
+              key={job.id}
               position_name={job.position_name}
               division={job.division}
               employment_type={job.employment_type}
               area={`Kota ${job.area}`}
-              url=""
+              url={job.application_url}
             />
           )
         })}
