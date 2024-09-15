@@ -50,6 +50,7 @@ export default async function IndustryDetail({
             background={coverImagePath}
             title="Transportation & Logistics"
             subtitle="FOCUS INDUSTRIES"
+            subtitleCustomClass='text-white'
           />
 
           <div className="section-navigation">

@@ -57,6 +57,7 @@ export default async function ServiceChildDetail({
             background={coverImagePath}
             title={service.name}
             subtitle="FOCUS SERVICES"
+            subtitleCustomClass='text-white'
           />
           <div className="section-navigation">
             <ServiceDetailHeader
