@@ -133,17 +133,17 @@ const ReachUsForm = () => {
   }
 
   return (
-    <div className="mb-[107px] font-supplymono flex flex-col gap-[58px]">
+    <div className="mb-20 font-supplymono flex flex-col gap-[58px]">
       <div className="text-blue-pacific text-[28px] leading-[2.5rems]">
         REACH US
       </div>
-      <div className="pl-[91px] flex flex-col gap-[31px]">
+      <div className="pl-24 mobile-min:pl-[91px] flex flex-col gap-[31px]">
         <div className="contact-us-form-container">
           {/* Name */}
           <div className="">
-            NAME <span className="text-[0.875rem]">(required)</span>
+            NAME <span className="text-[0.875rem]">(REQUIRED)</span>
           </div>
-          <div className="grid grid-cols-2 gap-[58px]">
+          <div className="grid grid-cols-1 mobile-min:grid-cols-2 mobile-min:gap-32 lg:gap-[58px]">
             <InputField
               className={`contact-us-input ${error.first_name ? 'error' : ''}`}
               type="text"
@@ -181,7 +181,7 @@ const ReachUsForm = () => {
         {/* Email */}
         <div className="contact-us-form-container">
           <div className="">
-            EMAIL <span className="text-[0.875rem]">(required)</span>
+            EMAIL <span className="text-[0.875rem]">(REQUIRED)</span>
           </div>
           <div className="grid grid-cols-1">
             <InputField
@@ -206,7 +206,7 @@ const ReachUsForm = () => {
         {/* Subject */}
         <div className="contact-us-form-container">
           <div className="">
-            SUBJECT <span className="text-[0.875rem]">(required)</span>
+            SUBJECT <span className="text-[0.875rem]">(REQUIRED)</span>
           </div>
           <div className="grid grid-cols-1">
             <InputField
@@ -230,7 +230,7 @@ const ReachUsForm = () => {
         {/* Subject */}
         <div className="contact-us-form-container">
           <div className="">
-            MESSAGE <span className="text-[0.875rem]">(required)</span>
+            MESSAGE <span className="text-[0.875rem]">(REQUIRED)</span>
           </div>
           <div className="grid grid-cols-1">
             <TextArea

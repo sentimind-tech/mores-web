@@ -192,6 +192,9 @@ body {
 .section-padding {
   @apply px-32 py-24 md:px-64 md:py-50 lg:px-120 lg:py-100;
 }
+.section-padding-x {
+  @apply px-32 md:px-64 lg:px-120;
+}
 .section-info-p {
   @apply font-normal text-sm md:text-base lg:text-18 lg:leading-[1.75rem] text-justify;
 }

@@ -4,6 +4,7 @@ import GoogleMap from '@/components/GoogleMap'
 import Layout from '@/components/Layout'
 import { PageHeader } from '@/components/PageHeader'
 import ReachUsForm from '@/components/ReachUsForm'
+import SectionHelp from '@/components/Section/SectionHelp'
 import { SectionInfo } from '@/components/SectionInfo'
 import { getConfigByKey } from '@/services/app_configs'
 import {
@@ -18,12 +19,16 @@ import {
 } from '@/store/constants'
 import { Metadata } from 'next'
 
-export default async function ContactUs({ params }: any) {
+type Props = {
+  params: { locale: string }
+}
+
+export default async function ContactUs({ params: { locale } }: Props) {
   const emailConfig = await getConfigByKey(CONFIG_CONTACT_US_EMAIL)
   const phoneConfig = await getConfigByKey(CONFIG_CONTACT_US_PHONE)
   const whatsappConfig = await getConfigByKey(CONFIG_CONTACT_US_WHATSAPP)
   const instagramConfig = await getConfigByKey(CONFIG_CONTACT_US_INSTAGRAM)
- 
+
   const linkedInConfig = await getConfigByKey(CONFIG_CONTACT_US_LINKEDIN)
   const youtubeConfig = await getConfigByKey(CONFIG_CONTACT_US_YOUTUBE)
   const xConfig = await getConfigByKey(CONFIG_CONTACT_US_X)
@@ -35,13 +40,12 @@ export default async function ContactUs({ params }: any) {
         <PageHeader background="/images/bg-contact-us.png" title="CONTACT US" />
         <section className="section-padding flex flex-col">
           <div className="mb-[83px]">
-            <SectionInfo title="CONTACT US">
+            <SectionInfo title="Have a question? Need advice? Let's connect.">
               <p className="section-info-p">
-                Need to find a local office? Interested in working here? See
-                what a career at Mores looks like or follow us on social media.
-                Interested in working with us? Explore our consulting services
-                and industry expertise. Need something else? See below for more
-                ways to get in touch.
+                Whether you have a question about our consulting services, need
+                advice, or just want to share your thoughts on our latest blog
+                post, we&apos;re here to help. Our team experts is dedicated to
+                providing insights and solutions tailored to your unique needs.
               </p>
             </SectionInfo>
           </div>
@@ -70,9 +74,10 @@ export default async function ContactUs({ params }: any) {
               </p>
             </CompanyInfoCard>
           </div>
-          <div className="mb-[102px] grid grid-cols-4 gap-48">
+          <div className=" grid grid-cols-1 mobile-min:grid-cols-3 gap-48">
             <CompanyInfoCard
               title="EMAIL"
+              icon="/images/icon/email_icon.svg"
               footer={emailConfig?.value.title}
               url={emailConfig?.value.url}
             >
@@ -80,6 +85,7 @@ export default async function ContactUs({ params }: any) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="PHONE"
+              icon="/images/icon/phone_icon.svg"
               footer={phoneConfig?.value.title}
               url={phoneConfig?.value.url}
             >
@@ -90,6 +96,7 @@ export default async function ContactUs({ params }: any) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="WHATSAPP"
+              icon="/images/icon/whatsapp_icon.svg"
               footer={whatsappConfig?.value.title}
               url={whatsappConfig?.value.url}
             >
@@ -97,17 +104,11 @@ export default async function ContactUs({ params }: any) {
                 For quick and convenient communication, please reach out to us
               </p>
             </CompanyInfoCard>
-            <CompanyInfoCard
-              title="WHATSAPP"
-              footer={whatsappConfig?.value.title}
-              url={whatsappConfig?.value.url}
-            >
-              <p>
-                For quick and convenient communication, please reach out to us
-              </p>
-            </CompanyInfoCard>
+          </div>
+          <div className="mb-[102px] mt-[48px] grid grid-cols-1 mobile-min:grid-cols-3 lg:grid-cols-4 gap-48">
             <CompanyInfoCard
               title="INSTAGRAM"
+              icon="/images/icon/instagram_icon.svg"
               footer={instagramConfig?.value.title}
               url={instagramConfig?.value.url}
             >
@@ -117,6 +118,7 @@ export default async function ContactUs({ params }: any) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="LINKEDIN"
+              icon="/images/icon/linkedin_icon.svg"
               footer={linkedInConfig?.value.title}
               url={linkedInConfig?.value.url}
             >
@@ -124,6 +126,7 @@ export default async function ContactUs({ params }: any) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="YOUTUBE"
+              icon="/images/icon/youtube_icon.svg"
               footer={youtubeConfig?.value.title}
               url={youtubeConfig?.value.url}
             >
@@ -134,6 +137,7 @@ export default async function ContactUs({ params }: any) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="X"
+              icon="/images/icon/x_icon.svg"
               footer={xConfig?.value.title}
               url={xConfig?.value.url}
             >
@@ -142,10 +146,15 @@ export default async function ContactUs({ params }: any) {
               </p>
             </CompanyInfoCard>
           </div>
-          
+
           <ReachUsForm />
         </section>
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link={`/${locale}/contact`}
+      />
     </Layout>
   )
 }

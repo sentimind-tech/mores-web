@@ -12,6 +12,7 @@ import { getIndustryList } from '@/services/industry'
 import { TIndustry } from '@/types/industry'
 import { TService } from '@/types/service'
 import { getServiceList, TServiceParams } from '@/services/service'
+import HeaderContent from '../Section/InsightPage/HeaderContent'
 
 type TFilter = {
   type?: string
@@ -78,8 +79,9 @@ export const InsightList = () => {
 
   return (
     <section className="flex flex-col">
-      <section>
+      <section className="flex flex-col gap-100 section-padding-x">
         <PageHeader title="INSIGHT" background="/images/bg-insights.png" />
+        <HeaderContent />
       </section>
       <section className="section-padding flex flex-col gap-48">
         <div className="grid grid-cols-1 mobile-min:grid-cols-3 gap-24">

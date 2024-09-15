@@ -10,6 +10,7 @@ import { customConfig } from '../../../../../config'
 import { getInsightList, TInsightParams } from '@/services/insight'
 import Layout from '@/components/Layout'
 import { unstable_setRequestLocale } from 'next-intl/server'
+import SectionHelp from '@/components/Section/SectionHelp'
 
 type Props = {
   params: {
@@ -43,7 +44,7 @@ export default async function IndustryDetail({
 
   return (
     <Layout>
-      <section className="flex flex-col">
+      <section className="flex flex-col mb-[68px]">
         <section>
           <PageHeader
             background={coverImagePath}
@@ -71,6 +72,11 @@ export default async function IndustryDetail({
           insights={insights || undefined}
         />
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link={`/${locale}/contact`}
+      />
     </Layout>
   )
 }

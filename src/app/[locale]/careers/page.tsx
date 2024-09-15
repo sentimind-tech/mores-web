@@ -11,8 +11,12 @@ import {
   getVacancyList,
   getVacancyListGroupedByField,
 } from '@/services/vacancy'
+import SectionHelp from '@/components/Section/SectionHelp'
 
-export default async function CareersPage({ params }: any) {
+type Props = {
+  params: { locale: string }
+}
+export default async function CareersPage({ params: { locale } }: Props) {
   const areaList = await getVacancyListGroupedByField('area')
   const jobList = await getVacancyList()
   return (
@@ -173,6 +177,11 @@ export default async function CareersPage({ params }: any) {
           <CareerSwiper />
         </div>
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link={`/${locale}/contact`}
+      />
     </Layout>
   )
 }

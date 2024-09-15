@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation'
 import { customConfig } from '../../../../../../config'
 import { getInsightList, TInsightParams } from '@/services/insight'
 import Layout from '@/components/Layout'
+import SectionHelp from '@/components/Section/SectionHelp'
 
 type Props = {
   params: {
@@ -50,7 +51,7 @@ export default async function ServiceChildDetail({
 
   return (
     <Layout>
-      <section className="flex flex-col">
+      <section className="flex flex-col mb-[76px]">
         <section>
           <PageHeader
             background={coverImagePath}
@@ -77,6 +78,11 @@ export default async function ServiceChildDetail({
           insights={insights || undefined}
         />
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link={`/${locale}/contact`}
+      />
     </Layout>
   )
 }

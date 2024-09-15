@@ -10,6 +10,7 @@ import Layout from '@/components/Layout'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import IndustryList from '@/components/Section/IndustryPage/IndustryList'
+import SectionHelp from '@/components/Section/SectionHelp'
 
 type Props = {
   params: { locale: string }
@@ -20,12 +21,17 @@ export default async function Industry({ params: { locale } }: Props) {
   const industryList = await getIndustryList()
   return (
     <Layout>
-      <section className="flex flex-col">
+      <section className="flex flex-col mb-[108px]">
         <section>
           <PageHeader background="/images/bg-industries.png" />
         </section>
         <IndustryList industryList={industryList || []} />
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link={`/${locale}/contact`}
+      />
     </Layout>
   )
 }

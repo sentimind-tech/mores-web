@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { formatDate } from '@/module/helper'
 import Image from 'next/image'
 import { InsightAction } from '@/components/InsightAction'
+import SectionHelp from '@/components/Section/SectionHelp'
 
 type Props = {
   params: {
@@ -56,8 +57,8 @@ export default async function InsightDetail({
             subtitleCustomClass="text-white"
           />
         </section>
-        <section className="flex flex-wrap flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding">
-          <div className="flex justify-between">
+        <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding">
+          <div className="flex gap-12 flex-wrap justify-between">
             <div className="flex gap-32">
               <div className="max-w-[274px] leading-[14.52px] text-12">
                 By&nbsp;
@@ -92,27 +93,29 @@ export default async function InsightDetail({
                   locale == 'id' ? insight.content_id : insight.content_en,
               }}
             ></div>
-            <div className="flex flex-col gap-48 text-20 leading-[24px]">
+            <div className="flex flex-col gap-24 lg:gap-48 mobile-min:text-14 lg:text-20 leading-[24px]">
               <div className="font-semibold ">At a Glance</div>
               <div className="flex flex-col gap-24">
-                {insight.summary.map((summary, index) => {
-                  return (
-                    <div
-                      key={`insight-${insight.id}-summary-${index}`}
-                      className="flex items-start gap-20"
-                    >
-                      <div>
-                        <Image
-                          width={24}
-                          height={24}
-                          src={'/images/icon/triangle.png'}
-                          alt="list"
-                        />
+                {insight.summary &&
+                  insight.summary.length > 0 &&
+                  insight.summary.map((summary, index) => {
+                    return (
+                      <div
+                        key={`insight-${insight.id}-summary-${index}`}
+                        className="flex items-start gap-20"
+                      >
+                        <div className="min-w-24">
+                          <Image
+                            width={24}
+                            height={24}
+                            src={'/images/icon/triangle.png'}
+                            alt="list"
+                          />
+                        </div>
+                        <div className="">{summary}</div>
                       </div>
-                      <div className="">{summary}</div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
               </div>
             </div>
           </section>
@@ -143,6 +146,11 @@ export default async function InsightDetail({
           )}
         </section>
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link={`/${locale}/contact`}
+      />
     </Layout>
   )
 }
