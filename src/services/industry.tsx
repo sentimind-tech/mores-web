@@ -6,7 +6,7 @@ async function getIndustryList() {
         let response = await pb
             .collection("industries")
             .getFullList<TIndustry>({
-                sort: "-created",
+                sort: "name",
             });
 
         return response;

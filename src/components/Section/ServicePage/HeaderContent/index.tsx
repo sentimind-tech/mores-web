@@ -7,7 +7,7 @@ const HeaderContent = () => {
   return (
     <section className="">
       <SectionInfo title={t('title')}>
-        <p className="font-normal text-18 leading-[1.75rem] text-justify">
+        <p className="font-normal text-sm lg:text-18 lg:leading-[1.75rem] text-justify">
           {t('description')}
         </p>
       </SectionInfo>

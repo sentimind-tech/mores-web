@@ -82,7 +82,7 @@ export const InsightList = () => {
         <PageHeader title="INSIGHT" background="/images/bg-insights.png" />
       </section>
       <section className="section-padding flex flex-col gap-48">
-        <div className="grid grid-cols-3 gap-24">
+        <div className="grid grid-cols-1 mobile-min:grid-cols-3 gap-24">
           <Select
             defaultValue={filter.type}
             onChange={(e) => setFilter({ ...filter, type: e.target.value })}
@@ -112,7 +112,9 @@ export const InsightList = () => {
           >
             <Option value="">Services</Option>
             {services?.map((service) => (
-              <Option key={service.id} value={service.id}>{service.name}</Option>
+              <Option key={service.id} value={service.id}>
+                {service.name}
+              </Option>
             ))}
           </Select>
         </div>
@@ -120,7 +122,7 @@ export const InsightList = () => {
           <h1 className="font-semibold text-2xl text-black font-inter pb-48">
             Most Recent Insights
           </h1>
-          <div className="grid grid-cols-4 gap-24 -ml-24">
+          <div className="grid grid-cols-1 mobile-min:grid-cols-2 md:grid-cols-4 gap-24 -ml-24">
             {insights?.map((insight, index) => {
               let subTitle = ''
               if (insight?.expand?.industry_tags) {
@@ -130,13 +132,18 @@ export const InsightList = () => {
               }
 
               // Change this if grid-cols-change ex: window.innerWidth >= 768 ? 5 : 4
-              let gridCols = 4
+              let gridCols = 2
+              if (window.innerWidth > 768) {
+                gridCols = 4
+              }
               const isFirstRow = (index + 1) % gridCols == 1
               return (
                 <div
                   key={insight.id}
                   className={`${
-                    !isFirstRow ? 'border-l border-gray-silver' : ''
+                    !isFirstRow
+                      ? 'mobile-min:border-l mobile-minborder-gray-silver'
+                      : ''
                   } pb-36 pl-24`}
                 >
                   <InsightCard

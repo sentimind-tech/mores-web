@@ -63,10 +63,10 @@ export default async function CareersPage({ params }: any) {
 
           <div className="section-padding flex gap-24 items-center justify-center flex-col px-[115px]">
             <div className="text-center text-blue-pacific font-supplymono leading-[1.75rem] lg:leading-[2.5rem] text-18 lg:text-[1.75rem]">
-              "A picture is worth a thousand memories."
+              &quot;A picture is worth a thousand memories.&quot;
             </div>
             <div className="font-inter text-sm lg:leading-[1.75rem] lg:text-[1.125rem] text-center">
-              At Mores, life is more than just work—it's about growth,
+              At Mores, life is more than just work—it&apos;s about growth,
               collaboration, and making a meaningful impact. We believe that a
               thriving work environment is built on the foundation of mutual
               respect, creativity, and a shared passion for excellence. Here,

@@ -32,7 +32,7 @@ const JobList = ({ areaList, jobList }: TJobListProps) => {
         >
           <Option value="">Works Areas</Option>
           {areaList.map((area) => (
-            <Option value={area}>{area}</Option>
+            <Option key={area} value={area}>{area}</Option>
           ))}
         </Select>
       </div>

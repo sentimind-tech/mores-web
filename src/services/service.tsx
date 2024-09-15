@@ -14,7 +14,7 @@ type TQueryParams = {
 async function getServiceList(params: TServiceParams = {}) {
   try {
     let queryParams: TQueryParams = {
-      sort: '-created',
+      sort: 'name',
     }
 
     let filters: string[] = []
@@ -23,7 +23,7 @@ async function getServiceList(params: TServiceParams = {}) {
       filters.push(`parent_service_id = "${params.parentServiceId}"`)
     }
 
-    if (!params.isAll) {
+    if (!params.isAll && !params.parentServiceId) {
       filters.push(`parent_service_id = null`)
     }
 

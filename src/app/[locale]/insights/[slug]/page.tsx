@@ -47,7 +47,7 @@ export default async function InsightDetail({
   const authors = insight.expand?.authors || []
   return (
     <Layout>
-      <section className="flex flex-col gap-72 text-inter">
+      <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 text-inter">
         <section>
           <PageHeader
             background={coverImagePath}
@@ -56,7 +56,7 @@ export default async function InsightDetail({
             subtitleCustomClass="text-white"
           />
         </section>
-        <section className="flex flex-col gap-72 px-120 pb-120">
+        <section className="flex flex-wrap flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding">
           <div className="flex justify-between">
             <div className="flex gap-32">
               <div className="max-w-[274px] leading-[14.52px] text-12">
@@ -116,29 +116,31 @@ export default async function InsightDetail({
               </div>
             </div>
           </section>
-          <section id="featured-insight" className="section-header-container">
-            <SectionHeader title="NEXT INSIGHTS" />
-            <div className="grid grid-cols-4 gap-50">
-              {nextInsights.map((insight) => {
-                let subTitle = ''
-                if (insight?.expand?.industry_tags) {
-                  subTitle = insight.expand?.industry_tags?.name
-                } else if (insight?.expand?.service_tags) {
-                  subTitle = insight.expand?.service_tags?.name
-                }
-                return (
-                  <InsightCard
-                    key={insight.id}
-                    image={`${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${insight.button_image}`}
-                    title={insight.title}
-                    description={insight.description}
-                    subtitle={subTitle}
-                    path={`/${locale}/insights/${insight.id}`}
-                  />
-                )
-              })}
-            </div>
-          </section>
+          {nextInsights.length > 0 && (
+            <section id="featured-insight" className="section-header-container">
+              <SectionHeader title="NEXT INSIGHTS" />
+              <div className="insight-container">
+                {nextInsights.map((insight) => {
+                  let subTitle = ''
+                  if (insight?.expand?.industry_tags) {
+                    subTitle = insight.expand?.industry_tags?.name
+                  } else if (insight?.expand?.service_tags) {
+                    subTitle = insight.expand?.service_tags?.name
+                  }
+                  return (
+                    <InsightCard
+                      key={insight.id}
+                      image={`${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${insight.button_image}`}
+                      title={insight.title}
+                      description={insight.description}
+                      subtitle={subTitle}
+                      path={`/${locale}/insights/${insight.id}`}
+                    />
+                  )
+                })}
+              </div>
+            </section>
+          )}
         </section>
       </section>
     </Layout>
