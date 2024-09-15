@@ -21,9 +21,8 @@ export const SectionDetail = ({
   services,
 }: TSectionDetailProp) => {
   const localActive = useLocale()
-
   return (
-    <section id="" className="section-padding flex flex-col gap-32 lg:gap-100">
+    <section id="" className="overview-content section-padding flex flex-col gap-32 lg:gap-100">
       {overview && (
         <section id="overview" className="text-sm sm:text-base">
           <div dangerouslySetInnerHTML={{ __html: overview }}></div>

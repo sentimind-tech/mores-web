@@ -152,6 +152,9 @@ body {
 .insight-detail video {
   display: inline-block !important;
 }
+.overview-content blockquote {
+  @apply font-supplymono text-blue-pacific text-2xl;
+}
 
 .google-map-iframe {
   width: 100%;
