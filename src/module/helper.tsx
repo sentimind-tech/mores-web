@@ -1,3 +1,5 @@
+import { customConfig } from "../../config";
+
 export const getWindowDimensions = (): { width: number; height: number } => {
   if (typeof window == "undefined") return { width: 0, height: 0 };
 
@@ -24,4 +26,10 @@ export const createWrapperAndAppendToBody = (wrapperId: string) => {
   document.body.appendChild(wrapperElement);
 
   return wrapperElement;
+};
+
+export const imagePath = (id: string, name: string, collectionName: string) => {
+  if (name == "") return null;
+
+  return `${customConfig.POCKETBASE_FILE_URL}/${collectionName}/${id}/${name}`;
 };

@@ -15,47 +15,25 @@ const AboutIntro = () => {
           overlay={true}
         />
       </section>
-      <section className="pt-[6.688rem] px-16 pb-[6.25rem]">
+      <section className="py-[3.125rem] md:pt-[6.688rem] px-16 md:pb-[6.25rem]">
         <div className=""></div>
         <SectionInfo
           title="MORES /ʼMÔRĀZʼ/"
-          subtitle={
-            <span className="font-medium">
-              “The customs, values, and behaviors that are accepted by a
-              particular group, culture, and community”
-            </span>
-          }
+          subtitle={<span className="font-medium">{t("about_quote")}</span>}
         >
-          <div className="text-14 leading-[1.5rem]">
-            <p className="font-semibold">
-              Mores Strategics is a strategic consultant specializes in data
-              analysis, technology, and ethnographic research. We work with
-              tailored approach by establishing strong strategic partnership and
-              adapting our framework to fit our client needs, goals, and
-              capacity. We seek for creative strategy that is grounded in
-              analytics and customs in the community
-            </p>
+          <div className="text-14 leading-[1.5rem] mt-24 md:mt-0">
+            <p className="font-semibold">{t("about_desc_1")}</p>
             <br />
-            <p className="">
-              We believe that localʼs customs is a fundamental aspect in
-              strategy development. Our strategic advice aims to bring
-              long-lasting positive impact to stakeholders and the community,
-              and sustains good relationship between all involved parties.
-              Therefore, understanding localʼs perspective and behavior is at
-              the forefront of our operation
-            </p>
+            <p className="">{t("about_desc_2")}</p>
           </div>
         </SectionInfo>
 
-        <div className="mt-[6.25rem] w-full max-w-[846px] mx-auto">
+        <div className="mt-[3.125rem] md:mt-[6.25rem] w-full max-w-[846px] mx-auto">
           <HeadingText
             type="h4"
             className="text-blue-pacific uppercase text-center"
           >
-            Creative thinking is where the problem-solving began. Combined with
-            a strong understanding of the real situation, reliable data, and
-            viable methods, we can introduce a new strategy without disrupting
-            the existing process.
+            {t("about_quote_2")}
           </HeadingText>
         </div>
       </section>
