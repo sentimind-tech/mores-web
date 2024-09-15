@@ -67,7 +67,6 @@ const CareerSwiper = () => {
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     const slide = event.currentTarget;
-
     if (slide.classList.contains("career-image-next-active")) {
       swiperRef.current?.swiper?.slideNext();
     } else if (slide.classList.contains("career-image-prev-active")) {

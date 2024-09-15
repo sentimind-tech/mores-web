@@ -2,7 +2,7 @@ import { SectionInfo } from '@/components/SectionInfo'
 import { useTranslations } from 'next-intl'
 
 const HeaderContent = () => {
-  const t = useTranslations('ServicePage')
+  const t = useTranslations('InsightPage')
 
   return (
     <section className="">

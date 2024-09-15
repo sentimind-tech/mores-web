@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation'
 import { customConfig } from '../../../../../../config'
 import { getInsightList, TInsightParams } from '@/services/insight'
 import Layout from '@/components/Layout'
+import SectionHelp from '@/components/Section/SectionHelp'
 
 type Props = {
   params: {
@@ -31,7 +32,6 @@ export default async function ServiceChildDetail({
   const query: TServiceParams = {
     parentServiceId: slug,
   }
-  const serviceList = await getServiceList(query)
 
   // Fetch insight
   const insightQuery: TInsightParams = {
@@ -50,12 +50,13 @@ export default async function ServiceChildDetail({
 
   return (
     <Layout>
-      <section className="flex flex-col">
+      <section className="flex flex-col mb-[100px]">
         <section>
           <PageHeader
             background={coverImagePath}
             title={service.name}
             subtitle="FOCUS SERVICES"
+            subtitleCustomClass='text-white'
           />
           <div className="section-navigation">
             <ServiceDetailHeader
@@ -63,7 +64,6 @@ export default async function ServiceChildDetail({
               overview={
                 locale == 'id' ? service.overview_id : service.overview_en
               }
-              serviceList={serviceList || []}
               ourExperience={ourExperiencePath}
               insights={insights || []}
             />
@@ -72,11 +72,15 @@ export default async function ServiceChildDetail({
 
         <SectionDetail
           overview={locale == 'id' ? service.overview_id : service.overview_en}
-          services={serviceList || undefined}
           ourExperience={ourExperiencePath}
           insights={insights || undefined}
         />
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link={`/${locale}/contact`}
+      />
     </Layout>
   )
 }

@@ -20,8 +20,16 @@ export const ServiceDetailHeader = ({
 }: TServiceDetailHeaderProp) => {
   const scrollToView = (id: string) => {
     const section = document.getElementById(id)
+
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' })
+      const offset = -100 // Offset value in pixels
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.pageYOffset
+
+      window.scrollTo({
+        top: sectionPosition + offset,
+        behavior: 'smooth',
+      })
     }
   }
 
@@ -52,11 +60,11 @@ export const ServiceDetailHeader = ({
     })
   }
   return (
-    <div className="flex items-start flex-col mobile-min:flex-row px-8 font-normal font-supplymono text-black flex">
-      <div className="min-w-[255px] mobile-min:pr-12 mobile-min:border-r mobile-min:border-gray-steel text-16 leading-[19.2px] py-8 font-bold mobile-min:font-normal">
+    <div className="flex items-start flex-col sm:flex-row font-normal font-supplymono text-black flex">
+      <div className="min-w-[255px] sm:pr-12 sm:border-r sm:border-gray-steel text-16 leading-[19.2px] py-8 font-bold sm:font-normal">
         {title}
       </div>
-      <div className="mobile-min:pl-56 text-14 leading-[16.8px] flex gap-[29px] py-8">
+      <div className="sm:pl-56 text-14 leading-[16.8px] flex gap-[29px] py-8">
         {menus.map((menu) => (
           <div
             className="cursor-pointer"

@@ -13,7 +13,7 @@ const IndustryList = ({ industryList }: TIndustryListProp) => {
   const t = useTranslations('IndustryPage')
 
   return (
-    <section className="px-120 py-100 flex flex-col gap-32 lg:gap-100">
+    <section className="section-padding flex flex-col gap-32 lg:gap-100">
       <HeaderContent />
       <section className="section-header-container">
         <SectionHeader title={t('list_title')} />

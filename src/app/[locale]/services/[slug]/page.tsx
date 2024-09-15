@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation'
 import { customConfig } from '../../../../../config'
 import { getInsightList, TInsightParams } from '@/services/insight'
 import Layout from '@/components/Layout'
+import SectionHelp from '@/components/Section/SectionHelp'
 
 type Props = {
   params: {
@@ -47,12 +48,13 @@ export default async function ServiceDetail({
 
   return (
     <Layout>
-      <section className="flex flex-col">
+      <section className="flex flex-col mb-[100px]">
         <section>
           <PageHeader
             background={coverImagePath}
             title={service.name}
             subtitle="FOCUS SERVICES"
+            subtitleCustomClass='text-white'
           />
           <div className="section-navigation">
             <ServiceDetailHeader
@@ -74,6 +76,11 @@ export default async function ServiceDetail({
           insights={insights || undefined}
         />
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link={`/${locale}/contact`}
+      />
     </Layout>
   )
 }

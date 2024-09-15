@@ -51,9 +51,9 @@ export const InsightAction = ({ insight }: TInsightCardProp) => {
   }
 
   return (
-    <div className="flex gap-24">
+    <div className="flex gap-12 mobile-min:gap-16 lg:gap-24">
       <div
-        className="flex flex-col gap-8 cursor-pointer items-center"
+        className="insight-action-container"
         onClick={handleCopy}
       >
         <Image
@@ -65,7 +65,7 @@ export const InsightAction = ({ insight }: TInsightCardProp) => {
         <span>Share</span>
       </div>
       <div
-        className="flex flex-col gap-8 cursor-pointer items-center"
+        className="insight-action-container"
         onClick={handlePrint}
       >
         <Image
@@ -77,7 +77,7 @@ export const InsightAction = ({ insight }: TInsightCardProp) => {
         <span>Print</span>
       </div>
       <div
-        className="flex flex-col gap-8 cursor-pointer items-center"
+        className="insight-action-container"
         onClick={handleDownload}
       >
         <Image

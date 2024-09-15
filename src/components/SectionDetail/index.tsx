@@ -21,11 +21,10 @@ export const SectionDetail = ({
   services,
 }: TSectionDetailProp) => {
   const localActive = useLocale()
-
   return (
-    <section id="" className="section-padding flex flex-col gap-32 lg:gap-100">
+    <section id="" className="overview-content section-padding-x pt-24 mobile-min:pt-48 lg:pt-[62px] flex flex-col gap-32 lg:gap-100">
       {overview && (
-        <section id="overview" className="">
+        <section id="overview" className="text-sm sm:text-base">
           <div dangerouslySetInnerHTML={{ __html: overview }}></div>
         </section>
       )}
@@ -69,7 +68,7 @@ export const SectionDetail = ({
       {insights && insights.length > 0 && (
         <section id="featured-insight" className="section-header-container">
           <SectionHeader title="FEATURED INSIGHTS" />
-          <div className="grid grid-cols-4 gap-50">
+          <div className="insight-container">
             {insights.map((insight) => {
               let subTitle = ''
               if (insight?.expand?.industry_tags) {
