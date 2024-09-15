@@ -48,7 +48,7 @@ export default async function ServiceDetail({
 
   return (
     <Layout>
-      <section className="flex flex-col mb-[76px]">
+      <section className="flex flex-col mb-[100px]">
         <section>
           <PageHeader
             background={coverImagePath}

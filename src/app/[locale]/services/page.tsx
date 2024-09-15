@@ -22,7 +22,7 @@ export default async function Services({ params: { locale } }: Props) {
 
   return (
     <Layout>
-      <section className="flex flex-col mb-[76px]">
+      <section className="flex flex-col mb-[100px]">
         <section>
           <PageHeader background="/images/bg-services.png" />
         </section>

@@ -44,7 +44,7 @@ export default async function IndustryDetail({
 
   return (
     <Layout>
-      <section className="flex flex-col mb-[68px]">
+      <section className="flex flex-col mb-[100px]">
         <section>
           <PageHeader
             background={coverImagePath}
