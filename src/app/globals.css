@@ -152,6 +152,9 @@ body {
 .insight-detail video {
   display: inline-block !important;
 }
+.overview-content blockquote {
+  @apply font-supplymono text-blue-pacific text-2xl;
+}
 
 .google-map-iframe {
   width: 100%;
@@ -192,12 +195,22 @@ body {
 .section-padding {
   @apply px-32 py-24 md:px-64 md:py-50 lg:px-120 lg:py-100;
 }
+.section-padding-x {
+  @apply px-32 md:px-64 lg:px-120;
+}
 .section-info-p {
   @apply font-normal text-sm md:text-base lg:text-18 lg:leading-[1.75rem] text-justify;
 }
 .section-navigation {
-  @apply border-b border-gray-ash py-10 px-16 lg:py-24 lg:px-64;
+  @apply border-b border-gray-ash py-10 px-32 lg:py-24 lg:px-64;
 }
 .section-header-container {
   @apply flex flex-col gap-24 mobile-min:gap-32 lg:gap-50;
+}
+
+.insight-container {
+  @apply grid grid-cols-1 mobile-min:grid-cols-2 lg:grid-cols-4 gap-32 lg:gap-16 mobile-min:gap-32 lg:gap-50;
+}
+.insight-action-container {
+  @apply flex flex-col gap-8 cursor-pointer items-center text-xs mobile-min:text-sm lg:text-base;
 }

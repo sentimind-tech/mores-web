@@ -10,6 +10,7 @@ import Layout from '@/components/Layout'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import HeaderContent from '@/components/Section/ServicePage/HeaderContent'
 import ServiceValues from '@/components/Section/ServicePage/ServiceValues'
+import SectionHelp from '@/components/Section/SectionHelp'
 
 type Props = {
   params: { locale: string }
@@ -21,7 +22,7 @@ export default async function Services({ params: { locale } }: Props) {
 
   return (
     <Layout>
-      <section className="flex flex-col">
+      <section className="flex flex-col mb-[100px]">
         <section>
           <PageHeader background="/images/bg-services.png" />
         </section>
@@ -31,6 +32,11 @@ export default async function Services({ params: { locale } }: Props) {
         </section>
         <SectionDetail services={serviceList || undefined} />
       </section>
+      <SectionHelp
+        title="Have questions or need assistance?"
+        button_text="Contact Us"
+        link="/contact"
+      />
     </Layout>
   )
 }

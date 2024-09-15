@@ -29,5 +29,9 @@
   "ServicePage": {
     "title": "Services",
     "description": "Mores Strategics multi-approach strategy development consists of 3 main stages: Data, Strategy Operation. Our framework is malleable and tailored to suit our clientsʼ needs and capacity"
+  },
+  "InsightPage": {
+    "title": "Mores latest insights to keep you informed on global trends.",
+    "description": "Discover valuable insights and actionable strategies. We share expert analyses on current trends, future opportunities, and challenges in the business world. Get the knowledge you need to make informed decisions and drive your organization's success."
   }
 }
