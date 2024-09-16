@@ -37,6 +37,15 @@
     "service_subcontrol_4": "Industrial Data Communication Systems",
     "service_subcontrol_5": "Computer-based Real-time Control Systems"
   },
+  "About": {
+    "about_title": "About MORES",
+    "team_title": "Our Team",
+    "areaexpertise_title": "Areas of Expertise",
+    "about_quote": "“The customs, values, and behaviors that are accepted by a particular group, culture, and community”",
+    "about_quote_2": "Creative thinking is where the problem-solving began. Combined with a strong understanding of the real situation, reliable data, and viable methods, we can introduce a new strategy without disrupting the existing process.",
+    "about_desc_1": "Mores Strategics is a strategic consultant specializes in data analysis, technology, and ethnographic research. We work with tailored approach by establishing strong strategic partnership and adapting our framework to fit our client needs, goals, and capacity. We seek for creative strategy that is grounded in analytics and customs in the community",
+    "about_desc_2": "We believe that localʼs customs is a fundamental aspect in strategy development. Our strategic advice aims to bring long-lasting positive impact to stakeholders and the community, and sustains good relationship between all involved parties. Therefore, understanding localʼs perspective and behavior is at the forefront of our operation"
+  },
   "Common": {
     "title": "Mores Strategics",
     "description": "Consultant/advisory specializes in communication, creative financing, business & investment through data analysis, technology & ethnographic approach",

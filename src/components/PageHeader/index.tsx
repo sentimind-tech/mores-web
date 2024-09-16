@@ -1,12 +1,12 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 
 type TPageHeaderProp = {
-  title?: string
-  subtitle?: string
-  background: string
-  subtitleCustomClass?: string
-  overlay?: boolean
-}
+  title?: string;
+  subtitle?: string;
+  background: string;
+  subtitleCustomClass?: string;
+  overlay?: boolean;
+};
 export const PageHeader = ({
   title,
   background,
@@ -16,12 +16,12 @@ export const PageHeader = ({
 }: TPageHeaderProp) => {
   return (
     <div
-      className="flex flex-col items-center h-[400px] relative"
+      className="flex flex-col items-center h-[320px] md:h-[400px] relative"
       style={{
         backgroundImage: `url('${background}')`,
-        backgroundSize: 'cover', // Ensures the image covers the entire div
-        backgroundPosition: 'center', // Centers the image within the div
-        backgroundRepeat: 'no-repeat', // Prevents the image from repeating
+        backgroundSize: "cover", // Ensures the image covers the entire div
+        backgroundPosition: "center", // Centers the image within the div
+        backgroundRepeat: "no-repeat", // Prevents the image from repeating
       }}
     >
       {overlay && (
@@ -38,5 +38,5 @@ export const PageHeader = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

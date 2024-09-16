@@ -37,6 +37,15 @@
     "service_subcontrol_4": "Industrial Data Communication Systems",
     "service_subcontrol_5": "Computer-based Real-time Control Systems"
   },
+  "About": {
+    "about_title": "Tentang MORES",
+    "team_title": "Tim Kami",
+    "areaexpertise_title": "Bidang Keahlian",
+    "about_quote": "“The customs, values, and behaviors that are accepted by a particular group, culture, and community”",
+    "about_quote_2": "Creative thinking is where the problem-solving began. Combined with a strong understanding of the real situation, reliable data, and viable methods, we can introduce a new strategy without disrupting the existing process.",
+    "about_desc_1": "Mores Strategics adalah konsultan strategis yang mengkhususkan diri dalam analisis data, teknologi, dan penelitian etnografi. Kami bekerja dengan pendekatan yang disesuaikan dengan membangun kemitraan strategis yang kuat dan mengadaptasi kerangka kerja kami agar sesuai dengan kebutuhan, tujuan, dan kapasitas klien kami. Kami mencari strategi kreatif yang didasarkan pada analitik dan kebiasaan di masyarakat.",
+    "about_desc_2": "Kami percaya bahwa adat istiadat lokal adalah aspek fundamental dalam pengembangan strategi. Nasihat strategis kami bertujuan untuk memberikan dampak positif yang berkelanjutan bagi pemangku kepentingan dan komunitas, serta menjaga hubungan baik antara semua pihak yang terlibat. Oleh karena itu, memahami perspektif dan perilaku masyarakat lokal adalah hal yang utama dalam operasi kami."
+  },
   "Common": {
     "title": "Mores Strategics",
     "description": "Consultant/advisory specializes in communication, creative financing, business & investment through data analysis, technology & ethnographic approach",
