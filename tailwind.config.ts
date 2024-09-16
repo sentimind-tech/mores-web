@@ -52,6 +52,7 @@ const config: Config = {
           steel: "#A0A0A0",
           ash: "#989898",
           ironside: "#666666",
+          dove: "#6D6D6D",
         },
         blue: {
           pacific: "#00A2B6",

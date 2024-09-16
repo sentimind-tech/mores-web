@@ -150,7 +150,7 @@ const BodyText = ({
   if (type == "body3") {
     return (
       <p
-        className={`font-inter text-[1rem] leading-[1.25rem] ${
+        className={`font-inter text-[0.75rem] leading-[1.25rem] ${
           className ?? ""
         }`}
       >
