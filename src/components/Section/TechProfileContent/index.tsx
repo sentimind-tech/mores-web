@@ -11,6 +11,7 @@ import withDimension, { TWithDimensionProps } from "@/utils/withDimension";
 import { useTranslations, useLocale } from "next-intl";
 import BannerTech from "@/components/Section/BannerTech";
 import { ButtonPrimary } from "@/components/Button";
+import Link from "next/link";
 
 const dataClient = [
   {
@@ -34,6 +35,7 @@ const TechProfileContent = (props: TWithDimensionProps) => {
   const sliderRef = useRef<Slider | null>(null);
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [contentReady, setContentReady] = useState(false);
+  const localActive = useLocale();
 
   var settings = {
     dots: true,
@@ -92,13 +94,15 @@ const TechProfileContent = (props: TWithDimensionProps) => {
           </HeadingText>
           <DisplayText
             type="medium"
-            className="text-white uppercase text-32 md:text-[3.25rem] leading-[2.40rem] md:leading-[3.75rem]"
+            className="text-white uppercase !text-[1.5rem] md:!text-[2.5rem] !leading-[2rem] md:!leading-[3rem]"
           >
             {t("profile_banner_desc")}
           </DisplayText>
-          <ButtonPrimary size="small" className="mt-24 md:mt-[2.313rem]">
-            {t("profile_banner_button")}
-          </ButtonPrimary>
+          <Link href={`/${localActive}/contact`}>
+            <ButtonPrimary size="small" className="mt-24 md:mt-[2.313rem]">
+              {t("profile_banner_button")}
+            </ButtonPrimary>
+          </Link>
         </div>
       </BannerTech>
 

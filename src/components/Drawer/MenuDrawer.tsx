@@ -13,118 +13,13 @@ import { TMenuServicesProps } from "@/types/Menu";
 import { useLocale } from "next-intl";
 
 import navmenu from "@/data/navmenu.json";
+import menuContentData from "@/data/menuContent.json";
 
 type TMenuDrawerProps = TDrawerComponentProps &
   TWithDimensionProps & {
     industries: TIndustry[];
     services: TService[];
   };
-
-const menuData = [
-  {
-    slug: "who-we-are",
-    data: {
-      title: "Who we are",
-      menus: [
-        {
-          title: "About Mores / Mission",
-          link: "/about",
-        },
-        {
-          title: "Our Team",
-          link: "/about#our-team",
-        },
-      ],
-      thumb: "/images/thumb/thumb-menu-who-we-are.jpg",
-      thumb_name: "MORES /’MÔRĀZ’/",
-      thumb_desc:
-        "“The customs, values, and behaviors that are accepted by a particular group, culture, and community”",
-    },
-  },
-  {
-    slug: "what-we-do",
-  },
-  {
-    slug: "insight",
-    data: {
-      title: "Insight",
-      menus: [
-        {
-          title: "Insight",
-          link: "/insights",
-        },
-      ],
-      thumb: "/images/thumb/thumb-menu-insight.jpg",
-      thumb_name: "Insight",
-      thumb_desc:
-        "Discover a diverse range of the latest insights and perspectives from Mores Strategics that can keep you up-to-date with global issues.",
-    },
-  },
-  {
-    slug: "careers",
-    data: {
-      title: "CAREERS",
-      menus: [
-        {
-          title: "Job",
-          link: "/careers",
-        },
-        {
-          title: "Life at Mores",
-          link: "/careers#life-at-mores",
-        },
-        {
-          title: "Work at Mores",
-          link: "/careers#work-at-mores",
-        },
-      ],
-      thumb: "/images/thumb/thumb-menu-career.jpg",
-      thumb_name: "CAREERS",
-      thumb_desc:
-        "We don’t just address and overcome business challenges — we collaborate with you to shape and create the future, paving the way for innovation, growth, and long-term success.",
-    },
-  },
-  {
-    slug: "mores-tech",
-    data: {
-      title: "MORES TECH",
-      menus: [
-        {
-          title: "Mores Tech Profile",
-          link: "/tech/profile",
-        },
-        {
-          title: "Mores tech Service",
-          link: "/tech-services",
-        },
-      ],
-      thumb: "/images/thumb/thumb-menu-tech.jpg",
-      thumb_name: "Mores Tech",
-      thumb_desc:
-        "Unifying Vision Through Technology Solution: Leveraging cutting edge technology to bring together diverse perspectives, align strategic goals, and propel success across every facet of your organization.",
-    },
-  },
-  {
-    slug: "contact",
-    data: {
-      title: "Contact",
-      menus: [
-        {
-          title: "Office",
-          link: "/contact",
-        },
-        {
-          title: "Contact",
-          link: "/contact",
-        },
-      ],
-      thumb: "/images/thumb/thumb-menu-contact.jpg",
-      thumb_name: "CONTACT",
-      thumb_desc:
-        "Connect with us to get the best solutions for your company, tailored to your specific needs. Vision Through Technology Solution: Leveraging cutting edge technology to bring together diverse perspectives, align strategic goals, and propel success across every facet of your organization.",
-    },
-  },
-];
 
 const MenuDrawer = (props: TMenuDrawerProps) => {
   const { isOpen, onClose, setClose, windowDimension, industries, services } =
@@ -138,7 +33,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
     setClose && setClose(false);
 
     if (windowWidth >= 1024) {
-      setSelectedMenu(menuData[0].slug);
+      setSelectedMenu(menuContentData[0].slug);
     } else {
       setSelectedMenu(null);
     }
@@ -161,7 +56,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   }, [windowDimension]);
 
   useEffect(() => {
-    const setInitialMenu = windowWidth >= 1024 ? menuData[0].slug : null;
+    const setInitialMenu = windowWidth >= 1024 ? menuContentData[0].slug : null;
 
     setSelectedMenu(setInitialMenu);
   }, [windowWidth]);
@@ -327,8 +222,8 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                   />
                 </svg>
               </div>
-              {menuData &&
-                menuData.map((item, index) =>
+              {menuContentData &&
+                menuContentData.map((item, index) =>
                   item.slug === "what-we-do" ? (
                     <div
                       className={`absolute w-full top-0 left-0 opacity-0 transition-all ${

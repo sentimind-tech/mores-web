@@ -14,11 +14,34 @@
     "ecosystem_image_desc_1": "PERANGKAT LUNAK SISTEM KAMI DIRANCANG KHUSUS UNTUK KEBUTUHAN DAN KAPASITAS SETIAP KLIEN.",
     "ecosystem_image_desc_2": "SOLUSI TEKNOLOGI YANG TERINTEGRASI DENGAN BAIK KE SISTEM KLIEN SAAT INI",
     "ecosystem_image_desc_3": "Didukung oleh jaringan universitas, industri, dan lembaga internasional.",
-    "client_title": "KLIEN & MITRA"
+    "client_title": "KLIEN & MITRA",
+    "service_banner_title": "Solusi teknologi kami adalah dasar dari keamanan dan inovasi untuk korporasi dan institusi pemerintah.",
+    "service_banner_desc": "BEKERJA DENGAN KAMI",
+    "service_banner_button": "HUBUNGI KAMI",
+    "service_control_banner_title": "Mores membangun sistem kontrol dan perangkat robotik yang sesuai untuk meningkatkan kinerja produksi serta menjaga konsistensi dalam pengendalian kualitas dan hasil.",
+    "service_control_banner_subtitle": "Electronic Control and Automation",
+    "service_network_banner_title": "Mores mengembangkan sistem jaringan dan komunikasi yang kompleks, menetapkan akses komunikasi ke daerah terpencil, dan menyediakan perangkat komunikasi dari produsen global.",
+    "service_network_banner_subtitle": "Communication & Networking Planning",
+    "service_data_banner_title": "Mores uses Big Data Analytics Platform to examine numerous data and utilizes Machine Learning (AI) to gain valuable insights, analyze previous cases, and predict future attacks.",
+    "service_data_banner_subtitle": "Data Centre and Analytics",
+    "service_security_banner_title": "Mores works with global cyber security experts to secure government information and digital infrastructure database from (but not limited to) unknown threats in medium deep and dark web.",
+    "service_security_banner_subtitle": "Cyber Security",
+    "service_uas_banner_title": "Mores works with global cyber security experts to secure government information and digital infrastructure database from (but not limited to) unknown threats in medium deep and dark web.",
+    "service_uas_banner_subtitle": "Unmanned Aircraft System (UAS)",
+    "service_afc_banner_title": "The term “automated fare collection” (AFC) describes how systems and technology are combined to make collecting fares on public transit more efficient. Both transportation authorities and passengers can profit greatly from AFC's products and services",
+    "service_afc_banner_subtitle": "Automated fare collection (afc) system",
+    "service_subcontrol_title": "OUR SUB-CONTROL ENGINEERING FOCUS",
+    "service_subcontrol_1": "Motion Control Systems",
+    "service_subcontrol_2": "Driver Systems",
+    "service_subcontrol_3": "Intelligent Systems",
+    "service_subcontrol_4": "Industrial Data Communication Systems",
+    "service_subcontrol_5": "Computer-based Real-time Control Systems"
   },
   "Common": {
     "title": "Mores Strategics",
-    "description": "Consultant/advisory specializes in communication, creative financing, business & investment through data analysis, technology & ethnographic approach"
+    "description": "Consultant/advisory specializes in communication, creative financing, business & investment through data analysis, technology & ethnographic approach",
+    "contact_title": "Ada pertanyaan atau butuh bantuan?",
+    "contact_button": "Hubungi Kami"
   },
   "IndustryPage": {
     "title": "INDUSTRIES",
