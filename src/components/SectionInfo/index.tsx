@@ -11,7 +11,7 @@ export const SectionInfo = ({
   subtitle,
 }: TSectionInfoProp) => {
   return (
-    <div className="w-full max-w-[1040px] mx-auto">
+    <div className="w-full mx-auto">
       <div className="grid grid-cols-1 mobile-min:grid-cols-3 gap-10 mobile-min:gap-[22px]">
         <div className="block">
           <div className="font-supplymono text-lg lg:text-28 lg:leading-10 font-normal text-blue-pacific">
