@@ -17,7 +17,7 @@ const AboutIntro = () => {
       </section>
       <section className="py-[3.125rem] md:pt-[6.688rem] px-16 md:pb-[6.25rem]">
         <div className=""></div>
-        <div className="max-w-[1080px] m-auto">
+        <div className="max-w-[1080px] mx-auto">
           <SectionInfo
             title="MORES /ʼMÔRĀZʼ/"
             subtitle={<span className="font-medium">{t("about_quote")}</span>}
