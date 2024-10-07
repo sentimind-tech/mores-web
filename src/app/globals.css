@@ -3,80 +3,80 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "SupplyMono";
-  src: url("../fonts/SupplyMono/Supply-Regular.ttf");
+  font-family: 'SupplyMono';
+  src: url('../fonts/SupplyMono/Supply-Regular.ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter/Inter-Regular.ttf");
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-Regular.ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter/Inter-Medium.ttf");
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-Medium.ttf');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter/Inter-SemiBold.ttf");
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-SemiBold.ttf');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter/Inter-Bold.ttf");
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-Bold.ttf');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter/Inter-ExtraBold.ttf");
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-ExtraBold.ttf');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter/Inter-Black.ttf");
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-Black.ttf');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Graphik";
-  src: url("../fonts/Graphik/Graphik-Regular.ttf");
+  font-family: 'Graphik';
+  src: url('../fonts/Graphik/Graphik-Regular.ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Graphik";
-  src: url("../fonts/Graphik/Graphik-Medium.ttf");
+  font-family: 'Graphik';
+  src: url('../fonts/Graphik/Graphik-Medium.ttf');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Graphik";
-  src: url("../fonts/Graphik/Graphik-Semibold.ttf");
+  font-family: 'Graphik';
+  src: url('../fonts/Graphik/Graphik-Semibold.ttf');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Graphik";
-  src: url("../fonts/Graphik/Graphik-Bold.ttf");
+  font-family: 'Graphik';
+  src: url('../fonts/Graphik/Graphik-Bold.ttf');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -88,7 +88,7 @@
   --background-end-rgb: 255, 255, 255;
   --main-background: #fff;
   --main-text: #666666;
-  --main-font: "Inter";
+  --main-font: 'Inter';
 }
 
 @media (prefers-color-scheme: dark) {
@@ -154,6 +154,12 @@ body {
 }
 .overview-content blockquote {
   @apply font-supplymono text-blue-pacific text-2xl;
+}
+.overview-content #overview pre img {
+  width: 100%;
+}
+.overview-content #overview p {
+  padding: 0 55px;
 }
 
 .google-map-iframe {

@@ -30,22 +30,22 @@ export const InsightCard = ({
           priority={true}
         />
       </div>
-      <div className="flex flex-col font-normal font-inter">
-        <div className="text-[7px] leading-[22px] text-blue-pacific font-supplymono">
+      <div className="flex flex-col font-normal font-inter mt-8">
+        <div className="text-10 leading-[22px] text-blue-pacific font-supplymono">
           {subtitle}
         </div>
-        <div className="mt-[5px] mb-[2px] text-12 leading-[1.25rem] text-black ">
+        <div className="mt-[2px] text-14 mb-[7px] text-12 leading-[1.25rem] text-black ">
           {title}
         </div>
-        <div className="text-[7px] leading-[15px] text-gray-medium">
+        <div className="text-10 leading-[15px] text-gray-medium">
           {description}
         </div>
       </div>
       <Link
         href={path}
-        className="mt-5 flex justify-start items-center gap-10 cursor-pointer"
+        className="mt-[25px] flex justify-start items-center gap-10 cursor-pointer"
       >
-        <span className="text-black leading-3 font-normal text-10 font-supplymono">
+        <span className="text-blue-pacific leading-3 font-normal text-12 font-supplymono">
           READ NOW
         </span>
         <Image
