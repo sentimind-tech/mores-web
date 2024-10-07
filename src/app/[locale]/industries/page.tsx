@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import { Metadata } from 'next'
-import { SectionHeader } from '@/components/SectionHeader'
-import { ServiceCard } from '@/components/ServiceCard'
-import { PageHeader } from '@/components/PageHeader'
-import { SectionInfo } from '@/components/SectionInfo'
-import { TIndustry } from '@/types/industry'
-import { getIndustryList } from '@/services/industry'
-import Layout from '@/components/Layout'
-import { useTranslations } from 'next-intl'
-import { unstable_setRequestLocale } from 'next-intl/server'
-import IndustryList from '@/components/Section/IndustryPage/IndustryList'
-import SectionHelp from '@/components/Section/SectionHelp'
+import React, { useEffect, useState } from "react";
+import { Metadata } from "next";
+import { SectionHeader } from "@/components/SectionHeader";
+import { ServiceCard } from "@/components/ServiceCard";
+import { PageHeader } from "@/components/PageHeader";
+import { SectionInfo } from "@/components/SectionInfo";
+import { TIndustry } from "@/types/industry";
+import { getIndustryList } from "@/services/industry";
+import Layout from "@/components/Layout";
+import { useTranslations } from "next-intl";
+import { unstable_setRequestLocale } from "next-intl/server";
+import IndustryList from "@/components/Section/IndustryPage/IndustryList";
+import SectionHelp from "@/components/Section/SectionHelp";
 
 type Props = {
-  params: { locale: string }
-}
+  params: { locale: string };
+};
 
 export default async function Industry({ params: { locale } }: Props) {
-  unstable_setRequestLocale(locale)
-  const industryList = await getIndustryList()
+  unstable_setRequestLocale(locale);
+  const industryList = await getIndustryList();
   return (
     <Layout>
       <section className="flex flex-col mb-[108px]">
@@ -33,12 +33,12 @@ export default async function Industry({ params: { locale } }: Props) {
         link={`/${locale}/contact`}
       />
     </Layout>
-  )
+  );
 }
 
 export const metadata: Metadata = {
-  title: 'Mores | Industries',
-}
+  title: "Mores | Industries",
+};
 
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";

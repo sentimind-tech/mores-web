@@ -81,7 +81,7 @@ async function getInsightForHome(page: number = 1, perPage: number = 3) {
       .collection("insights")
       .getList<TInsight>(page, perPage, {
         sort: "-created",
-        expand: "industry_tags,service_tags,authors",
+        expand: "industry_tags,service_tags",
       });
 
     return response;

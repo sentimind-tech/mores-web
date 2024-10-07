@@ -1,4 +1,4 @@
-import { ButtonOutline } from "@/components/Button";
+import { ButtonSecondary } from "@/components/Button";
 import { HeadingText } from "@/components/Text";
 import Link from "next/link";
 
@@ -15,16 +15,15 @@ const SectionHelp = (props: TSectionHelpProps) => {
       <div className="absolute w-full h-full top-0 left-0 bg-home-help z-[0]" />
       <div className="h-full w-full max-w-[1280px] mx-auto relative z-[1] flex flex-col items-center justify-center">
         {title && (
-          <HeadingText
-            type="h3"
-            className="uppercase leading-[2.4rem] text-white block mb-[1.875rem] text-center"
-          >
+          <HeadingText className="uppercase text-[1.5rem] md:text-32 lg:text-[2.5rem] leading-[1.813rem] md:leading-[2.5rem] lg:leading-[3rem] text-white block mb-[1.875rem] text-center md:max-w-[500px]">
             {title}
           </HeadingText>
         )}
         {button_text && (
           <Link href={link}>
-            <ButtonOutline className="uppercase">{button_text}</ButtonOutline>
+            <ButtonSecondary className="uppercase">
+              {button_text}
+            </ButtonSecondary>
           </Link>
         )}
       </div>

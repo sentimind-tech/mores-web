@@ -119,7 +119,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                     <div className="absolute w-full h-full top-0 left-0 z-[1] bg-home-insight-thumb" />
                   </div>
                   <div className="w-full md:w-1/3 h-full">
-                    <div className="w-full h-full flex flex-col justify-between relative p-[2.125rem] md:p-16 xl:p-32 z-[2] text-white bg-blue-pacific">
+                    <div className="w-full h-full flex flex-col justify-between relative p-16 py-[2.125rem] md:py-[1rem] xl:p-32 z-[2] text-white bg-blue-pacific">
                       <div className="absolute w-full h-full top-0 left-0 z-[0] bg-home-insight-thumb-2" />
 
                       <div className="block relative z-[1]">
@@ -132,7 +132,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                         {data2?.title && (
                           <HeadingText
                             type="h4"
-                            className="text-24 md:text-16 lg:text-20 xl:text-24 leading-[1.75rem] md:leading-[1.3rem] lg:leading-[1.6rem] xl:leading-[1.75rem] uppercase"
+                            className="text-24 md:text-16 xl:text-20 2xl:text-24 leading-[1.75rem] md:leading-[1.3rem] lg:leading-[1.6rem] xl:leading-[1.75rem] uppercase"
                           >
                             {data2.title}
                           </HeadingText>
@@ -182,7 +182,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                     <div className="absolute w-full h-full top-0 left-0 z-[1] bg-home-insight-thumb" />
                   </div>
                   <div className="w-full md:w-2/3 h-full">
-                    <div className="w-full h-full flex flex-col justify-between relative p-[2.125rem] md:p-16 xl:p-32 z-[2] text-black bg-blue-pacific">
+                    <div className="w-full h-full flex flex-col justify-between relative p-16 py-[2.125rem] md:py-[1rem] xl:p-32 z-[2] text-black bg-blue-pacific">
                       <div className="absolute w-full h-full top-0 left-0 z-[0] bg-white" />
 
                       <div className="block relative z-[1] md:max-w-[50%]">
@@ -195,7 +195,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                         {data3?.title && (
                           <HeadingText
                             type="h4"
-                            className="text-24 md:text-16 lg:text-20 xl:text-24 leading-[1.75rem] md:leading-[1.3rem] lg:leading-[1.6rem] xl:leading-[1.75rem] uppercase"
+                            className="text-24 md:text-16 xl:text-20 2xl:text-24 leading-[1.75rem] md:leading-[1.3rem] lg:leading-[1.6rem] xl:leading-[1.75rem] uppercase"
                           >
                             {data3.title}
                           </HeadingText>
