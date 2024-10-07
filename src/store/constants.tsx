@@ -19,3 +19,11 @@ export const TEAM_SOCMED_X = "X";
 export const TEAM_SOCMED_INSTAGRAM = "Instagram";
 export const TEAM_SOCMED_YOUTUBE = "YouTube";
 export const TEAM_SOCMED_TIKTOK = "TikTok";
+
+export const TECH_SERVICE_SLUG_CONTROL = "electronic-control-and-automation";
+export const TECH_SERVICE_SLUG_NETWORK =
+  "communication-and-networking-planning";
+export const TECH_SERVICE_SLUG_DATA = "data-center-and-analytics";
+export const TECH_SERVICE_SLUG_SECURITY = "cyber-security";
+export const TECH_SERVICE_SLUG_UAS = "unmanned-aircraft-system";
+export const TECH_SERVICE_SLUG_AFC = "automated-fare-collection-system";

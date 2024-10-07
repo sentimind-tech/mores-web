@@ -15,7 +15,7 @@ const TechServiceContent = () => {
 
   return (
     <>
-      <BannerTech background="/images/bg-tech-services.jpg" overlay={false}>
+      <BannerTech background="/images/bg-services-tech.jpg" overlay={false}>
         <div className="lg:w-full">
           <HeadingText
             type="h5"
@@ -46,7 +46,11 @@ const TechServiceContent = () => {
                   href={`/${localActive}/tech/services/${item.slug}`}
                   className="block h-full w-full"
                 >
-                  <CardTechServiceItem image={item.image} title={item.title} />
+                  <CardTechServiceItem
+                    image={item.image}
+                    title={item.title}
+                    ornament={item.ornament}
+                  />
                 </Link>
               </div>
             ))}

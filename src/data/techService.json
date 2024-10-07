@@ -1,50 +1,56 @@
 [
   {
     "title": "Electronic Control & Automation",
-    "image": "/images/thumb/thumb-tech-service-1.jpg",
+    "image": "/images/thumb/thumb-service-tech-1.jpg",
+    "ornament": "/images/thumb/tech-service-ornament-1.svg",
     "slug": "electronic-control-and-automation",
     "banner_title": "service_control_banner_title",
     "banner_subtitle": "service_control_banner_subtitle",
-    "banner_image": "/images/bg/bg-tech-services-control.jpg"
+    "banner_image": "/images/bg/bg-services-tech-control.jpg"
   },
   {
     "title": "Communication & Networking planning",
-    "image": "/images/thumb/thumb-tech-service-2.jpg",
+    "image": "/images/thumb/thumb-service-tech-2.jpg",
+    "ornament": "/images/thumb/tech-service-ornament-2.svg",
     "slug": "communication-and-networking-planning",
     "banner_title": "service_network_banner_title",
     "banner_subtitle": "service_network_banner_subtitle",
-    "banner_image": "/images/bg/bg-tech-services-network.jpg"
+    "banner_image": "/images/bg/bg-services-tech-network.jpg"
   },
   {
     "title": "Data Center & Analytics",
-    "image": "/images/thumb/thumb-tech-service-3.jpg",
+    "image": "/images/thumb/thumb-service-tech-3.jpg",
+    "ornament": "/images/thumb/tech-service-ornament-3.svg",
     "slug": "data-center-and-analytics",
     "banner_title": "service_data_banner_title",
     "banner_subtitle": "service_data_banner_subtitle",
-    "banner_image": "/images/bg/bg-tech-services-data.jpg"
+    "banner_image": "/images/bg/bg-services-tech-data.jpg"
   },
   {
     "title": "Cyber Security",
-    "image": "/images/thumb/thumb-tech-service-4.jpg",
+    "image": "/images/thumb/thumb-service-tech-4.jpg",
+    "ornament": "/images/thumb/tech-service-ornament-4.svg",
     "slug": "cyber-security",
     "banner_title": "service_security_banner_title",
     "banner_subtitle": "service_security_banner_subtitle",
-    "banner_image": "/images/bg/bg-tech-services-security.jpg"
+    "banner_image": "/images/bg/bg-services-tech-security.jpg"
   },
   {
     "title": "Unmanned Aircraft System (UAS)",
-    "image": "/images/thumb/thumb-tech-service-5.jpg",
+    "image": "/images/thumb/thumb-service-tech-5.jpg",
+    "ornament": "/images/thumb/tech-service-ornament-5.svg",
     "slug": "unmanned-aircraft-system",
     "banner_title": "service_uas_banner_title",
     "banner_subtitle": "service_uas_banner_subtitle",
-    "banner_image": "/images/bg/bg-tech-services-uas.jpg"
+    "banner_image": "/images/bg/bg-services-tech-uas.jpg"
   },
   {
     "title": "automated fare collection (afc) System",
-    "image": "/images/thumb/thumb-tech-service-6.jpg",
+    "image": "/images/thumb/thumb-service-tech-6.jpg",
+    "ornament": "/images/thumb/tech-service-ornament-1.svg",
     "slug": "automated-fare-collection-system",
     "banner_title": "service_afc_banner_title",
     "banner_subtitle": "service_afc_banner_subtitle",
-    "banner_image": "/images/bg/bg-tech-services-afc.jpg"
+    "banner_image": "/images/bg/bg-services-tech-afc.jpg"
   }
 ]

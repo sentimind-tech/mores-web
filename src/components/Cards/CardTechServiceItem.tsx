@@ -4,13 +4,14 @@ import { HeadingText } from "../Text";
 type CardTechServiceItem = {
   image: string;
   title: string;
+  ornament?: string;
 };
 
 const CardTechServiceItem = (props: CardTechServiceItem) => {
-  const { image, title } = props;
+  const { image, title, ornament } = props;
   return (
     <div className="w-full h-full bg-gray-light">
-      <div className="relative w-full aspect-[16/12] bg-gray-100">
+      <div className="relative w-full aspect-[16/12] bg-gray-100 flex items-center justify-center">
         {image !== "" && (
           <Image
             src={image}
@@ -20,6 +21,9 @@ const CardTechServiceItem = (props: CardTechServiceItem) => {
             sizes="auto"
             className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0 transition-all scale-100 group-hover:scale-110"
           />
+        )}
+        {ornament && (
+          <img src={ornament} alt="" className="relative max-w-[70%]" />
         )}
       </div>
       <div className="w-full h-[6px] bg-blue-pacific"></div>
