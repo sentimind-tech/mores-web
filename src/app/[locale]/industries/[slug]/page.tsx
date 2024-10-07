@@ -48,7 +48,7 @@ export default async function IndustryDetail({
         <section>
           <PageHeader
             background={coverImagePath}
-            title="Transportation & Logistics"
+            title={industry.name}
             subtitle="FOCUS INDUSTRIES"
             subtitleCustomClass='text-white'
           />
