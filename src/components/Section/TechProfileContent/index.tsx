@@ -85,15 +85,18 @@ const TechProfileContent = (props: TWithDimensionProps) => {
   const dataEcosystem = [
     {
       image: "/images/thumb/thumb-profile-tech-ecosystem-1.jpg",
-      title: t("ecosystem_image_desc_1"),
+      title: t("ecosystem_image_title_1"),
+      desc: t("ecosystem_image_desc_1"),
     },
     {
       image: "/images/thumb/thumb-profile-tech-ecosystem-2.jpg",
-      title: t("ecosystem_image_desc_2"),
+      title: t("ecosystem_image_title_2"),
+      desc: t("ecosystem_image_desc_2"),
     },
     {
       image: "/images/thumb/thumb-profile-tech-ecosystem-3.jpg",
-      title: t("ecosystem_image_desc_3"),
+      title: t("ecosystem_image_title_3"),
+      desc: t("ecosystem_image_desc_3"),
     },
   ];
 
@@ -206,35 +209,38 @@ const TechProfileContent = (props: TWithDimensionProps) => {
               <div className="mt-24 md:mt-[3.25rem] px-0 md:px-16">
                 <div className="flex gap-16 md:gap-32 lg:gap-[3.063rem] overflow-auto px-16 md:px-0 pb-[10px] mb-[-10px]">
                   {dataEcosystem.map((item, index) => (
-                    <div
-                      className="block w-1/3 aspect-square bg-blue-pacific pt-[5px] min-w-[260px] md:min-w-fit"
-                      key={index}
-                    >
-                      <div className="w-full h-full relative">
-                        {item.image && (
-                          <Image
-                            src={item.image}
-                            alt="Thumb 1"
-                            fill={true}
-                            priority={true}
-                            sizes="auto"
-                            className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
-                          />
-                        )}
+                    <div className="block w-full md:w-1/3" key={index}>
+                      <div className="aspect-square bg-blue-pacific pt-[5px] min-w-[260px] md:min-w-fit">
+                        <div className="w-full h-full relative">
+                          {item.image && (
+                            <Image
+                              src={item.image}
+                              alt="Thumb 1"
+                              fill={true}
+                              priority={true}
+                              sizes="auto"
+                              className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
+                            />
+                          )}
 
-                        <HeadingText
-                          type="h2"
-                          className="text-white absolute top-8 md:top-16 right-10 md:right-16"
-                        >
-                          {(index + 1).toString().padStart(2, "0")}
-                        </HeadingText>
-
-                        <div className="absolute bottom-0 left-0 p-12 md:p-16 lg:p-24">
-                          <HeadingText className="text-white text-[0.75rem] md:text-14 leading-[1rem] md:leading-[1.15rem] lg:leading-[1.25rem] uppercase text-pretty">
-                            {item.title}
+                          <HeadingText
+                            type="h2"
+                            className="text-white absolute top-8 md:top-16 right-10 md:right-16"
+                          >
+                            {(index + 1).toString().padStart(2, "0")}
                           </HeadingText>
+
+                          <div className="absolute bottom-0 left-0 p-12 md:p-16 lg:p-24">
+                            <HeadingText className="text-white text-[0.75rem] md:text-14 leading-[1rem] md:leading-[1.15rem] lg:leading-[1.25rem] uppercase text-pretty">
+                              {item.title}
+                            </HeadingText>
+                          </div>
                         </div>
                       </div>
+
+                      <BodyText type="body2" className="mt-18 text-black">
+                        {item.desc}
+                      </BodyText>
                     </div>
                   ))}
                 </div>
@@ -269,7 +275,7 @@ const TechProfileContent = (props: TWithDimensionProps) => {
                         </div>
                       </div>
                       <div className="flex-1 text-black">
-                        <HeadingText type="h5" className="">
+                        <HeadingText type="h5" className="uppercase">
                           {item.title}
                         </HeadingText>
 

@@ -379,7 +379,7 @@ const ClientStoriesContent = () => {
                 <div className="block">
                   <HeadingText
                     type="h5"
-                    className="uppercase text-blue-pacific md:max-w-[75%]"
+                    className="uppercase text-blue-pacific"
                   >
                     As a newly developed financing scheme, there is still a few
                     experts specialized in Indonesian Public-Private Partnership
