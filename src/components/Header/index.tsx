@@ -259,7 +259,7 @@ const Header = () => {
                 </div>
               </div>
 
-              <div className="absolute w-[24px] h-[24px] right-[1rem] flex justify-center items-center z-[100] md:hidden">
+              <div className="absolute w-[24px] h-[24px] right-0 flex justify-center items-center z-[100] md:hidden">
                 <div
                   id="nav-icon3"
                   className={`relative z-30 block md:hidden ${
