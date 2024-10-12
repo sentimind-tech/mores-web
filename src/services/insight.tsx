@@ -7,6 +7,7 @@ export type TInsightParams = {
   insightId?: string;
   isFeatured?: boolean;
   sortBy?: string;
+  keyword?: string;
 };
 
 type TQueryParams = {
@@ -44,6 +45,10 @@ async function getInsightList(
       filters.push("is_featured = true");
     } else if (params.isFeatured === false) {
       filters.push("is_featured = false");
+    }
+
+    if (params.keyword) {
+      filters.push(`title ~ "${params.keyword}"`);
     }
 
     // Combine all filters into a single string using AND logic

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { ButtonPrimary } from "../Button";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,12 +16,29 @@ type TCardSearchItemProps = {
 
 const CardSearchItem = (props: TCardSearchItemProps) => {
   const { image, title, category, desc, link } = props;
+  const [linkUrl, setLinkUrl] = useState(true);
+
+  const checkUrl = (url: string) => {
+    var tarea = url;
+
+    if (tarea.indexOf("http://") == 0 || tarea.indexOf("https://") == 0) {
+      setLinkUrl(true);
+    } else {
+      setLinkUrl(false);
+    }
+  };
+
+  useEffect(() => {
+    if (link) {
+      checkUrl(link);
+    }
+  }, [link]);
 
   return (
     <div className="w-full flex flex-col md:flex-row items-start py-18">
-      <div className="shrink-0 w-full md:max-w-[222px]">
-        <div className="relative aspect-[16/10] bg-gray-100">
-          {image && image !== "" && (
+      {image && image !== "" && (
+        <div className="shrink-0 w-full md:max-w-[222px] md:mr-24 lg:mr-[3.125rem]">
+          <div className="relative aspect-[16/10] bg-gray-100">
             <Image
               src={image}
               alt="Thumb"
@@ -27,10 +47,10 @@ const CardSearchItem = (props: TCardSearchItemProps) => {
               sizes="auto"
               className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
             />
-          )}
+          </div>
         </div>
-      </div>
-      <div className="flex-1 py-12 md:pl-24 lg:pl-[3.125rem] md:pr-20">
+      )}
+      <div className="flex-1 py-12 md:pr-20">
         <BodyText className="block mb-4 text-[0.688rem] leading-[1.375rem] text-blue-pacific uppercase">
           {category}
         </BodyText>
@@ -43,9 +63,17 @@ const CardSearchItem = (props: TCardSearchItemProps) => {
       </div>
       <div className="shrink-0 pt-12 lg:pt-20 ml-auto">
         {link ? (
-          <Link href={link}>
-            <ButtonPrimary className="uppercase">Read</ButtonPrimary>
-          </Link>
+          <>
+            {linkUrl ? (
+              <Link href={link} target="_blank">
+                <ButtonPrimary className="uppercase">Read</ButtonPrimary>
+              </Link>
+            ) : (
+              <Link href={link}>
+                <ButtonPrimary className="uppercase">Read</ButtonPrimary>
+              </Link>
+            )}
+          </>
         ) : (
           <ButtonPrimary className="uppercase">Read</ButtonPrimary>
         )}

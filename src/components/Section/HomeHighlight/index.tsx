@@ -3,12 +3,15 @@ import Image from "next/image";
 import { BodyText, HeadingText } from "@/components/Text";
 import { ButtonPrimary } from "@/components/Button";
 import { TInsightPagination } from "@/types/insight";
+import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 
 type THomeHighlightProps = {
   data: TInsightPagination | null;
 };
 const HomeHighlight = (props: THomeHighlightProps) => {
   const { data } = props;
+  const localActive = useLocale();
 
   return (
     data !== null && (
@@ -30,7 +33,10 @@ const HomeHighlight = (props: THomeHighlightProps) => {
                   >
                     DECISIVE MOMENT FOR COMPETITIVENESS AND RESILIENCE
                   </HeadingText>
-                  <ButtonPrimary size="small">EXPLORE NOW</ButtonPrimary>
+
+                  <Link href={`/${localActive}/insights`}>
+                    <ButtonPrimary size="small">EXPLORE NOW</ButtonPrimary>
+                  </Link>
                 </div>
               </div>
               <div className="w-full md:w-[340px] lg:w-[408px] aspect-[8/6] md:aspect-auto md:h-full relative shrink-0">

@@ -3,6 +3,7 @@ import { unstable_setRequestLocale, getTranslations } from "next-intl/server";
 import SectionHelp from "@/components/Section/SectionHelp";
 import TechServiceDetailContent from "@/components/Section/TechServiceDetailContent";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 import dataServices from "@/data/techService.json";
 
@@ -35,3 +36,12 @@ const TechServicesDetail = async ({ params: { locale, slug } }: Props) => {
 };
 
 export default TechServicesDetail;
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Mores | Tech Service",
+  };
+}

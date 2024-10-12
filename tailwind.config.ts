@@ -97,6 +97,7 @@ const config: Config = {
       },
       boxShadow: {
         "lang-selector": "0 6px 12px rgba(0,0,0,.175)",
+        "drawer-suggest": "0px 5px 8px 0px rgba(0,0,0,0.04)",
       },
     },
   },

@@ -27,3 +27,8 @@ export const TECH_SERVICE_SLUG_DATA = "data-center-and-analytics";
 export const TECH_SERVICE_SLUG_SECURITY = "cyber-security";
 export const TECH_SERVICE_SLUG_UAS = "unmanned-aircraft-system";
 export const TECH_SERVICE_SLUG_AFC = "automated-fare-collection-system";
+
+export const DROPDOWN_FILTER_SEARCH_ALL = "all";
+export const DROPDOWN_FILTER_SEARCH_INSIGHT = "insight";
+export const DROPDOWN_FILTER_SEARCH_SERVICE = "service";
+export const DROPDOWN_FILTER_SEARCH_CAREER = "career";
