@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Drawer, { TDrawerComponentProps } from "@/components/Drawer";
 import Image from "next/image";
 import MenuContent from "../Header/MenuContent";
@@ -11,6 +11,7 @@ import { TIndustry } from "@/types/industry";
 import { TService } from "@/types/service";
 import { TMenuServicesProps } from "@/types/Menu";
 import { useLocale } from "next-intl";
+import { useRouter, Locale } from "@/i18n/routing";
 
 import navmenu from "@/data/navmenu.json";
 import menuContentData from "@/data/menuContent.json";
@@ -28,6 +29,8 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
   const [selectedMenu, setSelectedMenu] = useState<string | null>();
   const localActive = useLocale();
+  const dropdownContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const handleCloseDrawer = () => {
     setClose && setClose(false);
@@ -88,6 +91,33 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
 
   const transformedServiceData = transformData(services);
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownContainerRef.current &&
+      !dropdownContainerRef.current.contains(event.target as Node)
+    ) {
+      setClose && setClose(false);
+    }
+  };
+
+  const handleEnterSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      const inputValue = (event.target as HTMLInputElement).value;
+
+      const nextLocale = localActive as Locale;
+
+      router.push(`/search?result=${inputValue}`, { locale: nextLocale });
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <Drawer
       isOpen={isOpen}
@@ -99,6 +129,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
         className={`w-full bg-white-smoke h-[100dvh] lg:h-auto flex max-h-[100dvh] group ${
           isOpen ? "active-drawer" : ""
         }`}
+        ref={dropdownContainerRef}
       >
         <div className="relative lg:z-auto w-full lg:w-[332px] bg-black shrink-0 flex flex-col items-center pt-[1.063rem]">
           <div className="w-full lg:max-w-[210px] py-16 px-32 md:px-[2.5rem] lg:p-0">
@@ -177,6 +208,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                 type="text"
                 placeholder="Type to search ..."
                 className="border-0 w-full outline-0 h-[50px] pr-[1.875rem]"
+                onKeyDown={handleEnterSearch}
               />
               <div className="absolute w-[29px] h-[28px] right-0 top-[1px] bottom-0 m-auto cursor-pointer">
                 <svg width="29" height="28" viewBox="0 0 29 28" fill="none">

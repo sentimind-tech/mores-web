@@ -1,22 +1,30 @@
-import Image from 'next/image'
-import { ChangeEventHandler, ReactNode } from 'react'
+import Image from "next/image";
+import { ChangeEventHandler, ReactNode } from "react";
 
 type TSelectProps = {
-  children: ReactNode | string
-  id?: string
-  className?: string
-  defaultValue?: string
-  onChange?: ChangeEventHandler<HTMLSelectElement>
-}
+  children: ReactNode | string;
+  id?: string;
+  className?: string;
+  defaultValue?: string;
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
+};
 
-export const Select = ({ children, id, className, onChange, defaultValue }: TSelectProps) => {
+export const Select = ({
+  children,
+  id,
+  className,
+  onChange,
+  defaultValue,
+  ...props
+}: TSelectProps) => {
   return (
     <div className="relative inline-block w-full">
       <select
         id={id}
-        className={`block w-full py-2 pl-3 pr-10 text-base border-b-[1.5px] border-gray-silver rounded-md focus:outline-none appearance-none font-inter font-normal text-blue-pacific text-base ${className}`}
+        className={`block w-full py-8 pl-3 pr-10 text-base border-b-[1.5px] border-gray-silver focus:outline-none appearance-none font-inter font-normal text-blue-pacific text-base ${className}`}
         onChange={onChange}
         defaultValue={defaultValue}
+        {...props}
       >
         {children}
       </select>
@@ -29,5 +37,5 @@ export const Select = ({ children, id, className, onChange, defaultValue }: TSel
         />
       </div>
     </div>
-  )
-}
+  );
+};

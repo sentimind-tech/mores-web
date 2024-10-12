@@ -7,6 +7,7 @@ import HomeInsight from "@/components/Section/HomeInsight";
 import { getInsightForHome } from "@/services/insight";
 import { getServiceList } from "@/services/service";
 import { unstable_setRequestLocale } from "next-intl/server";
+import type { Metadata, ResolvingMetadata } from "next";
 
 type Props = {
   params: { locale: string };
@@ -37,3 +38,9 @@ export default async function Homepage({ params: { locale } }: Props) {
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Mores Strategics | Homepage",
+  };
+}
