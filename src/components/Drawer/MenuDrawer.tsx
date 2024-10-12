@@ -79,7 +79,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
             .filter((item) => item.parent_service_id === service.id)
             .map((item) => ({
               title: item.name,
-              link: `/${localActive}/services/${item.id}/${item.parent_service_id}`,
+              link: `/${localActive}/services/${item.parent_service_id}/${item.id}`,
             })),
         };
 
@@ -109,6 +109,17 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
       router.push(`/search?result=${inputValue}`, { locale: nextLocale });
     }
   };
+
+  useEffect(() => {
+    if (selectedMenu && dropdownContainerRef.current) {
+      // Use requestAnimationFrame to wait for the DOM update and get the correct height
+      requestAnimationFrame(() => {
+        const targetId = document.getElementById(selectedMenu);
+        const targetHeight = targetId?.getBoundingClientRect().height;
+        setHeightContainerMenu(targetHeight ?? 0);
+      });
+    }
+  }, [transformedServiceData, selectedMenu]);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -305,12 +316,12 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                     <div className="pl-[1.375rem] flex flex-col items-start gap-[0.375rem] pt-[0.625rem]">
                                       {item.submenu.map((submenuitem, idx) => (
                                         <Link
-                                          href={item.name_link}
+                                          href={submenuitem.link}
                                           className="inline-block transition-all duration-300 hover:text-blue-pacific"
                                           key={idx}
                                         >
                                           <BodyText
-                                            className="text-[0.625rem] leading-[0.75rem] block relative before:content-['&#62;'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px]"
+                                            className="text-[0.625rem] leading-[0.75rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px]"
                                             key={idx}
                                           >
                                             {submenuitem.title}
