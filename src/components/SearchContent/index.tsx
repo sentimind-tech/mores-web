@@ -5,10 +5,9 @@ import { HeadingText, BodyText } from "../Text";
 import CardSearchItem from "../Cards/CardSearchItem";
 import { Select } from "@/components/Select";
 import { Option } from "@/components/Option";
-import { useSearchParams } from "next/navigation";
-import { getInsightList, TInsightParams } from "@/services/insight";
-import { getServiceListPagination, TServiceParams } from "@/services/service";
-import { getVacancyListPagination, TVacancyParams } from "@/services/vacancy";
+import { getInsightList } from "@/services/insight";
+import { getServiceListPagination } from "@/services/service";
+import { getVacancyListPagination } from "@/services/vacancy";
 import {
   DROPDOWN_FILTER_SEARCH_ALL,
   DROPDOWN_FILTER_SEARCH_INSIGHT,
@@ -23,44 +22,7 @@ import { useLocale } from "next-intl";
 import { Locale } from "@/i18n/routing";
 import { ButtonPrimary } from "../Button";
 import { SkeletonSearchResult } from "../Skeleton";
-
-const dataItem = [
-  {
-    image: "https://picsum.photos/id/265/444/294",
-    title: "To execute every project,Mores gains insights from local",
-    category: "TRAVEL & TOURISM",
-    desc: "The Travel & Tourism industry is a dynamic and expansive sector that encompasses a wide range of businesses and services dedicated to facilitating travel, exploration, and experiences across the globe.",
-    link: "/",
-  },
-  {
-    image: "https://picsum.photos/id/289/444/294",
-    title: "To execute every project,Mores gains insights from local",
-    category: "TRAVEL & TOURISM",
-    desc: "The Travel & Tourism industry is a dynamic and expansive sector that encompasses a wide range of businesses and services dedicated to facilitating travel, exploration, and experiences across the globe.",
-    link: "/",
-  },
-  {
-    image: "https://picsum.photos/id/292/444/294",
-    title: "To execute every project,Mores gains insights from local",
-    category: "TRAVEL & TOURISM",
-    desc: "The Travel & Tourism industry is a dynamic and expansive sector that encompasses a wide range of businesses and services dedicated to facilitating travel, exploration, and experiences across the globe.",
-    link: "/",
-  },
-  {
-    image: "https://picsum.photos/id/299/444/294",
-    title: "To execute every project,Mores gains insights from local",
-    category: "TRAVEL & TOURISM",
-    desc: "The Travel & Tourism industry is a dynamic and expansive sector that encompasses a wide range of businesses and services dedicated to facilitating travel, exploration, and experiences across the globe.",
-    link: "/",
-  },
-  {
-    image: "https://picsum.photos/id/204/444/294",
-    title: "To execute every project,Mores gains insights from local",
-    category: "TRAVEL & TOURISM",
-    desc: "The Travel & Tourism industry is a dynamic and expansive sector that encompasses a wide range of businesses and services dedicated to facilitating travel, exploration, and experiences across the globe.",
-    link: "/",
-  },
-];
+import { usePathname, useRouter } from "@/i18n/routing";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -131,8 +93,8 @@ const transformCareers = (
 };
 
 const SearchContent = () => {
-  const searchParams = useSearchParams();
-  const search = searchParams.get("result");
+  const pathname = usePathname();
+  const router = useRouter();
   const [defaultValueInput, setDefaultValueInput] = useState<string>("");
   const [dataItems, setDataItems] = useState<any[]>([]);
   const [selectedFilter, setSelectedFilter] = useState<string>(
@@ -143,6 +105,7 @@ const SearchContent = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const localActive = useLocale() as Locale;
   const [initialLoadPage, setInitialLoadPage] = useState(true);
+  const [search, setSearch] = useState<string | null>(null);
 
   const handleEnterSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
@@ -192,8 +155,8 @@ const SearchContent = () => {
             );
           }
 
-          result.items = transformedInsights; // Fallback to empty array if undefined
-          result.total = insightResponse?.totalItems ?? 0; // Fallback to 0 if undefined
+          result.items = transformedInsights;
+          result.total = insightResponse?.totalItems ?? 0;
           break;
         case DROPDOWN_FILTER_SEARCH_SERVICE:
           const serviceResponse = await getServiceListPagination(
@@ -209,8 +172,8 @@ const SearchContent = () => {
             );
           }
 
-          result.items = transformedServices; // Fallback to empty array if undefined
-          result.total = serviceResponse?.totalItems ?? 0; // Fallback to 0 if undefined
+          result.items = transformedServices;
+          result.total = serviceResponse?.totalItems ?? 0;
           break;
         case DROPDOWN_FILTER_SEARCH_CAREER:
           const careerResponse = await getVacancyListPagination(
@@ -226,8 +189,8 @@ const SearchContent = () => {
             );
           }
 
-          result.items = transformedCareers; // Fallback to empty array if undefined
-          result.total = careerResponse?.totalItems ?? 0; // Fallback to 0 if undefined
+          result.items = transformedCareers;
+          result.total = careerResponse?.totalItems ?? 0;
           break;
         default:
           // Fetch all data
@@ -293,6 +256,12 @@ const SearchContent = () => {
     setCurrentPage(nextPage);
     fetchData(defaultValueInput, selectedFilter, nextPage);
   };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const resultParam = urlParams.get("result");
+    setSearch(resultParam);
+  }, [pathname, router]);
 
   useEffect(() => {
     if (search) {
@@ -368,7 +337,6 @@ const SearchContent = () => {
                         ))}
                       </div>
 
-                      {/* Show loader if loading */}
                       {loading ? (
                         <div className="flex items-center justify-center h-[200px]">
                           <div className="w-[48px] h-[48px]">
