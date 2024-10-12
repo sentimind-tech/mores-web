@@ -310,7 +310,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                           key={idx}
                                         >
                                           <BodyText
-                                            className="text-[0.625rem] leading-[0.75rem] block"
+                                            className="text-[0.625rem] leading-[0.75rem] block relative before:content-['&#62;'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px]"
                                             key={idx}
                                           >
                                             {submenuitem.title}

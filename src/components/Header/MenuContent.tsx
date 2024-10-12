@@ -31,16 +31,25 @@ const MenuContent = (props: TMenuContentProps) => {
                   className="flex items-center justify-between gap-12"
                   key={index}
                 >
-                  <BodyText type="body1" className="leading-[1.21rem]">
-                    {item.title}
-                  </BodyText>
-
-                  {item.link && item.link !== "" && (
-                    <Link href={`/${localActive}${item.link}`}>
-                      <ButtonPrimary className="uppercase text-[0.563rem] leading-[0.675rem] min-w-[5rem] !p-4">
-                        Visit Page
-                      </ButtonPrimary>
+                  {item.link && item.link !== "" ? (
+                    <Link
+                      href={`/${localActive}${item.link}`}
+                      className="block"
+                    >
+                      <BodyText
+                        type="body1"
+                        className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific"
+                      >
+                        {item.title}
+                      </BodyText>
                     </Link>
+                  ) : (
+                    <BodyText
+                      type="body1"
+                      className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific"
+                    >
+                      {item.title}
+                    </BodyText>
                   )}
                 </div>
               ))}
@@ -62,7 +71,7 @@ const MenuContent = (props: TMenuContentProps) => {
             {data?.thumb_name && (
               <HeadingText
                 type="h5"
-                className="text-[1.313rem] leading-[1.575] block mb-12 text-blue-pacific"
+                className="text-[1.313rem] leading-[1.575] block mb-12 text-blue-pacific uppercase"
               >
                 {data.thumb_name}
               </HeadingText>
