@@ -308,7 +308,7 @@ const AboutTeam = (props: TAboutTeamProps) => {
                                   {submenu.map((item, idx) => (
                                     <div className="block" key={idx}>
                                       <Link
-                                        href={`/${localActive}/services/${item.id}/${item.parent_service_id}`}
+                                        href={`/${localActive}/services/${item.parent_service_id}/${item.id}`}
                                         className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific"
                                       >
                                         <span className="">{item.name}</span>
