@@ -1,24 +1,24 @@
-import Layout from '@/components/Layout'
-import { PageHeader } from '@/components/PageHeader'
-import JobList from '@/components/Section/Careers/JobList'
-import ValueCard from '@/components/Section/Careers/ValueCard'
-import { SectionHeader } from '@/components/SectionHeader'
-import { SectionInfo } from '@/components/SectionInfo'
-import { Metadata } from 'next'
-import Image from 'next/image'
-import CareerSwiper from '@/components/Section/Careers/CareerSwiper'
+import Layout from "@/components/Layout";
+import { PageHeader } from "@/components/PageHeader";
+import JobList from "@/components/Section/Careers/JobList";
+import ValueCard from "@/components/Section/Careers/ValueCard";
+import { SectionHeader } from "@/components/SectionHeader";
+import { SectionInfo } from "@/components/SectionInfo";
+import { Metadata } from "next";
+import Image from "next/image";
+import CareerSwiper from "@/components/Section/Careers/CareerSwiper";
 import {
   getVacancyList,
   getVacancyListGroupedByField,
-} from '@/services/vacancy'
-import SectionHelp from '@/components/Section/SectionHelp'
+} from "@/services/vacancy";
+import SectionHelp from "@/components/Section/SectionHelp";
 
 type Props = {
-  params: { locale: string }
-}
+  params: { locale: string };
+};
 export default async function CareersPage({ params: { locale } }: Props) {
-  const areaList = await getVacancyListGroupedByField('area')
-  const jobList = await getVacancyList()
+  const areaList = await getVacancyListGroupedByField("area");
+  const jobList = await getVacancyList();
   return (
     <Layout>
       <section className="flex flex-col">
@@ -66,7 +66,7 @@ export default async function CareersPage({ params: { locale } }: Props) {
           </div>
 
           <div className="section-padding flex gap-24 items-center justify-center flex-col px-[115px]">
-            <div className="text-center text-blue-pacific font-supplymono leading-[1.75rem] lg:leading-[2.5rem] text-18 lg:text-[1.75rem]">
+            <div className="text-center text-blue-pacific font-supplymono leading-[1.75rem] lg:leading-[2.5rem] text-18 lg:text-[1.75rem] uppercase">
               &quot;A picture is worth a thousand memories.&quot;
             </div>
             <div className="font-inter text-sm lg:leading-[1.75rem] lg:text-[1.125rem] text-center">
@@ -83,94 +83,96 @@ export default async function CareersPage({ params: { locale } }: Props) {
             <SectionHeader title="LIFE AT MORES" />
             <div className="w-full">
               <table className="w-full border-separate careers-image-table h-[511px] mt-[32px]">
-                <tr>
-                  <td rowSpan={2}>
-                    <Image
-                      src="/images/careers/careers_1.png"
-                      alt="Careers 1"
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-full h-full object-cover"
-                      priority={true}
-                    />
-                  </td>
-                  <td>
-                    <Image
-                      src="/images/careers/careers_2.png"
-                      alt="Careers 2"
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-full h-full object-cover"
-                      priority={true}
-                    />
-                  </td>
-                  <td>
-                    <Image
-                      src="/images/careers/careers_3.png"
-                      alt="Careers 3"
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-full h-full object-cover"
-                      priority={true}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <Image
-                      src="/images/careers/careers_4.png"
-                      alt="Careers 4"
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-full h-full object-cover"
-                      priority={true}
-                    />
-                  </td>
-                  <td rowSpan={2}>
-                    <Image
-                      src="/images/careers/careers_5.png"
-                      alt="Careers 5"
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-full h-full object-cover"
-                      priority={true}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <Image
-                      src="/images/careers/careers_6.png"
-                      alt="Careers 6"
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-full h-full object-cover"
-                      priority={true}
-                    />
-                  </td>
-                  <td>
-                    <Image
-                      src="/images/careers/careers_7.png"
-                      alt="Careers 7"
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-full h-full object-cover"
-                      priority={true}
-                    />
-                  </td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td rowSpan={2}>
+                      <Image
+                        src="/images/careers/careers_1.png"
+                        alt="Careers 1"
+                        width="0"
+                        height="0"
+                        sizes="100vw"
+                        className="w-full h-full object-cover"
+                        priority={true}
+                      />
+                    </td>
+                    <td>
+                      <Image
+                        src="/images/careers/careers_2.png"
+                        alt="Careers 2"
+                        width="0"
+                        height="0"
+                        sizes="100vw"
+                        className="w-full h-full object-cover"
+                        priority={true}
+                      />
+                    </td>
+                    <td>
+                      <Image
+                        src="/images/careers/careers_3.png"
+                        alt="Careers 3"
+                        width="0"
+                        height="0"
+                        sizes="100vw"
+                        className="w-full h-full object-cover"
+                        priority={true}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Image
+                        src="/images/careers/careers_4.png"
+                        alt="Careers 4"
+                        width="0"
+                        height="0"
+                        sizes="100vw"
+                        className="w-full h-full object-cover"
+                        priority={true}
+                      />
+                    </td>
+                    <td rowSpan={2}>
+                      <Image
+                        src="/images/careers/careers_5.png"
+                        alt="Careers 5"
+                        width="0"
+                        height="0"
+                        sizes="100vw"
+                        className="w-full h-full object-cover"
+                        priority={true}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Image
+                        src="/images/careers/careers_6.png"
+                        alt="Careers 6"
+                        width="0"
+                        height="0"
+                        sizes="100vw"
+                        className="w-full h-full object-cover"
+                        priority={true}
+                      />
+                    </td>
+                    <td>
+                      <Image
+                        src="/images/careers/careers_7.png"
+                        alt="Careers 7"
+                        width="0"
+                        height="0"
+                        sizes="100vw"
+                        className="w-full h-full object-cover"
+                        priority={true}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
         </section>
-        <div className="mb-[143px]">
+        <div className="mb-[143px] overflow-hidden">
           <div className="section-padding">
             <SectionHeader title="WORK AT MORES" />
           </div>
@@ -183,12 +185,12 @@ export default async function CareersPage({ params: { locale } }: Props) {
         link={`/${locale}/contact`}
       />
     </Layout>
-  )
+  );
 }
 
 export const metadata: Metadata = {
-  title: 'Mores | Industries',
-}
+  title: "Mores | Industries",
+};
 
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";

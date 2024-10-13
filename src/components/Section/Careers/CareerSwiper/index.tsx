@@ -21,8 +21,8 @@ const CareerSwiper = () => {
     if (window.innerWidth > 768) {
       setTimeout(function () {
         // Remove existing classes from all slides
-        const allSlides = swiper.el.querySelectorAll(".swiper-slide");
-        allSlides.forEach((slide) => {
+        const allSlides = swiper.el?.querySelectorAll(".swiper-slide");
+        allSlides?.forEach((slide) => {
           slide.classList.remove(
             "career-image-prev-active",
             "career-image-active",
@@ -31,7 +31,7 @@ const CareerSwiper = () => {
         });
 
         // Add new classes to the active slides
-        const firstSlide = swiper.el.querySelector(".swiper-slide-active");
+        const firstSlide = swiper.el?.querySelector(".swiper-slide-active");
         const secondSlide = firstSlide?.nextElementSibling;
         const thirdSlide = secondSlide?.nextElementSibling;
         const fourthSlide = thirdSlide?.nextElementSibling;
@@ -45,7 +45,7 @@ const CareerSwiper = () => {
     } else {
       setTimeout(function () {
         // Remove existing classes from all slides
-        const allSlides = swiper.el.querySelectorAll(".swiper-slide");
+        const allSlides = swiper.el?.querySelectorAll(".swiper-slide");
         allSlides.forEach((slide) => {
           slide.classList.remove(
             "career-image-prev-active",
@@ -55,7 +55,7 @@ const CareerSwiper = () => {
         });
 
         // Add new classes to the active slides
-        const firstSlide = swiper.el.querySelector(".swiper-slide-active");
+        const firstSlide = swiper.el?.querySelector(".swiper-slide-active");
         const secondSlide = firstSlide?.nextElementSibling;
         const thirdSlide = secondSlide?.nextElementSibling;
         if (firstSlide) firstSlide.classList.add("career-image-prev-active");
