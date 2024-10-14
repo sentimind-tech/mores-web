@@ -1,16 +1,16 @@
-'use client'
+"use client";
 
-import { ButtonPrimary } from '@/components/Button'
-import Image from 'next/image'
-import Link from 'next/link'
+import { ButtonPrimary } from "@/components/Button";
+import Image from "next/image";
+import Link from "next/link";
 
 type TJobListProps = {
-  position_name: string
-  division: string
-  employment_type: string
-  area: string
-  url: string
-}
+  position_name: string;
+  division: string;
+  employment_type: string;
+  area: string;
+  url: string;
+};
 
 const JobListItem = ({
   position_name,
@@ -22,7 +22,7 @@ const JobListItem = ({
   return (
     <div className="pt-10 pb-20 font-inter text-12 leading-[20px] border-t border-gray-cloud text-black grid grid-cols-3">
       <div className="col-span-2 flex flex-col gap-16 mobile-min:gap-32">
-        <div className="font-supplymono text-sm mobile-min:text-xl lg:h-[70px] lg:text-clip lg:text-ellipsis flex items-center">
+        <div className="font-supplymono text-sm mobile-min:text-xl lg:h-[70px] lg:text-clip lg:text-ellipsis flex uppercase">
           {position_name}
         </div>
         <div className="flex flex-col items-start mobile-min:grid mobile-min:grid-cols-3 mobile-min:w-[436px]">
@@ -61,7 +61,7 @@ const JobListItem = ({
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default JobListItem
+export default JobListItem;
