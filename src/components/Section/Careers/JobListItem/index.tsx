@@ -57,7 +57,7 @@ const JobListItem = ({
       </div>
       <div className="flex w-full justify-end">
         <Link target="_blank" href={url || ""}>
-          <ButtonPrimary>Apply</ButtonPrimary>
+          <ButtonPrimary className="uppercase">Apply</ButtonPrimary>
         </Link>
       </div>
     </div>
