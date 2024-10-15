@@ -111,7 +111,7 @@ const HomeServices = (props: THomeServicesProps) => {
             })}
           </HeadingText>
 
-          <Link href="" className="hidden md:block">
+          <Link href={`/${localActive}/services`} className="hidden md:block">
             <ButtonPrimary size="small" className="uppercase">
               Specialize
             </ButtonPrimary>

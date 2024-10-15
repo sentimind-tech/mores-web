@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Drawer, { TDrawerComponentProps } from "@/components/Drawer";
 import Image from "next/image";
 import MenuContent from "../Header/MenuContent";
@@ -11,7 +11,8 @@ import { TIndustry } from "@/types/industry";
 import { TService } from "@/types/service";
 import { TMenuServicesProps } from "@/types/Menu";
 import { useLocale } from "next-intl";
-import { useRouter, Locale } from "@/i18n/routing";
+import { useRouter, Locale, usePathname } from "@/i18n/routing";
+import { useSearchContext } from "@/context/SearchContext";
 
 import navmenu from "@/data/navmenu.json";
 import menuContentData from "@/data/menuContent.json";
@@ -31,6 +32,12 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   const localActive = useLocale();
   const dropdownContainerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const pathname = usePathname();
+  const pathslash = pathname.split("/")[1];
+  const [search, setSearch] = useState<string | null>(null);
+
+  const { resetSearch, selectedFilter, setDefaultValueInput, dataItems } =
+    useSearchContext();
 
   const handleCloseDrawer = () => {
     setClose && setClose(false);
@@ -91,20 +98,36 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
 
   const transformedServiceData = transformData(services);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      dropdownContainerRef.current &&
-      !dropdownContainerRef.current.contains(event.target as Node)
-    ) {
-      setClose && setClose(false);
-    }
-  };
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (
+        dropdownContainerRef.current &&
+        !dropdownContainerRef.current.contains(event.target as Node)
+      ) {
+        setClose && setClose(false);
+      }
+    },
+    [setClose, dropdownContainerRef]
+  );
 
   const handleEnterSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       const inputValue = (event.target as HTMLInputElement).value;
-
       const nextLocale = localActive as Locale;
+
+      if (search && pathslash == "search") {
+        resetSearch(inputValue, selectedFilter);
+
+        const inputElement = document.getElementById(
+          "input-search"
+        ) as HTMLInputElement | null;
+
+        if (inputElement) {
+          inputElement.value = inputValue;
+        }
+
+        setClose && setClose(false);
+      }
 
       router.push(`/search?result=${inputValue}`, { locale: nextLocale });
     }
@@ -122,12 +145,18 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   }, [transformedServiceData, selectedMenu]);
 
   useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const resultParam = urlParams.get("result");
+    setSearch(resultParam);
+  }, [pathname, router]);
+
+  useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   return (
     <Drawer
@@ -216,6 +245,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
           <div className="bg-white w-full h-[83px] hidden lg:flex items-center gap-[1.313rem] px-[2.625rem]">
             <div className="relative w-full">
               <input
+                id="input-search-menu-drawer"
                 type="text"
                 placeholder="Type to search ..."
                 className="border-0 w-full outline-0 h-[50px] pr-[1.875rem]"

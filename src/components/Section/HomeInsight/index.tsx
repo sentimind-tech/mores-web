@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { TInsightPagination } from "@/types/insight";
 import { customConfig } from "../../../../config";
+import { useLocale } from "next-intl";
 
 type THomeInsightProps = {
   list: TInsightPagination | null;
@@ -17,6 +18,7 @@ const imageInsightPath = (id: string, name: string) => {
 
 const HomeInsight = (props: THomeInsightProps) => {
   const { list } = props;
+  const localActive = useLocale();
 
   let data1 = list?.items[0];
   let data2 = list?.items[1];
@@ -35,7 +37,10 @@ const HomeInsight = (props: THomeInsightProps) => {
                 EXPLORE OUR Insight
               </HeadingText>
 
-              <Link href="" className="hidden md:block">
+              <Link
+                href={`/${localActive}/insights`}
+                className="hidden md:block"
+              >
                 <ButtonPrimary size="small" className="uppercase">
                   MORE ARTICLE
                 </ButtonPrimary>
@@ -235,7 +240,7 @@ const HomeInsight = (props: THomeInsightProps) => {
           </div>
 
           <div className="flex justify-center py-[2.375rem] bg-white-smoke md:hidden">
-            <Link href="">
+            <Link href={`/${localActive}/insights`}>
               <ButtonOutline
                 size="small"
                 className="uppercase !border-blue-pacific !text-blue-pacific"
