@@ -8,6 +8,7 @@ export type TInsightParams = {
   isFeatured?: boolean;
   sortBy?: string;
   keyword?: string;
+  isFeaturedHome?: boolean;
 };
 
 type TQueryParams = {
@@ -49,6 +50,12 @@ async function getInsightList(
 
     if (params.keyword) {
       filters.push(`title ~ "${params.keyword}"`);
+    }
+
+    if (params.isFeaturedHome === true) {
+      filters.push("is_featured_main_page = true");
+    } else if (params.isFeaturedHome === false) {
+      filters.push("is_featured_main_page = false");
     }
 
     // Combine all filters into a single string using AND logic
