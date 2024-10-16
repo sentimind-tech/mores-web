@@ -12,6 +12,7 @@ export const CONFIG_CONTACT_US_PHONE = "contact_us_phone";
 export const CONFIG_CONTACT_US_WHATSAPP = "contact_us_whatsapp";
 export const CONFIG_CONTACT_US_X = "contact_us_x";
 export const CONFIG_CONTACT_US_YOUTUBE = "contact_us_youtube";
+export const CONFIG_SHOW_FOOTER_BANNER = "show_footer_banner";
 
 export const TEAM_SOCMED_LINKEDLN = "LinkedIn";
 export const TEAM_SOCMED_FACEBOOK = "Facebook";
