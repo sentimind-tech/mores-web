@@ -12,6 +12,7 @@ import {
   getVacancyListGroupedByField,
 } from "@/services/vacancy";
 import SectionHelp from "@/components/Section/SectionHelp";
+import { SELECTED_MENU_CAREER } from "@/store/constants";
 
 type Props = {
   params: { locale: string };
@@ -20,7 +21,7 @@ export default async function CareersPage({ params: { locale } }: Props) {
   const areaList = await getVacancyListGroupedByField("area");
   const jobList = await getVacancyList();
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_CAREER}>
       <section className="flex flex-col">
         <PageHeader background="/images/bg-careers.png" title="CAREERS" />
         <section className="section-padding flex flex-col">

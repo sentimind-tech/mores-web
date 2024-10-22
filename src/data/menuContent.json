@@ -82,16 +82,7 @@
     "slug": "contact",
     "data": {
       "title": "Contact",
-      "menus": [
-        {
-          "title": "Office",
-          "link": "/contact"
-        },
-        {
-          "title": "Contact",
-          "link": "/contact"
-        }
-      ],
+      "menus": [],
       "thumb": "/images/thumb/thumb-menu-contact.jpg",
       "thumb_name": "CONTACT",
       "thumb_desc": "Connect With Us To Get The Best Solutions For Your Company, Tailored To Your Specific Needs."

@@ -13,6 +13,7 @@ import { TMenuServicesProps } from "@/types/Menu";
 import { useLocale } from "next-intl";
 import { useRouter, Locale, usePathname } from "@/i18n/routing";
 import { useSearchContext } from "@/context/SearchContext";
+import { ACTIVE_MENU_STATE } from "@/dictionaries/general";
 
 import navmenu from "@/data/navmenu.json";
 import menuContentData from "@/data/menuContent.json";
@@ -21,11 +22,19 @@ type TMenuDrawerProps = TDrawerComponentProps &
   TWithDimensionProps & {
     industries: TIndustry[];
     services: TService[];
+    activeMenu: string;
   };
 
 const MenuDrawer = (props: TMenuDrawerProps) => {
-  const { isOpen, onClose, setClose, windowDimension, industries, services } =
-    props;
+  const {
+    isOpen,
+    onClose,
+    setClose,
+    windowDimension,
+    industries,
+    services,
+    activeMenu,
+  } = props;
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
   const [selectedMenu, setSelectedMenu] = useState<string | null>();
@@ -43,7 +52,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
     setClose && setClose(false);
 
     if (windowWidth >= 1024) {
-      setSelectedMenu(menuContentData[0].slug);
+      setSelectedMenu(ACTIVE_MENU_STATE[activeMenu]);
     } else {
       setSelectedMenu(null);
     }
@@ -66,10 +75,11 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
   }, [windowDimension]);
 
   useEffect(() => {
-    const setInitialMenu = windowWidth >= 1024 ? menuContentData[0].slug : null;
+    const setInitialMenu =
+      windowWidth >= 1024 ? ACTIVE_MENU_STATE[activeMenu] : null;
 
     setSelectedMenu(setInitialMenu);
-  }, [windowWidth]);
+  }, [windowWidth, activeMenu]);
 
   const transformData = (data: TService[]): TMenuServicesProps[] => {
     const groupedData: TMenuServicesProps[] = [];
@@ -201,39 +211,51 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
             </div>
 
             <div className="font-supplymono flex flex-col gap-[2.5rem] my-[3.688rem]">
-              {navmenu.map((item, index) => (
-                <div
-                  className={`flex items-center justify-between gap-12 group cursor-default ${
-                    selectedMenu == item.target ? "active" : ""
-                  }`}
-                  data-target={item.target}
-                  key={index}
-                  {...{
-                    ...(windowWidth >= 1024
-                      ? {
-                          onMouseEnter: handleMouseEnterMenu,
-                        }
-                      : {
-                          onClick: handleMouseEnterMenu,
-                        }),
-                  }}
-                >
-                  <BodyText className="text-18 leading-[1.35rem] uppercase text-white transition-all group-[.active]:text-blue-pacific">
-                    {item.title}
-                  </BodyText>
+              {navmenu.map((item, index) =>
+                item.directLink ? (
+                  <Link href={item.directLink} key={index}>
+                    <div
+                      className={`flex items-center justify-between gap-12 group cursor-pointer ${
+                        selectedMenu == item.target ? "active" : ""
+                      }`}
+                      key={index}
+                    >
+                      <BodyText className="text-18 leading-[1.35rem] uppercase text-white transition-all group-[.active]:text-blue-pacific">
+                        {item.title}
+                      </BodyText>
+                    </div>
+                  </Link>
+                ) : (
+                  <div
+                    className={`flex items-center justify-between gap-12 group cursor-pointer ${
+                      selectedMenu == item.target ? "active" : ""
+                    }`}
+                    data-target={item.target}
+                    key={index}
+                    onClick={handleMouseEnterMenu}
+                  >
+                    <BodyText className="text-18 leading-[1.35rem] uppercase text-white transition-all group-[.active]:text-blue-pacific">
+                      {item.title}
+                    </BodyText>
 
-                  <div className="shrink-0 transition-all rotate-0 group-[.active]:rotate-90">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M11.071 8.071L5.414 13.728L4 12.314L8.95 7.364L4 2.414L5.414 1L11.071 6.657C11.2585 6.84453 11.3638 7.09884 11.3638 7.364C11.3638 7.62916 11.2585 7.88347 11.071 8.071Z"
-                        className="transition-all fill-white group-[.active]:fill-blue-pacific"
-                      />
-                    </svg>
+                    <div className="shrink-0 transition-all rotate-0 group-[.active]:rotate-90">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M11.071 8.071L5.414 13.728L4 12.314L8.95 7.364L4 2.414L5.414 1L11.071 6.657C11.2585 6.84453 11.3638 7.09884 11.3638 7.364C11.3638 7.62916 11.2585 7.88347 11.071 8.071Z"
+                          className="transition-all fill-white group-[.active]:fill-blue-pacific"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </div>
         </div>
@@ -299,7 +321,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                 menuContentData.map((item, index) =>
                   item.slug === "what-we-do" ? (
                     <div
-                      className={`absolute w-full top-0 left-0 opacity-0 transition-all ${
+                      className={`absolute w-full top-0 left-0 opacity-0 transition-all overflow-auto max-h-screen ${
                         selectedMenu == "what-we-do"
                           ? "opacity-100 visible"
                           : "invisible"
@@ -424,7 +446,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                     </div>
                   ) : (
                     <div
-                      className={`absolute w-full top-0 left-0 opacity-0 transition-all ${
+                      className={`absolute w-full top-0 left-0 opacity-0 transition-all overflow-auto max-h-screen ${
                         selectedMenu == item.slug
                           ? "opacity-100 visible"
                           : "invisible"
@@ -433,7 +455,11 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                       key={index}
                     >
                       <div className="px-20 lg:px-[2.625rem] py-24 lg:py-[1.875rem]">
-                        <MenuContent {...item} />
+                        <MenuContent
+                          {...item}
+                          activeMenu={activeMenu}
+                          closeDrawer={handleCloseDrawer}
+                        />
                       </div>
                     </div>
                   )

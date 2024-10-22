@@ -4,6 +4,7 @@ import AboutTeam from "@/components/Section/AboutTeam";
 import SectionHelp from "@/components/Section/SectionHelp";
 import { getTeamsList } from "@/services/teams";
 import type { Metadata } from "next";
+import { SELECTED_MENU_ABOUT } from "@/store/constants";
 
 type Props = {
   params: { locale: string };
@@ -16,7 +17,7 @@ export default async function Aboutpage({ params: { locale } }: Props) {
   });
 
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_ABOUT}>
       <AboutIntro />
       <AboutTeam list={teamData} />
       <SectionHelp

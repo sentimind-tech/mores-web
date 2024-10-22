@@ -3,12 +3,18 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SearchProvider from "@/context/SearchContext";
 
-const Layout = ({ children }: { children: ReactNode }) => {
+const Layout = ({
+  children,
+  selectedMenu,
+}: {
+  children: ReactNode;
+  selectedMenu: string;
+}) => {
   return (
     <>
       <SearchProvider>
         <main className="">
-          <Header />
+          <Header selectedMenu={selectedMenu} />
           <div className="">{children}</div>
           <Footer />
         </main>

@@ -1,5 +1,6 @@
 import { pb } from "@/lib/pocketbase";
 import { TInsight } from "@/types/insight";
+import { RecordFullListOptions } from "pocketbase";
 
 export type TInsightParams = {
   industryId?: string;
@@ -103,4 +104,17 @@ async function getInsightForHome(page: number = 1, perPage: number = 3) {
   }
 }
 
-export { getInsightList, getInsightDetail, getInsightForHome };
+async function getAllInsight() {
+  try {
+    let response = await pb.collection("insights").getFullList<TInsight>({
+      sort: "-created",
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+    return null; // Return empty on error
+  }
+}
+
+export { getInsightList, getInsightDetail, getInsightForHome, getAllInsight };
