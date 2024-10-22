@@ -21,6 +21,7 @@
   },
   {
     "title": "Contact",
-    "target": "contact"
+    "target": "contact",
+    "directLink": "/contact"
   }
 ]

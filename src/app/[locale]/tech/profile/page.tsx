@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import TechProfileContent from "@/components/Section/TechProfileContent";
 import SectionHelp from "@/components/Section/SectionHelp";
 import type { Metadata } from "next";
+import { SELECTED_MENU_TECH } from "@/store/constants";
 
 type Props = {
   params: { locale: string };
@@ -9,7 +10,7 @@ type Props = {
 
 const TechProfile = async ({ params: { locale } }: Props) => {
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_TECH}>
       <TechProfileContent />
       <SectionHelp
         title="Have questions or need assistance?"

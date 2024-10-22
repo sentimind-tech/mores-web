@@ -3,6 +3,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import Layout from "@/components/Layout";
 import SectionHelp from "@/components/Section/SectionHelp";
 import SearchContent from "@/components/SearchContent";
+import { SELECTED_MENU_HOME } from "@/store/constants";
 
 type Props = {
   params: { locale: string };
@@ -10,7 +11,7 @@ type Props = {
 
 export default async function SearchPage({ params: { locale } }: Props) {
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_HOME}>
       <SearchContent />
       <SectionHelp
         title="Have questions or need assistance?"

@@ -1,12 +1,12 @@
-import { ButtonPrimary } from '@/components/Button'
-import CompanyInfoCard from '@/components/CompanyInfoCard'
-import GoogleMap from '@/components/GoogleMap'
-import Layout from '@/components/Layout'
-import { PageHeader } from '@/components/PageHeader'
-import ReachUsForm from '@/components/ReachUsForm'
-import SectionHelp from '@/components/Section/SectionHelp'
-import { SectionInfo } from '@/components/SectionInfo'
-import { getConfigByKey } from '@/services/app_configs'
+import { ButtonPrimary } from "@/components/Button";
+import CompanyInfoCard from "@/components/CompanyInfoCard";
+import GoogleMap from "@/components/GoogleMap";
+import Layout from "@/components/Layout";
+import { PageHeader } from "@/components/PageHeader";
+import ReachUsForm from "@/components/ReachUsForm";
+import SectionHelp from "@/components/Section/SectionHelp";
+import { SectionInfo } from "@/components/SectionInfo";
+import { getConfigByKey } from "@/services/app_configs";
 import {
   CONFIG_CONTACT_US_EMAIL,
   CONFIG_CONTACT_US_GOOGLE_MAP,
@@ -16,26 +16,27 @@ import {
   CONFIG_CONTACT_US_WHATSAPP,
   CONFIG_CONTACT_US_X,
   CONFIG_CONTACT_US_YOUTUBE,
-} from '@/store/constants'
-import { Metadata } from 'next'
+} from "@/store/constants";
+import { Metadata } from "next";
+import { SELECTED_MENU_CONTACT } from "@/store/constants";
 
 type Props = {
-  params: { locale: string }
-}
+  params: { locale: string };
+};
 
 export default async function ContactUs({ params: { locale } }: Props) {
-  const emailConfig = await getConfigByKey(CONFIG_CONTACT_US_EMAIL)
-  const phoneConfig = await getConfigByKey(CONFIG_CONTACT_US_PHONE)
-  const whatsappConfig = await getConfigByKey(CONFIG_CONTACT_US_WHATSAPP)
-  const instagramConfig = await getConfigByKey(CONFIG_CONTACT_US_INSTAGRAM)
+  const emailConfig = await getConfigByKey(CONFIG_CONTACT_US_EMAIL);
+  const phoneConfig = await getConfigByKey(CONFIG_CONTACT_US_PHONE);
+  const whatsappConfig = await getConfigByKey(CONFIG_CONTACT_US_WHATSAPP);
+  const instagramConfig = await getConfigByKey(CONFIG_CONTACT_US_INSTAGRAM);
 
-  const linkedInConfig = await getConfigByKey(CONFIG_CONTACT_US_LINKEDIN)
-  const youtubeConfig = await getConfigByKey(CONFIG_CONTACT_US_YOUTUBE)
-  const xConfig = await getConfigByKey(CONFIG_CONTACT_US_X)
-  const googleMapConfig = await getConfigByKey(CONFIG_CONTACT_US_GOOGLE_MAP)
+  const linkedInConfig = await getConfigByKey(CONFIG_CONTACT_US_LINKEDIN);
+  const youtubeConfig = await getConfigByKey(CONFIG_CONTACT_US_YOUTUBE);
+  const xConfig = await getConfigByKey(CONFIG_CONTACT_US_X);
+  const googleMapConfig = await getConfigByKey(CONFIG_CONTACT_US_GOOGLE_MAP);
 
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_CONTACT}>
       <section className="flex flex-col">
         <PageHeader background="/images/bg-contact-us.png" title="CONTACT US" />
         <section className="section-padding flex flex-col">
@@ -50,7 +51,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
             </SectionInfo>
           </div>
           <div className="mb-[71px]">
-            <GoogleMap url={googleMapConfig?.value.url || ''} />
+            <GoogleMap url={googleMapConfig?.value.url || ""} />
           </div>
           <div className="mb-[76px] grid grid-cols-2 gap-72">
             <CompanyInfoCard title="Mores Strategics">
@@ -156,12 +157,12 @@ export default async function ContactUs({ params: { locale } }: Props) {
         link={`/${locale}/contact`}
       />
     </Layout>
-  )
+  );
 }
 
 export const metadata: Metadata = {
-  title: 'Mores | Industries',
-}
+  title: "Mores | Industries",
+};
 
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";

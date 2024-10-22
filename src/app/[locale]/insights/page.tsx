@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import { Metadata } from 'next'
-import { PageHeader } from '@/components/PageHeader'
-import { getInsightList } from '@/services/insight'
-import { ButtonPrimary } from '@/components/Button'
-import { InsightCard } from '@/components/InsightCard'
-import { customConfig } from '../../../../config'
-import { InsightList } from '@/components/InsightList'
-import Layout from '@/components/Layout'
-import SectionHelp from '@/components/Section/SectionHelp'
-import HeaderContent from '@/components/Section/InsightPage/HeaderContent'
+import React, { useEffect, useState } from "react";
+import { Metadata } from "next";
+import { PageHeader } from "@/components/PageHeader";
+import { getInsightList } from "@/services/insight";
+import { ButtonPrimary } from "@/components/Button";
+import { InsightCard } from "@/components/InsightCard";
+import { customConfig } from "../../../../config";
+import { InsightList } from "@/components/InsightList";
+import Layout from "@/components/Layout";
+import SectionHelp from "@/components/Section/SectionHelp";
+import HeaderContent from "@/components/Section/InsightPage/HeaderContent";
+import { SELECTED_MENU_INSIGHT } from "@/store/constants";
 
 type Props = {
   params: {
-    locale: string
-    slug: string
-  }
-}
+    locale: string;
+    slug: string;
+  };
+};
 
 export default async function Insight({ params: { locale, slug } }: Props) {
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_INSIGHT}>
       <div className="mb-[76px]">
         <InsightList />
       </div>
@@ -29,12 +30,12 @@ export default async function Insight({ params: { locale, slug } }: Props) {
         link={`/${locale}/contact`}
       />
     </Layout>
-  )
+  );
 }
 
 export const metadata: Metadata = {
-  title: 'Mores | Under Construction',
-}
+  title: "Mores | Under Construction",
+};
 
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";

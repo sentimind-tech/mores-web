@@ -13,7 +13,12 @@ import { getIndustryList } from "@/services/industry";
 import { useLocale } from "next-intl";
 import { useRouter, Locale, usePathname } from "@/i18n/routing";
 
-const Header = () => {
+type THeaderProps = {
+  selectedMenu: string;
+};
+
+const Header = (props: THeaderProps) => {
+  const { selectedMenu } = props;
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openSuggest, setOpenSuggest] = useState(false);
   const [servicesList, setServicesList] = useState<TService[] | null>(null);
@@ -286,6 +291,7 @@ const Header = () => {
         setClose={setOpenNavbar}
         industries={industriesList}
         services={servicesList}
+        activeMenu={selectedMenu}
       />
     </>
   );

@@ -4,6 +4,7 @@ import SectionHelp from "@/components/Section/SectionHelp";
 import TechServiceDetailContent from "@/components/Section/TechServiceDetailContent";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { SELECTED_MENU_TECH } from "@/store/constants";
 
 import dataServices from "@/data/techService.json";
 
@@ -24,7 +25,7 @@ const TechServicesDetail = async ({ params: { locale, slug } }: Props) => {
   if (!service) notFound();
 
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_TECH}>
       <TechServiceDetailContent {...service} />
       <SectionHelp
         title={t("contact_title")}
