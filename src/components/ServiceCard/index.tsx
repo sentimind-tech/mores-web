@@ -28,7 +28,7 @@ export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
     >
       <div className="flex flex-col">
         <div className="flex justify-between pt-16 border-t border-gray-silver">
-          <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-base lg:text-xl font-supplymono group-hover:text-blue-pacific">
+          <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-base lg:text-xl font-supplymono group-active:text-blue-pacific">
             {title}
           </div>
 
