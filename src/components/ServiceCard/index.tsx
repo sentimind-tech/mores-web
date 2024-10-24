@@ -1,7 +1,10 @@
+'use client'; 
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import Image from 'next/image'
 import { useLocale } from 'next-intl'
+import { useRouter } from 'next/navigation'
+import { MouseEvent } from 'react'
 
 type TServiceCardProp = {
   title: string
@@ -11,11 +14,21 @@ type TServiceCardProp = {
 export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
   const localActive = useLocale()
 
+  const router = useRouter()
+
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    router.push(path)
+  }
+
   return (
-    <div className="flex flex-col justify-between">
+    <div
+      onClick={handleClick}
+      className="group flex flex-col justify-between cursor-pointer"
+    >
       <div className="flex flex-col">
         <div className="flex justify-between pt-16 border-t border-gray-silver">
-          <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-base lg:text-xl font-supplymono">
+          <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-base lg:text-xl font-supplymono group-hover:text-blue-pacific">
             {title}
           </div>
 
