@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 import IndustryList from "@/components/Section/IndustryPage/IndustryList";
 import SectionHelp from "@/components/Section/SectionHelp";
+import { SELECTED_MENU_INDUSTRY } from "@/store/constants";
 
 type Props = {
   params: { locale: string };
@@ -20,7 +21,7 @@ export default async function Industry({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
   const industryList = await getIndustryList();
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_INDUSTRY}>
       <section className="flex flex-col mb-[108px]">
         <section>
           <PageHeader background="/images/bg-industries.png" />

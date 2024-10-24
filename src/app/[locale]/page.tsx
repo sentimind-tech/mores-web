@@ -8,6 +8,7 @@ import {
   getInsightForHome,
   getInsightList,
   TInsightParams,
+  getInsightDetail,
 } from "@/services/insight";
 import { getServiceList } from "@/services/service";
 import { unstable_setRequestLocale } from "next-intl/server";
@@ -15,6 +16,11 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { getConfigByKey } from "@/services/app_configs";
 import { CONFIG_SHOW_FOOTER_BANNER } from "@/store/constants";
 import { getFooterBannerHome } from "@/services/footer_banner";
+import { SELECTED_MENU_HOME } from "@/store/constants";
+import {
+  CONFIG_INSIGHT_MAIN_HOMEPAGE,
+  CONFIG_INSIGHT_LIST,
+} from "@/store/constants";
 
 type Props = {
   params: { locale: string };
@@ -24,29 +30,25 @@ export default async function Homepage({ params: { locale } }: Props) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
 
-  const query: TInsightParams = {
-    isFeaturedHome: true,
-  };
-
-  const insightData = await getInsightForHome(1, 3);
-  const firstInsightData = await getInsightForHome(1, 1);
   const servicesData = await getServiceList();
   const insightBannerData = await getInsightForHome(1, 4);
   const showFooterBannerConfig = await getConfigByKey(
     CONFIG_SHOW_FOOTER_BANNER
   );
   const footerBannerList = await getFooterBannerHome(1, 4);
+  const highlighttedId = await getConfigByKey(CONFIG_INSIGHT_MAIN_HOMEPAGE);
+  const pinnedExploreInsight = await getConfigByKey(CONFIG_INSIGHT_LIST);
 
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_HOME}>
       <HomeBanner
         bannerList={insightBannerData}
         showFooterBanner={showFooterBannerConfig?.value}
         footerBannerList={footerBannerList}
       />
-      <HomeHighlight data={firstInsightData} />
+      <HomeHighlight id={highlighttedId?.value} />
       <HomeServices list={servicesData} />
-      <HomeInsight list={insightData} />
+      <HomeInsight listId={pinnedExploreInsight?.value} />
       <SectionHelp
         title="Have questions or need assistance?"
         button_text="Contact Us"

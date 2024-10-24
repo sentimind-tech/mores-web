@@ -3,6 +3,7 @@ import TechServiceContent from "@/components/Section/TechServiceContent";
 import SectionHelp from "@/components/Section/SectionHelp";
 import { unstable_setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { SELECTED_MENU_TECH } from "@/store/constants";
 
 type Props = {
   params: { locale: string };
@@ -12,7 +13,7 @@ const TechServices = async ({ params: { locale } }: Props) => {
   unstable_setRequestLocale(locale);
 
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_TECH}>
       <TechServiceContent />
       <SectionHelp
         title="Have questions or need assistance?"

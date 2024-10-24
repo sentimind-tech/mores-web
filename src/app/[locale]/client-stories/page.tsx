@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SectionHelp from "@/components/Section/SectionHelp";
 import SearchContent from "@/components/SearchContent";
 import ClientStoriesContent from "@/components/Section/ClientStoriesContent";
+import { SELECTED_MENU_CLIENTSTORIES } from "@/store/constants";
 
 type Props = {
   params: { locale: string };
@@ -11,7 +12,7 @@ type Props = {
 
 export default async function ClientStoriesPage({ params: { locale } }: Props) {
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_CLIENTSTORIES}>
       <ClientStoriesContent />
       <SectionHelp
         title="Have questions or need assistance?"

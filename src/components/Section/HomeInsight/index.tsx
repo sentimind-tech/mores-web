@@ -1,15 +1,17 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { HeadingText, BodyText } from "@/components/Text";
 import { ButtonPrimary, ButtonOutline } from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
-import { TInsightPagination } from "@/types/insight";
+import { TInsightPagination, TInsight } from "@/types/insight";
 import { customConfig } from "../../../../config";
 import { useLocale } from "next-intl";
+import { getAllInsight } from "@/services/insight";
 
 type THomeInsightProps = {
-  list: TInsightPagination | null;
+  listId: any | null;
 };
 
 const imageInsightPath = (id: string, name: string) => {
@@ -17,16 +19,48 @@ const imageInsightPath = (id: string, name: string) => {
 };
 
 const HomeInsight = (props: THomeInsightProps) => {
-  const { list } = props;
+  const { listId } = props;
   const localActive = useLocale();
+  const [insightList, setInsightList] = useState<TInsight[] | null>([]);
+  const [filteredData, setFilteredData] = useState<TInsight[] | undefined>([]);
 
-  let data1 = list?.items[0];
-  let data2 = list?.items[1];
-  let data3 = list?.items[2];
+  const fetchInsightList = async () => {
+    try {
+      const response = await getAllInsight();
+
+      if (response) {
+        setInsightList(response);
+      }
+
+      return;
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (listId) {
+      setTimeout(() => {
+        fetchInsightList();
+      }, 500);
+    }
+  }, [listId]);
+
+  useEffect(() => {
+    const filteredData = insightList?.filter((item) =>
+      listId.includes(item.id)
+    );
+
+    setFilteredData(filteredData);
+  }, [insightList]);
+
+  let data1 = filteredData?.[0];
+  let data2 = filteredData?.[1];
+  let data3 = filteredData?.[2];
 
   return (
     <>
-      {list !== null && (
+      {filteredData !== null && (
         <section className="bg-white-smoke md:bg-white block md:pt-[3.125rem] md:pb-[5rem] lg:pb-[8.75rem] text-black w-full overflow-hidden">
           <div className="w-full max-w-[1037px] mx-auto px-[20px]">
             <div className="flex justify-center md:justify-between items-center py-12 border-b border-gray-cloud text-black">
@@ -65,12 +99,12 @@ const HomeInsight = (props: THomeInsightProps) => {
                   <div className="absolute w-full h-full top-0 left-0 z-[1] bg-home-insight-thumb" />
 
                   <div className="block absolute bottom-0 left-0 p-16 xl:p-32 z-[2] text-white">
-                    <BodyText
+                    {/* <BodyText
                       type="body3"
                       className="block uppercase mb-8 text-[12px] leading-[0.813rem] font-graphik font-semibold"
                     >
                       JOURNAL
-                    </BodyText>
+                    </BodyText> */}
                     {data1?.title && (
                       <HeadingText
                         type="h4"
@@ -81,7 +115,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                     )}
 
                     <Link
-                      href=""
+                      href={`/${localActive}/insights/${data1?.id}`}
                       className="mt-32 inline-block transition-all lg:hover:text-blue-pacific"
                     >
                       <div className="flex items-center gap-[4px]">
@@ -128,12 +162,12 @@ const HomeInsight = (props: THomeInsightProps) => {
                       <div className="absolute w-full h-full top-0 left-0 z-[0] bg-home-insight-thumb-2" />
 
                       <div className="block relative z-[1]">
-                        <BodyText
+                        {/* <BodyText
                           type="body3"
                           className="block uppercase mb-8 text-[12px] leading-[0.813rem] font-graphik font-semibold"
                         >
                           JOURNAL
-                        </BodyText>
+                        </BodyText> */}
                         {data2?.title && (
                           <HeadingText
                             type="h4"
@@ -145,7 +179,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                       </div>
 
                       <Link
-                        href=""
+                        href={`/${localActive}/insights/${data2?.id}`}
                         className="mt-32 inline-block relative z-[1] transition-all lg:hover:text-blue-pacific"
                       >
                         <div className="flex items-center gap-[4px]">
@@ -191,12 +225,12 @@ const HomeInsight = (props: THomeInsightProps) => {
                       <div className="absolute w-full h-full top-0 left-0 z-[0] bg-white" />
 
                       <div className="block relative z-[1] md:max-w-[50%]">
-                        <BodyText
+                        {/* <BodyText
                           type="body3"
                           className="block uppercase mb-8 text-[12px] leading-[0.813rem] font-graphik font-semibold"
                         >
                           JOURNAL
-                        </BodyText>
+                        </BodyText> */}
                         {data3?.title && (
                           <HeadingText
                             type="h4"
@@ -208,7 +242,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                       </div>
 
                       <Link
-                        href=""
+                        href={`/${localActive}/insights/${data3?.id}`}
                         className="mt-32 inline-block relative z-[1] transition-all lg:hover:text-blue-pacific"
                       >
                         <div className="flex items-center gap-[4px]">

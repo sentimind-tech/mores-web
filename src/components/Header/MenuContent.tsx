@@ -4,9 +4,12 @@ import { TMenuContentProps } from "@/types/Menu";
 import Link from "next/link";
 import { ButtonPrimary } from "../Button";
 import { useLocale } from "next-intl";
+import { ACTIVE_MENU_STATE } from "@/dictionaries/general";
 
-const MenuContent = (props: TMenuContentProps) => {
-  const { slug, data } = props;
+const MenuContent = (
+  props: TMenuContentProps & { activeMenu: string; closeDrawer: () => void }
+) => {
+  const { slug, data, activeMenu, closeDrawer } = props;
   const localActive = useLocale();
 
   return (
@@ -28,10 +31,12 @@ const MenuContent = (props: TMenuContentProps) => {
             {data?.menus &&
               data.menus.map((item, index) => (
                 <div
-                  className="flex items-center justify-between gap-12"
+                  className={`flex items-center justify-between gap-12`}
                   key={index}
                 >
-                  {item.link && item.link !== "" ? (
+                  {item.link &&
+                  item.link !== "" &&
+                  slug !== ACTIVE_MENU_STATE[activeMenu] ? (
                     <Link
                       href={`/${localActive}${item.link}`}
                       className="block"
@@ -44,12 +49,14 @@ const MenuContent = (props: TMenuContentProps) => {
                       </BodyText>
                     </Link>
                   ) : (
-                    <BodyText
-                      type="body1"
-                      className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific"
-                    >
-                      {item.title}
-                    </BodyText>
+                    <div className="" onClick={closeDrawer}>
+                      <BodyText
+                        type="body1"
+                        className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific cursor-pointer"
+                      >
+                        {item.title}
+                      </BodyText>
+                    </div>
                   )}
                 </div>
               ))}

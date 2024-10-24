@@ -14,6 +14,7 @@ import { formatDate } from "@/module/helper";
 import Image from "next/image";
 import { InsightAction } from "@/components/InsightAction";
 import SectionHelp from "@/components/Section/SectionHelp";
+import { SELECTED_MENU_INSIGHT } from "@/store/constants";
 
 type Props = {
   params: {
@@ -47,7 +48,7 @@ export default async function InsightDetail({
 
   const authors = insight.expand?.authors || [];
   return (
-    <Layout>
+    <Layout selectedMenu={SELECTED_MENU_INSIGHT}>
       <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 text-inter">
         <section>
           <PageHeader
