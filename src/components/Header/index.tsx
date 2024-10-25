@@ -49,17 +49,29 @@ const Header = (props: THeaderProps) => {
   const handleCloseSuggest = () => setOpenSuggest(false);
 
   const fetchDataServices = async () => {
-    const data = await getAllServices({
-      sort: "-created",
-    });
+    try {
+      const data = await getAllServices({
+        sort: "-created",
+      });
 
-    setServicesList(data);
+      if (data) {
+        setServicesList(data);
+      }
+    } catch (error: any) {
+      console.log(error);
+    }
   };
 
   const fetchDataIndustries = async () => {
-    const data = await getIndustryList();
+    try {
+      const data = await getIndustryList();
 
-    setIndustriesList(data);
+      if (data) {
+        setIndustriesList(data);
+      }
+    } catch (error: any) {
+      console.log(error);
+    }
   };
 
   const fetchData = async () => {
@@ -104,6 +116,10 @@ const Header = (props: THeaderProps) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, [selectedMenu]);
 
   return (
     <>
