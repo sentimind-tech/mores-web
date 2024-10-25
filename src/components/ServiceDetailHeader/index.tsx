@@ -8,7 +8,7 @@ export type TServiceDetailHeaderProp = {
   title: string
   overview?: string
   serviceList?: any[]
-  ourExperience?: string
+  ourExperience?: string | null
   insights: any[]
 }
 export const ServiceDetailHeader = ({

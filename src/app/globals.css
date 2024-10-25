@@ -159,7 +159,7 @@ body {
   width: 100%;
 }
 .overview-content #overview p {
-  padding: 0 55px;
+  @apply pt-0 pb-0 md:pl-[55px] md:pr-[55px]
 }
 
 .google-map-iframe {

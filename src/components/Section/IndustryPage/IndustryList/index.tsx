@@ -17,7 +17,7 @@ const IndustryList = ({ industryList }: TIndustryListProp) => {
       <HeaderContent />
       <section className="section-header-container">
         <SectionHeader title={t('list_title')} />
-        <div className="grid grid-cols-3 gap-50">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-50">
           {industryList &&
             industryList.map((industry) => (
               <ServiceCard

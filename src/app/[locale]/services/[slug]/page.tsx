@@ -1,51 +1,51 @@
-import { PageHeader } from "@/components/PageHeader";
-import { SectionDetail } from "@/components/SectionDetail";
-import { ServiceDetailHeader } from "@/components/ServiceDetailHeader";
+import { PageHeader } from '@/components/PageHeader'
+import { SectionDetail } from '@/components/SectionDetail'
+import { ServiceDetailHeader } from '@/components/ServiceDetailHeader'
 import {
   getServiceDetail,
   getServiceList,
   TServiceParams,
-} from "@/services/service";
-import { notFound } from "next/navigation";
-import { customConfig } from "../../../../../config";
-import { getInsightList, TInsightParams } from "@/services/insight";
-import Layout from "@/components/Layout";
-import SectionHelp from "@/components/Section/SectionHelp";
-import { SELECTED_MENU_SERVICE } from "@/store/constants";
+} from '@/services/service'
+import { notFound } from 'next/navigation'
+import { customConfig } from '../../../../../config'
+import { getInsightList, TInsightParams } from '@/services/insight'
+import Layout from '@/components/Layout'
+import SectionHelp from '@/components/Section/SectionHelp'
+import { SELECTED_MENU_SERVICE } from '@/store/constants'
 
 type Props = {
   params: {
-    locale: string;
-    slug: string;
-  };
-};
+    locale: string
+    slug: string
+  }
+}
 
 export default async function ServiceDetail({
   params: { locale, slug },
 }: Props) {
-  const service = await getServiceDetail(slug);
-  if (!service) notFound();
+  const service = await getServiceDetail(slug)
+  if (!service) notFound()
 
   //   Fetch Service Child
   const query: TServiceParams = {
     parentServiceId: slug,
-  };
-  const serviceList = await getServiceList(query);
+  }
+  const serviceList = await getServiceList(query)
 
   // Fetch insight
   const insightQuery: TInsightParams = {
     serviceId: slug,
     isFeatured: true,
-  };
-  const insightsRes = await getInsightList(insightQuery, 1, 4);
-  const insights = insightsRes?.items;
+  }
+  const insightsRes = await getInsightList(insightQuery, 1, 4)
+  const insights = insightsRes?.items
 
   // Initiate data
-  const ourExperience = service.our_experiences || [""];
-  const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${ourExperience[0]}`;
+  const ourExperience = service.our_experiences || ['']
+  const ourExperiencePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${ourExperience[0]}`
 
-  const coverImage = service.cover_image;
-  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${coverImage}`;
+  const coverImage = service.cover_image
+  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${coverImage}`
 
   return (
     <Layout selectedMenu={SELECTED_MENU_SERVICE}>
@@ -61,19 +61,21 @@ export default async function ServiceDetail({
             <ServiceDetailHeader
               title={service.name}
               overview={
-                locale == "id" ? service.overview_id : service.overview_en
+                locale == 'id' ? service.overview_id : service.overview_en
               }
               serviceList={serviceList || []}
-              ourExperience={ourExperiencePath}
+              ourExperience={
+                ourExperience.length > 0 ? ourExperiencePath : null
+              }
               insights={insights || []}
             />
           </div>
         </section>
 
         <SectionDetail
-          overview={locale == "id" ? service.overview_id : service.overview_en}
+          overview={locale == 'id' ? service.overview_id : service.overview_en}
           services={serviceList || undefined}
-          ourExperience={ourExperiencePath}
+          ourExperience={ourExperience.length > 0 ? ourExperiencePath : null}
           insights={insights || undefined}
         />
       </section>
@@ -83,8 +85,8 @@ export default async function ServiceDetail({
         link={`/${locale}/contact`}
       />
     </Layout>
-  );
+  )
 }
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'

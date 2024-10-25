@@ -10,7 +10,7 @@ import { useLocale } from 'next-intl'
 
 type TSectionDetailProp = {
   overview?: string
-  ourExperience?: string
+  ourExperience?: string | null
   insights?: TInsight[]
   services?: TService[]
 }
@@ -22,7 +22,10 @@ export const SectionDetail = ({
 }: TSectionDetailProp) => {
   const localActive = useLocale()
   return (
-    <section id="" className="overview-content section-padding-x pt-24 mobile-min:pt-48 lg:pt-[62px] flex flex-col gap-32 lg:gap-100">
+    <section
+      id=""
+      className="overview-content section-padding-x pt-24 mobile-min:pt-48 lg:pt-[62px] flex flex-col gap-32 lg:gap-100"
+    >
       {overview && (
         <section id="overview" className="text-sm sm:text-base">
           <div dangerouslySetInnerHTML={{ __html: overview }}></div>
