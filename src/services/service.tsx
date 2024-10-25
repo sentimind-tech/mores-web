@@ -55,6 +55,7 @@ async function getServiceDetail(id: string) {
 }
 
 async function getAllServices(options: RecordFullListOptions) {
+  pb.autoCancellation(false);
   try {
     let response = await pb.collection("services").getFullList<TService>({
       sort: "-created",

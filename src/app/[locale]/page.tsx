@@ -13,7 +13,11 @@ import {
 import { getServiceList } from "@/services/service";
 import { unstable_setRequestLocale } from "next-intl/server";
 import type { Metadata, ResolvingMetadata } from "next";
-import { getConfigByKey } from "@/services/app_configs";
+import {
+  getConfigByKey,
+  getConfigHighlightInsight,
+  getConfigFooterBannerHome,
+} from "@/services/app_configs";
 import { CONFIG_SHOW_FOOTER_BANNER } from "@/store/constants";
 import { getFooterBannerHome } from "@/services/footer_banner";
 import { SELECTED_MENU_HOME } from "@/store/constants";
@@ -32,23 +36,27 @@ export default async function Homepage({ params: { locale } }: Props) {
 
   const servicesData = await getServiceList();
   const insightBannerData = await getInsightForHome(1, 4);
-  const showFooterBannerConfig = await getConfigByKey(
+  const showFooterBannerConfig = await getConfigFooterBannerHome(
     CONFIG_SHOW_FOOTER_BANNER
   );
   const footerBannerList = await getFooterBannerHome(1, 4);
-  const highlighttedId = await getConfigByKey(CONFIG_INSIGHT_MAIN_HOMEPAGE);
-  const pinnedExploreInsight = await getConfigByKey(CONFIG_INSIGHT_LIST);
+  const highlighttedId = await getConfigHighlightInsight(
+    CONFIG_INSIGHT_MAIN_HOMEPAGE
+  );
+  const pinnedExploreInsight = await getConfigHighlightInsight(
+    CONFIG_INSIGHT_LIST
+  );
 
   return (
     <Layout selectedMenu={SELECTED_MENU_HOME}>
       <HomeBanner
         bannerList={insightBannerData}
-        showFooterBanner={showFooterBannerConfig?.value}
+        showFooterBanner={showFooterBannerConfig?.active}
         footerBannerList={footerBannerList}
       />
-      <HomeHighlight id={highlighttedId?.value} />
+      <HomeHighlight id={highlighttedId?.insight} />
       <HomeServices list={servicesData} />
-      <HomeInsight listId={pinnedExploreInsight?.value} />
+      <HomeInsight listId={pinnedExploreInsight?.insight} />
       <SectionHelp
         title="Have questions or need assistance?"
         button_text="Contact Us"

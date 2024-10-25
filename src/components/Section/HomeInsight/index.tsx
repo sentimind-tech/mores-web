@@ -62,23 +62,25 @@ const HomeInsight = (props: THomeInsightProps) => {
     <>
       {filteredData !== null && (
         <section className="bg-white-smoke md:bg-white block md:pt-[3.125rem] md:pb-[5rem] lg:pb-[8.75rem] text-black w-full overflow-hidden">
-          <div className="w-full max-w-[1037px] mx-auto px-[20px]">
-            <div className="flex justify-center md:justify-between items-center py-12 border-b border-gray-cloud text-black">
-              <HeadingText
-                type="h3"
-                className="uppercase text-24 md:text-28 leading-[1.75rem] md:leading-[2.5rem]"
-              >
-                EXPLORE OUR Insight
-              </HeadingText>
+          <div className="px-[20px]">
+            <div className="w-full max-w-[1037px] mx-auto">
+              <div className="flex justify-center md:justify-between items-center py-12 border-b border-gray-cloud text-black">
+                <HeadingText
+                  type="h3"
+                  className="uppercase text-24 md:text-28 leading-[1.75rem] md:leading-[2.5rem]"
+                >
+                  EXPLORE OUR Insight
+                </HeadingText>
 
-              <Link
-                href={`/${localActive}/insights`}
-                className="hidden md:block"
-              >
-                <ButtonPrimary size="small" className="uppercase">
-                  MORE ARTICLE
-                </ButtonPrimary>
-              </Link>
+                <Link
+                  href={`/${localActive}/insights`}
+                  className="hidden md:block"
+                >
+                  <ButtonPrimary size="small" className="uppercase">
+                    MORE INSIGHT
+                  </ButtonPrimary>
+                </Link>
+              </div>
             </div>
           </div>
           <div className="pt-[1.5rem] lg:pt-[1.875rem]">
