@@ -1,23 +1,24 @@
-import { pb } from "@/lib/pocketbase";
-import { TInsight } from "@/types/insight";
-import { RecordFullListOptions } from "pocketbase";
+import { pb } from '@/lib/pocketbase'
+import { TInsight } from '@/types/insight'
+import { RecordFullListOptions } from 'pocketbase'
 
 export type TInsightParams = {
-  industryId?: string;
-  serviceId?: string;
-  insightId?: string;
-  isFeatured?: boolean;
-  sortBy?: string;
-  keyword?: string;
-  isFeaturedHome?: boolean;
-};
+  industryId?: string
+  serviceId?: string
+  insightId?: string
+  isFeatured?: boolean
+  sortBy?: string
+  keyword?: string
+  isFeaturedHome?: boolean
+}
 
 type TQueryParams = {
-  sort: string;
-  filter?: string;
-  expand?: string;
-  isFeatured?: string;
-};
+  sort: string
+  filter?: string
+  expand?: string
+  isFeatured?: string
+  requestKey: null
+}
 
 async function getInsightList(
   params: TInsightParams = {},
@@ -26,95 +27,97 @@ async function getInsightList(
 ) {
   try {
     let queryParams: TQueryParams = {
-      sort: "-created",
-    };
-    if (params.sortBy && params.sortBy == "oldest") {
-      queryParams.sort = "created";
+      sort: '-created',
+      requestKey: null,
+    }
+    if (params.sortBy && params.sortBy == 'oldest') {
+      queryParams.sort = 'created'
     }
 
-    let filters: string[] = [];
+    let filters: string[] = []
     if (params.industryId) {
-      filters.push(`industry_tags ~ "${params.industryId}"`);
+      filters.push(`industry_tags ~ "${params.industryId}"`)
     }
     if (params.serviceId) {
-      filters.push(`service_tags ~ "${params.serviceId}"`);
+      filters.push(`service_tags ~ "${params.serviceId}"`)
     }
     if (params.insightId) {
-      filters.push(`id != "${params.insightId}"`);
+      filters.push(`id != "${params.insightId}"`)
     }
 
     if (params.isFeatured === true) {
-      filters.push("is_featured = true");
+      filters.push('is_featured = true')
     } else if (params.isFeatured === false) {
-      filters.push("is_featured = false");
+      filters.push('is_featured = false')
     }
 
     if (params.keyword) {
-      filters.push(`title ~ "${params.keyword}"`);
+      filters.push(`title ~ "${params.keyword}"`)
     }
 
     if (params.isFeaturedHome === true) {
-      filters.push("is_featured_main_page = true");
+      filters.push('is_featured_main_page = true')
     } else if (params.isFeaturedHome === false) {
-      filters.push("is_featured_main_page = false");
+      filters.push('is_featured_main_page = false')
     }
 
     // Combine all filters into a single string using AND logic
     if (filters.length > 0) {
-      queryParams.filter = filters.join(" && ");
+      queryParams.filter = filters.join(' && ')
     }
-    queryParams.expand = "industry_tags,service_tags";
+    queryParams.expand = 'industry_tags,service_tags'
+
+    queryParams.requestKey = null
 
     let response = await pb
-      .collection("insights")
-      .getList<TInsight>(page, perPage, queryParams);
-
-    return response;
+      .collection('insights')
+      .getList<TInsight>(page, perPage, queryParams)
+    return response
   } catch (error) {
-    console.log(error);
-    return null; // Return empty on error
+    console.log(error)
+    return null // Return empty on error
   }
 }
 
 async function getInsightDetail(id: string) {
   try {
-    let response = await pb.collection("insights").getOne<TInsight>(id, {
-      expand: "industry_tags,service_tags,authors",
-    });
-    return response;
+    let response = await pb.collection('insights').getOne<TInsight>(id, {
+      expand: 'industry_tags,service_tags,authors',
+    })
+    return response
   } catch (error) {
-    console.log(error);
-    return null; // Return empty on error
+    console.log(error)
+    return null // Return empty on error
   }
 }
 
 async function getInsightForHome(page: number = 1, perPage: number = 3) {
   try {
     let response = await pb
-      .collection("insights")
+      .collection('insights')
       .getList<TInsight>(page, perPage, {
-        sort: "-created",
-        expand: "industry_tags,service_tags",
-      });
+        sort: '-created',
+        expand: 'industry_tags,service_tags',
+      })
 
-    return response;
+    return response
   } catch (error) {
-    console.log(error);
-    return null; // Return empty on error
+    console.log(error)
+    return null // Return empty on error
   }
 }
 
 async function getAllInsight() {
   try {
-    let response = await pb.collection("insights").getFullList<TInsight>({
-      sort: "-created",
-    });
+    let response = await pb.collection('insights').getFullList<TInsight>({
+      sort: '-created',
+    })
 
-    return response;
+    return response
   } catch (error) {
-    console.log(error);
-    return null; // Return empty on error
+    console.log(error)
+    return null // Return empty on error
   }
 }
 
-export { getInsightList, getInsightDetail, getInsightForHome, getAllInsight };
+export { getInsightList, getInsightDetail, getInsightForHome, getAllInsight }

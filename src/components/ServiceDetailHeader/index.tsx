@@ -1,9 +1,12 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+
 export type TServiceDetailHeaderMenuItem = {
   name: string
   id: string
 }
+
 export type TServiceDetailHeaderProp = {
   title: string
   overview?: string
@@ -11,6 +14,7 @@ export type TServiceDetailHeaderProp = {
   ourExperience?: string | null
   insights: any[]
 }
+
 export const ServiceDetailHeader = ({
   title,
   overview,
@@ -18,6 +22,8 @@ export const ServiceDetailHeader = ({
   ourExperience,
   insights,
 }: TServiceDetailHeaderProp) => {
+  const [activeMenuId, setActiveMenuId] = useState<string | null>(null)
+
   const scrollToView = (id: string) => {
     const section = document.getElementById(id)
 
@@ -33,9 +39,9 @@ export const ServiceDetailHeader = ({
     }
   }
 
-  //   Build Menu
+  // Build Menu
   const menus: TServiceDetailHeaderMenuItem[] = []
-  if (overview && overview != '') {
+  if (overview && overview !== '') {
     menus.push({
       name: 'OVERVIEW',
       id: 'overview',
@@ -47,7 +53,7 @@ export const ServiceDetailHeader = ({
       id: 'what-we-offer',
     })
   }
-  if (ourExperience && ourExperience != '') {
+  if (ourExperience && ourExperience !== '') {
     menus.push({
       name: 'OUR EXPERIENCE',
       id: 'our-experience',
@@ -59,6 +65,36 @@ export const ServiceDetailHeader = ({
       id: 'featured-insight',
     })
   }
+
+  // Scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = -100 // same offset used in scrollToView
+      const sections = menus.map((menu) => document.getElementById(menu.id))
+      const scrollPosition = window.pageYOffset
+
+      sections.forEach((section, index) => {
+        if (section) {
+          const sectionTop =
+            section.getBoundingClientRect().top + scrollPosition + offset
+          const sectionBottom = sectionTop + section.offsetHeight
+
+          if (
+            scrollPosition >= sectionTop + offset &&
+            scrollPosition < sectionBottom + offset
+          ) {
+            setActiveMenuId(menus[index].id)
+          }
+        }
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [menus])
+
   return (
     <div className="flex items-start flex-col sm:flex-row font-normal font-supplymono text-black flex">
       <div className="min-w-[255px] sm:pr-12 sm:border-r sm:border-gray-steel text-16 leading-[19.2px] py-8 font-bold sm:font-normal">
@@ -67,7 +103,9 @@ export const ServiceDetailHeader = ({
       <div className="sm:pl-56 text-14 leading-[16.8px] flex gap-[29px] py-8">
         {menus.map((menu) => (
           <div
-            className="cursor-pointer"
+            className={`cursor-pointer ${
+              activeMenuId === menu.id ? 'text-blue-pacific' : 'text-black'
+            }`} // Change the color based on active state
             onClick={() => scrollToView(menu.id)}
             key={menu.name}
           >

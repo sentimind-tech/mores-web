@@ -18,8 +18,8 @@ export const InsightCard = ({
   path,
 }: TInsightCardProp) => {
   return (
-    <div className="flex flex-col">
-      <div className="w-full h-[125px]">
+    <div className="flex flex-col group cursor-pointer">
+      <div className="w-full h-[125px] xl:h-[150px]">
         <Image
           src={image}
           alt={title}
@@ -34,7 +34,7 @@ export const InsightCard = ({
         <div className="text-10 leading-[22px] text-blue-pacific font-supplymono">
           {subtitle}
         </div>
-        <div className="mt-[2px] text-14 mb-[7px] text-12 leading-[1.25rem] text-black ">
+        <div className="mt-[2px] text-14 mb-[7px] text-12 leading-[1.25rem] text-black group-hover:text-blue-pacific">
           {title}
         </div>
         <div className="text-10 leading-[15px] text-gray-medium">

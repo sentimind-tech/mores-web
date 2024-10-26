@@ -34,7 +34,7 @@ export const InsightList = () => {
   useEffect(() => {
     const fetchInsights = async () => {
       const query: TInsightParams = {}
-      if (filter.type == 'featured' || !filter.type) {
+      if (!filter.type || filter.type == 'featured') {
         query.isFeatured = true
       } else {
         query.sortBy = filter.type
@@ -58,6 +58,7 @@ export const InsightList = () => {
     }
     fetchInsights()
   }, [page, filter])
+
   useEffect(() => {
     const fetchIndustries = async () => {
       const industryData = await getIndustryList()
@@ -79,8 +80,8 @@ export const InsightList = () => {
 
   return (
     <section className="flex flex-col">
-      <section className="flex flex-col gap-100 section-padding-x">
-        <PageHeader title="INSIGHT" background="/images/bg-insights.png" />
+      <PageHeader title="INSIGHT" background="/images/bg-insights.png" />
+      <section className="flex flex-col mt-100 section-padding-x">
         <HeaderContent />
       </section>
       <section className="section-padding flex flex-col gap-48">

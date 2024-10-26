@@ -208,7 +208,7 @@ body {
   @apply font-normal text-sm md:text-base lg:text-18 lg:leading-[1.75rem] text-justify;
 }
 .section-navigation {
-  @apply border-b border-gray-ash py-10 px-32 lg:py-24 lg:px-64;
+  @apply border-b border-gray-ash py-10 px-32 lg:py-24 lg:px-64 sticky top-[83px] bg-white;
 }
 .section-header-container {
   @apply flex flex-col gap-24 mobile-min:gap-32 lg:gap-50;

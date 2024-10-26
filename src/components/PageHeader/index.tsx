@@ -33,7 +33,7 @@ export const PageHeader = ({
         >
           {subtitle}
         </div>
-        <div className="font-supplymono text-[36px] leading-[40px] lg:text-40 lg:leading-[60px] text-white w-full flex justify-start uppercase ">
+        <div className="font-supplymono text-[36px] leading-[40px] lg:text-[48px] lg:leading-[60px] text-white w-full flex justify-start uppercase ">
           {title}
         </div>
       </div>
