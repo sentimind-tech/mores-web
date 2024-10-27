@@ -128,7 +128,9 @@ const BodyText = ({
   if (type == "body1") {
     return (
       <p
-        className={`font-inter text-[1rem] leading-[1.5rem] ${className ?? ""}`}
+        className={`font-inter text-[1.125rem] leading-[1.625rem] ${
+          className ?? ""
+        }`}
       >
         {children}
       </p>
@@ -138,9 +140,7 @@ const BodyText = ({
   if (type == "body2") {
     return (
       <p
-        className={`font-inter text-[0.875rem] leading-[1.375rem] ${
-          className ?? ""
-        }`}
+        className={`font-inter text-[1rem] leading-[1.5rem] ${className ?? ""}`}
       >
         {children}
       </p>
@@ -150,7 +150,7 @@ const BodyText = ({
   if (type == "body3") {
     return (
       <p
-        className={`font-inter text-[0.75rem] leading-[1.25rem] ${
+        className={`font-inter text-[0.875rem] leading-[1.5rem] ${
           className ?? ""
         }`}
       >
