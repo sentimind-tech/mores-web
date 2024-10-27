@@ -26,6 +26,7 @@ export const InsightList = () => {
   const [page, setPage] = useState(1)
   const [perPage, setPerPage] = useState(16)
   const [filter, setFilter] = useState<TFilter>({})
+  const [hasNextPage, setHasNextPage] = useState<Boolean>(false)
 
   useEffect(() => {
     setPage(1)
@@ -49,6 +50,9 @@ export const InsightList = () => {
 
       const insightsRes = await getInsightList(query, page, perPage)
       const data = insightsRes?.items || []
+
+      const hasNextPage = insightsRes?.totalPages != insightsRes?.page
+      setHasNextPage(hasNextPage)
       if (page == 1) {
         setInsights(data)
       } else {
@@ -129,9 +133,9 @@ export const InsightList = () => {
             {insights?.map((insight, index) => {
               let subTitle = ''
               if (insight?.expand?.industry_tags) {
-                subTitle = insight.expand?.industry_tags?.name
+                subTitle = insight.expand?.industry_tags?.[0]?.name
               } else if (insight?.expand?.service_tags) {
-                subTitle = insight.expand?.service_tags?.name
+                subTitle = insight.expand?.service_tags?.[0]?.name
               }
 
               // Change this if grid-cols-change ex: window.innerWidth >= 768 ? 5 : 4
@@ -160,15 +164,17 @@ export const InsightList = () => {
               )
             })}
           </div>
-          <div className="flex justify-center mt-64">
-            <ButtonPrimary
-              onClick={() => {
-                setPage(page + 1)
-              }}
-            >
-              MORE
-            </ButtonPrimary>
-          </div>
+          {hasNextPage && (
+            <div className="flex justify-center mt-64">
+              <ButtonPrimary
+                onClick={() => {
+                  setPage(page + 1)
+                }}
+              >
+                MORE
+              </ButtonPrimary>
+            </div>
+          )}
         </div>
       </section>
     </section>

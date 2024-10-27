@@ -10,6 +10,8 @@ export type TInsightParams = {
   sortBy?: string
   keyword?: string
   isFeaturedHome?: boolean
+  hasIndustry?: boolean
+  hasService?: boolean
 }
 
 type TQueryParams = {
@@ -41,6 +43,17 @@ async function getInsightList(
     if (params.serviceId) {
       filters.push(`service_tags ~ "${params.serviceId}"`)
     }
+
+    // Check if there are any industry tags
+    if (params.hasIndustry) {
+      filters.push(`industry_tags:length > 0`)
+    }
+
+    // Check if there are any service tags
+    if (params.hasService) {
+      filters.push(`service_tags:length > 0`)
+    }
+
     if (params.insightId) {
       filters.push(`id != "${params.insightId}"`)
     }
