@@ -97,10 +97,10 @@ export const ServiceDetailHeader = ({
 
   return (
     <div className="flex items-start flex-col sm:flex-row font-normal font-supplymono text-black flex">
-      <div className="min-w-[255px] sm:pr-12 sm:border-r sm:border-gray-steel text-16 leading-[19.2px] py-8 font-bold sm:font-normal">
+      <div className="min-w-[255px] sm:pr-12 sm:border-r sm:border-gray-steel text-18 leading-[21px] py-8 font-bold sm:font-normal">
         {title}
       </div>
-      <div className="sm:pl-56 text-14 leading-[16.8px] flex gap-[29px] py-8">
+      <div className="sm:pl-56 text-16 leading-[19px] flex gap-[29px] py-8">
         {menus.map((menu) => (
           <div
             className={`cursor-pointer ${

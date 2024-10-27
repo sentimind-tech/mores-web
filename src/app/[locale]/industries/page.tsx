@@ -15,6 +15,7 @@ import { SELECTED_MENU_INDUSTRY } from '@/store/constants'
 import { TInsightParams, getInsightList } from '@/services/insight'
 import { InsightCard } from '@/components/InsightCard'
 import { customConfig } from '../../../../config'
+import HeaderContent from '@/components/Section/IndustryPage/HeaderContent'
 
 type Props = {
   params: { locale: string }
@@ -31,13 +32,15 @@ export default async function Industry({ params: { locale } }: Props) {
   const insights = insightList?.items
   return (
     <Layout selectedMenu={SELECTED_MENU_INDUSTRY}>
-      <section className="flex flex-col mb-[108px]">
-        <section>
-          <PageHeader background="/images/bg-industries.png" />
-        </section>
+      <section>
+        <PageHeader background="/images/bg-industries.png" />
+      </section>
+      <section className="flex flex-col section-padding flex flex-col gap-32 lg:gap-100">
+        <HeaderContent />
+
         <IndustryList industryList={industryList || []} />
         {insights && insights.length > 0 && (
-          <section className="section-padding-x section-header-container">
+          <section className="section-header-container">
             <SectionHeader title="FEATURED INSIGHTS" />
             <div className="insight-container">
               {insights.map((insight) => {

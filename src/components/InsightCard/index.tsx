@@ -44,7 +44,7 @@ export const InsightCard = ({
         <div className="text-10 leading-[22px] text-blue-pacific font-supplymono">
           {subtitle}
         </div>
-        <div className="mt-[2px] text-14 mb-[7px] text-12 leading-[1.25rem] text-black group-hover:text-blue-pacific">
+        <div className="mt-[2px] text-14 mb-[7px] leading-[1.25rem] text-black group-hover:text-blue-pacific">
           {title}
         </div>
         <div className="text-10 leading-[15px] text-gray-medium">

@@ -27,7 +27,7 @@ export const SectionDetail = ({
       className="overview-content section-padding-x pt-24 mobile-min:pt-48 lg:pt-[62px] flex flex-col gap-32 lg:gap-100"
     >
       {overview && (
-        <section id="overview" className="text-sm sm:text-base">
+        <section id="overview" className="text-base sm:text-lg">
           <div dangerouslySetInnerHTML={{ __html: overview }}></div>
         </section>
       )}
