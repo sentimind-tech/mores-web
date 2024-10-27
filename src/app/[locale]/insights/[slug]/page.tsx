@@ -43,10 +43,10 @@ export default async function InsightDetail({
   // Initiate data
   const coverImage = insight.cover_image
   const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${coverImage}`
-  const pageTitle = insight?.expand?.industry_tags[0]
-    ? insight?.expand?.industry_tags[0].name.toUpperCase()
-    : insight?.expand?.service_tags[0].name.toUpperCase()
-  const pageSubtitle = insight?.expand?.industry_tags[0]
+  const pageTitle = insight?.expand?.industry_tags?.[0]
+    ? insight?.expand?.industry_tags?.[0].name.toUpperCase()
+    : insight?.expand?.service_tags?.[0].name.toUpperCase()
+  const pageSubtitle = insight?.expand?.industry_tags?.[0]
     ? 'INSIGHT/INDUSTRIES/' + pageTitle
     : 'INSIGHT/SERVICES/' + pageTitle
 
@@ -62,7 +62,7 @@ export default async function InsightDetail({
             subtitleCustomClass="text-white"
           />
         </section>
-        <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding">
+        <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding-x pb-24 md:pb-50 lg:pb-100">
           <div className="flex gap-12 flex-wrap justify-between">
             <div className="flex gap-32">
               <div className="max-w-[274px] leading-[14.52px] text-12">
@@ -130,9 +130,9 @@ export default async function InsightDetail({
                 {nextInsights.map((insight) => {
                   let subTitle = ''
                   if (insight?.expand?.industry_tags) {
-                    subTitle = insight.expand?.industry_tags[0]?.name
+                    subTitle = insight.expand?.industry_tags?.[0]?.name
                   } else if (insight?.expand?.service_tags) {
-                    subTitle = insight.expand?.service_tags[0]?.name
+                    subTitle = insight.expand?.service_tags?.[0]?.name
                   }
                   return (
                     <InsightCard

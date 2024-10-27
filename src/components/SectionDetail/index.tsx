@@ -75,9 +75,9 @@ export const SectionDetail = ({
             {insights.map((insight) => {
               let subTitle = ''
               if (insight?.expand?.industry_tags) {
-                subTitle = insight.expand?.industry_tags?.name
+                subTitle = insight.expand?.industry_tags?.[0]?.name
               } else if (insight?.expand?.service_tags) {
-                subTitle = insight.expand?.service_tags?.name
+                subTitle = insight.expand?.service_tags?.[0]?.name
               }
               return (
                 <InsightCard

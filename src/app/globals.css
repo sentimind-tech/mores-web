@@ -204,6 +204,7 @@ body {
 .section-padding-x {
   @apply px-32 md:px-64 lg:px-120;
 }
+
 .section-info-p {
   @apply font-normal text-sm md:text-base lg:text-18 lg:leading-[1.75rem] text-justify;
 }

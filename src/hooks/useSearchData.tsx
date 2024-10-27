@@ -43,8 +43,8 @@ const transformInsights = (
         image: imagePath(insight.id, insight.cover_image, "insights"),
         title: insight.title,
         category:
-          insight.expand?.service_tags.name ||
-          insight.expand?.industry_tags.name,
+          insight.expand?.service_tags?.[0].name ||
+          insight.expand?.industry_tags?.[0].name,
         desc: insight.description,
         link: `/${locale}/insights/${insight.id}`,
       } as TransformedDataSearch)
