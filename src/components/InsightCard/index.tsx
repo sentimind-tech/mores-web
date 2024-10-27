@@ -1,6 +1,9 @@
+'use client'; 
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import { useRouter } from 'next/navigation'
+import { MouseEvent } from 'react'
 
 type TInsightCardProp = {
   image: string
@@ -17,8 +20,15 @@ export const InsightCard = ({
   description,
   path,
 }: TInsightCardProp) => {
+  const router = useRouter()
+
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    router.push(path)
+  }
+
   return (
-    <div className="flex flex-col group cursor-pointer">
+    <div onClick={handleClick} className="flex flex-col group cursor-pointer">
       <div className="w-full h-[125px] xl:h-[150px]">
         <Image
           src={image}

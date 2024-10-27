@@ -104,7 +104,7 @@ export const ServiceDetailHeader = ({
         {menus.map((menu) => (
           <div
             className={`cursor-pointer ${
-              activeMenuId === menu.id ? 'text-blue-pacific' : 'text-black'
+              activeMenuId === menu.id ? 'text-blue-pacific underline' : 'text-black'
             }`} // Change the color based on active state
             onClick={() => scrollToView(menu.id)}
             key={menu.name}
