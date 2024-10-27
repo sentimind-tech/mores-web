@@ -1,64 +1,68 @@
-import { PageHeader } from "@/components/PageHeader";
+import { PageHeader } from '@/components/PageHeader'
 import {
   getInsightDetail,
   getInsightList,
   TInsightParams,
-} from "@/services/insight";
-import { notFound } from "next/navigation";
-import { customConfig } from "../../../../../config";
-import Layout from "@/components/Layout";
-import { SectionHeader } from "@/components/SectionHeader";
-import { InsightCard } from "@/components/InsightCard";
-import Link from "next/link";
-import { formatDate } from "@/module/helper";
-import Image from "next/image";
-import { InsightAction } from "@/components/InsightAction";
-import SectionHelp from "@/components/Section/SectionHelp";
-import { SELECTED_MENU_INSIGHT } from "@/store/constants";
+} from '@/services/insight'
+import { notFound } from 'next/navigation'
+import { customConfig } from '../../../../../config'
+import Layout from '@/components/Layout'
+import { SectionHeader } from '@/components/SectionHeader'
+import { InsightCard } from '@/components/InsightCard'
+import Link from 'next/link'
+import { formatDate, getRandomElement } from '@/module/helper'
+import Image from 'next/image'
+import { InsightAction } from '@/components/InsightAction'
+import SectionHelp from '@/components/Section/SectionHelp'
+import { SELECTED_MENU_INSIGHT } from '@/store/constants'
 
 type Props = {
   params: {
-    locale: string;
-    slug: string;
-  };
-};
+    locale: string
+    slug: string
+  }
+}
 
 export default async function InsightDetail({
   params: { locale, slug },
 }: Props) {
-  const insight = await getInsightDetail(slug);
-  if (!insight) notFound();
+  const insight = await getInsightDetail(slug)
+  if (!insight) notFound()
 
   //   Fetch NEXT Insight
+  const randomService = getRandomElement(insight.expand?.service_tags)
+  const randomIndustry = getRandomElement(insight.expand?.industry_tags)
   const query: TInsightParams = {
-    industryId: insight.expand?.industry_tags?.id,
-    serviceId: insight.expand?.service_tags?.id,
+    industryId: randomIndustry?.id,
+    serviceId: randomService?.id,
     insightId: insight.id,
-  };
-  const nextInsightRes = await getInsightList(query, 1, 4);
-  const nextInsights = nextInsightRes?.items || [];
+  }
+  const nextInsightRes = await getInsightList(query, 1, 4)
+  const nextInsights = nextInsightRes?.items || []
 
   // Initiate data
-  const coverImage = insight.cover_image;
-  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${coverImage}`;
+  const coverImage = insight.cover_image
+  const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/insights/${insight.id}/${coverImage}`
+  const pageTitle = insight?.expand?.industry_tags?.[0]
+    ? insight?.expand?.industry_tags?.[0].name.toUpperCase()
+    : insight?.expand?.service_tags?.[0].name.toUpperCase()
+  const pageSubtitle = insight?.expand?.industry_tags?.[0]
+    ? 'INSIGHT/INDUSTRIES/' + pageTitle
+    : 'INSIGHT/SERVICES/' + pageTitle
 
-  const pageSubtitle = insight?.expand?.industry_tags
-    ? "INSIGHT/INDUSTRIES/" + insight?.expand?.industry_tags.name.toUpperCase()
-    : "INSIGHT/SERVICES/" + insight?.expand?.service_tags?.name.toUpperCase();
-
-  const authors = insight.expand?.authors || [];
+  const authors = insight.expand?.authors || []
   return (
     <Layout selectedMenu={SELECTED_MENU_INSIGHT}>
       <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 text-inter">
         <section>
           <PageHeader
             background={coverImagePath}
-            title="Transportation & Logistics"
+            title={pageTitle}
             subtitle={pageSubtitle}
             subtitleCustomClass="text-white"
           />
         </section>
-        <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding">
+        <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding-x pb-24 md:pb-50 lg:pb-100">
           <div className="flex gap-12 flex-wrap justify-between">
             <div className="flex gap-32">
               <div className="max-w-[274px] leading-[14.52px] text-12">
@@ -73,7 +77,7 @@ export default async function InsightDetail({
                     >
                       {author.name}
                     </Link>
-                    {index < authors.length - 1 && ", "}
+                    {index < authors.length - 1 && ', '}
                   </span>
                 ))}
               </div>
@@ -86,16 +90,15 @@ export default async function InsightDetail({
             </div>
             <InsightAction insight={insight} />
           </div>
-          <section className="flex flex-col gap-36 text-inter text-14 leading-[22px]">
+          <section className="flex flex-col text-inter text-14 leading-[22px]">
             <div
               className="insight-detail"
               dangerouslySetInnerHTML={{
                 __html:
-                  locale == "id" ? insight.content_id : insight.content_en,
+                  locale == 'id' ? insight.content_id : insight.content_en,
               }}
             ></div>
             <div className="flex flex-col gap-24 lg:gap-48 mobile-min:text-14 lg:text-20 leading-[24px]">
-              <div className="font-semibold ">At a Glance</div>
               <div className="flex flex-col gap-24">
                 {insight.summary &&
                   insight.summary.length > 0 &&
@@ -109,13 +112,13 @@ export default async function InsightDetail({
                           <Image
                             width={24}
                             height={24}
-                            src={"/images/icon/triangle.png"}
+                            src={'/images/icon/triangle.png'}
                             alt="list"
                           />
                         </div>
                         <div className="">{summary}</div>
                       </div>
-                    );
+                    )
                   })}
               </div>
             </div>
@@ -125,11 +128,11 @@ export default async function InsightDetail({
               <SectionHeader title="NEXT INSIGHTS" />
               <div className="insight-container">
                 {nextInsights.map((insight) => {
-                  let subTitle = "";
+                  let subTitle = ''
                   if (insight?.expand?.industry_tags) {
-                    subTitle = insight.expand?.industry_tags?.name;
+                    subTitle = insight.expand?.industry_tags?.[0]?.name
                   } else if (insight?.expand?.service_tags) {
-                    subTitle = insight.expand?.service_tags?.name;
+                    subTitle = insight.expand?.service_tags?.[0]?.name
                   }
                   return (
                     <InsightCard
@@ -140,7 +143,7 @@ export default async function InsightDetail({
                       subtitle={subTitle}
                       path={`/${locale}/insights/${insight.id}`}
                     />
-                  );
+                  )
                 })}
               </div>
             </section>
@@ -153,8 +156,8 @@ export default async function InsightDetail({
         link={`/${locale}/contact`}
       />
     </Layout>
-  );
+  )
 }
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'

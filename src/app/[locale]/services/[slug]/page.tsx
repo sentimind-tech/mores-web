@@ -57,20 +57,18 @@ export default async function ServiceDetail({
             subtitle="FOCUS SERVICES"
             subtitleCustomClass="text-white"
           />
-          <div className="section-navigation">
-            <ServiceDetailHeader
-              title={service.name}
-              overview={
-                locale == 'id' ? service.overview_id : service.overview_en
-              }
-              serviceList={serviceList || []}
-              ourExperience={
-                ourExperience.length > 0 ? ourExperiencePath : null
-              }
-              insights={insights || []}
-            />
-          </div>
         </section>
+        <div className="section-navigation">
+          <ServiceDetailHeader
+            title={service.name}
+            overview={
+              locale == 'id' ? service.overview_id : service.overview_en
+            }
+            serviceList={serviceList || []}
+            ourExperience={ourExperience.length > 0 ? ourExperiencePath : null}
+            insights={insights || []}
+          />
+        </div>
 
         <SectionDetail
           overview={locale == 'id' ? service.overview_id : service.overview_en}
