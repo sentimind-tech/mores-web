@@ -53,19 +53,17 @@ export default async function IndustryDetail({
             subtitle="FOCUS INDUSTRIES"
             subtitleCustomClass="text-white"
           />
-
-          <div className="section-navigation">
-            <ServiceDetailHeader
-              title={industry.name}
-              overview={
-                locale == 'id' ? industry.overview_id : industry.overview_en
-              }
-              ourExperience={ourExperience.length > 0 ? ourExperiencePath : null}
-              insights={insights || []}
-            />
-          </div>
         </section>
-
+        <div className="section-navigation">
+          <ServiceDetailHeader
+            title={industry.name}
+            overview={
+              locale == 'id' ? industry.overview_id : industry.overview_en
+            }
+            ourExperience={ourExperience.length > 0 ? ourExperiencePath : null}
+            insights={insights || []}
+          />
+        </div>
         <SectionDetail
           overview={
             locale == 'id' ? industry.overview_id : industry.overview_en

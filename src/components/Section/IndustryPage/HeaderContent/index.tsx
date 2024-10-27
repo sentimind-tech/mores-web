@@ -13,7 +13,7 @@ const HeaderContent = () => {
             {t('description_header')}
           </div>
           <p
-            className="font-normal text-sm mobile-min:text-base lg:text-18 lg:leading-[1.75rem] text-justify"
+            className="font-normal text-sm mobile-min:text-base lg:text-18 lg:leading-[1.75rem] text-left"
             dangerouslySetInnerHTML={{ __html: t.raw('description_content') }}
           ></p>
         </div>
