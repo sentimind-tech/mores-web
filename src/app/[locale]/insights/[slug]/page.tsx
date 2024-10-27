@@ -65,7 +65,7 @@ export default async function InsightDetail({
         <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding-x pb-24 md:pb-50 lg:pb-100">
           <div className="flex gap-12 flex-wrap justify-between">
             <div className="flex gap-32">
-              <div className="max-w-[274px] leading-[14.52px] text-12">
+              <div className="max-w-[274px] leading-[16.52px] text-14">
                 By&nbsp;
                 {authors.map((author, index) => (
                   <span key={author.name}>
@@ -81,7 +81,7 @@ export default async function InsightDetail({
                   </span>
                 ))}
               </div>
-              <div className="flex flex-col gap-2 leading-[14.52px] text-12 ">
+              <div className="flex flex-col gap-2 leading-[16.52px] text-14 ">
                 <div className="">{formatDate(insight.published)}</div>
                 <div className="text-blue-pacific ">
                   {insight.read_time} Min Read
@@ -90,7 +90,7 @@ export default async function InsightDetail({
             </div>
             <InsightAction insight={insight} />
           </div>
-          <section className="flex flex-col text-inter text-14 leading-[22px]">
+          <section className="flex flex-col text-inter text-16 leading-[24px]">
             <div
               className="insight-detail"
               dangerouslySetInnerHTML={{
@@ -98,7 +98,7 @@ export default async function InsightDetail({
                   locale == 'id' ? insight.content_id : insight.content_en,
               }}
             ></div>
-            <div className="flex flex-col gap-24 lg:gap-48 mobile-min:text-14 lg:text-20 leading-[24px]">
+            <div className="flex flex-col gap-24 lg:gap-48 mobile-min:text-18 leading-[28px]">
               <div className="flex flex-col gap-24">
                 {insight.summary &&
                   insight.summary.length > 0 &&
