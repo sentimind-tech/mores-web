@@ -16,7 +16,7 @@ type TQueryParams = {
 async function getServiceList(params: TServiceParams = {}) {
   try {
     let queryParams: TQueryParams = {
-      sort: 'name',
+      sort: 'order,name',
       requestKey: null,
     }
 

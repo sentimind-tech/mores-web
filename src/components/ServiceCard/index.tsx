@@ -28,7 +28,7 @@ export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
     >
       <div className="flex flex-col">
         <div className="flex justify-between pt-16 border-t border-gray-silver">
-          <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-base lg:text-xl font-supplymono group-hover:text-blue-pacific">
+          <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-lg lg:text-xl font-supplymono group-hover:text-blue-pacific">
             {title}
           </div>
 
@@ -42,7 +42,7 @@ export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
             />
           </div>
         </div>
-        <div className="text-left mt-[6px] text-12 leading-[1.25rem] text-inter text-gray-medium">
+        <div className="text-left mt-[6px] text-14 leading-[1.375rem] text-inter text-gray-medium">
           {description}
         </div>
       </div>
@@ -50,7 +50,7 @@ export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
         href={path}
         className="mt-5 flex justify-start items-center gap-10 cursor-pointer"
       >
-        <span className="text-blue-pacific leading-[19.2px] font-normal text-16 font-supplymono">
+        <span className="text-blue-pacific leading-[21px] font-normal text-18 font-supplymono">
           MORE
         </span>
         <Image

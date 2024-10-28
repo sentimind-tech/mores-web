@@ -39,7 +39,7 @@ export default async function Services({ params: { locale } }: Props) {
         <section>
           <PageHeader background="/images/bg-services.png" />
         </section>
-        <section className="section-padding flex flex-col gap-32 lg:gap-100">
+        <section className="section-padding-x flex flex-col gap-32 lg:gap-100">
           <HeaderContent />
           <ServiceValues />
         </section>
