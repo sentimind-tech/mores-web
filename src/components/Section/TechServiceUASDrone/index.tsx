@@ -19,7 +19,7 @@ const TechServiceUASDrone = () => {
         </div>
 
         <div className="mt-[2.688rem]">
-          <HeadingText type="h4" className="uppercase text-black">
+          <HeadingText type="h4" className="uppercase text-blue-pacific">
             1. Surveillance Video
           </HeadingText>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1.5rem] lg:gap-0 mt-[1.5rem] lg:mt-[2.5rem]">
@@ -92,7 +92,7 @@ const TechServiceUASDrone = () => {
           </div>
         </div>
         <div className="mt-[2.688rem]">
-          <HeadingText type="h4" className="uppercase text-black">
+          <HeadingText type="h4" className="uppercase text-blue-pacific">
             2. Orthomosaic Map
           </HeadingText>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1.5rem] lg:gap-0 mt-[1.5rem] lg:mt-[2.5rem]">
@@ -171,7 +171,7 @@ const TechServiceUASDrone = () => {
           </div>
         </div>
         <div className="mt-[3.125rem] md:mt-[5.375rem]">
-          <HeadingText type="h4" className="uppercase text-black">
+          <HeadingText type="h4" className="uppercase text-blue-pacific">
             3. 3D Reconstruction
           </HeadingText>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-[1.5rem] lg:gap-0 mt-[1.5rem] lg:mt-[2.5rem]">

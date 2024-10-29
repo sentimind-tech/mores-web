@@ -11,6 +11,17 @@ export type TValue = {
   url: string;
 };
 
+export type TAddressConfig = {
+  id: string;
+  key: string;
+  value: TAddress;
+};
+
+export type TAddress = {
+  title: string;
+  address: string;
+};
+
 export type TConfigHighlightList = {
   id: string;
   key: string;
@@ -21,4 +32,10 @@ export type TConfigFooterBanner = {
   id: string;
   key: string;
   active: boolean;
+};
+
+export type TConfigMoresTechAFCBanner = {
+  id: string;
+  key: string;
+  files: string[];
 };

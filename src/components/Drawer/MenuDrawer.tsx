@@ -14,6 +14,7 @@ import { useLocale } from "next-intl";
 import { useRouter, Locale, usePathname } from "@/i18n/routing";
 import { useSearchContext } from "@/context/SearchContext";
 import { ACTIVE_MENU_STATE } from "@/dictionaries/general";
+import { TMoresTechServiceProps } from "@/types/mores_tech";
 
 import navmenu from "@/data/navmenu.json";
 import menuContentData from "@/data/menuContent.json";
@@ -23,6 +24,7 @@ type TMenuDrawerProps = TDrawerComponentProps &
     industries: TIndustry[];
     services: TService[];
     activeMenu: string;
+    techService: TMoresTechServiceProps[] | null;
   };
 
 const MenuDrawer = (props: TMenuDrawerProps) => {
@@ -34,6 +36,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
     industries,
     services,
     activeMenu,
+    techService,
   } = props;
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
@@ -176,7 +179,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
       enableOverlay={false}
     >
       <div
-        className={`w-full bg-white-smoke h-[100dvh] lg:h-auto flex max-h-[100dvh] group ${
+        className={`w-full bg-white-smoke h-[100dvh] lg:h-auto flex max-h-[100dvh] text-black group ${
           isOpen ? "active-drawer" : ""
         }`}
         ref={dropdownContainerRef}
@@ -184,6 +187,18 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
         <div className="relative lg:z-auto w-full lg:w-[332px] bg-black shrink-0 flex flex-col items-center pt-[1.063rem]">
           <div className="w-full lg:max-w-[210px] py-16 px-32 md:px-[2.5rem] lg:p-0">
             <div className="flex justify-between items-center">
+              <div
+                className="w-[24px] h-[24px] cursor-pointer hidde lg:blockn"
+                onClick={handleCloseDrawer}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M2.4 24L0 21.6L9.6 12L0 2.4L2.4 0L12 9.6L21.6 0L24 2.4L14.4 12L24 21.6L21.6 24L12 14.4L2.4 24Z"
+                    fill="#00A2B6"
+                  />
+                </svg>
+              </div>
+
               <Link href={`/${localActive}`}>
                 <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
                   <Image
@@ -282,18 +297,6 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                 </svg>
               </div>
             </div>
-
-            <div
-              className="w-[24px] h-[24px] cursor-pointer"
-              onClick={handleCloseDrawer}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M2.4 24L0 21.6L9.6 12L0 2.4L2.4 0L12 9.6L21.6 0L24 2.4L14.4 12L24 21.6L21.6 24L12 14.4L2.4 24Z"
-                  fill="#00A2B6"
-                />
-              </svg>
-            </div>
           </div>
 
           <div className="relative w-full h-full lg:h-[calc(100%_-_83px)] overflow-auto">
@@ -343,7 +346,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                             <Link href={`/${localActive}/services`}>
                               <BodyText
                                 type="body1"
-                                className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                                className="leading-[1.125] font-medium !font-graphik text-black block mb-10 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
                               >
                                 Services
                               </BodyText>
@@ -358,14 +361,14 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                   >
                                     <BodyText
                                       type="body2"
-                                      className="leading-[1.063rem]"
+                                      className="leading-[1.063rem] capitalize"
                                     >
-                                      {item.name}
+                                      {item.name.toLowerCase()}
                                     </BodyText>
                                   </Link>
 
                                   {item.submenu && item.submenu.length > 0 && (
-                                    <div className="pl-[1.375rem] flex flex-col items-start gap-[0.375rem] pt-[0.625rem]">
+                                    <div className="pl-[1.375rem] flex flex-col items-start gap-[0.375rem] pt-[0.5rem]">
                                       {item.submenu.map((submenuitem, idx) => (
                                         <Link
                                           href={submenuitem.link}
@@ -373,10 +376,10 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                           key={idx}
                                         >
                                           <BodyText
-                                            className="text-[0.625rem] leading-[0.75rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px]"
+                                            className="text-[0.625rem] leading-[0.75rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
                                             key={idx}
                                           >
-                                            {submenuitem.title}
+                                            {submenuitem.title.toLowerCase()}
                                           </BodyText>
                                         </Link>
                                       ))}
@@ -391,7 +394,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                 <Link href={`/${localActive}/industries`}>
                                   <BodyText
                                     type="body1"
-                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-10 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
                                   >
                                     Industries
                                   </BodyText>
@@ -410,7 +413,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                           type="body2"
                                           className="leading-[1.063rem] capitalize"
                                         >
-                                          {item.name}
+                                          {item.name.toLowerCase()}
                                         </BodyText>
                                       </Link>
                                     </div>
@@ -421,7 +424,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
 
                             <BodyText
                               type="body1"
-                              className="leading-[1.125] font-medium !font-graphik text-black block mb-12 lg:mb-[1.25rem]"
+                              className="leading-[1.125] font-medium !font-graphik text-black block mb-10 lg:mb-[1.25rem]"
                             >
                               Client Stories
                             </BodyText>
@@ -459,6 +462,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                           {...item}
                           activeMenu={activeMenu}
                           closeDrawer={handleCloseDrawer}
+                          techService={techService}
                         />
                       </div>
                     </div>

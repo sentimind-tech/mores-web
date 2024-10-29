@@ -66,11 +66,8 @@ const HomeHighlight = (props: THomeHighlightProps) => {
                   >
                     MORES OUTLOOK 2023:
                   </BodyText> */}
-                  <HeadingText
-                    type="h4"
-                    className="block mb-24 md:mb-[0.688rem]"
-                  >
-                    {insightData?.title}
+                  <HeadingText type="h4" className="block mb-24 md:mb-32">
+                    {insightData?.title.toUpperCase()}
                   </HeadingText>
 
                   <Link href={`/${localActive}/insights`}>

@@ -16,6 +16,7 @@ export type TTeams = {
   industries_expertise: Array<string>;
   service_expertise: Array<string>;
   expand: TTeamsExpand;
+  order: number;
 };
 
 export type TTeamsSocmed = {

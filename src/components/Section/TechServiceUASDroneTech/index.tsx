@@ -21,7 +21,7 @@ const TechServiceUASDroneTech = () => {
         <div className="py-32 md:py-[2.5rem]">
           <div className="flex flex-col lg:flex-row gap-32">
             <div className="w-full lg:w-1/3">
-              <HeadingText type="h4" className="uppercase text-black">
+              <HeadingText type="h4" className="uppercase text-blue-pacific">
                 1. OMNIBE
               </HeadingText>
               <BodyText
@@ -58,7 +58,11 @@ const TechServiceUASDroneTech = () => {
             </div>
           </div>
           <Collapsible
-            title={t("service_data_uas_drone_spec_title")}
+            title={
+              <HeadingText type="h4" className="uppercase text-blue-pacific">
+                {t("service_data_uas_drone_spec_title")}
+              </HeadingText>
+            }
             open={true}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-[1.75rem] border-b border-gray-cloud">
@@ -248,7 +252,7 @@ const TechServiceUASDroneTech = () => {
         <div className="py-32 md:py-[2.5rem]">
           <div className="flex flex-col lg:flex-row gap-32">
             <div className="w-full lg:w-1/3">
-              <HeadingText type="h4" className="uppercase text-black">
+              <HeadingText type="h4" className="uppercase text-blue-pacific">
                 2. MINIBE
               </HeadingText>
               <BodyText
@@ -285,7 +289,11 @@ const TechServiceUASDroneTech = () => {
             </div>
           </div>
           <Collapsible
-            title={t("service_data_uas_drone_spec_title")}
+            title={
+              <HeadingText type="h4" className="uppercase text-blue-pacific">
+                {t("service_data_uas_drone_spec_title")}
+              </HeadingText>
+            }
             open={true}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-[1.75rem] border-b border-gray-cloud">
@@ -470,7 +478,7 @@ const TechServiceUASDroneTech = () => {
         <div className="py-32 md:py-[2.5rem]">
           <div className="flex flex-col lg:flex-row gap-32">
             <div className="w-full lg:w-1/3">
-              <HeadingText type="h4" className="uppercase text-black">
+              <HeadingText type="h4" className="uppercase text-blue-pacific">
                 3. MULTI ROTOR
               </HeadingText>
               <BodyText
@@ -514,7 +522,11 @@ const TechServiceUASDroneTech = () => {
             </div>
           </div>
           <Collapsible
-            title={t("service_data_uas_drone_spec_title")}
+            title={
+              <HeadingText type="h4" className="uppercase text-blue-pacific">
+                {t("service_data_uas_drone_spec_title")}
+              </HeadingText>
+            }
             open={true}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-[1.75rem] border-b border-gray-cloud">
@@ -562,7 +574,7 @@ const TechServiceUASDroneTech = () => {
         <div className="py-32 md:py-[2.5rem]">
           <div className="flex flex-col lg:flex-row gap-32">
             <div className="w-full ">
-              <HeadingText type="h4" className="uppercase text-black">
+              <HeadingText type="h4" className="uppercase text-blue-pacific">
                 4. CUSTOMIZED DRONE
               </HeadingText>
               <BodyText
@@ -578,7 +590,7 @@ const TechServiceUASDroneTech = () => {
         <div className="py-32 md:py-[2.5rem]">
           <div className="flex flex-col lg:flex-row gap-32">
             <div className="w-full ">
-              <HeadingText type="h4" className="uppercase text-black">
+              <HeadingText type="h4" className="uppercase text-blue-pacific">
                 5. OTHER UAS SERVICE
               </HeadingText>
               <BodyText

@@ -108,7 +108,7 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @apply text-[16px] leading-[24px];
+  @apply text-[18px] leading-[26px];
 }
 
 @layer utilities {
@@ -159,7 +159,7 @@ body {
   width: 100%;
 }
 .overview-content #overview p {
-  @apply pt-0 pb-0 md:pl-[55px] md:pr-[55px]
+  @apply pt-0 pb-0 md:pl-[55px] md:pr-[55px];
 }
 
 .google-map-iframe {

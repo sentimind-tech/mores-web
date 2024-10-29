@@ -8,6 +8,8 @@ import { SELECTED_MENU_TECH } from "@/store/constants";
 
 import dataServices from "@/data/techService.json";
 
+import { getMoresTechService } from "@/services/mores_tech";
+
 type Props = {
   params: {
     locale: string;
@@ -19,8 +21,9 @@ const TechServicesDetail = async ({ params: { locale, slug } }: Props) => {
   unstable_setRequestLocale(locale);
 
   const t = await getTranslations("Common");
+  const services = await getMoresTechService();
 
-  const service = dataServices.find((item) => item.slug == slug);
+  const service = services?.items.find((item) => item.id == slug);
 
   if (!service) notFound();
 

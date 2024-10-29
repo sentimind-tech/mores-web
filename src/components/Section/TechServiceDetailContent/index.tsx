@@ -21,6 +21,8 @@ import TechServiceSecurityIntro from "../TechServiceSecurityIntro";
 import TechServiceUASDrone from "../TechServiceUASDrone";
 import TechServiceUASDroneTech from "../TechServiceUASDroneTech";
 import TechServiceAFCList from "../TechServiceAFCList";
+import { TMoresTechServiceProps } from "@/types/mores_tech";
+import { imagePath } from "@/module/helper";
 
 type TTechServiceDetailContentProps = {
   title: string;
@@ -31,27 +33,29 @@ type TTechServiceDetailContentProps = {
   banner_image: string;
 };
 
-const TechServiceDetailContent = (props: TTechServiceDetailContentProps) => {
-  const { banner_title, banner_subtitle, banner_image } = props;
+const TechServiceDetailContent = (props: TMoresTechServiceProps) => {
+  const { id, menu_title, subtitle, cover_image } = props;
   const localActive = useLocale();
   const t = useTranslations("TechMores");
   const params = useParams();
 
+  let imageThumb = imagePath(id, cover_image, "mores_tech");
+
   return (
     <>
-      <BannerTech background={banner_image} overlay={false}>
+      <BannerTech background={imageThumb} overlay={false}>
         <div className="lg:w-full">
           <HeadingText
             type="h5"
             className="mb-6 md:mb-16 text-blue-pacific uppercase"
           >
-            {t(banner_subtitle)}
+            {menu_title}
           </HeadingText>
           <DisplayText
             type="medium"
             className="text-white uppercase !text-[1.25rem] md:!text-[2rem] lg:!text-[2.5rem] !leading-[1.7rem] md:!leading-[2.5rem] lg:!leading-[3rem]"
           >
-            {t(banner_title)}
+            {subtitle}
           </DisplayText>
         </div>
       </BannerTech>
@@ -73,7 +77,7 @@ const TechServiceDetailContent = (props: TTechServiceDetailContentProps) => {
           <TechServiceUASDroneTech />
         </>
       )}
-      {params.slug == TECH_SERVICE_SLUG_AFC && <TechServiceAFCList />}
+      {params.slug == TECH_SERVICE_SLUG_AFC && <TechServiceAFCList id={id} />}
     </>
   );
 };

@@ -1,15 +1,16 @@
-'use client'
-import Image from 'next/image'
-import { ReactNode } from 'react'
+"use client";
+import Image from "next/image";
+import { ReactNode } from "react";
+import { BodyText } from "@/components/Text";
 
 type TCompanyInfoCardProp = {
-  title: string
-  icon?: string
-  children: ReactNode | string
-  footer?: string
-  contentClassName?: string
-  url?: string
-}
+  title: string;
+  icon?: string;
+  children: ReactNode | string;
+  footer?: string;
+  contentClassName?: string;
+  url?: string;
+};
 const CompanyInfoCard = ({
   title,
   icon,
@@ -19,9 +20,9 @@ const CompanyInfoCard = ({
   contentClassName,
 }: TCompanyInfoCardProp) => {
   const handleClick = () => {
-    if (!url || url == '') return
-    window.open(url, '_blank') // Open the file in a new tab
-  }
+    if (!url || url == "") return;
+    window.open(url, "_blank"); // Open the file in a new tab
+  };
 
   return (
     <div className="flex flex-col justify-between gap-64 border-t border-gray-ash pt-16 font-inter text-12 leading-[1.25rem]">
@@ -36,11 +37,11 @@ const CompanyInfoCard = ({
       </div>
       {footer && (
         <div className="text-blue-pacific cursor-pointer" onClick={handleClick}>
-          {footer}
+          <BodyText type="body3">{footer}</BodyText>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CompanyInfoCard
+export default CompanyInfoCard;
