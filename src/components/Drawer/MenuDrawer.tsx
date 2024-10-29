@@ -14,6 +14,7 @@ import { useLocale } from "next-intl";
 import { useRouter, Locale, usePathname } from "@/i18n/routing";
 import { useSearchContext } from "@/context/SearchContext";
 import { ACTIVE_MENU_STATE } from "@/dictionaries/general";
+import { TMoresTechServiceProps } from "@/types/mores_tech";
 
 import navmenu from "@/data/navmenu.json";
 import menuContentData from "@/data/menuContent.json";
@@ -23,6 +24,7 @@ type TMenuDrawerProps = TDrawerComponentProps &
     industries: TIndustry[];
     services: TService[];
     activeMenu: string;
+    techService: TMoresTechServiceProps[] | null;
   };
 
 const MenuDrawer = (props: TMenuDrawerProps) => {
@@ -34,6 +36,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
     industries,
     services,
     activeMenu,
+    techService,
   } = props;
   const [windowWidth, setWindowWidth] = useState(windowDimension.width);
   const [heightContainerMenu, setHeightContainerMenu] = useState<number>(0);
@@ -459,6 +462,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                           {...item}
                           activeMenu={activeMenu}
                           closeDrawer={handleCloseDrawer}
+                          techService={techService}
                         />
                       </div>
                     </div>

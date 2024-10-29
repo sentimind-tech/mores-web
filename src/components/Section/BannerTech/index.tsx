@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Image from "next/image";
 
 type TBannerTechProps = {
-  background: string;
+  background: string | null;
   overlay?: boolean;
   children: ReactNode;
 };

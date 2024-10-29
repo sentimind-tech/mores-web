@@ -84,18 +84,20 @@ const HomeInsight = (props: THomeInsightProps) => {
             </div>
           </div>
           <div className="pt-[1.5rem] lg:pt-[1.875rem]">
-            <div className="flex flex-col md:flex-row w-full md:aspect-[16/6.3] md:min-h-[400px] lg:min-h-[500px]">
+            <div className="flex flex-col md:flex-row w-full md:aspect-[16/6.3] md:min-h-[500px] lg:min-h-[600px]">
               <div className="w-full md:w-1/3 h-[340px] md:h-full">
-                <div className="w-full h-full relative">
+                <div className="w-full h-full relative group">
                   {data1?.button_image && (
-                    <Image
-                      src={imageInsightPath(data1.id, data1.button_image)}
-                      alt="Image thumb"
-                      fill={true}
-                      priority={true}
-                      sizes="auto"
-                      className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
-                    />
+                    <div className="w-full h-full absolute overflow-hidden">
+                      <Image
+                        src={imageInsightPath(data1.id, data1.button_image)}
+                        alt="Image thumb"
+                        fill={true}
+                        priority={true}
+                        sizes="auto"
+                        className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0 transition-all duration-300 scale-100 group-hover:scale-110"
+                      />
+                    </div>
                   )}
 
                   <div className="absolute w-full h-full top-0 left-0 z-[1] bg-home-insight-thumb" />
@@ -146,16 +148,18 @@ const HomeInsight = (props: THomeInsightProps) => {
               </div>
               <div className="w-full md:w-2/3 md:h-[50%]">
                 <div className="w-full h-full relative flex flex-col md:flex-row">
-                  <div className="w-full md:w-2/3 relative h-[220px] md:h-full">
+                  <div className="w-full md:w-2/3 relative h-[220px] md:h-full group">
                     {data2?.button_image && (
-                      <Image
-                        src={imageInsightPath(data2.id, data2.button_image)}
-                        alt="Image thumb"
-                        fill={true}
-                        priority={true}
-                        sizes="auto"
-                        className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
-                      />
+                      <div className="w-full h-full absolute overflow-hidden">
+                        <Image
+                          src={imageInsightPath(data2.id, data2.button_image)}
+                          alt="Image thumb"
+                          fill={true}
+                          priority={true}
+                          sizes="auto"
+                          className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0 transition-all duration-300 scale-100 group-hover:scale-110"
+                        />
+                      </div>
                     )}
                     <div className="absolute w-full h-full top-0 left-0 z-[1] bg-home-insight-thumb" />
                   </div>
@@ -209,16 +213,18 @@ const HomeInsight = (props: THomeInsightProps) => {
                   </div>
                 </div>
                 <div className="w-full h-full relative flex flex-col md:flex-row">
-                  <div className="w-full md:w-1/3 relative h-[220px] md:h-full">
+                  <div className="w-full md:w-1/3 relative h-[220px] md:h-full group">
                     {data3?.button_image && (
-                      <Image
-                        src={imageInsightPath(data3.id, data3.button_image)}
-                        alt="Image thumb"
-                        fill={true}
-                        priority={true}
-                        sizes="auto"
-                        className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
-                      />
+                      <div className="w-full h-full absolute overflow-hidden">
+                        <Image
+                          src={imageInsightPath(data3.id, data3.button_image)}
+                          alt="Image thumb"
+                          fill={true}
+                          priority={true}
+                          sizes="auto"
+                          className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0 transition-all duration-300 scale-100 group-hover:scale-110"
+                        />
+                      </div>
                     )}
                     <div className="absolute w-full h-full top-0 left-0 z-[1] bg-home-insight-thumb" />
                   </div>

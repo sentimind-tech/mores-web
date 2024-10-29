@@ -2,7 +2,7 @@ import Image from "next/image";
 import { HeadingText } from "../Text";
 
 type CardTechServiceItem = {
-  image: string;
+  image: string | null;
   title: string;
   ornament?: string;
 };
@@ -12,7 +12,7 @@ const CardTechServiceItem = (props: CardTechServiceItem) => {
   return (
     <div className="w-full h-full bg-gray-light">
       <div className="relative w-full aspect-[16/12] bg-gray-100 flex items-center justify-center">
-        {image !== "" && (
+        {image && (
           <Image
             src={image}
             alt="Thumb"

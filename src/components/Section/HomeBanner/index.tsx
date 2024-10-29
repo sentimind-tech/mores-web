@@ -65,7 +65,7 @@ const HomeBanner = (props: THomeBannerProps) => {
     infinite: true,
     speed: 500,
     autoplay: true,
-    autoplaySpeed: 3500,
+    autoplaySpeed: 5000,
     fade: true,
     cssEase: "linear",
     slidesToShow: 1,

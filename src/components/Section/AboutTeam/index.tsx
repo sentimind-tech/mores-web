@@ -155,63 +155,65 @@ const AboutTeam = (props: TAboutTeamProps) => {
 
           {list !== null ? (
             <div className="grid grid-cols-1 md:grid-cols-3 md:gap-[2.5rem] lg:gap-[2.5rem]">
-              {list.map((item, index) => {
-                let imageThumb = imagePath(item.id, item.photo, "teams");
-                return (
-                  <div
-                    className="block relative group pr-[35px] cursor-pointer"
-                    key={index}
-                    onClick={() => handleOpenModal(item)}
-                  >
-                    <div className="flex items-center py-20 md:py-[0.625rem] border-b-[1.5px] border-gray-cloud transition-all duration-300 bg-white lg:group-hover:bg-gray-light">
-                      <div className="w-[86px] aspect-square relative shrink-0">
-                        {imageThumb !== null && (
-                          <Image
-                            src={imageThumb}
-                            alt={item.name}
-                            fill={true}
-                            priority={true}
-                            sizes="auto"
-                            className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
-                          />
-                        )}
-                      </div>
+              {list
+                .sort((a, b) => a.order - b.order)
+                .map((item, index) => {
+                  let imageThumb = imagePath(item.id, item.photo, "teams");
+                  return (
+                    <div
+                      className="block relative group pr-[35px] cursor-pointer"
+                      key={index}
+                      onClick={() => handleOpenModal(item)}
+                    >
+                      <div className="flex items-center py-20 md:py-[0.625rem] border-b-[1.5px] border-gray-cloud transition-all duration-300 bg-white lg:group-hover:bg-gray-light">
+                        <div className="w-[86px] aspect-square relative shrink-0">
+                          {imageThumb !== null && (
+                            <Image
+                              src={imageThumb}
+                              alt={item.name}
+                              fill={true}
+                              priority={true}
+                              sizes="auto"
+                              className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
+                            />
+                          )}
+                        </div>
 
-                      <div className="px-[0.625rem]">
-                        <BodyText
-                          type="body2"
-                          className="font-semibold text-black block"
-                        >
-                          {item.name}
-                        </BodyText>
-                        {item.type && (
+                        <div className="px-[0.625rem]">
                           <BodyText
-                            type="body3"
-                            className="text-gray-dove block mt-[0.313rem]"
+                            type="body2"
+                            className="font-semibold text-black block"
                           >
-                            {item.type}
+                            {item.name}
                           </BodyText>
-                        )}
+                          {item.type && (
+                            <BodyText
+                              type="body3"
+                              className="text-gray-dove block mt-[0.313rem]"
+                            >
+                              {item.type}
+                            </BodyText>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="absolute bottom-[-6.5px] right-0">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.16787 0.434814V6.9944H0.641602V8.30631H7.16787V14.8659H8.47313V8.30631H14.9994V6.9944H8.47313V0.434814H7.16787Z"
+                            className="fill-blue-pacific"
+                          />
+                        </svg>
                       </div>
                     </div>
-
-                    <div className="absolute bottom-[-6.5px] right-0">
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M7.16787 0.434814V6.9944H0.641602V8.30631H7.16787V14.8659H8.47313V8.30631H14.9994V6.9944H8.47313V0.434814H7.16787Z"
-                          className="fill-blue-pacific"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 md:gap-[2.5rem] lg:gap-[2.5rem]">
@@ -278,74 +280,93 @@ const AboutTeam = (props: TAboutTeamProps) => {
 
               <div className="flex gap-20 md:gap-24 mt-10">
                 <div className="w-1/2">
-                  <HeadingText className="uppercase text-black text-10 leading-[1.375rem]">
-                    SERVICES
-                  </HeadingText>
-                  <div className="mt-10">
-                    <ul className="">
-                      {selectedTeam?.expand.service_expertise
-                        .filter((service) => service.parent_service_id === "")
-                        .map((service, index) => {
-                          const submenu =
-                            selectedTeam?.expand.service_expertise.filter(
-                              (item) => item.parent_service_id === service.id
-                            );
+                  {selectedTeam?.expand.service_expertise &&
+                    selectedTeam?.expand.service_expertise.length > 0 && (
+                      <>
+                        <HeadingText className="uppercase text-black text-10 leading-[1.375rem]">
+                          SERVICES
+                        </HeadingText>
+                        <div className="mt-10">
+                          <ul className="">
+                            {selectedTeam?.expand?.service_expertise
+                              .filter(
+                                (service) => service.parent_service_id === ""
+                              )
+                              .map((service, index) => {
+                                const submenu =
+                                  selectedTeam?.expand.service_expertise.filter(
+                                    (item) =>
+                                      item.parent_service_id === service.id
+                                  );
 
-                          return (
-                            <li
-                              className="text-[0.563rem] leading-[0.938rem]"
-                              key={index}
-                            >
-                              <Link
-                                href={`/${localActive}/services/${service.id}`}
-                                className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific"
-                              >
-                                <span className="">{service.name}</span>
-                              </Link>
+                                return (
+                                  <li
+                                    className="text-[0.688rem] leading-[1.063rem]"
+                                    key={index}
+                                  >
+                                    <Link
+                                      href={`/${localActive}/services/${service.id}`}
+                                      className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific"
+                                    >
+                                      <span className="capitalize">
+                                        {service.name.toLowerCase()}
+                                      </span>
+                                    </Link>
 
-                              {submenu && submenu.length > 0 && (
-                                <div className="pl-18 mt-[2px] mb-[8px]">
-                                  {submenu.map((item, idx) => (
-                                    <div className="block" key={idx}>
-                                      <Link
-                                        href={`/${localActive}/services/${item.parent_service_id}/${item.id}`}
-                                        className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific"
-                                      >
-                                        <span className="">{item.name}</span>
-                                      </Link>
-                                    </div>
-                                  ))}
-                                </div>
-                              )}
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  </div>
+                                    {submenu && submenu.length > 0 && (
+                                      <div className="pl-18 mt-[2px] mb-[8px]">
+                                        {submenu.map((item, idx) => (
+                                          <div className="block" key={idx}>
+                                            <Link
+                                              href={`/${localActive}/services/${item.parent_service_id}/${item.id}`}
+                                              className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-3px] before:left-[-12px] capitalize"
+                                            >
+                                              <span className="capitalize">
+                                                {item.name.toLowerCase()}
+                                              </span>
+                                            </Link>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </li>
+                                );
+                              })}
+                          </ul>
+                        </div>
+                      </>
+                    )}
                 </div>
                 <div className="w-1/2">
-                  <HeadingText className="uppercase text-black text-10 leading-[1s.375rem]">
-                    INDUSTRIES
-                  </HeadingText>
-                  <div className="mt-10">
-                    <ul className="">
-                      {selectedTeam?.expand.industries_expertise.map(
-                        (industry, index) => (
-                          <li
-                            className="text-[0.563rem] leading-[0.938rem]"
-                            key={index}
-                          >
-                            <Link
-                              href={`/${localActive}/industries/${industry.id}`}
-                              className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific"
-                            >
-                              <span className="">{industry.name}</span>
-                            </Link>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
+                  {selectedTeam?.expand.industries_expertise &&
+                    selectedTeam?.expand.industries_expertise.length > 0 && (
+                      <>
+                        <HeadingText className="uppercase text-black text-10 leading-[1s.375rem]">
+                          INDUSTRIES
+                        </HeadingText>
+                        <div className="mt-10">
+                          <ul className="">
+                            {selectedTeam?.expand.industries_expertise.map(
+                              (industry, index) => (
+                                <li
+                                  className="text-[0.688rem] leading-[1.063rem]"
+                                  key={index}
+                                >
+                                  <Link
+                                    href={`/${localActive}/industries/${industry.id}`}
+                                    className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific"
+                                  >
+                                    <span className="capitalize">
+                                      {industry.name.toLowerCase()}
+                                    </span>
+                                  </Link>
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </div>
+                      </>
+                    )}
                 </div>
               </div>
             </div>
@@ -353,7 +374,7 @@ const AboutTeam = (props: TAboutTeamProps) => {
               <div className="w-[1px] h-[90%] bg-gray-cloud absolute left-[-50px] top-0 bottom-0 m-auto hidden md:block"></div>
               <div className="h-full w-full relative flex flex-col justify-between">
                 <div
-                  className="font-graphik text-10 leading-[1rem] text-black whitespace-pre-wrap"
+                  className="font-graphik text-12 leading-[1.125rem] text-black whitespace-pre-wrap"
                   dangerouslySetInnerHTML={{
                     __html: he.decode(selectedDesc),
                   }}

@@ -12,6 +12,8 @@ import { TIndustry } from "@/types/industry";
 import { getIndustryList } from "@/services/industry";
 import { useLocale } from "next-intl";
 import { useRouter, Locale, usePathname } from "@/i18n/routing";
+import { getMoresTechService } from "@/services/mores_tech";
+import { TMoresTechServiceProps } from "@/types/mores_tech";
 
 type THeaderProps = {
   selectedMenu: string;
@@ -25,6 +27,9 @@ const Header = (props: THeaderProps) => {
   const [industriesList, setIndustriesList] = useState<TIndustry[] | null>(
     null
   );
+  const [moresTechService, setMoresTechService] = useState<
+    TMoresTechServiceProps[] | null
+  >(null);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const localActive = useLocale();
   const router = useRouter();
@@ -74,9 +79,24 @@ const Header = (props: THeaderProps) => {
     }
   };
 
+  const fetchDataMoresTech = async () => {
+    try {
+      const bannerRes = await getMoresTechService();
+
+      if (bannerRes) {
+        setMoresTechService(bannerRes.items);
+      }
+
+      return;
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
   const fetchData = async () => {
     fetchDataServices();
     fetchDataIndustries();
+    fetchDataMoresTech();
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -116,10 +136,6 @@ const Header = (props: THeaderProps) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [selectedMenu]);
 
   return (
     <>
@@ -308,6 +324,7 @@ const Header = (props: THeaderProps) => {
         industries={industriesList}
         services={servicesList}
         activeMenu={selectedMenu}
+        techService={moresTechService}
       />
     </>
   );

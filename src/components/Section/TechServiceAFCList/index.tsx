@@ -1,48 +1,88 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { HeadingText, BodyText } from "@/components/Text";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { getMoresTechAFCBanner } from "@/services/mores_tech";
+import { TConfigMoresTechAFCBanner } from "@/types/app_config";
+import { imagePath } from "@/module/helper";
 
-const TechServiceAFCList = () => {
+const dataList = [
+  {
+    title: "CONTACTLESS PAYMENT:",
+    desc: "By eliminating the need for actual cash and facilitating contactless payment alternatives like smart cards, smartphone apps, or RFID tokens, AFC systems enable passengers to board more conveniently and hygienically.",
+  },
+  {
+    title: "EFFICIENT TICKETING:",
+    desc: "By streamlining the ticketing process and allowing customers to load credit or buy tickets ahead of time, AFC shortens wait times and enhances the traveler experience overall.",
+  },
+  {
+    title: "Data Management:",
+    desc: "Data information on passenger movements and fare utilization is gathered and stored by AFC systems. Public transportation systems can be made more efficient by analyzing this data to improve scheduling, pricing, and route optimization.",
+  },
+  {
+    title: "Security:",
+    desc: "By decreasing the need for cash, AFC systems improve security by deterring would be robbers. In order to maintain accountability and combat fraud, they also offer an audit record of transactions.",
+  },
+  {
+    title: "Interoperability:",
+    desc: "Numerous AFC systems are made to function with numerous transportation modalities, enabling users to pay with a single card on a variety of public transportation vehicles, including buses, subways, and trams.",
+  },
+  {
+    title: "Accessability:",
+    desc: "An easy-to-use interface, options for passengers with specific requirements, integrated voice guiding, and other features are common in AFC systems for individuals with impairments",
+  },
+  {
+    title: "REVENUE COLLECTION:",
+    desc: "By decreasing the need for cash, AFC systems improve security by deterring would be robbers. In order to maintain accountability and combat fraud, they also offer an audit record of transactions.",
+  },
+  {
+    title: "REAL-TIME INFORMATION:",
+    desc: "Numerous AFC systems are made to function with numerous transportation modalities, enabling users to pay with a single card on a variety of public transportation vehicles, including buses, subways, and trams.",
+  },
+  {
+    title: "Environmental Benefits:",
+    desc: "An easy-to-use interface, options for passengers with specific requirements, integrated voice guiding, and other features are common in AFC systems for individuals with impairments",
+  },
+];
+
+const TechServiceAFCList = ({ id }: { id: string }) => {
   const t = useTranslations("TechMores");
+  const [bannerImage, setBannerImage] = useState<TConfigMoresTechAFCBanner>();
+  const [coverImage, setCoverImage] = useState<string | null>(null);
 
-  const dataList = [
-    {
-      title: "CONTACTLESS PAYMENT:",
-      desc: "By eliminating the need for actual cash and facilitating contactless payment alternatives like smart cards, smartphone apps, or RFID tokens, AFC systems enable passengers to board more conveniently and hygienically.",
-    },
-    {
-      title: "EFFICIENT TICKETING:",
-      desc: "By streamlining the ticketing process and allowing customers to load credit or buy tickets ahead of time, AFC shortens wait times and enhances the traveler experience overall.",
-    },
-    {
-      title: "Data Management:",
-      desc: "Data information on passenger movements and fare utilization is gathered and stored by AFC systems. Public transportation systems can be made more efficient by analyzing this data to improve scheduling, pricing, and route optimization.",
-    },
-    {
-      title: "Security:",
-      desc: "By decreasing the need for cash, AFC systems improve security by deterring would be robbers. In order to maintain accountability and combat fraud, they also offer an audit record of transactions.",
-    },
-    {
-      title: "Interoperability:",
-      desc: "Numerous AFC systems are made to function with numerous transportation modalities, enabling users to pay with a single card on a variety of public transportation vehicles, including buses, subways, and trams.",
-    },
-    {
-      title: "Accessability:",
-      desc: "An easy-to-use interface, options for passengers with specific requirements, integrated voice guiding, and other features are common in AFC systems for individuals with impairments",
-    },
-    {
-      title: "REVENUE COLLECTION:",
-      desc: "By decreasing the need for cash, AFC systems improve security by deterring would be robbers. In order to maintain accountability and combat fraud, they also offer an audit record of transactions.",
-    },
-    {
-      title: "REAL-TIME INFORMATION:",
-      desc: "Numerous AFC systems are made to function with numerous transportation modalities, enabling users to pay with a single card on a variety of public transportation vehicles, including buses, subways, and trams.",
-    },
-    {
-      title: "Environmental Benefits:",
-      desc: "An easy-to-use interface, options for passengers with specific requirements, integrated voice guiding, and other features are common in AFC systems for individuals with impairments",
-    },
-  ];
+  const fetchDataBanner = async () => {
+    try {
+      const bannerRes = await getMoresTechAFCBanner(
+        "automated_fare_collection_mores_tech_image"
+      );
+
+      if (bannerRes) {
+        setBannerImage(bannerRes);
+      }
+
+      return;
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDataBanner();
+  }, []);
+
+  useEffect(() => {
+    if (bannerImage) {
+      let imageThumb = imagePath(
+        bannerImage.id,
+        bannerImage?.files?.[0],
+        "app_config_files"
+      );
+
+      setCoverImage(imageThumb);
+    }
+  }, [bannerImage]);
 
   return (
     <section className="py-[3.125rem] md:py-[6.25rem] px-0 md:px-16 ">
@@ -88,7 +128,7 @@ const TechServiceAFCList = () => {
           <div className="block">
             <div className="relative aspect-[16/7] max-w-[337px]">
               <Image
-                src="/images/logo/logo-braga-tech.png"
+                src="/images/logo/logo-braga-tech-big.png"
                 alt="Thumb"
                 fill={true}
                 priority={true}
@@ -99,18 +139,22 @@ const TechServiceAFCList = () => {
           </div>
         </div>
 
-        <div className="mt-32">
-          <div className="w-full min-h-[300px] md:min-h-[341px] py-24 flex justify-center items-center relative">
-            <div className="w-full h-full bg-[url('/images/bg/bg-afc.jpg')] bg-cover bg-center absolute top-0 left-0 z-0" />
-            <HeadingText className="text-14 md:text-24 leading-[1.25rem] md:leading-[1.8rem] relative z-[1] max-w-[80%] text-center text-white uppercase">
-              AFC&apos;s products and services provide a contemporary and
-              effective method of collecting fares in public transportation
-              systems. By offering convenience, security, data-driven insights,
-              and enhanced transportation experiences overall, they help both
-              transit authorities and passengers.
-            </HeadingText>
+        {coverImage && (
+          <div className="mt-32">
+            <div className="w-full min-h-[300px] md:min-h-[341px] py-24 flex justify-center items-center relative">
+              <div className="relative aspect-[16/4.4] w-full">
+                <Image
+                  src={coverImage}
+                  alt="Thumb"
+                  fill={true}
+                  priority={true}
+                  sizes="auto"
+                  className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
+                />
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

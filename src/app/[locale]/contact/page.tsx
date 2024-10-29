@@ -16,9 +16,14 @@ import {
   CONFIG_CONTACT_US_WHATSAPP,
   CONFIG_CONTACT_US_X,
   CONFIG_CONTACT_US_YOUTUBE,
+  CONFIG_CONTACT_US_WORKSHOP,
+  CONFIG_CONTACT_US_OFFICE,
 } from "@/store/constants";
 import { Metadata } from "next";
 import { SELECTED_MENU_CONTACT } from "@/store/constants";
+import { TAddressConfig } from "@/types/app_config";
+import he from "he";
+import { BodyText } from "@/components/Text";
 
 type Props = {
   params: { locale: string };
@@ -34,6 +39,14 @@ export default async function ContactUs({ params: { locale } }: Props) {
   const youtubeConfig = await getConfigByKey(CONFIG_CONTACT_US_YOUTUBE);
   const xConfig = await getConfigByKey(CONFIG_CONTACT_US_X);
   const googleMapConfig = await getConfigByKey(CONFIG_CONTACT_US_GOOGLE_MAP);
+
+  const workshopConfig = (await getConfigByKey(
+    CONFIG_CONTACT_US_WORKSHOP
+  )) as unknown as TAddressConfig;
+
+  const oficeConfig = (await getConfigByKey(
+    CONFIG_CONTACT_US_OFFICE
+  )) as unknown as TAddressConfig;
 
   return (
     <Layout selectedMenu={SELECTED_MENU_CONTACT}>
@@ -54,26 +67,32 @@ export default async function ContactUs({ params: { locale } }: Props) {
             <GoogleMap url={googleMapConfig?.value.url || ""} />
           </div>
           <div className="mb-[76px] grid grid-cols-2 gap-72">
-            <CompanyInfoCard title="Mores Strategics">
-              <p>
-                Gondangdia Lama 25 Building
-                <br />
-                Lt. 3A Unit A-B
-                <br />
-                Jl. RP. Soeroso No.25
-                <br />
-                Jakarta 10330 - Indonesia
-              </p>
-            </CompanyInfoCard>
-            <CompanyInfoCard title="WORKSHOP">
-              <p>
-                At Braga Tech Office
-                <br />
-                Jl. Cilaki No. 23, Bandung Wetan
-                <br />
-                Bandung City 40114 - Indonesia
-              </p>
-            </CompanyInfoCard>
+            {oficeConfig && (
+              <CompanyInfoCard title="MORES STRATEGICS">
+                <BodyText type="body3" className="capitalize">
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: he.decode(
+                        oficeConfig.value.address.toLowerCase()
+                      ),
+                    }}
+                  ></span>
+                </BodyText>
+              </CompanyInfoCard>
+            )}
+            {workshopConfig && (
+              <CompanyInfoCard title="WORKSHOP">
+                <BodyText type="body3" className="capitalize">
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: he.decode(
+                        workshopConfig.value.address.toLowerCase()
+                      ),
+                    }}
+                  ></span>
+                </BodyText>
+              </CompanyInfoCard>
+            )}
           </div>
           <div className=" grid grid-cols-1 mobile-min:grid-cols-3 gap-48">
             <CompanyInfoCard
@@ -82,7 +101,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={emailConfig?.value.title}
               url={emailConfig?.value.url}
             >
-              <p>Take a bold step forward.</p>
+              <BodyText type="body3">Take a bold step forward.</BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="PHONE"
@@ -90,10 +109,10 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={phoneConfig?.value.title}
               url={phoneConfig?.value.url}
             >
-              <p>
+              <BodyText type="body3">
                 For personalized service and detailed information, please
                 contact our customer support
-              </p>
+              </BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="WHATSAPP"
@@ -101,9 +120,9 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={whatsappConfig?.value.title}
               url={whatsappConfig?.value.url}
             >
-              <p>
+              <BodyText type="body3">
                 For quick and convenient communication, please reach out to us
-              </p>
+              </BodyText>
             </CompanyInfoCard>
           </div>
           <div className="mb-[102px] mt-[48px] grid grid-cols-1 mobile-min:grid-cols-3 lg:grid-cols-4 gap-48">
@@ -113,9 +132,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={instagramConfig?.value.title}
               url={instagramConfig?.value.url}
             >
-              <p>
-                For quick and convenient communication, please reach out to us
-              </p>
+              <BodyText type="body3">Take a bold step forward.</BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="LINKEDIN"
@@ -123,7 +140,10 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={linkedInConfig?.value.title}
               url={linkedInConfig?.value.url}
             >
-              <p>Take a bold step forward.</p>
+              <BodyText type="body3">
+                For personalized service and detailed information, please
+                contact our customer support
+              </BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="YOUTUBE"
@@ -131,10 +151,9 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={youtubeConfig?.value.title}
               url={youtubeConfig?.value.url}
             >
-              <p>
-                For personalized service and detailed information, please
-                contact our customer support
-              </p>
+              <BodyText type="body3">
+                For quick and convenient communication, please reach out to us
+              </BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="X"
@@ -142,9 +161,9 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={xConfig?.value.title}
               url={xConfig?.value.url}
             >
-              <p>
+              <BodyText type="body3">
                 For quick and convenient communication, please reach out to us
-              </p>
+              </BodyText>
             </CompanyInfoCard>
           </div>
 

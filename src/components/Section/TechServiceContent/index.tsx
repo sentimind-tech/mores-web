@@ -6,10 +6,17 @@ import { HeadingText, BodyText, DisplayText } from "@/components/Text";
 import { ButtonPrimary } from "@/components/Button";
 import Link from "next/link";
 import CardTechServiceItem from "@/components/Cards/CardTechServiceItem";
+import { TMoresTechServicePagination } from "@/types/mores_tech";
+import { imagePath } from "@/module/helper";
 
 import dataServices from "@/data/techService.json";
 
-const TechServiceContent = () => {
+type TTechServiceContentProps = {
+  list: TMoresTechServicePagination | null;
+};
+
+const TechServiceContent = (props: TTechServiceContentProps) => {
+  const { list } = props;
   const localActive = useLocale();
   const t = useTranslations("TechMores");
 
@@ -37,26 +44,35 @@ const TechServiceContent = () => {
         </div>
       </BannerTech>
 
-      <section className="py-[3.125rem] md:py-[6.25rem] px-16">
-        <div className="w-full max-w-[1038px] mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-16 md:gap-x-20 gap-y-20 md:gap-y-[2.125rem]">
-            {dataServices.map((item, index) => (
-              <div className="block" key={index}>
-                <Link
-                  href={`/${localActive}/tech/services/${item.slug}`}
-                  className="block h-full w-full"
-                >
-                  <CardTechServiceItem
-                    image={item.image}
-                    title={item.title}
-                    ornament={item.ornament}
-                  />
-                </Link>
-              </div>
-            ))}
+      {list && (
+        <section className="py-[3.125rem] md:py-[6.25rem] px-16">
+          <div className="w-full max-w-[1038px] mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-16 md:gap-x-20 gap-y-20 md:gap-y-[2.125rem]">
+              {list.items.map((item, index) => {
+                let imageThumb = imagePath(
+                  item.id,
+                  item.menu_image,
+                  "mores_tech"
+                );
+
+                return (
+                  <div className="block" key={index}>
+                    <Link
+                      href={`/${localActive}/tech/services/${item.id}`}
+                      className="block h-full w-full"
+                    >
+                      <CardTechServiceItem
+                        image={imageThumb}
+                        title={item.menu_title}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 };
