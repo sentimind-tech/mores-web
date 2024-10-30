@@ -34,7 +34,7 @@ const FooterNavlink = () => {
   ];
 
   return (
-    <ul className="flex gap-[2.875rem] mt-[3.375rem]">
+    <ul className="flex flex-wrap justify-center md:justify-start gap-[1.5rem] md:gap-[2.875rem] mt-24 md:mt-[3.375rem]">
       {navlink.map((item, index) => (
         <li className="text-[0.813rem] leading-[1rem] uppercase" key={index}>
           <Link href={item.link} className="hover:underline">

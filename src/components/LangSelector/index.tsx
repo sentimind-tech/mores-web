@@ -91,7 +91,7 @@ const LangSelector = () => {
       </div>
 
       {openDropdown && (
-        <div className="absolute w-[160px] left-0 top-[100%] bg-white border border-brand-100 rounded-[4px] shadow-lang-selector mt-6">
+        <div className="absolute w-[130px] md:w-[160px] right-0 md:right-auto md:left-0 top-[100%] bg-white border border-brand-100 rounded-[4px] shadow-lang-selector mt-6">
           {menu.map((item, index) => (
             <div
               className={`py-6 text-12 leading-[21px] px-16 cursor-pointer bg-white text-black uppercase transition-all duration-300 lg:hover:bg-blue-pacific lg:hover:text-white first:rounded-tl-[4px] first:rounded-tr-[4px] last:rounded-br-[4px] last:rounded-bl-[4px] ${

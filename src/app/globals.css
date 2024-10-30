@@ -152,7 +152,12 @@ body {
 .insight-detail video {
   display: inline-block !important;
 }
-.overview-content blockquote {
+.insight-detail blockquote,
+.insight-detail p {
+  @apply my-14;
+}
+
+pre .overview-content blockquote {
   @apply font-supplymono text-blue-pacific text-2xl;
 }
 .overview-content #overview pre img {

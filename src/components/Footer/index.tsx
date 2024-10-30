@@ -35,7 +35,7 @@ const Footer = async () => {
   )) as unknown as TAddressConfig;
 
   return (
-    <div className="bg-white font-supplymono px-16 lg:px-[3.938rem] pt-[2.063rem] md:pt-[4.5rem] pb-[1.375rem] md:pb-[3.125rem] text-black">
+    <div className="bg-white font-supplymono px-16 lg:px-[3.938rem] pt-[2.063rem] md:pt-[4.5rem] pb-[1.375rem] md:pb-[3.125rem] text-black w-full overflow-hidden">
       <div className="w-full max-w-[80rem] mx-auto hidden md:block">
         <div className="flex justify-between gap-20 mb-32">
           <div className="flex items-center gap-24">
@@ -215,7 +215,7 @@ const Footer = async () => {
       <div className="w-full block md:hidden">
         <div className="flex flex-col gap-[2.4rem]">
           <div className="">
-            <div className="text-right mb-[25px]">
+            <div className="text-right mb-[25px] w-[160px] mr-0 ml-auto">
               <LangSelector />
             </div>
             <div className="relative block w-full max-w-[9.5rem] aspect-[16/5] z-[0]">

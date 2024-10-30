@@ -36,90 +36,45 @@ const MenuContent = (
             {data?.menus &&
               data.menus.map((item, index) => (
                 <div className={`block`} key={index}>
-                  {item.link &&
-                  item.link !== "" &&
-                  slug !== ACTIVE_MENU_STATE[activeMenu] ? (
-                    <>
-                      <Link
-                        href={`/${localActive}${item.link}`}
-                        className="block"
+                  <>
+                    <Link
+                      href={`/${localActive}${item.link}`}
+                      className="block"
+                    >
+                      <BodyText
+                        type="body1"
+                        className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific"
                       >
-                        <BodyText
-                          type="body1"
-                          className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific"
-                        >
-                          {item.title}
-                        </BodyText>
-                      </Link>
+                        {item.title}
+                      </BodyText>
+                    </Link>
 
-                      {slug == "mores-tech" &&
-                        item.title == "Mores Tech Service" &&
-                        techService && (
-                          <div className="flex flex-col gap-8 mt-10">
-                            {techService.map((tech, idx) => (
-                              <div
-                                className="block pl-[1.375rem] text-[0.75rem] leading-[0.875rem]"
+                    {slug == "mores-tech" &&
+                      item.title == "Mores Tech Service" &&
+                      techService && (
+                        <div className="flex flex-col gap-8 mt-10">
+                          {techService.map((tech, idx) => (
+                            <div
+                              className="block pl-[1.375rem] text-[0.875rem] leading-[1rem]"
+                              key={idx}
+                            >
+                              <Link
+                                href={`/${localActive}/tech/services/${tech.id}`}
+                                className="inline-block transition-all duration-300 hover:text-blue-pacific"
                                 key={idx}
                               >
-                                <Link
-                                  href={`/${localActive}/tech/services/${tech.id}`}
-                                  className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                <BodyText
+                                  className="block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
                                   key={idx}
                                 >
-                                  <BodyText
-                                    className="block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
-                                    key={idx}
-                                  >
-                                    {tech.menu_title.toLowerCase()}
-                                  </BodyText>
-                                </Link>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                    </>
-                  ) : (
-                    <>
-                      <div className="" onClick={closeDrawer}>
-                        <BodyText
-                          type="body1"
-                          className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific cursor-pointer"
-                        >
-                          {item.title}
-                        </BodyText>
-                      </div>
-
-                      {slug == "mores-tech" &&
-                        item.title == "Mores Tech Service" &&
-                        techService && (
-                          <div className="flex flex-col gap-8 mt-10">
-                            {techService.map((tech, idx) => (
-                              <div
-                                className="block pl-[1.375rem] text-[0.75rem] leading-[0.875rem]"
-                                key={idx}
-                              >
-                                <Link
-                                  href={`/${localActive}/tech/services/${tech.id}`}
-                                  className="inline-block transition-all duration-300 hover:text-blue-pacific"
-                                  key={idx}
-                                >
-                                  <BodyText
-                                    className="block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
-                                    key={idx}
-                                  >
-                                    {tech.menu_title.toLowerCase()}
-                                  </BodyText>
-                                </Link>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                    </>
-                  )}
-
-                  {/* {slug == "mores-tech" && (
-
-                  )} */}
+                                  {tech.menu_title.toLowerCase()}
+                                </BodyText>
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                  </>
                 </div>
               ))}
           </div>
@@ -146,7 +101,7 @@ const MenuContent = (
               </HeadingText>
             )}
             {data?.thumb_desc && (
-              <BodyText className="text-12 leading-[1.25rem] block">
+              <BodyText className="text-14 leading-[1.4rem] block">
                 {data.thumb_desc}
               </BodyText>
             )}

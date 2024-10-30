@@ -1,17 +1,17 @@
-'use client'; 
-import Image from 'next/image'
-import Link from 'next/link'
-import { ReactNode } from 'react'
-import { useRouter } from 'next/navigation'
-import { MouseEvent } from 'react'
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { ReactNode } from "react";
+import { useRouter } from "next/navigation";
+import { MouseEvent } from "react";
 
 type TInsightCardProp = {
-  image: string
-  title: string
-  subtitle: string
-  description: string
-  path: string
-}
+  image: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  path: string;
+};
 
 export const InsightCard = ({
   image,
@@ -20,12 +20,12 @@ export const InsightCard = ({
   description,
   path,
 }: TInsightCardProp) => {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    event.preventDefault()
-    router.push(path)
-  }
+    event.preventDefault();
+    router.push(path);
+  };
 
   return (
     <div onClick={handleClick} className="flex flex-col group cursor-pointer">
@@ -41,13 +41,13 @@ export const InsightCard = ({
         />
       </div>
       <div className="flex flex-col font-normal font-inter mt-8">
-        <div className="text-10 leading-[22px] text-blue-pacific font-supplymono">
+        <div className="text-14 leading-[26px] text-blue-pacific font-supplymono">
           {subtitle}
         </div>
-        <div className="mt-[2px] text-14 mb-[7px] leading-[1.25rem] text-black group-hover:text-blue-pacific">
+        <div className="mt-[2px] text-16 mb-[7px] leading-[1.4rem] text-black group-hover:text-blue-pacific">
           {title}
         </div>
-        <div className="text-10 leading-[15px] text-gray-medium">
+        <div className="text-14 leading-[20px] text-gray-medium">
           {description}
         </div>
       </div>
@@ -59,7 +59,7 @@ export const InsightCard = ({
           READ NOW
         </span>
         <Image
-          src={'/icon/arrow-right.svg'}
+          src={"/icon/arrow-right.svg"}
           alt={title}
           width="17"
           height="12"
@@ -67,5 +67,5 @@ export const InsightCard = ({
         />
       </Link>
     </div>
-  )
-}
+  );
+};

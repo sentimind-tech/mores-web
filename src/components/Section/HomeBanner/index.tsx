@@ -187,7 +187,7 @@ const HomeBanner = (props: THomeBannerProps) => {
                       height="10"
                       viewBox="0 0 15 10"
                       fill="none"
-                      className={`absolute top-[7px] left-[-22px] transition-all duration-300`}
+                      className={`absolute top-[7px] left-[-18px] transition-all duration-300 opacity-0 translate-x-[-0.938rem] group-hover:translate-x-0 group-hover:opacity-100`}
                     >
                       <path
                         fillRule="evenodd"
