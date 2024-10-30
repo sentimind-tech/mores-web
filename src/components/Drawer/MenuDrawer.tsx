@@ -188,7 +188,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
           <div className="w-full lg:max-w-[210px] py-16 px-32 md:px-[2.5rem] lg:p-0">
             <div className="flex justify-between items-center">
               <div
-                className="w-[24px] h-[24px] cursor-pointer hidde lg:blockn"
+                className="w-[24px] h-[24px] cursor-pointer hidden lg:block"
                 onClick={handleCloseDrawer}
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -368,7 +368,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                   </Link>
 
                                   {item.submenu && item.submenu.length > 0 && (
-                                    <div className="pl-[1.375rem] flex flex-col items-start gap-[0.375rem] pt-[0.5rem]">
+                                    <div className="pl-[1.375rem] flex flex-col items-start gap-[0.5rem] pt-[0.5rem]">
                                       {item.submenu.map((submenuitem, idx) => (
                                         <Link
                                           href={submenuitem.link}
@@ -376,7 +376,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                           key={idx}
                                         >
                                           <BodyText
-                                            className="text-[0.625rem] leading-[0.75rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
+                                            className="text-[0.875rem] leading-[1rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
                                             key={idx}
                                           >
                                             {submenuitem.title.toLowerCase()}

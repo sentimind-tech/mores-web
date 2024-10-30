@@ -3,6 +3,7 @@
 import { ButtonPrimary } from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
+import { BodyText } from "@/components/Text";
 
 type TJobListProps = {
   position_name: string;
@@ -25,7 +26,7 @@ const JobListItem = ({
         <div className="font-supplymono text-sm mobile-min:text-xl lg:h-[70px] lg:text-clip lg:text-ellipsis flex uppercase">
           {position_name}
         </div>
-        <div className="flex flex-col items-start mobile-min:grid mobile-min:grid-cols-3 mobile-min:w-[436px]">
+        <div className="flex flex-col items-start mobile-min:grid mobile-min:grid-cols-3">
           <div className="flex gap-10 items-center">
             <Image
               src="/images/icon/file_user_fill.svg"
@@ -33,7 +34,7 @@ const JobListItem = ({
               height={13}
               alt="file_user_fill"
             />
-            <span>{division}</span>
+            <BodyText type="body3">{division}</BodyText>
           </div>
           <div className="flex gap-10 items-center">
             <Image
@@ -42,7 +43,7 @@ const JobListItem = ({
               height={11}
               alt="date_solid"
             />
-            <span>{employment_type}</span>
+            <BodyText type="body3">{employment_type}</BodyText>
           </div>
           <div className="flex gap-10 items-center">
             <Image
@@ -51,7 +52,7 @@ const JobListItem = ({
               height={24}
               alt="place_icon"
             />
-            <span>{area}</span>
+            <BodyText type="body3">{area}</BodyText>
           </div>
         </div>
       </div>
