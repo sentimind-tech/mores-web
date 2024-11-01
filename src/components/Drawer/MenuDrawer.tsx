@@ -22,7 +22,7 @@ import menuContentData from "@/data/menuContent.json";
 type TMenuDrawerProps = TDrawerComponentProps &
   TWithDimensionProps & {
     industries: TIndustry[];
-    services: TService[];
+    services: TMenuServicesProps[];
     activeMenu: string;
     techService: TMoresTechServiceProps[] | null;
   };
@@ -84,33 +84,6 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
     setSelectedMenu(setInitialMenu);
   }, [windowWidth, activeMenu]);
 
-  const transformData = (data: TService[]): TMenuServicesProps[] => {
-    const groupedData: TMenuServicesProps[] = [];
-
-    if (data == undefined || data == null) return [];
-
-    data
-      .filter((service) => service.parent_service_id === "")
-      .map((service) => {
-        const transform = {
-          name: service.name,
-          name_link: `/${localActive}/services/${service.id}`,
-          submenu: data
-            .filter((item) => item.parent_service_id === service.id)
-            .map((item) => ({
-              title: item.name,
-              link: `/${localActive}/services/${item.parent_service_id}/${item.id}`,
-            })),
-        };
-
-        groupedData.push(transform);
-      });
-
-    return groupedData;
-  };
-
-  const transformedServiceData = transformData(services);
-
   const handleClickOutside = useCallback(
     (event: MouseEvent) => {
       if (
@@ -155,7 +128,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
         setHeightContainerMenu(targetHeight ?? 0);
       });
     }
-  }, [transformedServiceData, selectedMenu]);
+  }, [services, selectedMenu]);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -324,7 +297,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                 menuContentData.map((item, index) =>
                   item.slug === "what-we-do" ? (
                     <div
-                      className={`absolute w-full top-0 left-0 opacity-0 transition-all overflow-auto max-h-screen ${
+                      className={`absolute w-full top-0 left-0 opacity-0 transition-all overflow-auto lg:overflow-hidden max-h-screen ${
                         selectedMenu == "what-we-do"
                           ? "opacity-100 visible"
                           : "invisible"
@@ -343,51 +316,61 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                         </div>
                         <div className="w-full block pt-[1.25rem]">
                           <div className="block">
-                            <Link href={`/${localActive}/services`}>
-                              <BodyText
-                                type="body1"
-                                className="leading-[1.125] font-medium !font-graphik text-black block mb-10 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
-                              >
-                                Services
-                              </BodyText>
-                            </Link>
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-12 gap-x-32 mb-32">
-                              {transformedServiceData.map((item, idx) => (
-                                <div className="block py-4 lg:py-0" key={idx}>
-                                  <Link
-                                    href={item.name_link}
-                                    className="inline-block transition-all duration-300 hover:text-blue-pacific"
-                                    key={idx}
+                            {services !== null && (
+                              <>
+                                <Link href={`/${localActive}/services`}>
+                                  <BodyText
+                                    type="body1"
+                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-10 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
                                   >
-                                    <BodyText
-                                      type="body2"
-                                      className="leading-[1.063rem] capitalize"
+                                    Services
+                                  </BodyText>
+                                </Link>
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-12 gap-x-32 mb-32">
+                                  {services.map((item, idx) => (
+                                    <div
+                                      className="block py-4 lg:py-0"
+                                      key={idx}
                                     >
-                                      {item.name.toLowerCase()}
-                                    </BodyText>
-                                  </Link>
-
-                                  {item.submenu && item.submenu.length > 0 && (
-                                    <div className="pl-[1.375rem] flex flex-col items-start gap-[0.5rem] pt-[0.5rem]">
-                                      {item.submenu.map((submenuitem, idx) => (
-                                        <Link
-                                          href={submenuitem.link}
-                                          className="inline-block transition-all duration-300 hover:text-blue-pacific"
-                                          key={idx}
+                                      <Link
+                                        href={item.name_link}
+                                        className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                        key={idx}
+                                      >
+                                        <BodyText
+                                          type="body2"
+                                          className="leading-[1.063rem] capitalize"
                                         >
-                                          <BodyText
-                                            className="text-[0.875rem] leading-[1rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
-                                            key={idx}
-                                          >
-                                            {submenuitem.title.toLowerCase()}
-                                          </BodyText>
-                                        </Link>
-                                      ))}
+                                          {item.name.toLowerCase()}
+                                        </BodyText>
+                                      </Link>
+
+                                      {item.submenu &&
+                                        item.submenu.length > 0 && (
+                                          <div className="pl-[1.375rem] flex flex-col items-start gap-[0.5rem] pt-[0.5rem]">
+                                            {item.submenu.map(
+                                              (submenuitem, idx) => (
+                                                <Link
+                                                  href={submenuitem.link}
+                                                  className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                                  key={idx}
+                                                >
+                                                  <BodyText
+                                                    className="text-[0.875rem] leading-[1rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
+                                                    key={idx}
+                                                  >
+                                                    {submenuitem.title.toLowerCase()}
+                                                  </BodyText>
+                                                </Link>
+                                              )
+                                            )}
+                                          </div>
+                                        )}
                                     </div>
-                                  )}
+                                  ))}
                                 </div>
-                              ))}
-                            </div>
+                              </>
+                            )}
 
                             {industries !== null && (
                               <>
@@ -449,7 +432,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                     </div>
                   ) : (
                     <div
-                      className={`absolute w-full top-0 left-0 opacity-0 transition-all overflow-auto max-h-screen ${
+                      className={`absolute w-full top-0 left-0 opacity-0 transition-all overflow-auto lg:overflow-hidden max-h-screen ${
                         selectedMenu == item.slug
                           ? "opacity-100 visible"
                           : "invisible"

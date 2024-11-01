@@ -14,6 +14,7 @@ import { useLocale } from "next-intl";
 import { useRouter, Locale, usePathname } from "@/i18n/routing";
 import { getMoresTechService } from "@/services/mores_tech";
 import { TMoresTechServiceProps } from "@/types/mores_tech";
+import { TMenuServicesProps } from "@/types/Menu";
 
 type THeaderProps = {
   selectedMenu: string;
@@ -23,7 +24,9 @@ const Header = (props: THeaderProps) => {
   const { selectedMenu } = props;
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openSuggest, setOpenSuggest] = useState(false);
-  const [servicesList, setServicesList] = useState<TService[] | null>(null);
+  const [servicesList, setServicesList] = useState<TMenuServicesProps[] | null>(
+    null
+  );
   const [industriesList, setIndustriesList] = useState<TIndustry[] | null>(
     null
   );
@@ -35,6 +38,12 @@ const Header = (props: THeaderProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const pathslash = pathname.split("/")[1];
+
+  const menuServiceStore: any =
+    (typeof window !== "undefined" &&
+      window.localStorage &&
+      localStorage.getItem("serviceMenuStorage")) ??
+    "";
 
   const handleNavbar = () => {
     setOpenNavbar(!openNavbar);
@@ -53,6 +62,31 @@ const Header = (props: THeaderProps) => {
   };
   const handleCloseSuggest = () => setOpenSuggest(false);
 
+  const transformData = (data: TService[]): TMenuServicesProps[] => {
+    const groupedData: TMenuServicesProps[] = [];
+
+    if (data == undefined || data == null) return [];
+
+    data
+      .filter((service) => service.parent_service_id === "")
+      .map((service) => {
+        const transform = {
+          name: service.name,
+          name_link: `/${localActive}/services/${service.id}`,
+          submenu: data
+            .filter((item) => item.parent_service_id === service.id)
+            .map((item) => ({
+              title: item.name,
+              link: `/${localActive}/services/${item.parent_service_id}/${item.id}`,
+            })),
+        };
+
+        groupedData.push(transform);
+      });
+
+    return groupedData;
+  };
+
   const fetchDataServices = async () => {
     try {
       const data = await getAllServices({
@@ -60,7 +94,22 @@ const Header = (props: THeaderProps) => {
       });
 
       if (data) {
-        setServicesList(data);
+        const transformedServiceData = transformData(data);
+        const stringGrouped = JSON.stringify(transformedServiceData);
+        let serviceStorage = null;
+
+        if (stringGrouped == menuServiceStore) {
+          serviceStorage = JSON.parse(menuServiceStore);
+        } else {
+          serviceStorage = transformedServiceData;
+        }
+
+        setServicesList(serviceStorage);
+
+        localStorage.setItem(
+          "serviceMenuStorage",
+          JSON.stringify(serviceStorage)
+        );
       }
     } catch (error: any) {
       console.log(error);
@@ -136,6 +185,13 @@ const Header = (props: THeaderProps) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    if (menuServiceStore) {
+      const parseServiceStorage = JSON.parse(menuServiceStore);
+      setServicesList(parseServiceStorage);
+    }
+  }, [menuServiceStore]);
 
   return (
     <>
