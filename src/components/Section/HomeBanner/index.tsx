@@ -111,7 +111,7 @@ const HomeBanner = (props: THomeBannerProps) => {
                         fill={true}
                         priority={true}
                         sizes="auto"
-                        className="block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
+                        className="banner-image block w-full h-full absolute object-center object-cover top-0 left-0 z-0"
                       />
 
                       <div className="w-full h-full absolute bg-hero-banner-overlay z-[1] top-0 left-0" />
@@ -133,7 +133,7 @@ const HomeBanner = (props: THomeBannerProps) => {
                       </BodyText>
                       <Link
                         href={`/${localActive}/insights/${item.id}`}
-                        className="inline-block opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-[280ms] group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
+                        className="inline-block opacity-0 translate-x-[-1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-[600ms] group-[.active-slide]:opacity-100 group-[.active-slide]:translate-x-0"
                       >
                         <ButtonPrimary
                           className="uppercase hidden md:block"
