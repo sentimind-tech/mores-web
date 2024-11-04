@@ -45,12 +45,18 @@ const Content = ({ title, image }: TCardSpecializeProps) => {
           <div className="flex justify-between items-center gap-24 min-h-[5.438rem]">
             <HeadingText
               type="h5"
-              className="leading-[1.563rem] text-white uppercase"
+              className="leading-[1.5rem] md:!leading-[1.5rem] text-white uppercase"
             >
               {title}
             </HeadingText>
 
-            <svg width="41" height="16" viewBox="0 0 41 16" fill="none">
+            <svg
+              width="41"
+              height="16"
+              viewBox="0 0 41 16"
+              fill="none"
+              className="shrink-0"
+            >
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
