@@ -144,7 +144,7 @@ const Footer = async () => {
             <div className="block">
               {emailConfig && (
                 <Link
-                  href={`mailto:${emailConfig.value.url}`}
+                  href={emailConfig.value.url}
                   className="flex items-center gap-[0.563rem] mb-18"
                 >
                   <div className="shrink-0">
@@ -158,15 +158,15 @@ const Footer = async () => {
                   </div>
                   <BodyText
                     type="body2"
-                    className="capitalize font-inter !text-14 leading-[1.063rem]"
+                    className="font-inter !text-14 leading-[1.063rem]"
                   >
-                    {emailConfig.value.title?.toLowerCase()}
+                    {emailConfig.value.title}
                   </BodyText>
                 </Link>
               )}
               {phoneConfig && (
                 <Link
-                  href={`tel:${phoneConfig.value.url}`}
+                  href={phoneConfig.value.url}
                   className="flex items-center gap-[0.563rem]"
                 >
                   <div className="shrink-0">
@@ -304,7 +304,7 @@ const Footer = async () => {
             <div className="block">
               {emailConfig && (
                 <Link
-                  href={`mailto:${emailConfig.value.url}`}
+                  href={emailConfig.value.url}
                   className="flex items-center gap-[0.563rem] mb-18"
                 >
                   <div className="shrink-0">
@@ -326,7 +326,7 @@ const Footer = async () => {
               )}
               {phoneConfig && (
                 <Link
-                  href={`tel:${phoneConfig.value.url}`}
+                  href={phoneConfig.value.url}
                   className="flex items-center gap-[0.563rem]"
                 >
                   <div className="shrink-0">
