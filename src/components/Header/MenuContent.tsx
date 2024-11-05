@@ -55,7 +55,7 @@ const MenuContent = (
                         <div className="flex flex-col gap-8 mt-10">
                           {techService.map((tech, idx) => (
                             <div
-                              className="block pl-[1.375rem] text-[0.875rem] leading-[1rem]"
+                              className="block pl-[1.7rem] text-[0.875rem] leading-[1rem]"
                               key={idx}
                             >
                               <Link
@@ -64,7 +64,7 @@ const MenuContent = (
                                 key={idx}
                               >
                                 <BodyText
-                                  className="block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
+                                  className="block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-17px] capitalize"
                                   key={idx}
                                 >
                                   {tech.menu_title.toLowerCase()}

@@ -15,6 +15,7 @@ import { useRouter, Locale, usePathname } from "@/i18n/routing";
 import { getMoresTechService } from "@/services/mores_tech";
 import { TMoresTechServiceProps } from "@/types/mores_tech";
 import { TMenuServicesProps } from "@/types/Menu";
+import VisitedPages from "../VisitedPages";
 
 type THeaderProps = {
   selectedMenu: string;
@@ -303,53 +304,7 @@ const Header = (props: THeaderProps) => {
                   }`}
                 >
                   <div className="w-full py-12 px-[50px] pb-32">
-                    <div className="block">
-                      <BodyText className="text-14 leading-[0.938rem] font-gray-medium mb-14 block">
-                        Popular Searches
-                      </BodyText>
-                      <ul className="">
-                        <li className="text-18 leading-[1.25rem] py-[0.438rem]">
-                          <Link
-                            href="/search?result=digital"
-                            className="transition-all duration-300 text-[#030303] hover:text-blue-pacific"
-                          >
-                            Digital
-                          </Link>
-                        </li>
-                        <li className="text-18 leading-[1.25rem] py-[0.438rem]">
-                          <Link
-                            href="/search?result=data"
-                            className="transition-all duration-300 text-[#030303] hover:text-blue-pacific"
-                          >
-                            Data
-                          </Link>
-                        </li>
-                        <li className="text-18 leading-[1.25rem] py-[0.438rem]">
-                          <Link
-                            href="/search?result=research"
-                            className="transition-all duration-300 text-[#030303] hover:text-blue-pacific"
-                          >
-                            Research
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="block mt-32">
-                      <BodyText className="text-14 leading-[0.938rem] font-gray-medium mb-14 block">
-                        Recently Visited Pages
-                      </BodyText>
-                      <div className="flex flex-wrap mx-[-1.5rem]">
-                        <div className="px-24 text-18 leading-[1.25rem] color-[#030303]">
-                          About More
-                        </div>
-                        <div className="px-24 text-18 leading-[1.25rem] color-[#030303]">
-                          Insight
-                        </div>
-                        <div className="px-24 text-18 leading-[1.25rem] color-[#030303]">
-                          Insight
-                        </div>
-                      </div>
-                    </div>
+                    <VisitedPages />
                   </div>
                 </div>
               </div>

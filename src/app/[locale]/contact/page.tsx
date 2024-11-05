@@ -180,7 +180,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
 }
 
 export const metadata: Metadata = {
-  title: "Mores | Industries",
+  title: "Mores | Contact",
 };
 
 export const dynamic = "force-dynamic";

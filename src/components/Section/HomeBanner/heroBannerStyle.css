@@ -13,3 +13,10 @@
 .hero-carousel .slick-dots li.slick-active button {
   @apply !border-blue-pacific;
 }
+
+.hero-carousel .slick-slide .banner-image {
+  @apply transition-all duration-[15000ms] scale-100 delay-100;
+}
+.hero-carousel .slick-slide.slick-active.slick-current .banner-image {
+  @apply scale-110;
+}
