@@ -347,7 +347,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
 
                                       {item.submenu &&
                                         item.submenu.length > 0 && (
-                                          <div className="pl-[1.375rem] flex flex-col items-start gap-[0.5rem] pt-[0.5rem]">
+                                          <div className="pl-[1.7rem] flex flex-col items-start gap-[0.5rem] pt-[0.5rem]">
                                             {item.submenu.map(
                                               (submenuitem, idx) => (
                                                 <Link
@@ -356,7 +356,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                                   key={idx}
                                                 >
                                                   <BodyText
-                                                    className="text-[0.875rem] leading-[1rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-12px] capitalize"
+                                                    className="text-[0.875rem] leading-[1rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-17px] capitalize"
                                                     key={idx}
                                                   >
                                                     {submenuitem.title.toLowerCase()}
