@@ -46,6 +46,6 @@ export const fetchCache = "force-no-store";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Mores | Tech Service",
+    title: "Mores | Tech Service Detail",
   };
 }

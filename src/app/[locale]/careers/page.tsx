@@ -234,7 +234,7 @@ export default async function CareersPage({ params: { locale } }: Props) {
 }
 
 export const metadata: Metadata = {
-  title: "Mores | Industries",
+  title: "Mores | Careers",
 };
 
 export const dynamic = "force-dynamic";

@@ -19,12 +19,18 @@ export default async function middleware(request: NextRequest) {
     url = url.replace(localePattern, "/");
   }
 
-  const visitedPages: string[] = JSON.parse(
+  const visitedPages: { url: string; title: string }[] = JSON.parse(
     request.cookies.get("visitedPages")?.value || "[]"
   );
 
+  // Create the page object without title here; title will be added later on the client side
+  const page = { url: url, title: "" };
+
   // Add the current URL to the start of the array
-  const updatedPages = [url, ...visitedPages.filter((page) => page !== url)];
+  const updatedPages = [
+    page,
+    ...visitedPages.filter((page) => page.url !== url),
+  ];
 
   // Limit to last 4 pages
   if (updatedPages.length > 5) {

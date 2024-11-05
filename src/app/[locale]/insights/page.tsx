@@ -34,7 +34,7 @@ export default async function Insight({ params: { locale, slug } }: Props) {
 }
 
 export const metadata: Metadata = {
-  title: "Mores | Under Construction",
+  title: "Mores | Insights",
 };
 
 export const dynamic = "force-dynamic";
