@@ -20,4 +20,5 @@ export type TMenuServicesProps = {
   name: string;
   name_link: string;
   submenu?: TMenuLinkProps[];
+  order: number;
 };

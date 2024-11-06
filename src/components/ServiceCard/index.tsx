@@ -1,25 +1,25 @@
-'use client'; 
-import Link from 'next/link'
-import { ReactNode } from 'react'
-import Image from 'next/image'
-import { useLocale } from 'next-intl'
-import { useRouter } from 'next/navigation'
-import { MouseEvent } from 'react'
+"use client";
+import Link from "next/link";
+import { ReactNode } from "react";
+import Image from "next/image";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
+import { MouseEvent } from "react";
 
 type TServiceCardProp = {
-  title: string
-  description: string
-  path: string
-}
+  title: string;
+  description: string;
+  path: string;
+};
 export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
-  const localActive = useLocale()
+  const localActive = useLocale();
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    event.preventDefault()
-    router.push(path)
-  }
+    event.preventDefault();
+    router.push(path);
+  };
 
   return (
     <div
@@ -29,12 +29,12 @@ export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
       <div className="flex flex-col">
         <div className="flex justify-between pt-16 border-t border-gray-silver">
           <div className="h-56 overflow-hidden text-ellipsis whitespace text-black font-normal text-lg lg:text-xl font-supplymono group-hover:text-blue-pacific">
-            {title}
+            {title.toUpperCase()}
           </div>
 
           <div className="mt-4">
             <Image
-              src={'/icon/next.svg'}
+              src={"/icon/next.svg"}
               alt={title}
               width="11"
               height="24"
@@ -54,7 +54,7 @@ export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
           MORE
         </span>
         <Image
-          src={'/icon/arrow-right.svg'}
+          src={"/icon/arrow-right.svg"}
           alt={title}
           width="17"
           height="12"
@@ -62,5 +62,5 @@ export const ServiceCard = ({ title, description, path }: TServiceCardProp) => {
         />
       </Link>
     </div>
-  )
-}
+  );
+};

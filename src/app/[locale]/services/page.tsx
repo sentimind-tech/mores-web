@@ -1,37 +1,37 @@
-import React from 'react'
-import { Metadata } from 'next'
+import React from "react";
+import { Metadata } from "next";
 
-import { ServiceValueCard } from '@/components/ServiceValueCard'
-import { PageHeader } from '@/components/PageHeader'
-import { SectionInfo } from '@/components/SectionInfo'
-import { SectionDetail } from '@/components/SectionDetail'
-import { getServiceList } from '@/services/service'
-import Layout from '@/components/Layout'
-import { unstable_setRequestLocale } from 'next-intl/server'
-import HeaderContent from '@/components/Section/ServicePage/HeaderContent'
-import ServiceValues from '@/components/Section/ServicePage/ServiceValues'
-import SectionHelp from '@/components/Section/SectionHelp'
-import { SELECTED_MENU_SERVICE } from '@/store/constants'
-import { SectionHeader } from '@/components/SectionHeader'
-import { TInsightParams, getInsightList } from '@/services/insight'
-import { InsightCard } from '@/components/InsightCard'
-import { customConfig } from '../../../../config'
-import { useLocale } from 'next-intl'
+import { ServiceValueCard } from "@/components/ServiceValueCard";
+import { PageHeader } from "@/components/PageHeader";
+import { SectionInfo } from "@/components/SectionInfo";
+import { SectionDetail } from "@/components/SectionDetail";
+import { getServiceList } from "@/services/service";
+import Layout from "@/components/Layout";
+import { unstable_setRequestLocale } from "next-intl/server";
+import HeaderContent from "@/components/Section/ServicePage/HeaderContent";
+import ServiceValues from "@/components/Section/ServicePage/ServiceValues";
+import SectionHelp from "@/components/Section/SectionHelp";
+import { SELECTED_MENU_SERVICE } from "@/store/constants";
+import { SectionHeader } from "@/components/SectionHeader";
+import { TInsightParams, getInsightList } from "@/services/insight";
+import { InsightCard } from "@/components/InsightCard";
+import { customConfig } from "../../../../config";
+import { useLocale } from "next-intl";
 
 type Props = {
-  params: { locale: string }
-}
+  params: { locale: string };
+};
 
 export default async function Services({ params: { locale } }: Props) {
-  const serviceList = await getServiceList()
+  const serviceList = await getServiceList();
 
   const params: TInsightParams = {
     hasService: true,
-  }
-  const insightList = await getInsightList(params, 1, 4)
-  const insights = insightList?.items
+  };
+  const insightList = await getInsightList(params, 1, 4);
+  const insights = insightList?.items;
 
-  unstable_setRequestLocale(locale)
+  unstable_setRequestLocale(locale);
 
   return (
     <Layout selectedMenu={SELECTED_MENU_SERVICE}>
@@ -50,9 +50,9 @@ export default async function Services({ params: { locale } }: Props) {
             <SectionHeader title="FEATURED INSIGHTS" />
             <div className="insight-container">
               {insights.map((insight) => {
-                let subTitle = ''
+                let subTitle = "";
                 if (insight?.expand?.service_tags) {
-                  subTitle = insight.expand?.service_tags?.[0]?.name
+                  subTitle = insight.expand?.service_tags?.[0]?.name;
                 }
                 return (
                   <InsightCard
@@ -63,7 +63,7 @@ export default async function Services({ params: { locale } }: Props) {
                     subtitle={subTitle}
                     path={`/${locale}/insights/${insight.id}`}
                   />
-                )
+                );
               })}
             </div>
           </section>
@@ -75,12 +75,12 @@ export default async function Services({ params: { locale } }: Props) {
         link="/contact"
       />
     </Layout>
-  )
+  );
 }
 
 export const metadata: Metadata = {
-  title: 'Mores | Services',
-}
+  title: "Mores | Services",
+};
 
-export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";

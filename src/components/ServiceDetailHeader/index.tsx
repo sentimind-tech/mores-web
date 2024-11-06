@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 export type TServiceDetailHeaderMenuItem = {
-  name: string
-  id: string
-}
+  name: string;
+  id: string;
+};
 
 export type TServiceDetailHeaderProp = {
-  title: string
-  overview?: string
-  serviceList?: any[]
-  ourExperience?: string | null
-  insights: any[]
-}
+  title: string;
+  overview?: string;
+  serviceList?: any[];
+  ourExperience?: string | null;
+  insights: any[];
+};
 
 export const ServiceDetailHeader = ({
   title,
@@ -22,89 +22,91 @@ export const ServiceDetailHeader = ({
   ourExperience,
   insights,
 }: TServiceDetailHeaderProp) => {
-  const [activeMenuId, setActiveMenuId] = useState<string | null>(null)
+  const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
 
   const scrollToView = (id: string) => {
-    const section = document.getElementById(id)
+    const section = document.getElementById(id);
 
     if (section) {
-      const offset = -100 // Offset value in pixels
+      const offset = -100; // Offset value in pixels
       const sectionPosition =
-        section.getBoundingClientRect().top + window.pageYOffset
+        section.getBoundingClientRect().top + window.pageYOffset;
 
       window.scrollTo({
         top: sectionPosition + offset,
-        behavior: 'smooth',
-      })
+        behavior: "smooth",
+      });
     }
-  }
+  };
 
   // Build Menu
-  const menus: TServiceDetailHeaderMenuItem[] = []
-  if (overview && overview !== '') {
+  const menus: TServiceDetailHeaderMenuItem[] = [];
+  if (overview && overview !== "") {
     menus.push({
-      name: 'OVERVIEW',
-      id: 'overview',
-    })
+      name: "OVERVIEW",
+      id: "overview",
+    });
   }
   if (serviceList && serviceList.length > 0) {
     menus.push({
-      name: 'WHAT WE OFFER',
-      id: 'what-we-offer',
-    })
+      name: "WHAT WE OFFER",
+      id: "what-we-offer",
+    });
   }
-  if (ourExperience && ourExperience !== '') {
+  if (ourExperience && ourExperience !== "") {
     menus.push({
-      name: 'OUR EXPERIENCE',
-      id: 'our-experience',
-    })
+      name: "OUR EXPERIENCE",
+      id: "our-experience",
+    });
   }
   if (insights && insights.length > 0) {
     menus.push({
-      name: 'FEATURED INSIGHTS',
-      id: 'featured-insight',
-    })
+      name: "FEATURED INSIGHTS",
+      id: "featured-insight",
+    });
   }
 
   // Scroll event listener
   useEffect(() => {
     const handleScroll = () => {
-      const offset = -100 // same offset used in scrollToView
-      const sections = menus.map((menu) => document.getElementById(menu.id))
-      const scrollPosition = window.pageYOffset
+      const offset = -100; // same offset used in scrollToView
+      const sections = menus.map((menu) => document.getElementById(menu.id));
+      const scrollPosition = window.pageYOffset;
 
       sections.forEach((section, index) => {
         if (section) {
           const sectionTop =
-            section.getBoundingClientRect().top + scrollPosition + offset
-          const sectionBottom = sectionTop + section.offsetHeight
+            section.getBoundingClientRect().top + scrollPosition + offset;
+          const sectionBottom = sectionTop + section.offsetHeight;
 
           if (
             scrollPosition >= sectionTop + offset &&
             scrollPosition < sectionBottom + offset
           ) {
-            setActiveMenuId(menus[index].id)
+            setActiveMenuId(menus[index].id);
           }
         }
-      })
-    }
+      });
+    };
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [menus])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [menus]);
 
   return (
     <div className="flex items-start flex-col sm:flex-row font-normal font-supplymono text-black flex">
-      <div className="min-w-[255px] sm:pr-12 sm:border-r sm:border-gray-steel text-18 leading-[21px] py-8 font-bold sm:font-normal">
+      <div className="min-w-[255px] sm:pr-12 sm:border-r sm:border-gray-steel text-18 leading-[21px] py-8 font-bold sm:font-normal uppercase">
         {title}
       </div>
       <div className="sm:pl-56 text-16 leading-[19px] flex gap-[29px] py-8">
         {menus.map((menu) => (
           <div
             className={`cursor-pointer ${
-              activeMenuId === menu.id ? 'text-blue-pacific underline' : 'text-black'
+              activeMenuId === menu.id
+                ? "text-blue-pacific underline"
+                : "text-black"
             }`} // Change the color based on active state
             onClick={() => scrollToView(menu.id)}
             key={menu.name}
@@ -114,5 +116,5 @@ export const ServiceDetailHeader = ({
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

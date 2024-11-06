@@ -272,7 +272,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
             </div>
           </div>
 
-          <div className="relative w-full h-full lg:h-[calc(100%_-_83px)] overflow-auto">
+          <div className="relative w-full h-full lg:h-[calc(100%_-_83px)] overflow-auto py-24 lg:py-[1.875rem]">
             <div
               className="w-full relative transition-all overflow-hidden bg-white lg:bg-transparent"
               style={{
@@ -305,7 +305,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                       id="what-we-do"
                       key={index}
                     >
-                      <div className="px-20 lg:px-[2.625rem] py-24 lg:py-[1.875rem] w-full h-full block">
+                      <div className="px-20 lg:px-[2.625rem] w-full h-full block">
                         <div className="w-full block pb-[1.188rem] border-b border-gray-cloud">
                           <HeadingText
                             type="h3"
@@ -321,7 +321,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                 <Link href={`/${localActive}/services`}>
                                   <BodyText
                                     type="body1"
-                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-10 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-10 transition-all duration-300 hover:text-blue-pacific"
                                   >
                                     Services
                                   </BodyText>
@@ -339,9 +339,9 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                       >
                                         <BodyText
                                           type="body2"
-                                          className="leading-[1.063rem] capitalize"
+                                          className="leading-[1.063rem] font-medium"
                                         >
-                                          {item.name.toLowerCase()}
+                                          {item.name}
                                         </BodyText>
                                       </Link>
 
@@ -356,10 +356,10 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                                   key={idx}
                                                 >
                                                   <BodyText
-                                                    className="text-[0.875rem] leading-[1rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-17px] capitalize"
+                                                    className="text-[0.875rem] leading-[1rem] block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-17px]"
                                                     key={idx}
                                                   >
-                                                    {submenuitem.title.toLowerCase()}
+                                                    {submenuitem.title}
                                                   </BodyText>
                                                 </Link>
                                               )
@@ -377,37 +377,39 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                 <Link href={`/${localActive}/industries`}>
                                   <BodyText
                                     type="body1"
-                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-10 lg:mb-[1.25rem] transition-all duration-300 hover:text-blue-pacific"
+                                    className="leading-[1.125] font-medium !font-graphik text-black block mb-10 transition-all duration-300 hover:text-blue-pacific"
                                   >
                                     Industries
                                   </BodyText>
                                 </Link>
                                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-32">
-                                  {industries.map((item, index) => (
-                                    <div
-                                      className="block py-4 lg:py-0"
-                                      key={index}
-                                    >
-                                      <Link
-                                        href={`/${localActive}/industries/${item.id}`}
-                                        className="inline-block transition-all duration-300 hover:text-blue-pacific"
+                                  {industries
+                                    .sort((a, b) => a.order - b.order)
+                                    .map((item, index) => (
+                                      <div
+                                        className="block py-4 lg:py-0"
+                                        key={index}
                                       >
-                                        <BodyText
-                                          type="body2"
-                                          className="leading-[1.063rem] capitalize"
+                                        <Link
+                                          href={`/${localActive}/industries/${item.id}`}
+                                          className="inline-block transition-all duration-300 hover:text-blue-pacific"
                                         >
-                                          {item.name.toLowerCase()}
-                                        </BodyText>
-                                      </Link>
-                                    </div>
-                                  ))}
+                                          <BodyText
+                                            type="body2"
+                                            className="leading-[1.063rem] capitalize"
+                                          >
+                                            {item.name.toLowerCase()}
+                                          </BodyText>
+                                        </Link>
+                                      </div>
+                                    ))}
                                 </div>
                               </>
                             )}
 
                             <BodyText
                               type="body1"
-                              className="leading-[1.125] font-medium !font-graphik text-black block mb-10 lg:mb-[1.25rem]"
+                              className="leading-[1.125] font-medium !font-graphik text-black block mb-10"
                             >
                               Client Stories
                             </BodyText>
@@ -440,7 +442,7 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                       id={item.slug}
                       key={index}
                     >
-                      <div className="px-20 lg:px-[2.625rem] py-24 lg:py-[1.875rem]">
+                      <div className="px-20 lg:px-[2.625rem]">
                         <MenuContent
                           {...item}
                           activeMenu={activeMenu}

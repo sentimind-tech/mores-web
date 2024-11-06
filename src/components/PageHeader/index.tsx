@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { HeadingText } from "../Text";
 
 type TPageHeaderProp = {
   title?: string;
@@ -29,11 +30,11 @@ export const PageHeader = ({
       )}
       <div className="flex flex-col gap-10 justify-center h-full w-full px-24 mobile-min:px-32 lg:px-64 relative">
         <div
-          className={`font-supplymono text-lg lg:text-xl text-blue-pacific ${subtitleCustomClass}`}
+          className={`font-supplymono text-16 md:text-20 leading-[1.25rem] md:leading-[1.75rem] tracking-[-0.02em] text-blue-pacific ${subtitleCustomClass}`}
         >
           {subtitle}
         </div>
-        <div className="font-supplymono text-[36px] leading-[40px] lg:text-[48px] lg:leading-[60px] text-white w-full flex justify-start uppercase ">
+        <div className="font-supplymono text-28 md:text-[40px] leading-[34px] md:leading-[48px] text-white w-full max-w-[890px] flex justify-start uppercase ">
           {title}
         </div>
       </div>

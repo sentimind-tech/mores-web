@@ -58,9 +58,10 @@ export default async function InsightDetail({
         <section>
           <PageHeader
             background={coverImagePath}
-            title={pageTitle}
+            title={insight.title.toUpperCase()}
             subtitle={pageSubtitle}
             subtitleCustomClass="text-white"
+            overlay
           />
         </section>
         <section className="flex flex-col gap-24 mobile-min:gap-32 lg:gap-72 section-padding-x pb-24 md:pb-50 lg:pb-100">

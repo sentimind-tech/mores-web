@@ -9,7 +9,7 @@ const HeaderContent = () => {
     <section className="">
       <SectionInfo title={t("title")}>
         <div className="flex flex-col gap-16 mobile-min:gap-24 lg:gap-48">
-          <div className="font-semibold text-lg mobile-min:text-xl lg:text-2xl font-supplymono text-black">
+          <div className="text-lg mobile-min:text-xl lg:text-2xl font-supplymono text-black">
             {t("description_header")}
           </div>
           <p

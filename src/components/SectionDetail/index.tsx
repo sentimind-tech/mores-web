@@ -1,26 +1,26 @@
-import { ReactNode } from 'react'
-import { SectionHeader } from '../SectionHeader'
-import Image from 'next/image'
-import { TInsight } from '@/types/insight'
-import { InsightCard } from '../InsightCard'
-import { customConfig } from '../../../config'
-import { TService } from '@/types/service'
-import { ServiceCard } from '../ServiceCard'
-import { useLocale } from 'next-intl'
+import { ReactNode } from "react";
+import { SectionHeader } from "../SectionHeader";
+import Image from "next/image";
+import { TInsight } from "@/types/insight";
+import { InsightCard } from "../InsightCard";
+import { customConfig } from "../../../config";
+import { TService } from "@/types/service";
+import { ServiceCard } from "../ServiceCard";
+import { useLocale } from "next-intl";
 
 type TSectionDetailProp = {
-  overview?: string
-  ourExperience?: string | null
-  insights?: TInsight[]
-  services?: TService[]
-}
+  overview?: string;
+  ourExperience?: string | null;
+  insights?: TInsight[];
+  services?: TService[];
+};
 export const SectionDetail = ({
   overview,
   ourExperience,
   insights,
   services,
 }: TSectionDetailProp) => {
-  const localActive = useLocale()
+  const localActive = useLocale();
   return (
     <section
       id=""
@@ -39,15 +39,15 @@ export const SectionDetail = ({
             {services.map((service) => {
               const path = service.parent_service_id
                 ? `/${localActive}/services/${service.parent_service_id}/${service.id}`
-                : `/${localActive}/services/${service.id}`
+                : `/${localActive}/services/${service.id}`;
               return (
                 <ServiceCard
                   key={service.id}
-                  title={service.name}
+                  title={service.name.toUpperCase()}
                   description={service.description}
                   path={path}
                 />
-              )
+              );
             })}
           </div>
         </section>
@@ -73,11 +73,11 @@ export const SectionDetail = ({
           <SectionHeader title="FEATURED INSIGHTS" />
           <div className="insight-container">
             {insights.map((insight) => {
-              let subTitle = ''
+              let subTitle = "";
               if (insight?.expand?.industry_tags) {
-                subTitle = insight.expand?.industry_tags?.[0]?.name
+                subTitle = insight.expand?.industry_tags?.[0]?.name;
               } else if (insight?.expand?.service_tags) {
-                subTitle = insight.expand?.service_tags?.[0]?.name
+                subTitle = insight.expand?.service_tags?.[0]?.name;
               }
               return (
                 <InsightCard
@@ -88,11 +88,11 @@ export const SectionDetail = ({
                   subtitle={subTitle}
                   path={`/${localActive}/insights/${insight.id}`}
                 />
-              )
+              );
             })}
           </div>
         </section>
       )}
     </section>
-  )
-}
+  );
+};

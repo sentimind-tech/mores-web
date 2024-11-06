@@ -54,7 +54,7 @@ const CardSearchItem = (props: TCardSearchItemProps) => {
         <BodyText className="block mb-4 text-[0.688rem] leading-[1.375rem] text-blue-pacific uppercase">
           {category}
         </BodyText>
-        <HeadingText className="text-black text-24 leading-[1.875rem] block">
+        <HeadingText className="text-black text-24 leading-[1.875rem] block uppercase">
           {title}
         </HeadingText>
         <BodyText className="text-[0.75rem] leading-[0.938rem] block mt-12">
