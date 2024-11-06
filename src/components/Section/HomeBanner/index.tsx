@@ -15,37 +15,6 @@ import { useLocale } from "next-intl";
 import { TValue } from "@/types/app_config";
 import { TFooterBannerPagination } from "@/types/footer_banner";
 
-const heroData = [
-  {
-    title: "SEE THINGS THROUGH LOCAL’S EYES",
-    desc: "DISCOVER THE RICHNESS OF DIVERSITY AND CULTURE BY VIEWING THE WORLD THROUGH THE LENS OF A LOCAL'S PERSPECTIVE.",
-    url: "",
-    nav_title: "MORES SPOTLIGHT",
-    image: "https://picsum.photos/id/1/2556/1556",
-  },
-  {
-    title: "SEE THINGS THROUGH LOCAL’S EYES",
-    desc: "DISCOVER THE RICHNESS OF DIVERSITY AND CULTURE BY VIEWING THE WORLD THROUGH THE LENS OF A LOCAL'S PERSPECTIVE.",
-    url: "",
-    nav_title: "MORES BLOG",
-    image: "https://picsum.photos/id/26/2556/1556",
-  },
-  {
-    title: "SEE THINGS THROUGH LOCAL’S EYES",
-    desc: "DISCOVER THE RICHNESS OF DIVERSITY AND CULTURE BY VIEWING THE WORLD THROUGH THE LENS OF A LOCAL'S PERSPECTIVE.",
-    url: "",
-    nav_title: "MORES ARTICLE",
-    image: "https://picsum.photos/id/24/2556/1556",
-  },
-  {
-    title: "SEE THINGS THROUGH LOCAL’S EYES",
-    desc: "DISCOVER THE RICHNESS OF DIVERSITY AND CULTURE BY VIEWING THE WORLD THROUGH THE LENS OF A LOCAL'S PERSPECTIVE.",
-    url: "",
-    nav_title: "MORES REPORT",
-    image: "https://picsum.photos/id/20/2556/1556",
-  },
-];
-
 type THomeBannerProps = {
   bannerList: TInsightPagination | null;
   showFooterBanner?: boolean | TValue;
@@ -127,7 +96,7 @@ const HomeBanner = (props: THomeBannerProps) => {
                       </DisplayText>
                       <BodyText
                         type="body2"
-                        className="capitalize !text-10 md:!text-14 leading-[1rem] block mb-[1.375rem] opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-200 group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
+                        className="!text-10 md:!text-14 leading-[1rem] block mb-[1.375rem] opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-200 group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
                       >
                         {item.description}
                       </BodyText>

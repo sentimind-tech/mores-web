@@ -12,4 +12,5 @@ export type TService = {
   is_show_on_menu: boolean;
   our_experiences: string[];
   button_image: string;
+  order: number;
 };

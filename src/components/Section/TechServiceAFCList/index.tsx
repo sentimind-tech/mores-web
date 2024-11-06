@@ -76,7 +76,7 @@ const TechServiceAFCList = ({ id }: { id: string }) => {
     if (bannerImage) {
       let imageThumb = imagePath(
         bannerImage.id,
-        bannerImage?.files?.[0],
+        bannerImage?.files,
         "app_config_files"
       );
 

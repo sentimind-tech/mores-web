@@ -283,7 +283,7 @@ const AboutTeam = (props: TAboutTeamProps) => {
                   {selectedTeam?.expand.service_expertise &&
                     selectedTeam?.expand.service_expertise.length > 0 && (
                       <>
-                        <HeadingText className="uppercase text-black text-10 leading-[1.375rem]">
+                        <HeadingText className="uppercase text-black text-12 leading-[1.5rem]">
                           SERVICES
                         </HeadingText>
                         <div className="mt-10">
@@ -301,7 +301,7 @@ const AboutTeam = (props: TAboutTeamProps) => {
 
                                 return (
                                   <li
-                                    className="text-[0.688rem] leading-[1.063rem]"
+                                    className="text-[0.813rem] leading-[1.188rem] py-[1px]"
                                     key={index}
                                   >
                                     <Link
@@ -316,7 +316,10 @@ const AboutTeam = (props: TAboutTeamProps) => {
                                     {submenu && submenu.length > 0 && (
                                       <div className="pl-18 mt-[2px] mb-[8px]">
                                         {submenu.map((item, idx) => (
-                                          <div className="block" key={idx}>
+                                          <div
+                                            className="block py-[1px]"
+                                            key={idx}
+                                          >
                                             <Link
                                               href={`/${localActive}/services/${item.parent_service_id}/${item.id}`}
                                               className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-3px] before:left-[-12px] capitalize"
@@ -341,7 +344,7 @@ const AboutTeam = (props: TAboutTeamProps) => {
                   {selectedTeam?.expand.industries_expertise &&
                     selectedTeam?.expand.industries_expertise.length > 0 && (
                       <>
-                        <HeadingText className="uppercase text-black text-10 leading-[1s.375rem]">
+                        <HeadingText className="uppercase text-black text-12 leading-[1.5rem]">
                           INDUSTRIES
                         </HeadingText>
                         <div className="mt-10">
@@ -349,7 +352,7 @@ const AboutTeam = (props: TAboutTeamProps) => {
                             {selectedTeam?.expand.industries_expertise.map(
                               (industry, index) => (
                                 <li
-                                  className="text-[0.688rem] leading-[1.063rem]"
+                                  className="text-[0.813rem] leading-[1.188rem] py-[1px]"
                                   key={index}
                                 >
                                   <Link

@@ -37,5 +37,5 @@ export type TConfigFooterBanner = {
 export type TConfigMoresTechAFCBanner = {
   id: string;
   key: string;
-  files: string[];
+  files: string;
 };

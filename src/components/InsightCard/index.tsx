@@ -42,9 +42,9 @@ export const InsightCard = ({
       </div>
       <div className="flex flex-col font-normal font-inter mt-8">
         <div className="text-14 leading-[26px] text-blue-pacific font-supplymono">
-          {subtitle}
+          {subtitle.toUpperCase()}
         </div>
-        <div className="mt-[2px] text-16 mb-[7px] leading-[1.4rem] text-black group-hover:text-blue-pacific">
+        <div className="font-semibold mt-[2px] text-16 mb-[7px] leading-[1.4rem] text-black group-hover:text-blue-pacific">
           {title}
         </div>
         <div className="text-14 leading-[20px] text-gray-medium">

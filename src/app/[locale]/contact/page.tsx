@@ -97,15 +97,15 @@ export default async function ContactUs({ params: { locale } }: Props) {
           <div className=" grid grid-cols-1 mobile-min:grid-cols-3 gap-48">
             <CompanyInfoCard
               title="EMAIL"
-              icon="/images/icon/email_icon.png"
-              footer={emailConfig?.value.title}
+              icon="/images/icon/icon-email-blue.svg"
+              footer={emailConfig?.value.title?.toLowerCase()}
               url={emailConfig?.value.url}
             >
               <BodyText type="body3">Take a bold step forward.</BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="PHONE"
-              icon="/images/icon/phone_icon.png"
+              icon="/images/icon/icon-phone-blue.svg"
               footer={phoneConfig?.value.title}
               url={phoneConfig?.value.url}
             >
@@ -116,7 +116,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="WHATSAPP"
-              icon="/images/icon/whatsapp_icon.png"
+              icon="/images/icon/icon-whatsapp-blue.svg"
               footer={whatsappConfig?.value.title}
               url={whatsappConfig?.value.url}
             >
@@ -128,7 +128,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
           <div className="mb-[102px] mt-[48px] grid grid-cols-1 mobile-min:grid-cols-3 lg:grid-cols-4 gap-48">
             <CompanyInfoCard
               title="INSTAGRAM"
-              icon="/images/icon/instagram_icon.png"
+              icon="/images/icon/icon-instagram-blue.svg"
               footer={instagramConfig?.value.title}
               url={instagramConfig?.value.url}
             >
@@ -136,7 +136,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="LINKEDIN"
-              icon="/images/icon/linkedin_icon.png"
+              icon="/images/icon/icon-linkedln-blue.svg"
               footer={linkedInConfig?.value.title}
               url={linkedInConfig?.value.url}
             >
@@ -147,7 +147,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="YOUTUBE"
-              icon="/images/icon/youtube_icon.png"
+              icon="/images/icon/icon-youtube-blue.svg"
               footer={youtubeConfig?.value.title}
               url={youtubeConfig?.value.url}
             >
@@ -157,7 +157,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
             </CompanyInfoCard>
             <CompanyInfoCard
               title="X"
-              icon="/images/icon/x_icon.png"
+              icon="/images/icon/icon-x-blue.svg"
               footer={xConfig?.value.title}
               url={xConfig?.value.url}
             >
