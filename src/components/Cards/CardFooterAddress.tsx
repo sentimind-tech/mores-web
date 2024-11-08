@@ -15,10 +15,10 @@ const CardFooterAddress = ({
         {title}
       </HeadingText>
       {address && (
-        <BodyText className="font-inter leading-[1.125rem] text-[0.75rem] md:text-[0.875rem] inline-block capitalize">
+        <BodyText className="font-inter leading-[1.125rem] text-[0.75rem] md:text-[0.875rem] inline-block">
           <span
             dangerouslySetInnerHTML={{
-              __html: he.decode(address.toLowerCase()),
+              __html: he.decode(address),
             }}
           ></span>
         </BodyText>
