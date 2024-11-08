@@ -87,10 +87,10 @@ const HomeInsight = (props: THomeInsightProps) => {
             <div className="flex flex-col md:flex-row w-full md:aspect-[16/6.3] md:min-h-[500px] lg:min-h-[600px]">
               <div className="w-full md:w-1/3 h-[340px] md:h-full">
                 <div className="w-full h-full relative group">
-                  {data1?.button_image && (
+                  {data1?.cover_image && (
                     <div className="w-full h-full absolute overflow-hidden">
                       <Image
-                        src={imageInsightPath(data1.id, data1.button_image)}
+                        src={imageInsightPath(data1.id, data1.cover_image)}
                         alt="Image thumb"
                         fill={true}
                         priority={true}
@@ -149,10 +149,10 @@ const HomeInsight = (props: THomeInsightProps) => {
               <div className="w-full md:w-2/3 md:h-[50%]">
                 <div className="w-full h-full relative flex flex-col md:flex-row">
                   <div className="w-full md:w-2/3 relative h-[220px] md:h-full group">
-                    {data2?.button_image && (
+                    {data2?.cover_image && (
                       <div className="w-full h-full absolute overflow-hidden">
                         <Image
-                          src={imageInsightPath(data2.id, data2.button_image)}
+                          src={imageInsightPath(data2.id, data2.cover_image)}
                           alt="Image thumb"
                           fill={true}
                           priority={true}
@@ -214,10 +214,10 @@ const HomeInsight = (props: THomeInsightProps) => {
                 </div>
                 <div className="w-full h-full relative flex flex-col md:flex-row">
                   <div className="w-full md:w-1/3 relative h-[220px] md:h-full group">
-                    {data3?.button_image && (
+                    {data3?.cover_image && (
                       <div className="w-full h-full absolute overflow-hidden">
                         <Image
-                          src={imageInsightPath(data3.id, data3.button_image)}
+                          src={imageInsightPath(data3.id, data3.cover_image)}
                           alt="Image thumb"
                           fill={true}
                           priority={true}

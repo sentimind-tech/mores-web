@@ -66,15 +66,13 @@ export default async function ContactUs({ params: { locale } }: Props) {
           <div className="mb-[71px]">
             <GoogleMap url={googleMapConfig?.value.url || ""} />
           </div>
-          <div className="mb-[76px] grid grid-cols-2 gap-72">
+          <div className="mb-[76px] grid grid-cols-2 gap-24 md:gap-72">
             {oficeConfig && (
               <CompanyInfoCard title="MORES STRATEGICS">
-                <BodyText type="body3" className="capitalize">
+                <BodyText type="body3" className="">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: he.decode(
-                        oficeConfig.value.address.toLowerCase()
-                      ),
+                      __html: he.decode(oficeConfig.value.address),
                     }}
                   ></span>
                 </BodyText>
@@ -82,12 +80,10 @@ export default async function ContactUs({ params: { locale } }: Props) {
             )}
             {workshopConfig && (
               <CompanyInfoCard title="WORKSHOP">
-                <BodyText type="body3" className="capitalize">
+                <BodyText type="body3" className="">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: he.decode(
-                        workshopConfig.value.address.toLowerCase()
-                      ),
+                      __html: he.decode(workshopConfig.value.address),
                     }}
                   ></span>
                 </BodyText>

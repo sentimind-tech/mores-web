@@ -43,7 +43,7 @@ const MenuContent = (
                     >
                       <BodyText
                         type="body1"
-                        className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific"
+                        className="leading-[1.21rem] text-black transition-all duration-300 hover:text-blue-pacific font-medium"
                       >
                         {item.title}
                       </BodyText>
@@ -64,10 +64,10 @@ const MenuContent = (
                                 key={idx}
                               >
                                 <BodyText
-                                  className="block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-17px] capitalize"
+                                  className="block relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-1px] before:left-[-17px]"
                                   key={idx}
                                 >
-                                  {tech.menu_title.toLowerCase()}
+                                  {tech.menu_title}
                                 </BodyText>
                               </Link>
                             </div>
