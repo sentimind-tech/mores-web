@@ -87,5 +87,28 @@
   "ServicePage": {
     "title": "SERVICES",
     "description": "Mores Strategics multi-approach strategy development consists of 3 main stages: Data, Strategy Operation. Our framework is malleable and tailored to suit our clientsʼ needs and capacity"
+  },
+  "Contact": {
+    "intro_title": "Kontak kami untuk tahu tentang Mores Strategics.",
+    "intro_desc": "Jika Anda memiliki pertanyaan tentang layanan konsultasi Mores Strategics, membutuhkan saran, atau hanya ingin berbagi pendapat tentang insight terbaru kami, kami siap membantu. Tim ahli kami berdedikasi untuk memberikan wawasan dan solusi yang disesuaikan dengan kebutuhan unik Anda.",
+    "desc_email": "Satu langkah lebih dekat dengan Mores.",
+    "desc_phone": "Dapatkan informasi layanan yang dipersonalisasi dan informasi detail.",
+    "desc_whatsapp": "Dapatkan komunikasi yang cepat dan mudah.",
+    "desc_instagram": "Satu langkah lebih dekat dengan Mores.",
+    "desc_linkedin": "Dapatkan informasi layanan yang dipersonalisasi dan informasi detail.",
+    "desc_youtube": "Dapatkan komunikasi yang cepat dan mudah.",
+    "desc_x": "Dapatkan komunikasi yang cepat dan mudah.",
+    "form_required": "Wajib",
+    "form_title": "Hubungi Kami",
+    "form_name": "Nama",
+    "form_firstname": "Nama Depan",
+    "form_lastname": "Nama Belakang",
+    "form_email": "Email",
+    "form_email_placeholder": "Email Anda",
+    "form_subject": "Subjek",
+    "form_subject_placeholder": "Subjek Anda",
+    "form_message": "Pesan",
+    "form_message_placeholder": "Pesan Anda",
+    "form_submit": "Kirim"
   }
 }
