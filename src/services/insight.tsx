@@ -105,12 +105,15 @@ async function getInsightDetail(id: string) {
 }
 
 async function getInsightForHome(page: number = 1, perPage: number = 3) {
+  const today = new Date().toISOString().split("T")[0]; // Gets today's date in YYYY-MM-DD
+
   try {
     let response = await pb
       .collection("insights")
       .getList<TInsight>(page, perPage, {
-        sort: "-updated",
+        sort: "-published",
         expand: "industry_tags,service_tags",
+        filter: `published <= "${today} 23:59:59"`,
       });
 
     return response;

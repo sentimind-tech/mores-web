@@ -24,12 +24,15 @@ import { SELECTED_MENU_CONTACT } from "@/store/constants";
 import { TAddressConfig } from "@/types/app_config";
 import he from "he";
 import { BodyText } from "@/components/Text";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   params: { locale: string };
 };
 
 export default async function ContactUs({ params: { locale } }: Props) {
+  const t = await getTranslations("Contact");
+
   const emailConfig = await getConfigByKey(CONFIG_CONTACT_US_EMAIL);
   const phoneConfig = await getConfigByKey(CONFIG_CONTACT_US_PHONE);
   const whatsappConfig = await getConfigByKey(CONFIG_CONTACT_US_WHATSAPP);
@@ -54,7 +57,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
         <PageHeader background="/images/bg-contact-us.png" title="CONTACT US" />
         <section className="section-padding flex flex-col">
           <div className="mb-[83px]">
-            <SectionInfo title="Have a question? Need advice? Let's connect.">
+            <SectionInfo title={t("intro_title")}>
               <p className="section-info-p">
                 Whether you have a question about our consulting services, need
                 advice, or just want to share your thoughts on our latest blog
