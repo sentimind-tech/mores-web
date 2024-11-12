@@ -71,6 +71,14 @@ const CareerSwiper = ({ images }: TCareerSwiperProps) => {
     }
   }
 
+  const additionalImages = []
+  if (images && images.length <= 6) {
+    const totalAddedCount = Math.floor(6 / images.length)
+    for (let index = 0; index < totalAddedCount; index++) {
+      additionalImages.push(...images)
+    }
+  }
+
   const swiperRef = useRef<SwiperRef | null>(null)
   return (
     <div className="pt-50 career-swiper">
@@ -99,6 +107,23 @@ const CareerSwiper = ({ images }: TCareerSwiperProps) => {
       >
         {images &&
           images.map((image) => {
+            const imageSrc = `${customConfig.POCKETBASE_FILE_URL}/gallery_work_at_mores/${image.id}/${image.image}`
+            return (
+              <SwiperSlide key={`slide-${image.id}`} onClick={handleClick}>
+                <Image
+                  src={imageSrc}
+                  alt={'career-slider'}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-full object-cover"
+                  priority={true}
+                />
+              </SwiperSlide>
+            )
+          })}
+        {additionalImages &&
+          additionalImages.map((image) => {
             const imageSrc = `${customConfig.POCKETBASE_FILE_URL}/gallery_work_at_mores/${image.id}/${image.image}`
             return (
               <SwiperSlide key={`slide-${image.id}`} onClick={handleClick}>
