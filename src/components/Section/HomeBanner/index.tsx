@@ -59,7 +59,7 @@ const HomeBanner = (props: THomeBannerProps) => {
   };
   return (
     <section className="block relative">
-      <div className="w-full relative overflow-hidden min-h-[500px] lg:min-h-[615px] bg-gray-100">
+      <div className="w-full relative overflow-hidden h-[500px] lg:h-[calc(100vh_-_163px)] bg-gray-100">
         {bannerList !== null && (
           <Slider {...settings} ref={sliderRef}>
             {bannerList.items.map((item, index) => {
@@ -67,7 +67,7 @@ const HomeBanner = (props: THomeBannerProps) => {
 
               return (
                 <div
-                  className={`w-full h-[500px] lg:h-[615px] relative group px-16 ${
+                  className={`w-full h-[500px] lg:h-[calc(100vh_-_163px)] relative group px-16 ${
                     index === imageIndex ? "slide active-slide" : "slide"
                   }`}
                   key={index}

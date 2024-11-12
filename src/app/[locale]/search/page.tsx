@@ -16,7 +16,7 @@ export default async function SearchPage({ params: { locale } }: Props) {
       <SectionHelp
         title="Have questions or need assistance?"
         button_text="Contact Us"
-        link=""
+        link={`/${locale}/contact`}
       />
     </Layout>
   );

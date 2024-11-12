@@ -102,26 +102,26 @@ const TechProfileContent = (props: TWithDimensionProps) => {
 
   const dataProject = [
     {
-      title: "MERCHANT INTERGRATOR & AGREGATOR",
-      desc: "Integrated with banks for all payment systems, both online and offline, including QRIS, debit cards, credit cards, e-money, LinkAja, OVO, and Shopee Pay.",
+      title: t("project_list_title_1"),
+      desc: t("project_list_desc_1"),
     },
     {
-      title: "E-Money Aggregator",
-      desc: "The Card Base includes: e-money, Brizzi, Tap Cash, Flazz, and Jakcard, as well as LinkAja, OVO, ShopeePay, GoPay, and Dana",
+      title: t("project_list_title_2"),
+      desc: t("project_list_desc_2"),
     },
     {
-      title: "IOT & AI DEVELOPMENT & INTEGRATION",
-      desc: "Toll road integration, Whatsapp AI, IOT Kiosk",
+      title: t("project_list_title_3"),
+      desc: t("project_list_desc_3"),
     },
     {
-      title: "Host-to-Host Connection",
-      desc: "It’s already connected via Host-to-Host with each electronic money issuer bank as well as debit and credit card issuers.",
+      title: t("project_list_title_4"),
+      desc: t("project_list_desc_4"),
     },
     {
-      title: "PCI DSS & ISO 27001 Certification",
+      title: t("project_list_title_5"),
     },
     {
-      title: "GROUP SUPPORT",
+      title: t("project_list_title_6"),
       image: ["/images/logo/logo-mcash.png", "/images/logo/logo-diva.png"],
     },
   ];

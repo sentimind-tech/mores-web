@@ -72,7 +72,7 @@ export default async function Services({ params: { locale } }: Props) {
       <SectionHelp
         title="Have questions or need assistance?"
         button_text="Contact Us"
-        link="/contact"
+        link={`/${locale}/contact`}
       />
     </Layout>
   );
