@@ -29,97 +29,93 @@ const TechProfileCollapseContent = () => {
 
   const indoorSystemFeature = [
     {
-      title: "Real-time Indoor Positioning",
+      title: t("product_indoor_positioning_system_fitur_1"),
       filled: true,
     },
     {
-      title: "Heatmaps",
+      title: t("product_indoor_positioning_system_fitur_2"),
       filled: true,
     },
     {
-      title: "Geofencing",
+      title: t("product_indoor_positioning_system_fitur_3"),
       filled: true,
     },
     {
-      title: "Trajectories",
+      title: t("product_indoor_positioning_system_fitur_4"),
       filled: false,
     },
     {
-      title: "Visit Duration",
+      title: t("product_indoor_positioning_system_fitur_5"),
       filled: false,
     },
     {
-      title: "Floor Plan",
+      title: t("product_indoor_positioning_system_fitur_6"),
       filled: false,
     },
     {
-      title: "Routes",
+      title: t("product_indoor_positioning_system_fitur_7"),
       filled: false,
     },
   ];
 
   const pertaminaAssetFeature = [
     {
-      title: "People Counting",
+      title: t("product_pertamina_asset_management_fitur_1"),
       filled: true,
     },
     {
-      title: "Vehicle Counting",
+      title: t("product_pertamina_asset_management_fitur_2"),
       filled: true,
     },
     {
-      title: "Heat Map",
+      title: t("product_pertamina_asset_management_fitur_3"),
       filled: false,
     },
     {
-      title: "CCTV Streaming",
+      title: t("product_pertamina_asset_management_fitur_4"),
       filled: false,
     },
     {
-      title: "Bar Charting",
+      title: t("product_pertamina_asset_management_fitur_5"),
       filled: false,
     },
     {
-      title: "Line Charting",
+      title: t("product_pertamina_asset_management_fitur_6"),
       filled: false,
     },
     {
-      title: "Statistics Number",
-      filled: false,
-    },
-    {
-      title: "Data Filtering",
+      title: t("product_pertamina_asset_management_fitur_7"),
       filled: false,
     },
   ];
 
   const pertaminaAssetFeature2 = [
     {
-      title: "Asset Location",
+      title: t("product_pertamina_asset_management_fitur_1_2"),
       filled: true,
     },
     {
-      title: "Routing",
+      title: t("product_pertamina_asset_management_fitur_2_2"),
       filled: true,
     },
     {
-      title: "Location-based Reporting Feature",
+      title: t("product_pertamina_asset_management_fitur_3_2"),
       filled: false,
     },
     {
-      title: "Photo Tagging",
+      title: t("product_pertamina_asset_management_fitur_4_2"),
       filled: false,
     },
     {
-      title: "Management Dashboard",
+      title: t("product_pertamina_asset_management_fitur_5_2"),
       filled: false,
     },
     {
-      title: "Manifestation",
+      title: t("product_pertamina_asset_management_fitur_6_2"),
       filled: false,
     },
     {
-      title: "Performance Reporting",
+      title: t("product_pertamina_asset_management_fitur_7_2"),
       filled: false,
     },
   ];
@@ -127,7 +123,10 @@ const TechProfileCollapseContent = () => {
   return (
     <>
       <div className="px-16 xl:px-0">
-        <Collapsible title="DASHBOARD ONLINE MONITORING SLA" open={true}>
+        <Collapsible
+          title={t("product_dashboard_online_monitoring_title")}
+          open={true}
+        >
           <div className="w-full md:mt-32">
             <div className="max-w-[664px] w-full aspect-[16/8] mx-auto relative">
               <Image
@@ -148,15 +147,15 @@ const TechProfileCollapseContent = () => {
           title={
             <div className="block text-black">
               <HeadingText type="h3" className="uppercase">
-                INDOOR POSITIONING SYSTEM
+                {t("product_indoor_positioning_system_title")}
               </HeadingText>
               <HeadingText
                 type="h6"
                 className="text-black block w-full uppercase mt-20"
               >
-                Product :{" "}
+                {t("product")} :{" "}
                 <span className="text-blue-pacific">
-                  Building Intelligence Dashboard, Magnetic Tagging
+                  {t("product_indoor_positioning_system_subtitle")}
                 </span>
               </HeadingText>
             </div>
@@ -167,20 +166,15 @@ const TechProfileCollapseContent = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-32 md:gap-[50px]">
               <div className="">
                 <HeadingText type="h5" className="text-blue-pacific uppercase">
-                  DESCRIPTION
+                  {t("product_description")}
                 </HeadingText>
                 <BodyText type="body1" className="block mt-10">
-                  The Indoor Positioning System (IPS) is the latest innovation
-                  in positioning technology. IPS does not rely on location data
-                  obtained from satellites, but rather utilizes the reflection
-                  of waves emitted at points installed on each floor against
-                  magnetic tags attached to individuals. This enables accurate
-                  monitoring of a person’s location within a building.
+                  {t("product_indoor_positioning_system_desc")}
                 </BodyText>
               </div>
               <div className="">
                 <HeadingText type="h5" className="text-blue-pacific uppercase">
-                  Fitur
+                  {t("product_fitur")}
                 </HeadingText>
                 <div className="mt-10 columns-2 gap-32 md:gap-[50px] lg:gap-[100px]">
                   {indoorSystemFeature.map((item, index) => (
@@ -210,15 +204,15 @@ const TechProfileCollapseContent = () => {
           title={
             <div className="block text-black">
               <HeadingText type="h3" className="uppercase">
-                PERTAMINA ASSET MANAGEMENT
+                {t("product_pertamina_asset_management_title")}
               </HeadingText>
               <HeadingText
                 type="h6"
                 className="text-black block w-full uppercase mt-20"
               >
-                Product :{" "}
+                {t("product")} :{" "}
                 <span className="text-blue-pacific">
-                  Geospatial Dashboard, Mobile Application
+                  {t("product_pertamina_asset_management_subtitle")}
                 </span>
               </HeadingText>
             </div>
@@ -229,20 +223,15 @@ const TechProfileCollapseContent = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-32 md:gap-[50px]">
               <div className="">
                 <HeadingText type="h5" className="text-blue-pacific uppercase">
-                  DESCRIPTION
+                  {t("product_description")}
                 </HeadingText>
                 <BodyText type="body1" className="block mt-10">
-                  PT Pertamina EP Asset 2 Field Limau aims for integrated asset
-                  management with real-time monitoring of the physical and
-                  functional conditions of the assets. Pertamina Asset
-                  Management can perform asset manifestation and asset reporting
-                  on-site, enabling quick actions to anticipate operational
-                  losses.
+                  {t("product_pertamina_asset_management_desc")}
                 </BodyText>
               </div>
               <div className="">
                 <HeadingText type="h5" className="text-blue-pacific uppercase">
-                  Fitur
+                  {t("product_fitur")}
                 </HeadingText>
                 <div className="mt-10 columns-2 gap-32 md:gap-[50px] lg:gap-[100px]">
                   {pertaminaAssetFeature.map((item, index) => (
@@ -272,15 +261,15 @@ const TechProfileCollapseContent = () => {
           title={
             <div className="block text-black">
               <HeadingText type="h3" className="uppercase">
-                PERTAMINA ASSET MANAGEMENT
+                {t("product_pertamina_asset_management_title")}
               </HeadingText>
               <HeadingText
                 type="h6"
                 className="text-black block w-full uppercase mt-20"
               >
-                Product :{" "}
+                {t("product")} :{" "}
                 <span className="text-blue-pacific">
-                  Geospatial Dashboard, Mobile Application
+                  {t("product_pertamina_asset_management_subtitle")}
                 </span>
               </HeadingText>
             </div>
@@ -291,20 +280,15 @@ const TechProfileCollapseContent = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-32 md:gap-[50px]">
               <div className="">
                 <HeadingText type="h5" className="text-blue-pacific uppercase">
-                  DESCRIPTION
+                  {t("product_description")}
                 </HeadingText>
                 <BodyText type="body1" className="block mt-10">
-                  PT Pertamina EP Asset 2 Field Limau aims for integrated asset
-                  management with real-time monitoring of the physical and
-                  functional conditions of the assets. Pertamina Asset
-                  Management can perform asset manifestation and asset reporting
-                  on-site, enabling quick actions to anticipate operational
-                  losses.
+                  {t("product_pertamina_asset_management_desc")}
                 </BodyText>
               </div>
               <div className="">
                 <HeadingText type="h5" className="text-blue-pacific uppercase">
-                  Fitur
+                  {t("product_fitur")}
                 </HeadingText>
                 <div className="min-h-[165px] mt-10 columns-2 gap-32 md:gap-[50px] lg:gap-[100px]">
                   {pertaminaAssetFeature2.map((item, index) => (
@@ -334,15 +318,15 @@ const TechProfileCollapseContent = () => {
           title={
             <div className="block text-black">
               <HeadingText type="h3" className="uppercase">
-                PERTAMINA ASSET MANAGEMENT
+                {t("product_pertamina_asset_management_title")}
               </HeadingText>
               <HeadingText
                 type="h6"
                 className="text-black block w-full uppercase mt-20"
               >
-                Product :{" "}
+                {t("product")} :{" "}
                 <span className="text-blue-pacific">
-                  National Maritime security system Dashboard
+                  {t("product_pertamina_asset_management_subtitle_2")}
                 </span>
               </HeadingText>
             </div>
@@ -353,15 +337,10 @@ const TechProfileCollapseContent = () => {
             <div className="grid grid-cols-1">
               <div className="">
                 <HeadingText type="h5" className="text-blue-pacific uppercase">
-                  DESCRIPTION
+                  {t("product_description")}
                 </HeadingText>
                 <BodyText type="body1" className="block mt-10">
-                  The development of the National Maritime security system will
-                  be developed by combining human intelligence and the use of
-                  technology. In using the BAKAMLA’s technology, in the future
-                  it will develop intelligent and integrated border surveillance
-                  that utilizes big data as an instrument for data processing
-                  before making decisions by human beings as users.
+                  {t("product_pertamina_asset_management_desc_2")}
                 </BodyText>
               </div>
             </div>
@@ -378,50 +357,49 @@ const TechProfileCollapseContent = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 md:gap-32 mt-[40px] md:mt-[80px]">
               <div className="border-t border-gray-silver py-24 md:py-20">
                 <BodyText type="body1" className="font-semibold">
-                  Tactical/in-field operations
+                  {t("product_pertamina_security_system_title_1")}
                 </BodyText>
                 <ul className="list-disc pl-16 mt-12">
                   <li className="text-14 leading-[1.375rem]">
-                    Connectivty for operation forces
+                    {t("product_pertamina_security_system_fitur_1")}
                   </li>
                   <li className="text-14 leading-[1.375rem]">
-                    LTE and/or Satellite, MW
+                    {t("product_pertamina_security_system_fitur_2")}
                   </li>
                   <li className="text-14 leading-[1.375rem]">
-                    Wireless routers & connectivity to specific equipmen
+                    {t("product_pertamina_security_system_fitur_3")}
                   </li>
                 </ul>
               </div>
               <div className="border-t border-gray-silver py-20">
                 <BodyText type="body1" className="font-semibold">
-                  Surveillance/Operational
+                  {t("product_pertamina_security_system_title_2")}
                 </BodyText>
                 <ul className="list-disc pl-16 mt-12">
                   <li className="text-14 leading-[1.375rem]">
-                    Last mile acces
+                    {t("product_pertamina_security_system_fitur_4")}
                   </li>
                   <li className="text-14 leading-[1.375rem]">
-                    IP and optical routing, MW
+                    {t("product_pertamina_security_system_fitur_5")}
                   </li>
                   <li className="text-14 leading-[1.375rem]">
-                    Sites / specific equipment interconnection
+                    {t("product_pertamina_security_system_fitur_6")}
                   </li>
                 </ul>
               </div>
               <div className="border-t border-gray-silver py-20">
                 <BodyText type="body1" className="font-semibold">
-                  Strategics/National Authority
+                  {t("product_pertamina_security_system_title_3")}
                 </BodyText>
                 <ul className="list-disc pl-16 mt-12">
                   <li className="text-14 leading-[1.375rem]">
-                    Infrastructure networks (IProuting,optical)
+                    {t("product_pertamina_security_system_fitur_7")}
                   </li>
                   <li className="text-14 leading-[1.375rem]">
-                    Backbones with MW links where optical deployment is not
-                    feasible
+                    {t("product_pertamina_security_system_fitur_8")}
                   </li>
                   <li className="text-14 leading-[1.375rem]">
-                    Sites / specific equipment interconnection
+                    {t("product_pertamina_security_system_fitur_9")}
                   </li>
                 </ul>
               </div>

@@ -21,7 +21,7 @@ const SectionHelp = (props: TSectionHelpProps) => {
         )}
         {button_text && (
           <Link href={link}>
-            <ButtonSecondary className="uppercase w-[135px] h-[42px] flex items-center justify-center">
+            <ButtonSecondary className="uppercase min-w-[135px] min-h-[42px] flex items-center justify-center">
               {button_text}
             </ButtonSecondary>
           </Link>

@@ -3,7 +3,7 @@ import { BodyText, HeadingText } from "../Text";
 import { TMenuContentProps } from "@/types/Menu";
 import Link from "next/link";
 import { ButtonPrimary } from "../Button";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ACTIVE_MENU_STATE } from "@/dictionaries/general";
 import { TMoresTechServiceProps } from "@/types/mores_tech";
 
@@ -16,6 +16,7 @@ const MenuContent = (
 ) => {
   const { slug, data, activeMenu, closeDrawer, techService } = props;
   const localActive = useLocale();
+  const t = useTranslations();
 
   return (
     <div className="block">
@@ -102,7 +103,7 @@ const MenuContent = (
             )}
             {data?.thumb_desc && (
               <BodyText className="text-14 leading-[1.4rem] block">
-                {data.thumb_desc}
+                {t(data.thumb_desc)}
               </BodyText>
             )}
           </div>

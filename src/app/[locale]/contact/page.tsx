@@ -31,7 +31,7 @@ type Props = {
 };
 
 export default async function ContactUs({ params: { locale } }: Props) {
-  const t = await getTranslations("Contact");
+  const t = await getTranslations();
 
   const emailConfig = await getConfigByKey(CONFIG_CONTACT_US_EMAIL);
   const phoneConfig = await getConfigByKey(CONFIG_CONTACT_US_PHONE);
@@ -57,13 +57,8 @@ export default async function ContactUs({ params: { locale } }: Props) {
         <PageHeader background="/images/bg-contact-us.png" title="CONTACT US" />
         <section className="section-padding flex flex-col">
           <div className="mb-[83px]">
-            <SectionInfo title={t("intro_title")}>
-              <p className="section-info-p">
-                Whether you have a question about our consulting services, need
-                advice, or just want to share your thoughts on our latest blog
-                post, we&apos;re here to help. Our team experts is dedicated to
-                providing insights and solutions tailored to your unique needs.
-              </p>
+            <SectionInfo title={t("Contact.intro_title")}>
+              <p className="section-info-p">{t("Contact.intro_desc")}</p>
             </SectionInfo>
           </div>
           <div className="mb-[71px]">
@@ -100,7 +95,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={emailConfig?.value.title?.toLowerCase()}
               url={emailConfig?.value.url}
             >
-              <BodyText type="body3">Take a bold step forward.</BodyText>
+              <BodyText type="body3">{t("Contact.desc_email")}</BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="PHONE"
@@ -108,10 +103,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={phoneConfig?.value.title}
               url={phoneConfig?.value.url}
             >
-              <BodyText type="body3">
-                For personalized service and detailed information, please
-                contact our customer support
-              </BodyText>
+              <BodyText type="body3">{t("Contact.desc_phone")}</BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="WHATSAPP"
@@ -119,9 +111,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={whatsappConfig?.value.title}
               url={whatsappConfig?.value.url}
             >
-              <BodyText type="body3">
-                For quick and convenient communication, please reach out to us
-              </BodyText>
+              <BodyText type="body3">{t("Contact.desc_whatsapp")}</BodyText>
             </CompanyInfoCard>
           </div>
           <div className="mb-[102px] mt-[48px] grid grid-cols-1 mobile-min:grid-cols-3 lg:grid-cols-4 gap-48">
@@ -131,7 +121,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={instagramConfig?.value.title}
               url={instagramConfig?.value.url}
             >
-              <BodyText type="body3">Take a bold step forward.</BodyText>
+              <BodyText type="body3">{t("Contact.desc_instagram")}</BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="LINKEDIN"
@@ -139,10 +129,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={linkedInConfig?.value.title}
               url={linkedInConfig?.value.url}
             >
-              <BodyText type="body3">
-                For personalized service and detailed information, please
-                contact our customer support
-              </BodyText>
+              <BodyText type="body3">{t("Contact.desc_linkedin")}</BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="YOUTUBE"
@@ -150,9 +137,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={youtubeConfig?.value.title}
               url={youtubeConfig?.value.url}
             >
-              <BodyText type="body3">
-                For quick and convenient communication, please reach out to us
-              </BodyText>
+              <BodyText type="body3">{t("Contact.desc_youtube")}</BodyText>
             </CompanyInfoCard>
             <CompanyInfoCard
               title="X"
@@ -160,9 +145,7 @@ export default async function ContactUs({ params: { locale } }: Props) {
               footer={xConfig?.value.title}
               url={xConfig?.value.url}
             >
-              <BodyText type="body3">
-                For quick and convenient communication, please reach out to us
-              </BodyText>
+              <BodyText type="body3">{t("Contact.desc_x")}</BodyText>
             </CompanyInfoCard>
           </div>
 
@@ -170,8 +153,8 @@ export default async function ContactUs({ params: { locale } }: Props) {
         </section>
       </section>
       <SectionHelp
-        title="Have questions or need assistance?"
-        button_text="Contact Us"
+        title={t("Common.contact_title")}
+        button_text={t("Common.contact_button")}
         link={`/${locale}/contact`}
       />
     </Layout>

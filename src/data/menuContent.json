@@ -15,7 +15,7 @@
       ],
       "thumb": "/images/thumb/thumb-menu-who-we-are.jpg",
       "thumb_name": "MORES /’MÔRĀZ’/",
-      "thumb_desc": "The Customs, Values, And Behaviors That Are Accepted By A Particular Group, Culture, And Community"
+      "thumb_desc": "About.menu_desc"
     }
   },
   {
@@ -33,7 +33,7 @@
       ],
       "thumb": "/images/thumb/thumb-menu-insight.jpg",
       "thumb_name": "Insight",
-      "thumb_desc": "Discover A Diverse Range Of The Latest Insights And Perspectives From Mores Strategics That Can Keep You Up-To-Date With Global Issues."
+      "thumb_desc": "InsightPage.menu_desc"
     }
   },
   {
@@ -56,7 +56,7 @@
       ],
       "thumb": "/images/thumb/thumb-menu-career.jpg",
       "thumb_name": "CAREERS",
-      "thumb_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success."
+      "thumb_desc": "CareerPage.menu_desc"
     }
   },
   {
@@ -75,7 +75,7 @@
       ],
       "thumb": "/images/thumb/thumb-menu-tech.jpg",
       "thumb_name": "Mores Tech",
-      "thumb_desc": "Unifying Vision Through Technology Solution: Leveraging Cutting Edge Technology To Bring Together Diverse Perspectives, Align Strategic Goals, And Propel Success Across Every Facet Of Your Organization."
+      "thumb_desc": "TechMores.menu_desc"
     }
   },
   {
@@ -85,7 +85,7 @@
       "menus": [],
       "thumb": "/images/thumb/thumb-menu-contact.jpg",
       "thumb_name": "CONTACT",
-      "thumb_desc": "Connect With Us To Get The Best Solutions For Your Company, Tailored To Your Specific Needs."
+      "thumb_desc": "Contact.menu_desc"
     }
   }
 ]
