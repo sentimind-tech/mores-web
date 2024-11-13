@@ -379,14 +379,14 @@ const TechProfileContent = (props: TWithDimensionProps) => {
                     </div>
                     <div className="py-[0.938rem] px-8 text-black">
                       <HeadingText type="h5" className="">
-                        BANK INTEGRATION
+                        {t("project_feature_bank_integration")}
                       </HeadingText>
                       <ul className="list-disc pl-16 mt-12">
                         <li className="text-14 leading-[1.375rem]">
-                          E-Money, Brizzi, Tapcash, Flazz
+                          {t("project_feature_bank_integration_item_1")}
                         </li>
                         <li className="text-14 leading-[1.375rem]">
-                          Mandiri, BNI, BRI, BCA, DKI, CIMB Niaga
+                          {t("project_feature_bank_integration_item_2")}
                         </li>
                       </ul>
                     </div>
@@ -474,21 +474,26 @@ const TechProfileContent = (props: TWithDimensionProps) => {
                     </div>
                     <div className="py-[0.938rem] px-8 text-black">
                       <HeadingText type="h5" className="">
-                        DEVICE PAYMENT STATION
+                        {t("project_feature_device_payment")}
                       </HeadingText>
                       <ul className="list-disc pl-16 mt-12">
                         <li className="text-14 leading-[1.375rem]">
-                          EDC Android
+                          {t("project_feature_device_payment_item_1")}
                         </li>
-                        <li className="text-14 leading-[1.375rem]">VM Kiosk</li>
-                        <li className="text-14 leading-[1.375rem]">POP Box</li>
                         <li className="text-14 leading-[1.375rem]">
-                          Turnstile
+                          {t("project_feature_device_payment_item_2")}
                         </li>
-                        <li className="text-14 leading-[1.375rem]">Gate</li>
-                        <li className="text-14 leading-[1.375rem]">Parking</li>
                         <li className="text-14 leading-[1.375rem]">
-                          Top-Up Tol
+                          {t("project_feature_device_payment_item_3")}
+                        </li>
+                        <li className="text-14 leading-[1.375rem]">
+                          {t("project_feature_device_payment_item_4")}
+                        </li>
+                        <li className="text-14 leading-[1.375rem]">
+                          {t("project_feature_device_payment_item_5")}
+                        </li>
+                        <li className="text-14 leading-[1.375rem]">
+                          {t("project_feature_device_payment_item_6")}
                         </li>
                       </ul>
                     </div>
@@ -546,17 +551,17 @@ const TechProfileContent = (props: TWithDimensionProps) => {
                     </div>
                     <div className="py-[0.938rem] px-8 text-black">
                       <HeadingText type="h5" className="">
-                        PAYMENT GATEWAY
+                        {t("project_feature_payment_gateway")}
                       </HeadingText>
                       <ul className="list-disc pl-16 mt-12">
                         <li className="text-14 leading-[1.375rem]">
-                          Debit/Kredit (Visa/Mastercard)
+                          {t("project_feature_payment_gateway_item_1")}
                         </li>
                         <li className="text-14 leading-[1.375rem]">
-                          QR (Link Aja, OVO, Gopay)
+                          {t("project_feature_payment_gateway_item_2")}
                         </li>
                         <li className="text-14 leading-[1.375rem]">
-                          Prepaid (e-money, Tapcash, Brizzi, Flazz)
+                          {t("project_feature_payment_gateway_item_3")}
                         </li>
                       </ul>
                     </div>
@@ -620,21 +625,23 @@ const TechProfileContent = (props: TWithDimensionProps) => {
                     </div>
                     <div className="py-[0.938rem] px-8 text-black">
                       <HeadingText type="h5" className="">
-                        APLICATION SOLUTION
+                        {t("project_feature_aplication_solution")}
                       </HeadingText>
                       <ul className="list-disc pl-16 mt-12">
-                        <li className="text-14 leading-[1.375rem]">Kasirku</li>
                         <li className="text-14 leading-[1.375rem]">
-                          Kasir Digital Telkomsel
+                          {t("project_feature_aplication_solution_item_1")}
                         </li>
                         <li className="text-14 leading-[1.375rem]">
-                          Isiin Aja
+                          {t("project_feature_aplication_solution_item_2")}
                         </li>
                         <li className="text-14 leading-[1.375rem]">
-                          MCASH Apps
+                          {t("project_feature_aplication_solution_item_3")}
                         </li>
                         <li className="text-14 leading-[1.375rem]">
-                          Diva Apps
+                          {t("project_feature_aplication_solution_item_4")}
+                        </li>
+                        <li className="text-14 leading-[1.375rem]">
+                          {t("project_feature_aplication_solution_item_5")}
                         </li>
                       </ul>
                     </div>
