@@ -1,6 +1,10 @@
 {
   "Homepage": {
-    "specialized_title": "MORES mengkhususkan diri pada <br></br> aspek-aspek yang mengubah permainan."
+    "specialized_title": "MORES mengkhususkan diri pada <br></br> aspek-aspek yang mengubah permainan.",
+    "button_expore": "Jelajahi Sekarang",
+    "button_specialize": "Spesialisasi",
+    "title_explore_our_insight": "Jelajahi Insight Mores",
+    "button_more_insight": "Lebih Banyak"
   },
   "TechMores": {
     "menu_desc": "Menyatukan Visi Melalui Solusi Teknologi: Memanfaatkan Teknologi Terkini untuk Menggabungkan Berbagai Perspektif, Menyelaraskan Tujuan Strategis, dan Mendorong Kesuksesan di Setiap Aspek Organisasi.",
@@ -140,12 +144,12 @@
     "service_data_afc_title": "This is a quick synopsis of AFC and its products"
   },
   "About": {
-    "menu_desc": "The Customs, Values, And Behaviors That Are Accepted By A Particular Group, Culture, And Community",
+    "menu_desc": "“Kebiasaan, nilai, dan perilaku yang diterima oleh kelompok, budaya, dan komunitas.”",
     "about_title": "Tentang MORES",
     "team_title": "Tim Kami",
     "areaexpertise_title": "Bidang Keahlian",
-    "about_quote": "“The customs, values, and behaviors that are accepted by a particular group, culture, and community”",
-    "about_quote_2": "Creative thinking is where the problem-solving began. Combined with a strong understanding of the real situation, reliable data, and viable methods, we can introduce a new strategy without disrupting the existing process.",
+    "about_quote": "“Kebiasaan, nilai, dan perilaku yang diterima oleh kelompok, budaya, dan komunitas.”",
+    "about_quote_2": "Berpikir kreatif adalah awal dari pemecahan masalah. Penggabungan dari  pemahaman kuat tentang situasi nyata, data yang dapat diandalkan, dan metode yang layak, kita dapat memperkenalkan strategi mutakhir tanpa mengganggu proses yang sudah ada.",
     "about_desc_1": "Mores Strategics adalah konsultan strategis yang mengkhususkan diri dalam analisis data, teknologi, dan penelitian etnografi. Kami bekerja dengan pendekatan yang disesuaikan dengan membangun kemitraan strategis yang kuat dan mengadaptasi kerangka kerja kami agar sesuai dengan kebutuhan, tujuan, dan kapasitas klien kami. Kami mencari strategi kreatif yang didasarkan pada analitik dan kebiasaan di masyarakat.",
     "about_desc_2": "Kami percaya bahwa adat istiadat lokal adalah aspek fundamental dalam pengembangan strategi. Nasihat strategis kami bertujuan untuk memberikan dampak positif yang berkelanjutan bagi pemangku kepentingan dan komunitas, serta menjaga hubungan baik antara semua pihak yang terlibat. Oleh karena itu, memahami perspektif dan perilaku masyarakat lokal adalah hal yang utama dalam operasi kami."
   },
@@ -159,19 +163,45 @@
     "title": "INDUSTRIES",
     "description_header": "OUR STRATEGY IS TAILORED FOR SPECIFIC INDUSTRY WITH MULTI APPROACH BASIS.",
     "description_content": "By profiling the clients first, identifying their industry and their targeted market, we are able to conduct multiple research approaches to reach the best possible strategy and solution for our client goals.<br /><br />This involves understanding their unique characteristics, the specific industry they operate in, and the market they aim to target. By gaining a deep understanding of these factors, we can tailor our research approaches to align with their specific needs. We then employ various research methodologies to gather comprehensive insights and data. This multi-faceted research enables us to develop a strategic plan that is finely tuned to the client’s objectives, ensuring that we provide the most effective solutions to help them achieve their goals.",
-    "list_title": "EXPLORE OUR EXPERTISE"
+    "list_title": "EXPLORE OUR EXPERTISE",
+    "focus_industries_title": "FOKUS INDUSTRI"
   },
   "ServicePage": {
     "title": "SERVICES",
-    "description": "Mores Strategics multi-approach strategy development consists of 3 main stages: Data, Strategy Operation. Our framework is malleable and tailored to suit our clientsʼ needs and capacity"
+    "description": "Mores Strategics multi-approach strategy development consists of 3 main stages: Data, Strategy Operation. Our framework is malleable and tailored to suit our clientsʼ needs and capacity",
+    "focus_services_title": "FOKUS LAYANAN"
   },
   "InsightPage": {
     "menu_desc": "Discover A Diverse Range Of The Latest Insights And Perspectives From Mores Strategics That Can Keep You Up-To-Date With Global Issues.",
     "title": "Mores latest insights to keep you informed on global trends.",
-    "description": "Discover valuable insights and actionable strategies. We share expert analyses on current trends, future opportunities, and challenges in the business world. Get the knowledge you need to make informed decisions and drive your organization's success."
+    "description": "Discover valuable insights and actionable strategies. We share expert analyses on current trends, future opportunities, and challenges in the business world. Get the knowledge you need to make informed decisions and drive your organization's success.",
+    "featured": "Insight ke Depan",
+    "newest": "Insight Tarbaru",
+    "oldest": "Insight Terlama",
+    "industries": "Industri",
+    "services": "Layanan",
+    "more_recent": "Insight Terbaru",
+    "read_now": "Baca"
   },
   "CareerPage": {
-    "menu_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success."
+    "menu_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success.",
+    "jobs_intro_title": "JOBS",
+    "jobs_intro_desc": "Di Mores Strategics, kami tidak hanya menyelesaikan tantangan bisnis — kami menciptakan masa depan. Jika Anda memiliki minat dalam mengeksplorasi data, merancang strategi inovatif, dan mencapai hasil yang luar biasa, Mores Strategics adalah rumah Anda.",
+    "jobs_intro_list_1_title": "PENINGKATAN KARIR",
+    "jobs_intro_list_1_desc": "Mores percaya bahwa pertumbuhan pribadi dan profesional adalah kunci kesuksesan bersama. Di Mores, Anda akan memiliki kesempatan untuk memimpin proyek-proyek menantang, memperoleh keterampilan baru, dan mencapai potensi penuh.",
+    "jobs_intro_list_2_title": "LINGKUNGAN KOLABORATIF",
+    "jobs_intro_list_2_desc": "Mores adalah tim yang saling mendukung, dimana setiap ide dihargai dan setiap suara didengar. Dengan kolaborasi, Mores menggabungkan kekuatan tim untuk mencapai hasil terbaik yang mungkin.",
+    "jobs_intro_list_3_title": "INOVASI",
+    "jobs_intro_list_3_desc": "Tantangan yang Mores hadapi sering kali memerlukan solusi kreatif dan di luar kebiasaan. Mores adalah tempat yang cocok jika Anda merupakan pribadi yang  berpikir berbeda dan dapat membuat dampak nyata.",
+    "jobs_intro_list_4_title": "HIDUP YANG SEIMBANG",
+    "jobs_intro_list_4_desc": "Mores memahami pentingnya keseimbangan antara pekerjaan dan kehidupan pribadi. Dengan fleksibilitas dan dukungan yang Mores tawarkan, Anda dapat meraih kesuksesan dalam karir tanpa mengorbankan waktu berharga bersama keluarga.",
+    "jobs_intro_2_title": "PELUANG KARIR",
+    "jobs_intro_2_desc": "Apakah Anda seorang pemikir strategis, ahli analisis data, atau inovator visioner? Mores menawarkan berbagai posisi yang menantang dan memuaskan yang mungkin sesuai dengan Anda. Jelajahi peluang yang tersedia dan temukan peran yang selaras dengan keterampilan dan aspirasi Anda.",
+    "jobs_dropdown_placeholder": "Area Pekerjaan",
+    "jobs_quote_title": "A PICTURE IS WORTH A THOUSAND MEMORIES.",
+    "jobs_quote_desc": "Di Mores, kami memegang teguh bahwa hidup lebih dari sekadar pekerjaan—kami pengedepankan pertumbuhan, kolaborasi, dan menciptakan dampak yang berarti. Kami percaya bahwa lingkungan kerja yang berkembang dibangun di atas fondasi saling menghormati, kreativitas, dan semangat bersama untuk keunggulan. Di Mores, setiap hari adalah kesempatan untuk belajar sesuatu yang baru, menantang diri sendiri, dan berkontribusi pada sesuatu yang lebih besar.",
+    "life_at": "LIFE AT MORES",
+    "work_at": "WORK AT MORES"
   },
   "Contact": {
     "menu_desc": "Connect With Us To Get The Best Solutions For Your Company, Tailored To Your Specific Needs.",

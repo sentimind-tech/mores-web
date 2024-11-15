@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { MouseEvent } from "react";
+import { useTranslations } from "next-intl";
 
 type TInsightCardProp = {
   image: string;
@@ -21,6 +22,7 @@ export const InsightCard = ({
   path,
 }: TInsightCardProp) => {
   const router = useRouter();
+  const t = useTranslations("InsightPage");
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -55,8 +57,8 @@ export const InsightCard = ({
         href={path}
         className="mt-[25px] flex justify-start items-center gap-10 cursor-pointer"
       >
-        <span className="text-blue-pacific leading-3 font-normal text-12 font-supplymono">
-          READ NOW
+        <span className="text-blue-pacific leading-3 font-normal text-12 font-supplymono uppercase">
+          {t("read_now")}
         </span>
         <Image
           src={"/icon/arrow-right.svg"}

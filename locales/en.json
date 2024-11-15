@@ -1,6 +1,10 @@
 {
   "Homepage": {
-    "specialized_title": "MORES SPECIALIZES <br></br> ON GAME-CHANGING ASPECTS"
+    "specialized_title": "MORES SPECIALIZES <br></br> ON GAME-CHANGING ASPECTS",
+    "button_expore": "Explore Now",
+    "button_specialize": "Specialize",
+    "title_explore_our_insight": "Explore Our Insight",
+    "button_more_insight": "More Insight"
   },
   "TechMores": {
     "menu_desc": "Unifying Vision Through Technology Solution: Leveraging Cutting Edge Technology To Bring Together Diverse Perspectives, Align Strategic Goals, And Propel Success Across Every Facet Of Your Organization.",
@@ -159,19 +163,45 @@
     "title": "INDUSTRIES",
     "description_header": "OUR STRATEGY IS TAILORED FOR SPECIFIC INDUSTRY WITH MULTI APPROACH BASIS.",
     "description_content": "By profiling the clients first, identifying their industry and their targeted market, we are able to conduct multiple research approaches to reach the best possible strategy and solution for our client goals.<br /><br />This involves understanding their unique characteristics, the specific industry they operate in, and the market they aim to target. By gaining a deep understanding of these factors, we can tailor our research approaches to align with their specific needs. We then employ various research methodologies to gather comprehensive insights and data. This multi-faceted research enables us to develop a strategic plan that is finely tuned to the client’s objectives, ensuring that we provide the most effective solutions to help them achieve their goals.",
-    "list_title": "EXPLORE OUR EXPERTISE"
+    "list_title": "EXPLORE OUR EXPERTISE",
+    "focus_industries_title": "FOCUS INDUSTRIES"
   },
   "ServicePage": {
     "title": "SERVICES",
-    "description": "Mores Strategics multi-approach strategy development consists of 3 main stages: Data, Strategy Operation. Our framework is malleable and tailored to suit our clientsʼ needs and capacity"
+    "description": "Mores Strategics multi-approach strategy development consists of 3 main stages: Data, Strategy Operation. Our framework is malleable and tailored to suit our clientsʼ needs and capacity",
+    "focus_services_title": "FOCUS SERVICES"
   },
   "InsightPage": {
     "menu_desc": "Discover A Diverse Range Of The Latest Insights And Perspectives From Mores Strategics That Can Keep You Up-To-Date With Global Issues.",
     "title": "Mores latest insights to keep you informed on global trends.",
-    "description": "Discover valuable insights and actionable strategies. We share expert analyses on current trends, future opportunities, and challenges in the business world. Get the knowledge you need to make informed decisions and drive your organization's success."
+    "description": "Discover valuable insights and actionable strategies. We share expert analyses on current trends, future opportunities, and challenges in the business world. Get the knowledge you need to make informed decisions and drive your organization's success.",
+    "featured": "Featured Insight",
+    "newest": "Newest Insight",
+    "oldest": "Oldest Insight",
+    "industries": "Industries",
+    "services": "Services",
+    "more_recent": "More Recent Insights",
+    "read_now": "Read Now"
   },
   "CareerPage": {
-    "menu_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success."
+    "menu_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success.",
+    "jobs_intro_title": "JOBS",
+    "jobs_intro_desc": "At Mores Strategic, we don’t just solve business challenges — we create the future. If you have a passion for diving into data, crafting innovative strategies, and achieving exceptional results, our place is your home.",
+    "jobs_intro_list_1_title": "ADVANCE YOUR CAREER",
+    "jobs_intro_list_1_desc": "We believe that personal and professional growth are the keys to our collective success. Here, you will have the opportunity to lead challenging projects, acquire new skills, and reach your full potential.",
+    "jobs_intro_list_2_title": "COLLABORATIVE ENVIRONMENT",
+    "jobs_intro_list_2_desc": "We are a team that supports each other. At Mores Strategics, every idea is valued, and every voice is heard. Through close collaboration, we combine our strengths to achieve the best possible outcomes.",
+    "jobs_intro_list_3_title": "INNOVATION",
+    "jobs_intro_list_3_desc": "The challenges we face often require creative and out-of-the-box solutions. If you have a passion for thinking differently and making a real impact, this is the place where your innovation can thrive.",
+    "jobs_intro_list_4_title": "WORK-LIFE BALANCE",
+    "jobs_intro_list_4_desc": "We understand the importance of balancing work and personal life. With the flexibility and support we offer, you can achieve success at work without sacrificing valuable time with family and friends.",
+    "jobs_intro_2_title": "CAREER OPPORTUNITIES",
+    "jobs_intro_2_desc": "Are you a strategic thinker, a data analysis expert, or a visionary innovator? We offer a range of challenging and rewarding positions that might be the perfect fit for you. Explore the opportunities available and find a role that aligns with your skills and aspirations.",
+    "jobs_dropdown_placeholder": "Works Area",
+    "jobs_quote_title": "A PICTURE IS WORTH A THOUSAND MEMORIES.",
+    "jobs_quote_desc": "At Mores, life is more than just work—it's about growth, collaboration, and making a meaningful impact. We believe that a thriving work environment is built on the foundation of mutual respect, creativity, and a shared passion for excellence. Here, every day is an opportunity to learn something new, to challenge yourself, and to contribute to something bigger.",
+    "life_at": "LIFE AT MORES",
+    "work_at": "WORK AT MORES"
   },
   "Contact": {
     "menu_desc": "Connect With Us To Get The Best Solutions For Your Company, Tailored To Your Specific Needs.",

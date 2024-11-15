@@ -11,7 +11,7 @@ const ClientStoriesContent = () => {
     <>
       <section className="relative">
         <PageHeader
-          background="/images/bg/bg-client-stories.jpg"
+          background="/images/bg/bg-header-page-client-stories.jpg"
           title="CLIENT STORIES"
           overlay={true}
         />

@@ -13,6 +13,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import SectionHelp from "@/components/Section/SectionHelp";
 import { SELECTED_MENU_INDUSTRY } from "@/store/constants";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   params: {
@@ -44,20 +45,22 @@ export default async function IndustryDetail({
   const coverImage = industry.cover_image;
   const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/industries/${industry.id}/${coverImage}`;
 
+  const t = await getTranslations("IndustryPage");
+
   return (
     <Layout selectedMenu={SELECTED_MENU_INDUSTRY}>
       <section className="flex flex-col mb-[100px]">
         <section>
           <PageHeader
             background={coverImagePath}
-            title={industry.name}
-            subtitle="FOCUS INDUSTRIES"
+            title={locale == "id" ? industry.name_id : industry.name}
+            subtitle={t("focus_industries_title")}
             subtitleCustomClass="text-white"
           />
         </section>
         <div className="section-navigation">
           <ServiceDetailHeader
-            title={industry.name}
+            title={locale == "id" ? industry.name_id : industry.name}
             overview={
               locale == "id" ? industry.overview_id : industry.overview_en
             }

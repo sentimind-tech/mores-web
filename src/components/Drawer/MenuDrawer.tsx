@@ -396,9 +396,11 @@ const MenuDrawer = (props: TMenuDrawerProps) => {
                                         >
                                           <BodyText
                                             type="body2"
-                                            className="leading-[1.063rem] capitalize"
+                                            className="leading-[1.063rem]"
                                           >
-                                            {item.name.toLowerCase()}
+                                            {localActive == "id"
+                                              ? item.name_id
+                                              : item.name}
                                           </BodyText>
                                         </Link>
                                       </div>

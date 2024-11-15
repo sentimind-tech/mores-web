@@ -17,6 +17,7 @@ type THomeHighlightProps = {
 const HomeHighlight = (props: THomeHighlightProps) => {
   const { id } = props;
   const localActive = useLocale();
+  const t = useTranslations("Homepage");
   const [insightData, setinsightData] = useState<TInsight | null>(null);
   const [imageCover, setImageCover] = useState<string | null>("");
 
@@ -71,7 +72,9 @@ const HomeHighlight = (props: THomeHighlightProps) => {
                   </HeadingText>
 
                   <Link href={`/${localActive}/insights`}>
-                    <ButtonPrimary size="small">EXPLORE NOW</ButtonPrimary>
+                    <ButtonPrimary size="small" className="uppercase">
+                      {t("button_expore")}
+                    </ButtonPrimary>
                   </Link>
                 </div>
               </div>

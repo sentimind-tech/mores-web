@@ -13,7 +13,7 @@
           "link": "/about#our-team"
         }
       ],
-      "thumb": "/images/thumb/thumb-menu-who-we-are.jpg",
+      "thumb": "/images/thumb/thumb-menu-content-about.jpg",
       "thumb_name": "MORES /’MÔRĀZ’/",
       "thumb_desc": "About.menu_desc"
     }
@@ -31,7 +31,7 @@
           "link": "/insights"
         }
       ],
-      "thumb": "/images/thumb/thumb-menu-insight.jpg",
+      "thumb": "/images/thumb/thumb-menu-content-insight.jpg",
       "thumb_name": "Insight",
       "thumb_desc": "InsightPage.menu_desc"
     }
@@ -54,7 +54,7 @@
           "link": "/careers#work-at-mores"
         }
       ],
-      "thumb": "/images/thumb/thumb-menu-career.jpg",
+      "thumb": "/images/thumb/thumb-menu-content-career.jpg",
       "thumb_name": "CAREERS",
       "thumb_desc": "CareerPage.menu_desc"
     }
@@ -73,7 +73,7 @@
           "link": "/tech/services"
         }
       ],
-      "thumb": "/images/thumb/thumb-menu-tech.jpg",
+      "thumb": "/images/thumb/thumb-menu-content-mores-tech.jpg",
       "thumb_name": "Mores Tech",
       "thumb_desc": "TechMores.menu_desc"
     }
@@ -83,7 +83,7 @@
     "data": {
       "title": "Contact",
       "menus": [],
-      "thumb": "/images/thumb/thumb-menu-contact.jpg",
+      "thumb": "/images/thumb/thumb-menu-content-contact.jpg",
       "thumb_name": "CONTACT",
       "thumb_desc": "Contact.menu_desc"
     }
