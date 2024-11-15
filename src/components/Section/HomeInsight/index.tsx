@@ -9,6 +9,7 @@ import { TInsightPagination, TInsight } from "@/types/insight";
 import { customConfig } from "../../../../config";
 import { useLocale } from "next-intl";
 import { getAllInsight } from "@/services/insight";
+import { useTranslations } from "next-intl";
 
 type THomeInsightProps = {
   listId: any | null;
@@ -20,6 +21,7 @@ const imageInsightPath = (id: string, name: string) => {
 
 const HomeInsight = (props: THomeInsightProps) => {
   const { listId } = props;
+  const t = useTranslations("Homepage");
   const localActive = useLocale();
   const [insightList, setInsightList] = useState<TInsight[] | null>([]);
   const [filteredData, setFilteredData] = useState<TInsight[] | undefined>([]);
@@ -69,7 +71,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                   type="h3"
                   className="uppercase text-24 md:text-28 leading-[1.75rem] md:leading-[2.5rem]"
                 >
-                  EXPLORE OUR Insight
+                  {t("title_explore_our_insight")}
                 </HeadingText>
 
                 <Link
@@ -77,7 +79,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                   className="hidden md:block"
                 >
                   <ButtonPrimary size="small" className="uppercase">
-                    MORE INSIGHT
+                    {t("button_more_insight")}
                   </ButtonPrimary>
                 </Link>
               </div>
@@ -165,7 +167,7 @@ const HomeInsight = (props: THomeInsightProps) => {
                   </div>
                   <div className="w-full md:w-1/3 h-full">
                     <div className="w-full h-full flex flex-col justify-between relative p-16 py-[2.125rem] md:py-[1rem] xl:p-32 z-[2] text-white bg-blue-pacific">
-                      <div className="absolute w-full h-full top-0 left-0 z-[0] bg-home-insight-thumb-2" />
+                      <div className="absolute w-full h-full top-0 left-0 z-[0] bg-[url('/images/bg/bg-insight-1.png')] bg-cover" />
 
                       <div className="block relative z-[1]">
                         {/* <BodyText
@@ -229,8 +231,8 @@ const HomeInsight = (props: THomeInsightProps) => {
                     <div className="absolute w-full h-full top-0 left-0 z-[1] bg-home-insight-thumb" />
                   </div>
                   <div className="w-full md:w-2/3 h-full">
-                    <div className="w-full h-full flex flex-col justify-between relative p-16 py-[2.125rem] md:py-[1rem] xl:p-32 z-[2] text-black bg-blue-pacific">
-                      <div className="absolute w-full h-full top-0 left-0 z-[0] bg-white" />
+                    <div className="w-full h-full flex flex-col justify-between relative p-16 py-[2.125rem] md:py-[1rem] xl:p-32 z-[2] text-blue-pacific bg-white">
+                      <div className="absolute w-full h-full top-0 left-0 z-[0]  bg-[url('/images/bg/bg-insight-2.png')] bg-cover" />
 
                       <div className="block relative z-[1] md:max-w-[50%]">
                         {/* <BodyText

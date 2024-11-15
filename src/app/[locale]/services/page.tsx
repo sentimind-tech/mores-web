@@ -37,7 +37,7 @@ export default async function Services({ params: { locale } }: Props) {
     <Layout selectedMenu={SELECTED_MENU_SERVICE}>
       <section className="flex flex-col mb-[100px] gap-100">
         <section>
-          <PageHeader background="/images/bg-services.png" />
+          <PageHeader background="/images/bg/bg-header-page-services.jpg" />
         </section>
         <section className="section-padding-x flex flex-col gap-32 lg:gap-100">
           <HeaderContent />

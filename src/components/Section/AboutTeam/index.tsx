@@ -308,9 +308,7 @@ const AboutTeam = (props: TAboutTeamProps) => {
                                       href={`/${localActive}/services/${service.id}`}
                                       className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific"
                                     >
-                                      <span className="capitalize">
-                                        {service.name.toLowerCase()}
-                                      </span>
+                                      <span className="">{service.name}</span>
                                     </Link>
 
                                     {submenu && submenu.length > 0 && (
@@ -324,8 +322,8 @@ const AboutTeam = (props: TAboutTeamProps) => {
                                               href={`/${localActive}/services/${item.parent_service_id}/${item.id}`}
                                               className="transition-all duration-300 text-gray-dove md:hover:text-blue-pacific relative before:content-['>'] before:w-[12px] before:h-[8px] before:absolute before:top-[-3px] before:left-[-12px] capitalize"
                                             >
-                                              <span className="capitalize">
-                                                {item.name.toLowerCase()}
+                                              <span className="">
+                                                {item.name}
                                               </span>
                                             </Link>
                                           </div>

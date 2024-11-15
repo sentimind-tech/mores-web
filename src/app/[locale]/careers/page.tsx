@@ -16,11 +16,13 @@ import { SELECTED_MENU_CAREER } from "@/store/constants";
 import { getGalleryWorkAtMores } from "@/services/gallery_work_at_mores";
 import { getGalleryLifeAtMores } from "@/services/gallery_life_at_mores";
 import { customConfig } from "../../../../config";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   params: { locale: string };
 };
 export default async function CareersPage({ params: { locale } }: Props) {
+  const t = await getTranslations("CareerPage");
   const areaList = await getVacancyListGroupedByField("area");
   const jobList = await getVacancyList();
 
@@ -67,43 +69,36 @@ export default async function CareersPage({ params: { locale } }: Props) {
   return (
     <Layout selectedMenu={SELECTED_MENU_CAREER}>
       <section className="flex flex-col">
-        <PageHeader background="/images/bg-careers.png" title="CAREERS" />
+        <PageHeader
+          background="/images/bg/bg-header-page-career.jpg"
+          title="CAREERS"
+          overlay={true}
+        />
         <section className="section-padding flex flex-col">
-          <SectionInfo title="JOBS">
-            <p className="section-info-p">
-              At Mores Strategic, we don’t just solve business challenges — we
-              create the future. If you have a passion for diving into data,
-              crafting innovative strategies, and achieving exceptional results,
-              our place is your home.
-            </p>
+          <SectionInfo title={t("jobs_intro_title")}>
+            <p className="section-info-p">{t("jobs_intro_desc")}</p>
           </SectionInfo>
           <div className="mt-32 mb-48 lg:mt-[61px] lg:mb-[87px] grid grid-cols-1 mobile-min:grid-cols-2 lg:grid-cols-4 gap-20 mobile-min:gap-32 lg:gap-50">
             <ValueCard
-              title="Advance Your Career"
-              description="We believe that personal and professional growth are the keys to our collective success. Here, you will have the opportunity to lead challenging projects, acquire new skills, and reach your full potential."
+              title={t("jobs_intro_list_1_title")}
+              description={t("jobs_intro_list_1_desc")}
             />
             <ValueCard
-              title="Collaborative Environment"
-              description="We are a team that supports each other. At Mores Strategics, every idea is valued, and every voice is heard. Through close collaboration, we combine our strengths to achieve the best possible outcomes."
+              title={t("jobs_intro_list_2_title")}
+              description={t("jobs_intro_list_2_desc")}
             />
             <ValueCard
-              title="Innovation"
-              description="The challenges we face often require creative and out-of-the-box solutions. If you have a passion for thinking differently and making a real impact, this is the place where your innovation can thrive."
+              title={t("jobs_intro_list_3_title")}
+              description={t("jobs_intro_list_3_desc")}
             />
             <ValueCard
-              title="Work-Life Balance"
-              description="We understand the importance of balancing work and personal life. With the flexibility and support we offer, you can achieve success at work without sacrificing valuable time with family and friends."
+              title={t("jobs_intro_list_4_title")}
+              description={t("jobs_intro_list_4_desc")}
             />
           </div>
 
-          <SectionInfo title="CAREER OPPORTUNITIES">
-            <p className="section-info-p">
-              Are you a strategic thinker, a data analysis expert, or a
-              visionary innovator? We offer a range of challenging and rewarding
-              positions that might be the perfect fit for you. Explore the
-              opportunities available and find a role that aligns with your
-              skills and aspirations.
-            </p>
+          <SectionInfo title={t("jobs_intro_2_title")}>
+            <p className="section-info-p">{t("jobs_intro_2_desc")}</p>
           </SectionInfo>
 
           <div className="mt-50 lg:mt-100">
@@ -112,20 +107,15 @@ export default async function CareersPage({ params: { locale } }: Props) {
 
           <div className="section-padding flex gap-24 items-center justify-center flex-col px-[115px]">
             <div className="text-center text-blue-pacific font-supplymono leading-[1.75rem] lg:leading-[2.5rem] text-18 lg:text-[1.75rem] uppercase">
-              &quot;A picture is worth a thousand memories.&quot;
+              {`&quot;${t("jobs_quote_title")}&quot;`}
             </div>
             <div className="font-inter text-sm lg:leading-[1.75rem] lg:text-[1.125rem] text-center">
-              At Mores, life is more than just work—it&apos;s about growth,
-              collaboration, and making a meaningful impact. We believe that a
-              thriving work environment is built on the foundation of mutual
-              respect, creativity, and a shared passion for excellence. Here,
-              every day is an opportunity to learn something new, to challenge
-              yourself, and to contribute to something bigger.
+              {t("jobs_quote_desc")}
             </div>
           </div>
 
           <div>
-            <SectionHeader title="LIFE AT MORES" />
+            <SectionHeader title={t("life_at")} />
             <div className="w-full">
               <table className="w-full border-separate careers-image-table h-[511px] mt-[32px]">
                 <tbody>
@@ -219,7 +209,7 @@ export default async function CareersPage({ params: { locale } }: Props) {
         </section>
         <div className="mb-[143px] overflow-hidden">
           <div className="section-padding">
-            <SectionHeader title="WORK AT MORES" />
+            <SectionHeader title={t("work_at")} />
           </div>
           <CareerSwiper images={galleryWorkAtMoresList} />
         </div>

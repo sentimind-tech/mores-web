@@ -113,7 +113,7 @@ const HomeServices = (props: THomeServicesProps) => {
 
           <Link href={`/${localActive}/services`} className="hidden md:block">
             <ButtonPrimary size="small" className="uppercase">
-              Specialize
+              {t("button_specialize")}
             </ButtonPrimary>
           </Link>
         </div>

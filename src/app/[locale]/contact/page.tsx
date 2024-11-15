@@ -54,7 +54,11 @@ export default async function ContactUs({ params: { locale } }: Props) {
   return (
     <Layout selectedMenu={SELECTED_MENU_CONTACT}>
       <section className="flex flex-col">
-        <PageHeader background="/images/bg-contact-us.png" title="CONTACT US" />
+        <PageHeader
+          background="/images/bg/bg-header-page-contact.jpg"
+          title="CONTACT US"
+          overlay={true}
+        />
         <section className="section-padding flex flex-col">
           <div className="mb-[83px]">
             <SectionInfo title={t("Contact.intro_title")}>

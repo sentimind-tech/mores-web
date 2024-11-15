@@ -5,6 +5,7 @@ import { Option } from "@/components/Option";
 import { useEffect, useState } from "react";
 import { TVacancy } from "@/types/vacancy";
 import { getVacancyList } from "@/services/vacancy";
+import { useTranslations } from "next-intl";
 
 type TJobListProps = {
   areaList: string[];
@@ -14,6 +15,7 @@ type TFilter = {
   area?: string;
 };
 const JobList = ({ areaList, jobList }: TJobListProps) => {
+  const t = useTranslations("CareerPage");
   const [filter, setFilter] = useState<TFilter>({});
   const [jobListState, setJobListState] = useState<TVacancy[]>(jobList);
   useEffect(() => {
@@ -30,7 +32,7 @@ const JobList = ({ areaList, jobList }: TJobListProps) => {
           defaultValue={filter.area}
           onChange={(e) => setFilter({ ...filter, area: e.target.value })}
         >
-          <Option value="">Works Areas</Option>
+          <Option value="">{t("jobs_dropdown_placeholder")}</Option>
           {areaList.map((area) => (
             <Option key={area} value={area}>
               {area}

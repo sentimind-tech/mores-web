@@ -13,6 +13,7 @@ import Layout from "@/components/Layout";
 import SectionHelp from "@/components/Section/SectionHelp";
 import { SELECTED_MENU_SERVICE } from "@/store/constants";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   params: {
@@ -48,20 +49,22 @@ export default async function ServiceDetail({
   const coverImage = service.cover_image;
   const coverImagePath = `${customConfig.POCKETBASE_FILE_URL}/services/${service.id}/${coverImage}`;
 
+  const t = await getTranslations("ServicePage");
+
   return (
     <Layout selectedMenu={SELECTED_MENU_SERVICE}>
       <section className="flex flex-col mb-[100px]">
         <section>
           <PageHeader
             background={coverImagePath}
-            title={service.name}
-            subtitle="FOCUS SERVICES"
+            title={locale == "id" ? service.name_id : service.name}
+            subtitle={t("focus_services_title")}
             subtitleCustomClass="text-white"
           />
         </section>
         <div className="section-navigation">
           <ServiceDetailHeader
-            title={service.name}
+            title={locale == "id" ? service.name_id : service.name}
             overview={
               locale == "id" ? service.overview_id : service.overview_en
             }

@@ -10,7 +10,7 @@ const AboutIntro = () => {
     <>
       <section className="relative">
         <PageHeader
-          background="/images/bg/bg-about.jpg"
+          background="/images/bg/bg-header-page-about.jpg"
           title="ABOUT MORES"
           overlay={true}
         />

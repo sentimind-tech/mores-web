@@ -178,7 +178,7 @@ const TechProfileCollapseContent = () => {
                 </HeadingText>
                 <div className="mt-10 columns-2 gap-32 md:gap-[50px] lg:gap-[100px]">
                   {indoorSystemFeature.map((item, index) => (
-                    <div className="w-full py-4" key={index}>
+                    <div className="w-full py-4 break-inside-avoid" key={index}>
                       <BarFeature title={item.title} filled={item.filled} />
                     </div>
                   ))}
@@ -235,7 +235,7 @@ const TechProfileCollapseContent = () => {
                 </HeadingText>
                 <div className="mt-10 columns-2 gap-32 md:gap-[50px] lg:gap-[100px]">
                   {pertaminaAssetFeature.map((item, index) => (
-                    <div className="w-full py-4" key={index}>
+                    <div className="w-full py-4 break-inside-avoid" key={index}>
                       <BarFeature title={item.title} filled={item.filled} />
                     </div>
                   ))}
@@ -292,7 +292,7 @@ const TechProfileCollapseContent = () => {
                 </HeadingText>
                 <div className="min-h-[165px] mt-10 columns-2 gap-32 md:gap-[50px] lg:gap-[100px]">
                   {pertaminaAssetFeature2.map((item, index) => (
-                    <div className="w-full py-4" key={index}>
+                    <div className="w-full py-4 break-inside-avoid" key={index}>
                       <BarFeature title={item.title} filled={item.filled} />
                     </div>
                   ))}

@@ -73,13 +73,13 @@ const Header = (props: THeaderProps) => {
       .sort((a, b) => a.order - b.order)
       .map((service) => {
         const transform = {
-          name: service.name,
+          name: localActive == "id" ? service.name_id : service.name,
           name_link: `/${localActive}/services/${service.id}`,
           submenu: data
             .filter((item) => item.parent_service_id === service.id)
             .sort((x, y) => x.order - y.order)
             .map((item) => ({
-              title: item.name,
+              title: localActive == "id" ? item.name_id : item.name,
               link: `/${localActive}/services/${item.parent_service_id}/${item.id}`,
               order: item.order,
             })),

@@ -13,4 +13,5 @@ export type TService = {
   our_experiences: string[];
   button_image: string;
   order: number;
+  name_id: string;
 };
