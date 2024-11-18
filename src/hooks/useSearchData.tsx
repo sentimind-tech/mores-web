@@ -40,7 +40,7 @@ const transformInsights = (
   const data = insights.map(
     (insight) =>
       ({
-        image: imagePath(insight.id, insight.cover_image, "insights"),
+        image: imagePath(insight.id, insight.button_image, "insights"),
         title: insight.title,
         category:
           insight.expand?.service_tags?.[0].name ||
@@ -59,7 +59,7 @@ const transformServices = (
   return services.map(
     (service) =>
       ({
-        image: imagePath(service.id, service.cover_image, "services"),
+        image: imagePath(service.id, service.button_image, "services"),
         title: service.name,
         category: "services",
         desc: service.description,
