@@ -107,7 +107,7 @@ export default async function CareersPage({ params: { locale } }: Props) {
 
           <div className="section-padding flex gap-24 items-center justify-center flex-col px-[115px]">
             <div className="text-center text-blue-pacific font-supplymono leading-[1.75rem] lg:leading-[2.5rem] text-18 lg:text-[1.75rem] uppercase">
-              {`&quot;${t("jobs_quote_title")}&quot;`}
+              {`"${t("jobs_quote_title")}"`}
             </div>
             <div className="font-inter text-sm lg:leading-[1.75rem] lg:text-[1.125rem] text-center">
               {t("jobs_quote_desc")}

@@ -59,7 +59,7 @@ const HomeBanner = (props: THomeBannerProps) => {
   };
   return (
     <section className="block relative">
-      <div className="w-full relative overflow-hidden h-[500px] lg:h-[calc(100vh_-_163px)] bg-gray-100">
+      <div className="w-full relative overflow-hidden h-[500px] lg:h-[390px] 1200-min:h-[calc(100vh_-_163px)] xl:h-[calc(100vh_-_163px)] bg-gray-100">
         {bannerList !== null && (
           <Slider {...settings} ref={sliderRef}>
             {bannerList.items.map((item, index) => {
@@ -67,7 +67,7 @@ const HomeBanner = (props: THomeBannerProps) => {
 
               return (
                 <div
-                  className={`w-full h-[500px] lg:h-[calc(100vh_-_163px)] relative group px-16 ${
+                  className={`w-full h-[500px] lg:h-[390px] 1200-min:h-[calc(100vh_-_163px)] relat xl:h-[calc(100vh_-_163px)] relative group px-16 ${
                     index === imageIndex ? "slide active-slide" : "slide"
                   }`}
                   key={index}
@@ -90,7 +90,7 @@ const HomeBanner = (props: THomeBannerProps) => {
                     <div className="block text-white w-full md:w-2/3">
                       <DisplayText
                         type="medium"
-                        className="uppercase !text-32 md:!text-[2.5rem] lg:!text-[3.25rem] !leading-[2.375rem] md:!leading-[3.125rem] lg:!leading-[3.75rem] block mb-12 opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-100 group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
+                        className="uppercase !text-32 md:!text-[2.5rem] lg:!text-[2rem] xl:!text-[2.7rem] 2xl:!text-[3.25rem] !leading-[2.375rem] md:!leading-[3.125rem] lg:!leading-[2.5rem] xl:!leading-[3.25rem] 2xl:!leading-[3.75rem] block mb-12 opacity-0 translate-y-[1.875rem] group-[.active-slide]:transition-all group-[.active-slide]:duration-1000 group-[.active-slide]:delay-100 group-[.active-slide]:opacity-100 group-[.active-slide]:translate-y-0"
                       >
                         {item.title}
                       </DisplayText>
