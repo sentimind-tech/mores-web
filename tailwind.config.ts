@@ -11,6 +11,7 @@ const config: Config = {
       screens: {
         "tablet-min": "769px",
         "mobile-min": "500px",
+        "1200-min": "1200px",
       },
       fontSize: {
         10: "0.625rem",

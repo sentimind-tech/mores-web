@@ -202,7 +202,7 @@ const Header = (props: THeaderProps) => {
     <>
       <div className="sticky z-[100] top-0 top px-[1rem] md:px-[2.5rem] xl:px-[3.125rem] bg-white">
         <div className="w-full">
-          <div className="flex justify-between relative h-[83px]">
+          <div className="flex justify-between relative h-[83px] md:h-[63px] lg:h-[83px]">
             <div className="flex gap-32 items-center relative shrink-0">
               <div className="w-[24px] h-[24px] right-[1rem] hidden justify-center items-center z-[100] md:flex">
                 <div
@@ -217,7 +217,7 @@ const Header = (props: THeaderProps) => {
                 </div>
               </div>
               <Link href={`/${localActive}`}>
-                <div className="relative block w-[7.688rem] md:w-[9.875rem] aspect-[16/5] z-[0]">
+                <div className="relative block w-[7.688rem] md:w-[9.875rem] lg:w-[7.875rem] xl:w-[9.875rem] aspect-[16/5] z-[0]">
                   <Image
                     src="/images/logo-mores-main.png"
                     alt="Main Logo"
