@@ -33,7 +33,10 @@ export default async function Industry({ params: { locale } }: Props) {
   return (
     <Layout selectedMenu={SELECTED_MENU_INDUSTRY}>
       <section>
-        <PageHeader background="/images/bg/bg-header-page-industries.jpg" />
+        <PageHeader
+          background="/images/bg/bg-header-page-industries.jpg"
+          title="INDUSTRIES"
+        />
       </section>
       <section className="flex flex-col section-padding flex flex-col gap-32 lg:gap-100">
         <HeaderContent />
