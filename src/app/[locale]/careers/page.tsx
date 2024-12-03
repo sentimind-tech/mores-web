@@ -120,84 +120,84 @@ export default async function CareersPage({ params: { locale } }: Props) {
               <table className="w-full border-separate careers-image-table h-[511px] mt-[32px]">
                 <tbody>
                   <tr>
-                    <td rowSpan={2}>
+                    <td rowSpan={2} className="w-[42%]">
                       <Image
                         src={`${lifeImage1}`}
                         alt="Careers 1"
                         width="0"
                         height="0"
-                        sizes="100vw"
-                        className="w-full h-full object-cover"
+                        sizes="auto"
+                        className="w-full object-cover aspect-[16/13.14]"
                         priority={true}
                       />
                     </td>
-                    <td>
+                    <td className="w-[29%]">
                       <Image
                         src={`${lifeImage2}`}
                         alt="Careers 2"
                         width="0"
                         height="0"
                         sizes="100vw"
-                        className="w-full h-full object-cover"
+                        className="w-full object-cover aspect-[16/9.11]"
                         priority={true}
                       />
                     </td>
-                    <td>
+                    <td className="w-[29%]">
                       <Image
                         src={`${lifeImage3}`}
                         alt="Careers 3"
                         width="0"
                         height="0"
                         sizes="100vw"
-                        className="w-full h-full object-cover"
+                        className="w-full object-cover aspect-[16/9.11]"
                         priority={true}
                       />
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td className="w-[29%]">
                       <Image
                         src={`${lifeImage4}`}
                         alt="Careers 4"
                         width="0"
                         height="0"
                         sizes="100vw"
-                        className="w-full h-full object-cover"
+                        className="w-full object-cover aspect-[16/9.11]"
                         priority={true}
                       />
                     </td>
-                    <td rowSpan={2}>
+                    <td rowSpan={2} className="w-[29%]">
                       <Image
                         src={`${lifeImage5}`}
                         alt="Careers 5"
                         width="0"
                         height="0"
                         sizes="100vw"
-                        className="w-full h-full object-cover"
+                        className="w-full object-cover aspect-[13.5/16]"
                         priority={true}
                       />
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td className="w-[42%]">
                       <Image
                         src={`${lifeImage6}`}
                         alt="Careers 6"
                         width="0"
                         height="0"
                         sizes="100vw"
-                        className="w-full h-full object-cover"
+                        className="w-full object-cover aspect-[16/6.28]"
                         priority={true}
                       />
                     </td>
-                    <td>
+                    <td className="w-[29%]">
                       <Image
                         src={`${lifeImage7}`}
                         alt="Careers 7"
                         width="0"
                         height="0"
                         sizes="100vw"
-                        className="w-full h-full object-cover"
+                        className="w-full object-cover aspect-[16/9.11]"
                         priority={true}
                       />
                     </td>
