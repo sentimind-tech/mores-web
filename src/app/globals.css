@@ -148,10 +148,10 @@ body {
   @apply !bg-blue-pacific !opacity-100 !border-blue-pacific;
 }
 
-.insight-detail img,
+/* .insight-detail img,
 .insight-detail video {
   display: inline-block !important;
-}
+} */
 .insight-detail blockquote,
 .insight-detail p {
   @apply my-14;
