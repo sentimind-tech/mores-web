@@ -16,6 +16,7 @@ type THomeHighlightProps = {
 };
 const HomeHighlight = (props: THomeHighlightProps) => {
   const { id } = props;
+
   const localActive = useLocale();
   const t = useTranslations("Homepage");
   const [insightData, setinsightData] = useState<TInsight | null>(null);
@@ -37,7 +38,7 @@ const HomeHighlight = (props: THomeHighlightProps) => {
 
   useEffect(() => {
     if (id) {
-      fetchInsightDetail(id);
+      fetchInsightDetail(id[0]);
     }
   }, [id]);
 
