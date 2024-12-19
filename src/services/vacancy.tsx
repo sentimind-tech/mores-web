@@ -18,6 +18,9 @@ async function getVacancyList(params: TVacancyParams = {}) {
       sort: "-created",
     };
     let filters: string[] = [];
+
+    filters.push(`active = true`);
+
     if (params.area) {
       filters.push(`area = "${params.area}"`);
     }
