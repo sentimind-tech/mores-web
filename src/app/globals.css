@@ -173,6 +173,20 @@ body {
   @apply text-lg font-normal;
 }
 
+.insight-detail ul,
+.insight-detail ol {
+  margin: revert;
+  padding: revert;
+}
+
+.insight-detail ul {
+  @apply list-disc;
+}
+
+.insight-detail ol {
+  @apply list-decimal;
+}
+
 .overview-content blockquote {
   @apply font-supplymono text-blue-pacific text-2xl;
 }
