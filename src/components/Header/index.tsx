@@ -219,12 +219,11 @@ const Header = (props: THeaderProps) => {
               <Link href={`/${localActive}`}>
                 <div className="relative block w-[7.688rem] md:w-[9.875rem] lg:w-[7.875rem] xl:w-[9.875rem] aspect-[16/5] z-[0]">
                   <Image
-                    src="/images/logo-mores-main.png"
+                    src="/images/logo-mores-main.webp"
                     alt="Main Logo"
                     fill={true}
-                    priority={true}
                     sizes="auto"
-                    className="block w-full h-full object-center object-contain"
+                    unoptimized
                   />
                 </div>
               </Link>

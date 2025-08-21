@@ -126,12 +126,12 @@ const Footer = async () => {
           <div className="block">
             <div className="relative block w-full max-w-[7.688rem] md:max-w-[11rem] aspect-[16/5] z-[0]">
               <Image
-                src="/images/logo-mores-main.png"
+                src="/images/logo-mores-main.webp"
                 alt="Main Logo"
                 fill={true}
-                priority={true}
                 sizes="auto"
                 className="block w-full h-full object-center object-contain"
+                unoptimized
               />
             </div>
             <BodyText className="block uppercase font-graphik text-12 leading-[1.375rem] mt-24">
@@ -220,12 +220,12 @@ const Footer = async () => {
             </div>
             <div className="relative block w-full max-w-[9.5rem] aspect-[16/5] z-[0]">
               <Image
-                src="/images/logo-mores-main.png"
+                src="/images/logo-mores-main.webp"
                 alt="Main Logo"
                 fill={true}
-                priority={true}
                 sizes="auto"
                 className="block w-full h-full object-center object-contain"
+                unoptimized
               />
             </div>
           </div>
