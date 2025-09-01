@@ -135,7 +135,7 @@ const Footer = async () => {
               />
             </div>
             <BodyText className="block uppercase font-graphik text-12 leading-[1.375rem] mt-24">
-              © 2024 MORES STRATEGICS. <br className="hidden md:block" /> ALL
+              © 2025 MORES STRATEGICS. <br className="hidden md:block" /> ALL
               RIGHTS RESERVED.
             </BodyText>
           </div>
