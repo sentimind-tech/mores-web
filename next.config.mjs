@@ -24,8 +24,9 @@ const nextConfig = {
         port: "",
       },
       {
+        protocol: process.env.NEXT_PUBLIC_IMAGE_PORT == "443" ? "https" : "http",
         hostname: process.env.NEXT_PUBLIC_IMAGE_HOSTNAME,
-        port: process.env.NEXT_PUBLIC_IMAGE_PORT,
+        port: process.env.NEXT_PUBLIC_IMAGE_PORT == "443" ? "" : process.env.NEXT_PUBLIC_IMAGE_PORT,
       },
     ],
   },
