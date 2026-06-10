@@ -235,7 +235,7 @@ const ReachUsForm = () => {
           <div className="grid grid-cols-1">
             <TextArea
               className={`contact-us-input ${error.message ? 'error' : ''}`}
-              placeholder="Your Subject"
+              placeholder="Your Message"
               rows={3}
               value={inputForm?.message}
               error={error?.message}
