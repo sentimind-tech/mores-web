@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export interface TMoresightItem {
   id: string;
-  // 💡 SEKARANG: Menambahkan definisi slug_id dan slug_en agar dikenal saat mapping di index.tsx
+  collectionId: string; // 💡 DITAMBAHKAN: Mengatasi error 'Property collectionId does not exist on type TMoresightItem' di Docker
   slug_id: string;
   slug_en: string;
   slug: string; 
