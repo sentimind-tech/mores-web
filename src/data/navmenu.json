@@ -12,12 +12,16 @@
     "target": "insight"
   },
   {
-    "title": "Careers",
-    "target": "careers"
+    "title": "Mores Research",
+    "target": "mores-research"
   },
   {
     "title": "Mores Tech",
     "target": "mores-tech"
+  },
+  {
+    "title": "Careers",
+    "target": "careers"
   },
   {
     "title": "Contact",

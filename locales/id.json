@@ -183,6 +183,77 @@
     "more_recent": "Insight Terbaru",
     "read_now": "Baca"
   },
+  "MoresResearch": {
+    "menu_desc": "Pusat Riset untuk Penelitian Kolaboratif dan Berbagi Pengetahuan yang Mudah Diakses."
+  },
+  "ResearchPage": {
+    "subNav": {
+      "title": "Mores Research",
+      "overview": "Overview",
+      "fellowship": "Program Fellowship",
+      "newsletter": "Newsletter"
+    },
+    "overview": {
+      "title": "mores research",
+      "leftParagraph": "Pusat riset untuk kolaborasi penelitian dan berbagi pengetahuan yang mudah diakses.<br /><br />Mores Research adalah pusat riset yang dikembangkan oleh Mores Strategics untuk menghadirkan pengetahuan berbasis data dan riset menjadi lebih mudah diakses, relevan, dan terhubung dengan kehidupan sehari-hari serta kepentingan publik.",
+      "rightParagraph1": "Sebagai sebuah hub, Mores Research membuka ruang kolaborasi bagi akademisi, praktisi, institusi, dan komunitas yang tertarik mengembangkan pengetahuan yang berdampak di luar ruang akademik. Kami menghubungkan kedalaman analitis dengan nilai praktis dengan membawa riset lebih dekat ke pertanyaan sehari-hari, tantangan nyata, serta kebutuhan pengambilan keputusan yang lebih informatif.",
+      "rightParagraph2": "<br />Kegiatan Mores Research mencakup publikasi riset, diskusi publik, inisiatif kolaboratif, program fellowship, dan newsletter. Melalui berbagai kanal ini, Mores Research berupaya memperkuat pemahaman publik terhadap riset sekaligus mendukung institusi, komunitas, dan pengambil keputusan dengan pengetahuan yang kredibel dan mudah diakses."
+    },
+    "fellowship": {
+      "title": "Program Fellowship",
+      "p1": "Mores Fellowship adalah program fellowship riset selama enam bulan yang diselenggarakan oleh Mores Research. Program ini ditujukan untuk membangun komunitas peneliti bergelar doktor maupun kandidat doktor yang fokus pada riset dengan relevansi publik dan dampak nyata.",
+      "p2": "<br />Program ini mendukung riset yang kuat secara metodologis, relevan secara konteks, dan berdampak bagi diskursus publik, pengambilan keputusan institusional, serta pemahaman sosial yang lebih luas. Para fellows mendapatkan dukungan komunikasi dan akses ke berbagai kanal publikasi, sehingga hasil riset mereka dapat dipublikasikan dan menjangkau baik pihak-pihak relevan seperti pembuat kebijakan atau praktisi, maupun publik yang lebih luas.",
+      "p3": "<br />Fellows akan menerima dukungan pendanaan (stipend), jaringan kolaborasi, kesempatan publikasi, pengalaman keterlibatan publik, serta peluang kerja sama jangka panjang dengan Mores Research. Melalui ekosistem ini, para fellows diharapkan dapat memperkuat kapasitas riset, memperluas kontribusi pengetahuan, dan menghasilkan karya yang relevan serta berdampak di ranah akademik, bisnis, maupun publik."
+    },
+    "priorityAreas": {
+      "title": "Area Riset Prioritas",
+      "subtitle": "Mores Research terbuka bagi peneliti yang mengkaji, namun tidak terbatas pada, bidang berikut:",
+      "area1": "Kecerdasan Buatan (AI) dan Transformasi Sosio-Ekonomi",
+      "area2": "Infrastruktur dan Pembangunan",
+      "area3": "Kebijakan Publik dan Tata Kelola",
+      "area4": "Komunikasi, Media, dan Masyarakat",
+      "area5": "Bisnis, Manajemen, dan Inovasi",
+      "approachTitle": "Aktivitas",
+      "approachP1": "Program fellowship ini mendukung peserta untuk menjalankan proyek riset yang mereka ajukan, sekaligus membantu membawa gagasan tersebut ke ruang publik yang lebih luas.",
+      "approachP2": "<br />Selama program berlangsung, para fellows terlibat dalam ekosistem riset yang kolaboratif melalui lokakarya, seminar publik, keterlibatan media, serta diskusi dengan mitra industri. Selain itu, fellows juga bekerja sama dengan tim Mores Research untuk menyebarluaskan hasil riset mereka melalui MoreSight newsletter, artikel opini, policy brief, dan berbagai format publikasi lain yang lebih mudah diakses oleh publik."
+    }
+  },
+  "MoresightPage": {
+    "hero": {
+      "category": "MORES RESEARCH",
+      "title": "MORESIGHT"
+    },
+    "subNav": {
+      "title": "MORESIGHT",
+      "overview": "Overview",
+      "newsletter": "Newsletter"
+    },
+    "overview": {
+      "title": "MORESIGHT",
+      "subtitle": "MoreSight adalah newsletter dari Mores Research yang terbit setiap kuartal dan menghadirkan ide serta analisis berbasis riset untuk audiens yang lebih luas.",
+      "p1": "Dirancang untuk pengambil keputusan, pemimpin perusahaan, analis kebijakan, dan para profesional, MoreSight menyajikan analisis tingkat makro serta wawasan strategis yang bisa langsung digunakan untuk memahami perubahan cepat di lanskap ekonomi, teknologi, dan bisnis.",
+      "p2": "<br />Setiap edisi berisi empat artikel pilihan yang memadukan insight kritis, perspektif para ahli, dan temuan riset secara ringkas. MoreSight membantu menyederhanakan isu-isu kompleks menjadi analisis yang mudah dipahami, sehingga pembaca bisa menangkap tren baru tanpa tenggelam dalam banjir informasi.",
+      "p3": "<br />Baik Anda yang sedang membangun bisnis, mengelola investasi, merumuskan kebijakan, atau memberi arahan strategis, MoreSight menawarkan perspektif yang lebih jernih dan terarah tentang berbagai kekuatan yang membentuk dunia saat ini."
+    },
+    "filter": {
+      "placeholder": "Cari ...",
+      "allResult": "Semua Hasil",
+      "resultsCount": "Menampilkan {start} - {end} dari {total} hasil",
+      "btnMore": "LEBIH BANYAK",
+      "btnRead": "BACA"
+    }
+  },
+  "NewsletterModal": {
+    "title": "BERLANGGANAN MORESIGHT",
+    "subtitle": "Dapatkan notifikasi untuk pembaruan berikutnya.",
+    "placeholder": "Email Anda",
+    "buttonSubmit": "KIRIM",
+    "successTitle": "TERIMA KASIH TELAH BERLANGGANAN",
+    "successSubtitle": "Tetap terinformasi. Tetap selangkah lebih maju.",
+    "validationError": "Silakan masukkan alamat email yang valid.",
+    "generalError": "Terjadi kesalahan. Silakan coba lagi nanti.",
+    "duplicateError": "Submit Gagal! Email ini sudah terdaftar."
+  },
   "CareerPage": {
     "menu_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success.",
     "jobs_intro_title": "JOBS",

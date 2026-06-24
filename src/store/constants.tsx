@@ -46,3 +46,4 @@ export const SELECTED_MENU_CONTACT = "contact";
 export const SELECTED_MENU_ABOUT = "about";
 export const SELECTED_MENU_TECH = "tech";
 export const SELECTED_MENU_CLIENTSTORIES = "clientstories";
+export const SELECTED_MENU_RESEARCH = "mores-research";
