@@ -41,7 +41,8 @@ export default async function NewsletterDetailPage({ params: { locale, slug } }:
   const baseUrl = process.env.NEXT_PUBLIC_POCKETBASE_URL || "http://127.0.0.1:8090";
 
   if (latestRes && latestRes.items) {
-    recommendedNewsletters = latestRes.items.map((recItem) => ({
+    // 💡 SOLUSI UTAMA: Memberikan tipe data `: any` pada parameter recItem agar tidak dicekal TypeScript saat build
+    recommendedNewsletters = latestRes.items.map((recItem: any) => ({
       ...recItem,
       cover_image: `${baseUrl}/api/files/${recItem.collectionId}/${recItem.id}/${recItem.cover_image}`,
     }));
