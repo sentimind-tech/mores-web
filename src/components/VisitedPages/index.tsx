@@ -43,7 +43,8 @@ const VisitedPages = () => {
   }, []);
 
   const getTextAfterPipe = (text: string) => {
-    return text.split("|")[1].trim();
+    const parts = text.split("|");
+    return parts.length > 1 ? parts[1].trim() : "";
   };
 
   return (

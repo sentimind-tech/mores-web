@@ -37,6 +37,20 @@
     }
   },
   {
+    "slug": "mores-research",
+    "data": {
+      "title": "Mores Research",
+      "menus": [
+        { "title": "About Mores Research", "link": "/mores-research/about" },
+        { "title": "Fellowship Program", "link": "/mores-research/about#fellowship" },
+        { "title": "Newsletter", "link": "/mores-research/newsletter" }
+      ],
+      "thumb": "/images/thumb/thumb-menu-content-research.jpg",
+      "thumb_name": "MORES RESEARCH",
+      "thumb_desc": "MoresResearch.menu_desc"
+    }
+  },
+  {
     "slug": "careers",
     "data": {
       "title": "CAREERS",

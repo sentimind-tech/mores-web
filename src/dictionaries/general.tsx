@@ -8,6 +8,7 @@ import {
   SELECTED_MENU_ABOUT,
   SELECTED_MENU_TECH,
   SELECTED_MENU_CLIENTSTORIES,
+  //SELECTED_MENU_RESEARCH,
 } from "@/store/constants";
 
 type ActiveMenuStateProps = {
@@ -24,4 +25,5 @@ export const ACTIVE_MENU_STATE: ActiveMenuStateProps = {
   [SELECTED_MENU_ABOUT]: "who-we-are",
   [SELECTED_MENU_TECH]: "mores-tech",
   [SELECTED_MENU_CLIENTSTORIES]: "what-we-do",
+  "mores-research": "mores-research",
 };

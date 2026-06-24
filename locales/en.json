@@ -183,48 +183,119 @@
     "more_recent": "More Recent Insights",
     "read_now": "Read Now"
   },
-  "CareerPage": {
-    "menu_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success.",
-    "jobs_intro_title": "JOBS",
-    "jobs_intro_desc": "At Mores Strategic, we don’t just solve business challenges — we create the future. If you have a passion for diving into data, crafting innovative strategies, and achieving exceptional results, our place is your home.",
-    "jobs_intro_list_1_title": "ADVANCE YOUR CAREER",
-    "jobs_intro_list_1_desc": "We believe that personal and professional growth are the keys to our collective success. Here, you will have the opportunity to lead challenging projects, acquire new skills, and reach your full potential.",
-    "jobs_intro_list_2_title": "COLLABORATIVE ENVIRONMENT",
-    "jobs_intro_list_2_desc": "We are a team that supports each other. At Mores Strategics, every idea is valued, and every voice is heard. Through close collaboration, we combine our strengths to achieve the best possible outcomes.",
-    "jobs_intro_list_3_title": "INNOVATION",
-    "jobs_intro_list_3_desc": "The challenges we face often require creative and out-of-the-box solutions. If you have a passion for thinking differently and making a real impact, this is the place where your innovation can thrive.",
-    "jobs_intro_list_4_title": "WORK-LIFE BALANCE",
-    "jobs_intro_list_4_desc": "We understand the importance of balancing work and personal life. With the flexibility and support we offer, you can achieve success at work without sacrificing valuable time with family and friends.",
-    "jobs_intro_2_title": "CAREER OPPORTUNITIES",
-    "jobs_intro_2_desc": "Are you a strategic thinker, a data analysis expert, or a visionary innovator? We offer a range of challenging and rewarding positions that might be the perfect fit for you. Explore the opportunities available and find a role that aligns with your skills and aspirations.",
-    "jobs_dropdown_placeholder": "Works Area",
-    "jobs_quote_title": "A PICTURE IS WORTH A THOUSAND MEMORIES.",
-    "jobs_quote_desc": "At Mores, life is more than just work—it's about growth, collaboration, and making a meaningful impact. We believe that a thriving work environment is built on the foundation of mutual respect, creativity, and a shared passion for excellence. Here, every day is an opportunity to learn something new, to challenge yourself, and to contribute to something bigger.",
-    "life_at": "LIFE AT MORES",
-    "work_at": "WORK AT MORES"
+  "MoresResearch": {
+    "menu_desc": "A Research Hub For Collaborative Research And Accessible Knowledge Sharing."
   },
-  "Contact": {
-    "menu_desc": "Connect With Us To Get The Best Solutions For Your Company, Tailored To Your Specific Needs.",
-    "intro_title": "Have a question? Need Advice? Let's Connect.",
-    "intro_desc": "Whether you have a question about our consulting services, need advice, or just want to share your thoughts on our latest blog post, we're here to help. Our team experts is dedicated to providing insights and solutions tailored to your unique needs.",
-    "desc_email": "Take a bold step forward.",
-    "desc_phone": "For personalized service and detailed information, please contact our customer support",
-    "desc_whatsapp": "For quick and convenient communication, please reach out to us",
-    "desc_instagram": "Take a bold step forward.",
-    "desc_linkedin": "For personalized service and detailed information, please contact our customer support",
-    "desc_youtube": "For quick and convenient communication, please reach out to us",
-    "desc_x": "For quick and convenient communication, please reach out to us",
-    "form_required": "Required",
-    "form_title": "Reach Us",
-    "form_name": "Name",
-    "form_firstname": "First Name",
-    "form_lastname": "Last Name",
-    "form_email": "Email",
-    "form_email_placeholder": "Your Email",
-    "form_subject": "Subject",
-    "form_subject_placeholder": "Your Subject",
-    "form_message": "Message",
-    "form_message_placeholder": "Your Message",
-    "form_submit": "Submit"
-  }
+  "ResearchPage": {
+    "subNav": {
+      "title": "Mores Research",
+      "overview": "Overview",
+      "fellowship": "Fellowship Program",
+      "newsletter": "Newsletter"
+    },
+    "overview": {
+      "title": "mores research",
+      "leftParagraph": "A research hub for collaborative research and accessible knowledge sharing.<br /><br />Mores Research is a research hub developed by Mores Strategics to make evidence-based knowledge more accessible, relevant, and connected to everyday life and public interest.",
+      "rightParagraph1": "As a hub, Mores Research welcomes collaboration with scholars, practitioners, institutions, and communities interested in building knowledge that matters beyond academic spaces. We connect analytical depth with practical value by bringing research closer to everyday questions, real-world challenges, and the people who need clear insights to make informed decisions.",
+      "rightParagraph2": "<br />Our work spans research publications, public conversations, collaborative initiatives, fellowship programs, and newsletters. Through these outputs, Mores Research aims to strengthen public understanding of research while supporting institutions, communities, and decision-makers with credible and accessible knowledge."
+    },
+    "fellowship": {
+      "title": "Fellowship Program",
+      "p1": "Mores Fellowship is a six-month research fellowship hosted by Mores Research. The program is designed to nurture a community of researchers with doctoral degrees and doctoral candidates who seek to produce research with public relevance and real-world impact.",
+      "p2": "<br />The fellowship supports research that is rigorous, relevant, and impactful for public discourse, institutional decision-making, and broader social understanding. Fellows receive communication support and access to multiple dissemination channels, enabling them to share their work with both targeted stakeholders and wider audiences.",
+      "p3": "<br />Mores Fellows are provided with stipends, collaborative networks, publication opportunities, public engagement experiences, and pathways for long-term collaboration with Mores Research. Through this intellectual community, fellows can strengthen their research capabilities, contribute to emerging knowledge, and produce work that creates value across academic, commercial, and public spheres."
+    },
+    "priorityAreas": {
+      "title": "Priority Research Areas",
+      "subtitle": "Mores Research welcomes researchers whose work engages with, but is not limited to, the following areas:",
+      "area1": "Artificial Intelligence (AI) and Socioeconomic Transformation",
+      "area2": "Infrastructure and Development",
+      "area3": "Public Policy and Governance",
+      "area4": "Communication, Media, and Society",
+      "area5": "Business, Management, and Innovation",
+      "approachTitle": "Approach and Result",
+      "approachP1": "We believe that research should not only stop at finding answers, but also ensure those findings can be used by the wider public. Our approach combines structured data, contextual ground analysis, and clear language to translate complex social and technical dynamics into clear knowledge points.",
+      "approachP2": "<br />The results of our studies are mapped directly to support communities, public policy-makers, and industry innovators. By ensuring transparency, clarity, and widespread accessibility for every publication, Mores Research helps build a better-informed society capable of responding to continuous systemic updates."
+    }
+  },
+  "MoresightPage": {
+    "hero": {
+      "category": "MORES RESEARCH",
+      "title": "MORESIGHT"
+    },
+    "subNav": {
+      "title": "MORESIGHT",
+      "overview": "Overview",
+      "newsletter": "Newsletter"
+    },
+    "overview": {
+      "title": "MORESIGHT",
+      "subtitle": "MoreSight is a quarterly newsletter that serves as a publication platform for Mores Research, bringing research-driven ideas and analysis to a broader audience.",
+      "p1": "Designed for decision-makers, corporate leaders, policy analysts, and professionals, MoresSight provides macro-level analysis and actionable strategic insights to help readers navigate rapidly evolving economic, technological, and business landscapes.",
+      "p2": "<br />Each edition features four carefully curated articles that combine critical insights, expert perspectives, and concise research findings. By transforming complex developments into accessible analysis, MoresSight helps readers understand emerging trends without getting lost in analytical noise.",
+      "p3": "<br />Whether you are scaling a business, managing investments, shaping policy, or advising stakeholders, MoresSight offers a clear and informed perspective on the forces shaping today's world."
+    },
+    "filter": {
+      "placeholder": "Search ...",
+      "allResult": "All Result",
+      "resultsCount": "Showing {start} - {end} of {total} results",
+      "btnMore": "MORE",
+      "btnRead": "READ"
+    }
+  },
+  "NewsletterModal": {
+    "title": "SUBSCRIBE TO MORESIGHT",
+    "subtitle": "Get notified about the next update.",
+    "placeholder": "Your Email",
+    "buttonSubmit": "SUBMIT",
+    "successTitle": "THANK YOU FOR SUBSCRIBE",
+    "successSubtitle": "Stay informed. Stay ahead.",
+    "validationError": "Please enter a valid email address.",
+    "generalError": "Something went wrong. Please try again later.",
+    "duplicateError": "Submit Gagal! Email ini sudah terdaftar."
+  },
+  "CareerPage": {
+  "menu_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success.",
+  "jobs_intro_title": "JOBS",
+  "jobs_intro_desc": "At Mores Strategic, we don’t just solve business challenges — we create the future. If you have a passion for diving into data, crafting innovative strategies, and achieving exceptional results, our place is your home.",
+  "jobs_intro_list_1_title": "ADVANCE YOUR CAREER",
+  "jobs_intro_list_1_desc": "We believe that personal and professional growth are the keys to our collective success. Here, you will have the opportunity to lead challenging projects, acquire new skills, and reach your full potential.",
+  "jobs_intro_list_2_title": "COLLABORATIVE ENVIRONMENT",
+  "jobs_intro_list_2_desc": "We are a team that supports each other. At Mores Strategics, every idea is valued, and every voice is heard. Through close collaboration, we combine our strengths to achieve the best possible outcomes.",
+  "jobs_intro_list_3_title": "INNOVATION",
+  "jobs_intro_list_3_desc": "The challenges we face often require creative and out-of-the-box solutions. If you have a passion for thinking differently and making a real impact, this is the place where your innovation can thrive.",
+  "jobs_intro_list_4_title": "WORK-LIFE BALANCE",
+  "jobs_intro_list_4_desc": "We understand the importance of balancing work and personal life. With the flexibility and support we offer, you can achieve success at work without sacrificing valuable time with family and friends.",
+  "jobs_intro_2_title": "CAREER OPPORTUNITIES",
+  "jobs_intro_2_desc": "Are you a strategic thinker, a data analysis expert, or a visionary innovator? We offer a range of challenging and rewarding positions that might be the perfect fit for you. Explore the opportunities available and find a role that aligns with your skills and aspirations.",
+  "jobs_dropdown_placeholder": "Works Area",
+  "jobs_quote_title": "A PICTURE IS WORTH A THOUSAND MEMORIES.",
+  "jobs_quote_desc": "At Mores, life is more than just work—it's about growth, collaboration, and making a meaningful impact. We believe that a thriving work environment is built on the foundation of mutual respect, creativity, and a shared passion for excellence. Here, every day is an opportunity to learn something new, to challenge yourself, and to contribute to something bigger.",
+  "life_at": "LIFE AT MORES",
+  "work_at": "WORK AT MORES"
+},
+"Contact": {
+  "menu_desc": "Connect With Us To Get The Best Solutions For Your Company, Tailored To Your Specific Needs.",
+  "intro_title": "Have a question? Need Advice? Let's Connect.",
+  "intro_desc": "Whether you have a question about our consulting services, need advice, or just want to share your thoughts on our latest blog post, we're here to help. Our team experts is dedicated to providing insights and solutions tailored to your unique needs.",
+  "desc_email": "Take a bold step forward.",
+  "desc_phone": "For personalized service and detailed information, please contact our customer support",
+  "desc_whatsapp": "For quick and convenient communication, please reach out to us",
+  "desc_instagram": "Take a bold step forward.",
+  "desc_linkedin": "For personalized service and detailed information, please contact our customer support",
+  "desc_youtube": "For quick and convenient communication, please reach out to us",
+  "desc_x": "For quick and convenient communication, please reach out to us",
+  "form_required": "Required",
+  "form_title": "Reach Us",
+  "form_name": "Name",
+  "form_firstname": "First Name",
+  "form_lastname": "Last Name",
+  "form_email": "Email",
+  "form_email_placeholder": "Your Email",
+  "form_subject": "Subject",
+  "form_subject_placeholder": "Your Subject",
+  "form_message": "Message",
+  "form_message_placeholder": "Your Message",
+  "form_submit": "Submit"
+}
 }
