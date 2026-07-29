@@ -48,12 +48,8 @@ export const NewsletterSubscribeModal = ({ isOpen, onClose }: Props) => {
         const cleanEmail = email.trim().toLowerCase();
 
         if (!email || !emailRegex.test(cleanEmail)) {
-            // Pengondisian bahasa untuk validasi format email salah
-            setErrorMsg(
-                selectedLocale === "id" 
-                    ? "Format email tidak valid." 
-                    : "Invalid email format."
-            ); 
+            // 💡 SESUAI KEY JSON: Menggunakan validationError
+            setErrorMsg(t("validationError") || "Please enter a valid email address."); 
             return;
         }
 
@@ -63,37 +59,32 @@ export const NewsletterSubscribeModal = ({ isOpen, onClose }: Props) => {
             const existingRecord = await pb
                 .collection("subscribers")
                 .getFirstListItem(`email="${cleanEmail}"`)
-                .catch(() => null); // Tangkap error 404 (tidak ditemukan) sebagai nilai null
+                .catch(() => null);
 
             // ⛔ KONDISI A: Email sudah ada DAN statusnya sudah Aktif
             if (existingRecord && existingRecord.status === "active") {
-                // 💡 PENGONDISIAN BAHASA KUSTOM UNTUK DUPLIKASI EMAIL
-                const textError = selectedLocale === "id" 
-                    ? "Email ini sudah berlangganan Moresight." 
-                    : "This email is already subscribed to Moresight.";
-                
-                setErrorMsg(textError); 
+                // 💡 SESUAI KEY JSON: Menggunakan duplicateError
+                setErrorMsg(t("duplicateError") || "This email is already subscribed."); 
                 setLoading(false);
                 return;
             }
 
-            // 🔄 KONDISI B: Email ada tapi statusnya Inactive (Pengguna mengaktifkan kembali langganan)
+            // 🔄 KONDISI B: Email ada tapi statusnya Inactive
             if (existingRecord && existingRecord.status === "inactive") {
-                // Update status menjadi active kembali DAN perbarui preferensi bahasanya
                 await pb.collection("subscribers").update(existingRecord.id, {
                     status: "active",
-                    language: selectedLocale, // 💡 Sinkronisasi field language baru
+                    language: selectedLocale,
                 });
             } else {
-                // ✨ KONDISI C: Email benar-benar baru, buat data record segar
+                // ✨ KONDISI C: Email benar-benar baru
                 await pb.collection("subscribers").create({
                     email: cleanEmail,
                     status: "active",
-                    language: selectedLocale, // 💡 Simpan preferensi bahasa pilihan user
+                    language: selectedLocale,
                 });
             }
 
-            // 🚀 2. TEMBAK API RESEND DENGAN MENYERTAKAN LOCALE PILIHAN USER
+            // 🚀 2. TEMBAK API RESEND
             await fetch("/api/send-thankyou", {
                 method: "POST",
                 headers: {
@@ -110,13 +101,11 @@ export const NewsletterSubscribeModal = ({ isOpen, onClose }: Props) => {
             console.error("Subscription failed:", error);
             
             if (error?.status === 400 && error.message.includes("email already exists")) {
-                // 💡 PENGONDISIAN BAHASA KUSTOM UNTUK ERROR 400 POCKETBASE
-                const textError = selectedLocale === "id" 
-                    ? "Email ini sudah berlangganan Moresight." 
-                    : "This email is already subscribed to Moresight.";
-                setErrorMsg(textError);
+                // 💡 SESUAI KEY JSON: Menggunakan duplicateError
+                setErrorMsg(t("duplicateError") || "This email is already subscribed.");
             } else {
-                setErrorMsg(selectedLocale === "id" ? `Terjadi kesalahan (${error.message})` : `An error occurred (${error.message})`);
+                const baseErrorText = t("generalError") || "Something went wrong.";
+                setErrorMsg(`${baseErrorText} (${error.message})`);
             }
         } finally {
             setLoading(false);
@@ -243,7 +232,7 @@ export const NewsletterSubscribeModal = ({ isOpen, onClose }: Props) => {
                                 {/* 💡 BLOK BARU: Menampilkan Pesan Teks Error Di Bawah Input Field */}
                                 {errorMsg && (
                                     <div className="w-full text-left text-red-500 font-inter text-[13px] mt-[-8px] px-1 animate-fade-in font-medium">
-                                        ⚠️ {errorMsg}
+                                        {errorMsg}
                                     </div>
                                 )}
 

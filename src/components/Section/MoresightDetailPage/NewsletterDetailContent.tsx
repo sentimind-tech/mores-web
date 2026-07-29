@@ -86,7 +86,8 @@ export const NewsletterDetailContent = ({ item, locale }: NewsletterDetailConten
     }, []);
 
     return (
-        <section className="w-full bg-white pt-8 pb-16">
+        /* 💡 PERBAIKAN: Mengubah pt-8 menjadi pt-16 (bisa diganti pt-20 jika ingin lebih renggang) untuk mengatasi layout mepet di image_bb19bc.jpg */
+        <section className="w-full bg-white pt-20 pb-16">
             {/* 💡 DIUBAH: px-4 diganti ke section-padding-x untuk mobile, dan diimbangi kembali dengan md:px-8 dst di desktop */}
             <div className="max-w-[1280px] mx-auto section-padding-x md:px-8 lg:px-12 xl:px-16 w-full flex flex-col">
 
@@ -171,14 +172,14 @@ export const NewsletterDetailContent = ({ item, locale }: NewsletterDetailConten
                                             onClick={(e) => handleDownloadClick(e, item.pdf_file_en)}
                                             className={`block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-[#00A2B6] transition-colors ${!item.pdf_file_en ? "pointer-events-none opacity-30" : ""}`}
                                         >
-                                            English Version
+                                            English
                                         </a>
                                         <a
                                             href={item.pdf_file_id || "#"}
                                             onClick={(e) => handleDownloadClick(e, item.pdf_file_id)}
                                             className={`block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-[#00A2B6] transition-colors ${!item.pdf_file_id ? "pointer-events-none opacity-30" : ""}`}
                                         >
-                                            Bahasa Indonesia
+                                            Bahasa
                                         </a>
                                     </div>
                                 </div>

@@ -231,9 +231,9 @@
     "overview": {
       "title": "MORESIGHT",
       "subtitle": "MoreSight is a quarterly newsletter that serves as a publication platform for Mores Research, bringing research-driven ideas and analysis to a broader audience.",
-      "p1": "Designed for decision-makers, corporate leaders, policy analysts, and professionals, MoresSight provides macro-level analysis and actionable strategic insights to help readers navigate rapidly evolving economic, technological, and business landscapes.",
-      "p2": "<br />Each edition features four carefully curated articles that combine critical insights, expert perspectives, and concise research findings. By transforming complex developments into accessible analysis, MoresSight helps readers understand emerging trends without getting lost in analytical noise.",
-      "p3": "<br />Whether you are scaling a business, managing investments, shaping policy, or advising stakeholders, MoresSight offers a clear and informed perspective on the forces shaping today's world."
+      "p1": "Designed for decision-makers, corporate leaders, policy analysts, and professionals, MoreSight provides macro-level analysis and actionable strategic insights to help readers navigate rapidly evolving economic, technological, and business landscapes.",
+      "p2": "<br />Each edition features four carefully curated articles that combine critical insights, expert perspectives, and concise research findings. By transforming complex developments into accessible analysis, MoreSight helps readers understand emerging trends without getting lost in analytical noise.",
+      "p3": "<br />Whether you are scaling a business, managing investments, shaping policy, or advising stakeholders, MoreSight offers a clear and informed perspective on the forces shaping today's world."
     },
     "filter": {
       "placeholder": "Search ...",
@@ -252,7 +252,7 @@
     "successSubtitle": "Stay informed. Stay ahead.",
     "validationError": "Please enter a valid email address.",
     "generalError": "Something went wrong. Please try again later.",
-    "duplicateError": "Submit Gagal! Email ini sudah terdaftar."
+    "duplicateError": "This email is already subscribed to Moresight."
   },
   "CareerPage": {
   "menu_desc": "We Don’t Just Address And Overcome Business Challenges — We Collaborate With You To Shape And Create The Future, Paving The Way For Innovation, Growth, And Long-Term Success.",

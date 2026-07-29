@@ -3,6 +3,7 @@ import React from "react";
 type NewsletterDetailHeroProps = {
   title: string;
   volume: string;
+  issue?: string | number; // 💡 1. TAMBAHKAN PROPERTI ISSUE DI PROPS
   type?: string;
   heroImage: string;
 };
@@ -10,6 +11,7 @@ type NewsletterDetailHeroProps = {
 export const NewsletterDetailHero = ({
   title,
   volume,
+  issue, // 💡 2. DESTRUCTURE PROPERTI ISSUE
   type = "QUARTERLY REPORT",
   heroImage,
 }: NewsletterDetailHeroProps) => {
@@ -28,7 +30,8 @@ export const NewsletterDetailHero = ({
           
           {/* 1. METADATA - Font: PP Supply Mono, Size: 20px, Color: Putih, Letter Spacing: -0.02em */}
           <span className="font-supplymono text-[20px] leading-[28px] text-white tracking-[-0.02em] uppercase">
-            {type} | VOLUME {volume}
+            {/* 💡 3. TAMPILKAN TEKS ISSUE JIKA TERSEDIA */}
+            {type} | VOLUME {volume}{issue ? ` | ISSUE ${issue}` : ""}
           </span>
           
           {/* 2. JUDUL UTAMA - Font: PP Supply Mono, Size: 40px, Color: Putih, Weight: 400 */}

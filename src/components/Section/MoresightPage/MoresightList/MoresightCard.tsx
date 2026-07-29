@@ -9,6 +9,7 @@ export interface TMoresightItem {
   slug_en: string;
   slug: string; 
   volume: string;
+  issue?: string | number; // 💡 1. TAMBAHKAN FIELD ISSUE DI INTERFACE UTAMA
   type?: string;
   cover_image: string;
   hero_image: string;
@@ -30,6 +31,7 @@ type MoresightCardProps = {
     id: string;
     slug: string; // Akan menerima slug ter-lokalisasi (slug_id atau slug_en) dari index.tsx
     volume: string;
+    issue?: string | number; // 💡 2. TAMBAHKAN FIELD ISSUE DI PROPS KARTU
     type?: string;
     cover_image: string;
     title: string;
@@ -57,9 +59,10 @@ export const MoresightCard = ({ item, btnReadText, locale }: MoresightCardProps)
 
       {/* 2. AREA KONTEN (TENGAH) */}
       <div className="flex-1 flex flex-col justify-start pt-[3px]">
-        {/* Metadata Volume */}
+        {/* Metadata Volume & Issue */}
         <span className="font-supplymono text-[11px] leading-[22px] uppercase text-[#00A2B6] tracking-wider mb-1 block">
-          {item.type || "QUARTERLY REPORT"} | VOLUME {item.volume}
+          {/* 💡 3. TAMPILKAN TEKS ISSUE JIKA TERSEDIA */}
+          {item.type || "QUARTERLY REPORT"} | VOLUME {item.volume}{item.issue ? ` | ISSUE ${item.issue}` : ""}
         </span>
         
         {/* Judul Edisi */}

@@ -59,7 +59,7 @@ async function getNewsletterDetail(slug: string, locale: string = "en") {
       });
     return response;
   } catch (error) {
-    console.error(`Error fetching newsletter detail for ${slug}:`, error);
+    // console.error(`Error fetching newsletter detail for ${slug}:`, error);
     return null;
   }
 }

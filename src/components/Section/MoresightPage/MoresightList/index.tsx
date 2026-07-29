@@ -5,15 +5,16 @@ import { useTranslations, useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { MoresightCard, TMoresightItem } from "./MoresightCard";
 import { getNewsletterList } from "@/services/newsletter";
+import { ButtonPrimary } from "@/components/Button";
 
 export const MoresightList = () => {
   const t = useTranslations("MoresightPage.filter");
   const locale = useLocale();
   const searchParams = useSearchParams();
-  
+
   const search = searchParams.get("search") || "";
   const sort = searchParams.get("sort") || "all";
-  
+
   const [currentPage, setCurrentPage] = useState(1);
   const [newsletters, setNewsletters] = useState<TMoresightItem[]>([]);
   const [totalItems, setTotalItems] = useState(0);
@@ -22,16 +23,16 @@ export const MoresightList = () => {
 
   const fetchNewsletters = async (page: number, append: boolean = false) => {
     setLoading(true);
-    
+
     const res = await getNewsletterList(
-      { 
-        keyword: search,   
-        sortBy: sort       
-      }, 
-      page, 
+      {
+        keyword: search,
+        sortBy: sort
+      },
+      page,
       3
     );
-    
+
     if (res) {
       const baseUrl = process.env.NEXT_PUBLIC_POCKETBASE_URL || "http://127.0.0.1:8090";
       const formatted: TMoresightItem[] = res.items.map((item: any) => ({
@@ -44,7 +45,7 @@ export const MoresightList = () => {
       } else {
         setNewsletters(formatted);
       }
-      
+
       setTotalItems(res.totalItems);
       setHasMore(page * 3 < res.totalItems);
     }
@@ -65,7 +66,7 @@ export const MoresightList = () => {
   return (
     <section id="moresight-archive" className="w-full bg-white pb-[80px] scroll-mt-[160px]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 w-full flex flex-col min-h-[500px] relative">
-        
+
         {loading && currentPage === 1 && (
           <div className="absolute inset-0 bg-white/70 z-10 flex items-center justify-center transition-opacity duration-200">
             <div className="flex flex-col items-center gap-3">
@@ -78,10 +79,10 @@ export const MoresightList = () => {
         {/* Teks Indikator Hasil */}
         <div className="w-full pt-8 pb-6">
           <h2 className="font-sans text-[24px] leading-[32px] text-black font-semibold tracking-[-0.02em]">
-            {t("resultsCount", { 
-              start: newsletters.length > 0 ? 1 : 0, 
-              end: newsletters.length, 
-              total: totalItems 
+            {t("resultsCount", {
+              start: newsletters.length > 0 ? 1 : 0,
+              end: newsletters.length,
+              total: totalItems
             })}
           </h2>
         </div>
@@ -101,15 +102,15 @@ export const MoresightList = () => {
             };
 
             return (
-              <MoresightCard 
-                key={item.id} 
-                item={localizedItem} 
-                btnReadText={t("btnRead")} 
+              <MoresightCard
+                key={item.id}
+                item={localizedItem}
+                btnReadText={t("btnRead")}
                 locale={locale}
               />
             );
           })}
-          
+
           {/* Tampilan jika hasil pencarian kosong */}
           {!loading && newsletters.length === 0 && (
             <div className="w-full text-center py-24 font-sans text-gray-500">
@@ -118,16 +119,15 @@ export const MoresightList = () => {
           )}
         </div>
 
-        {/* TOMBOL MORE (LOAD MORE) */}
+        {/* TOMBOL MORE (LOAD MORE) - DISESUAIKAN DENGAN INSIGHT */}
         {hasMore && (
-          <div className="w-full flex justify-center pt-12">
-            <button
+          <div className="flex justify-center mt-64">
+            <ButtonPrimary
               onClick={handleLoadMore}
               disabled={loading}
-              className="font-supplymono text-[14px] bg-white text-black border border-black uppercase px-10 py-[14px] hover:bg-black hover:text-white transition-all duration-300 disabled:opacity-50"
             >
-              {loading ? "Loading..." : t("btnMore")}
-            </button>
+              {loading ? "LOADING..." : t("btnMore")?.toUpperCase()}
+            </ButtonPrimary>
           </div>
         )}
 

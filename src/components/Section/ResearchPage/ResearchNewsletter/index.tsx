@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import { getLatestSingleNewsletter } from "@/services/newsletter";
 import { TMoresightItem } from "@/components/Section/MoresightPage/MoresightList/MoresightCard";
+import { ButtonPrimary } from "@/components/Button"; // <-- 1. TAMBAHKAN IMPORT INI
 
 export const ResearchNewsletter = async () => {
   const locale = await getLocale();
@@ -22,7 +23,7 @@ export const ResearchNewsletter = async () => {
   return (
     <section id="newsletter" className="w-full bg-white pt-16 pb-20 scroll-mt-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 w-full flex flex-col items-center">
-        
+
         {/* HEADER SEKSI */}
         <div className="w-full flex items-center justify-between gap-x-6 mb-12">
           <div className="flex-1 h-[1px] bg-[#B6B6B6]" />
@@ -52,7 +53,7 @@ export const ResearchNewsletter = async () => {
             <h3 className="font-sans text-[24px] leading-[30px] text-black font-semibold uppercase mb-3">
               {title}
             </h3>
-            <div 
+            <div
               className="font-sans text-[16px] leading-[25px] text-[#585858] font-normal prose max-w-none"
               dangerouslySetInnerHTML={{ __html: excerpt }}
             />
@@ -60,7 +61,7 @@ export const ResearchNewsletter = async () => {
 
           <div className="w-full sm:w-auto shrink-0 sm:pt-[25px] flex sm:justify-end">
             <Link
-              href={`/${locale}/mores-research/newsletter/${item.slug}`}
+              href={`/${locale}/mores-research/newsletter/${locale === "id" ? item.slug_id : item.slug_en}`}
               className="w-full sm:w-[119px] h-[42px] flex items-center justify-center bg-[#00A2B6] text-white font-supplymono text-[16px] leading-[19px] uppercase tracking-wider hover:bg-[#008D9E] transition-colors shadow-sm"
             >
               {t("btnRead") || "READ"}
@@ -68,13 +69,12 @@ export const ResearchNewsletter = async () => {
           </div>
         </div>
 
-        {/* ================= TOMBOL BAWAH (REVISI: SPECIALZE -> MORE) ================= */}
-        <div className="w-full flex justify-center">
-          <Link
-            href={`/${locale}/mores-research/newsletter`}
-            className="w-[119px] h-[42px] flex items-center justify-center bg-[#00A2B6] text-white font-supplymono text-[16px] leading-[19px] uppercase tracking-wider hover:bg-[#008D9E] transition-colors shadow-sm"
-          >
-            MORE
+        {/* ================= 2. TOMBOL BAWAH YANG SUDAH DISARASKAN DENGAN INSIGHTS ================= */}
+        <div className="flex justify-center mt-64">
+          <Link href={`/${locale}/mores-research/newsletter`} passHref legacyBehavior>
+            <ButtonPrimary>
+              MORE
+            </ButtonPrimary>
           </Link>
         </div>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation"; // 💡 TAMBAHKAN IMPORT redirect
 import { Metadata } from "next";
 import Layout from "@/components/Layout";
 import SectionHelp from "@/components/Section/SectionHelp";
@@ -9,16 +9,25 @@ import { NewsletterDetailContent } from "@/components/Section/MoresightDetailPag
 import { NewsletterDetailLatest } from "@/components/Section/MoresightDetailPage/NewsletterDetailLatest";
 
 type Props = {
-  params: {
+  params: Promise<{
     locale: string;
     slug: string;
-  };
+  }>;
 };
 
-// 💡 METADATA DINAMIS: Membuat nama tab browser berubah otomatis mengikuti judul newsletter yang dibuka
-export async function generateMetadata({ params: { locale, slug } }: Props): Promise<Metadata> {
-  // 💡 SEKARANG: Mengirimkan locale agar pencarian slug akurat sesuai bahasa
-  const item = await getNewsletterDetail(slug, locale);
+// 💡 METADATA DINAMIS: Mendukung pencarian fallback agar tab browser tidak patah saat ganti bahasa
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+
+  // Coba cari normal dulu
+  let item = await getNewsletterDetail(slug, locale);
+  
+  // Jika gagal, coba cari menggunakan bahasa kebalikannya (antisipasi mismatch slug)
+  if (!item) {
+    const fallbackLocale = locale === "id" ? "en" : "id";
+    item = await getNewsletterDetail(slug, fallbackLocale);
+  }
+
   if (!item) return { title: "Mores" };
   const title = locale === "id" ? item.title_id : item.title_en;
   return {
@@ -26,12 +35,26 @@ export async function generateMetadata({ params: { locale, slug } }: Props): Pro
   };
 }
 
-export default async function NewsletterDetailPage({ params: { locale, slug } }: Props) {
-  // 💡 SEKARANG: Mengirimkan locale agar pencarian slug akurat sesuai bahasa
-  const item = await getNewsletterDetail(slug, locale);
+export default async function NewsletterDetailPage({ params }: Props) {
+  const { locale, slug } = await params;
 
+  // 1. Coba ambil data newsletter berdasarkan locale aktif saat ini
+  let item = await getNewsletterDetail(slug, locale);
+
+  // 🔄 2. JIKA REDIRECT/SWITCH BAHASA TERJADI (item tidak ditemukan dengan slug + locale aktif)
   if (!item) {
-    notFound();
+    const fallbackLocale = locale === "id" ? "en" : "id";
+    item = await getNewsletterDetail(slug, fallbackLocale);
+
+    // Jika di bahasa kebalikannya ketemu, berarti ini korban salah alamat akibat LangSelector
+    if (item) {
+      const correctSlug = locale === "id" ? item.slug_id : item.slug_en;
+      // Tendang langsung browser ke URL dengan slug yang diterjemahkan dengan benar
+      redirect(`/${locale}/mores-research/newsletter/${correctSlug}`);
+    } else {
+      // Jika di kedua bahasa tetap tidak ada, barulah lempar ke 404 asli
+      notFound();
+    }
   }
 
   // Ambil 2 edisi newsletter terbaru lainnya secara dinamis (kecuali edisi aktif)
@@ -41,7 +64,6 @@ export default async function NewsletterDetailPage({ params: { locale, slug } }:
   const baseUrl = process.env.NEXT_PUBLIC_POCKETBASE_URL || "http://127.0.0.1:8090";
 
   if (latestRes && latestRes.items) {
-    // 💡 SOLUSI UTAMA: Memberikan tipe data `: any` pada parameter recItem agar tidak dicekal TypeScript saat build
     recommendedNewsletters = latestRes.items.map((recItem: any) => ({
       ...recItem,
       cover_image: `${baseUrl}/api/files/${recItem.collectionId}/${recItem.id}/${recItem.cover_image}`,
@@ -75,6 +97,7 @@ export default async function NewsletterDetailPage({ params: { locale, slug } }:
       <NewsletterDetailHero
         title={title}
         volume={item.volume}
+        issue={item.issue} // 💡 PERBAIKAN: Menambahkan operan data item.issue ke komponen Hero
         type={item.type}
         heroImage={heroImageUrl}
       />

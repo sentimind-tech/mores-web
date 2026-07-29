@@ -27,7 +27,8 @@ export const NewsletterDetailLatest = ({ newsletters, btnReadText }: NewsletterD
         </div>
 
         {/* List Grid Kartu Rekomendasi */}
-        <div className="w-full flex flex-col">
+        {/* 💡 PERBAIKAN: Menambahkan class gap-y-8 untuk memperlebar jarak antar list newsletter secara otomatis */}
+        <div className="w-full flex flex-col gap-y-8">
           {newsletters.map((item) => {
             // Saring teks dinamis berdasarkan bahasa rute lokal yang aktif
             const localizedItem = {
